@@ -12,6 +12,7 @@ import {
   deleteField,
   deleteDoc,
   doc,
+  getDoc,
   getDocs,
   getFirestore,
   onSnapshot,
@@ -47,6 +48,8 @@ const DEFAULT_PROBLEM = {
 };
 
 const DEFAULT_MAX_PROBLEM_NUMBER = 985;
+const DEFAULT_MIN_LEVEL = 0;
+const DEFAULT_MAX_LEVEL = 38;
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
@@ -57,11 +60,15 @@ const loginForm = document.getElementById("loginForm");
 const loginStatus = document.getElementById("loginStatus");
 const displayNameInput = document.getElementById("displayName");
 const pinInput = document.getElementById("pin");
+const themeToggleBtn = document.getElementById("themeToggleBtn");
 
 const mainApp = document.getElementById("mainApp");
 const appStatus = document.getElementById("appStatus");
 const databaseUpdatedLabel = document.getElementById("databaseUpdatedLabel");
 const searchInput = document.getElementById("searchInput");
+const minLevelSelect = document.getElementById("minLevelSelect");
+const maxLevelSelect = document.getElementById("maxLevelSelect");
+const branchSelect = document.getElementById("branchSelect");
 const filterBar = document.getElementById("filterBar");
 const problemGrid = document.getElementById("problemGrid");
 const logoutBtn = document.getElementById("logoutBtn");
@@ -71,6 +78,9 @@ const problemPanel = document.getElementById("problemPanel");
 const panelTitle = document.getElementById("panelTitle");
 const panelProblemLink = document.getElementById("panelProblemLink");
 const metaLevel = document.getElementById("metaLevel");
+const metaBranch = document.getElementById("metaBranch");
+const metaConfidence = document.getElementById("metaConfidence");
+const metaTags = document.getElementById("metaTags");
 const metaSolvedCount = document.getElementById("metaSolvedCount");
 const metaLastSolved = document.getElementById("metaLastSolved");
 const statusEditor = document.getElementById("statusEditor");
@@ -84,12 +94,18 @@ const opMessage = document.getElementById("opMessage");
 const opProgressBar = document.getElementById("opProgressBar");
 
 const rememberedDisplayNameKey = "pe_tracker_display_name";
+const explicitLogoutKey = "pe_tracker_explicit_logout";
+const themePreferenceKey = "pe_tracker_theme";
 
 let authReady = false;
 let currentUid = null;
 let currentDisplayName = "";
 let allProblems = new Map();
 let levelsByProblem = new Map();
+let titlesByProblem = new Map();
+let branchesByProblem = new Map();
+let confidenceByProblem = new Map();
+let topicTagsByProblem = new Map();
 let currentFilter = "all";
 let activeProblemNumber = null;
 let listenersStarted = false;
@@ -102,6 +118,7 @@ let maxProblemNumber = DEFAULT_MAX_PROBLEM_NUMBER;
 let solvedByCurrentUser = new Set();
 let solvedByCurrentUserByNameKey = new Set();
 let solvedByCurrentUserByName = new Set();
+let autoResumeAttempted = false;
 
 boot();
 
@@ -114,6 +131,7 @@ function boot() {
     if (user) {
       currentUid = user.uid;
       authReady = true;
+      await tryAutoResumeLogin();
       return;
     }
 
@@ -130,8 +148,19 @@ function boot() {
   }
 
   loginForm.addEventListener("submit", onLoginSubmit);
+  themeToggleBtn.addEventListener("click", onThemeToggle);
+  restoreThemePreference();
+  requestAnimationFrame(() => {
+    document.documentElement.classList.add("theme-ready");
+  });
   searchInput.addEventListener("input", renderGrid);
+  pinInput.addEventListener("input", onPinInput);
+  minLevelSelect.addEventListener("change", onLevelRangeChange);
+  maxLevelSelect.addEventListener("change", onLevelRangeChange);
+  branchSelect.addEventListener("change", renderGrid);
   searchInput.max = String(maxProblemNumber);
+  populateLevelFilterOptions(buildInclusiveRange(DEFAULT_MIN_LEVEL, DEFAULT_MAX_LEVEL));
+  populateBranchFilterOptions([]);
   filterBar.addEventListener("click", onFilterClick);
   problemGrid.addEventListener("click", onGridClick);
   panelSaveBtn.addEventListener("click", onPanelSave);
@@ -142,6 +171,35 @@ function boot() {
   logoutBtn.addEventListener("click", onLogout);
 
   loadLevelsData();
+  loadQuestionCategories();
+}
+
+function restoreThemePreference() {
+  const storedTheme = localStorage.getItem(themePreferenceKey);
+  const preferred = storedTheme === "dark" || storedTheme === "light"
+    ? storedTheme
+    : "light";
+  applyTheme(preferred);
+}
+
+function onThemeToggle() {
+  const currentTheme = document.documentElement.getAttribute("data-theme") === "dark"
+    ? "dark"
+    : "light";
+  const nextTheme = currentTheme === "dark" ? "light" : "dark";
+  applyTheme(nextTheme);
+  localStorage.setItem(themePreferenceKey, nextTheme);
+}
+
+function applyTheme(theme) {
+  const normalizedTheme = theme === "dark" ? "dark" : "light";
+  document.documentElement.setAttribute("data-theme", normalizedTheme);
+  if (!themeToggleBtn) {
+    return;
+  }
+  const nextLabel = normalizedTheme === "dark" ? "Light mode" : "Dark mode";
+  themeToggleBtn.textContent = nextLabel;
+  themeToggleBtn.setAttribute("aria-label", `Switch to ${nextLabel.toLowerCase()}`);
 }
 
 async function loadLevelsData() {
@@ -151,11 +209,12 @@ async function loadLevelsData() {
       return;
     }
     const raw = await response.json();
-    const map = new Map();
+    const levelMap = new Map();
+    const titleMap = new Map();
     let inferredMaxProblem = 0;
     const meta = raw._meta;
     if (meta && typeof meta === "object" && typeof meta.last_updated_utc === "string") {
-      databaseUpdatedLabel.textContent = `Database last updated at ${formatUtcLabel(meta.last_updated_utc)} UTC`;
+      databaseUpdatedLabel.textContent = `Static data last updated: ${formatStaticDataLastUpdated(meta.last_updated_utc)}`;
     }
 
     Object.entries(raw).forEach(([key, value]) => {
@@ -166,13 +225,15 @@ async function loadLevelsData() {
 
       inferredMaxProblem = Math.max(inferredMaxProblem, number);
       const rawDifficulty = value.difficulty;
+      const rawTitle = typeof value.title === "string" ? value.title.trim() : "";
+      titleMap.set(number, rawTitle);
       if (rawDifficulty === null || rawDifficulty === undefined || rawDifficulty === "") {
-        map.set(number, null);
+        levelMap.set(number, null);
         return;
       }
 
       const parsedDifficulty = Number(rawDifficulty);
-      map.set(number, Number.isFinite(parsedDifficulty) ? parsedDifficulty : null);
+      levelMap.set(number, Number.isFinite(parsedDifficulty) ? parsedDifficulty : null);
     });
 
     const metaMaxProblem = Number(meta?.max_problem_number);
@@ -183,7 +244,9 @@ async function loadLevelsData() {
     }
 
     searchInput.max = String(maxProblemNumber);
-    levelsByProblem = map;
+    levelsByProblem = levelMap;
+    titlesByProblem = titleMap;
+    populateLevelFilterOptions(getAvailableLevels(levelsByProblem));
     renderGrid();
     refreshPanelMeta();
   } catch (_error) {
@@ -191,12 +254,263 @@ async function loadLevelsData() {
   }
 }
 
-function formatUtcLabel(value) {
+async function loadQuestionCategories() {
+  const sources = [
+    { path: "data/question_categories.jsonl", format: "jsonl" },
+    { path: "data/question_categories.json", format: "json" },
+  ];
+
+  for (const source of sources) {
+    try {
+      const response = await fetch(source.path, { cache: "no-store" });
+      if (!response.ok) {
+        continue;
+      }
+
+      const payload = await response.text();
+      const parsed = source.format === "jsonl"
+        ? parseBranchCategoriesFromJsonl(payload)
+        : parseBranchCategoriesFromJson(payload);
+
+      if (!parsed.branchMap.size) {
+        continue;
+      }
+
+      branchesByProblem = parsed.branchMap;
+      confidenceByProblem = parsed.confidenceMap;
+      topicTagsByProblem = parsed.tagsMap;
+      populateBranchFilterOptions(Array.from(parsed.branchSet));
+      renderGrid();
+      refreshPanelMeta();
+      return;
+    } catch (_error) {
+      // Try next source.
+    }
+  }
+}
+
+function parseBranchCategoriesFromJsonl(text) {
+  const branchMap = new Map();
+  const confidenceMap = new Map();
+  const tagsMap = new Map();
+  const branchSet = new Set();
+  text.split(/\r?\n/).forEach((line) => {
+    const trimmed = line.trim();
+    if (!trimmed) {
+      return;
+    }
+    let parsed;
+    try {
+      parsed = JSON.parse(trimmed);
+    } catch (_error) {
+      return;
+    }
+
+    collectBranchCategoryRecord(parsed, branchMap, confidenceMap, tagsMap, branchSet);
+  });
+  return { branchMap, confidenceMap, tagsMap, branchSet };
+}
+
+function parseBranchCategoriesFromJson(text) {
+  const branchMap = new Map();
+  const confidenceMap = new Map();
+  const tagsMap = new Map();
+  const branchSet = new Set();
+
+  let parsed;
+  try {
+    parsed = JSON.parse(text);
+  } catch (_error) {
+    return { branchMap, confidenceMap, tagsMap, branchSet };
+  }
+
+  if (Array.isArray(parsed)) {
+    parsed.forEach((item) => {
+      collectBranchCategoryRecord(item, branchMap, confidenceMap, tagsMap, branchSet);
+    });
+    return { branchMap, confidenceMap, tagsMap, branchSet };
+  }
+
+  if (parsed && typeof parsed === "object") {
+    Object.values(parsed).forEach((item) => {
+      collectBranchCategoryRecord(item, branchMap, confidenceMap, tagsMap, branchSet);
+    });
+  }
+
+  return { branchMap, confidenceMap, tagsMap, branchSet };
+}
+
+function collectBranchCategoryRecord(record, branchMap, confidenceMap, tagsMap, branchSet) {
+  if (!record || typeof record !== "object") {
+    return;
+  }
+  const number = Number(record.problem_id ?? record.problemId ?? record.id);
+  const branch = typeof record.primary_branch === "string"
+    ? record.primary_branch.trim()
+    : (typeof record.primaryBranch === "string" ? record.primaryBranch.trim() : "");
+  if (!Number.isInteger(number) || number < 1 || !branch) {
+    return;
+  }
+
+  const rawConfidence = Number(record.confidence);
+  const confidence = Number.isFinite(rawConfidence)
+    ? Math.max(0, Math.min(1, rawConfidence))
+    : null;
+  const rawTags = Array.isArray(record.topic_tags)
+    ? record.topic_tags
+    : (Array.isArray(record.topicTags) ? record.topicTags : []);
+  const tags = rawTags
+    .filter((tag) => typeof tag === "string")
+    .map((tag) => tag.trim())
+    .filter((tag) => tag.length > 0)
+    .slice(0, 6);
+
+  branchMap.set(number, branch);
+  confidenceMap.set(number, confidence);
+  tagsMap.set(number, tags);
+  branchSet.add(branch);
+}
+
+function getAvailableLevels(levelMap) {
+  const levels = new Set();
+  levelMap.forEach((difficulty) => {
+    if (typeof difficulty === "number" && Number.isFinite(difficulty)) {
+      levels.add(difficulty);
+    }
+  });
+  return Array.from(levels).sort((a, b) => a - b);
+}
+
+function buildInclusiveRange(start, end) {
+  const values = [];
+  for (let value = start; value <= end; value += 1) {
+    values.push(value);
+  }
+  return values;
+}
+
+function populateBranchFilterOptions(branches) {
+  const preferredOrder = [
+    "Algebra",
+    "Geometry",
+    "Trigonometry",
+    "Calculus",
+    "Probability_Statistics",
+    "Number_Theory",
+    "Discrete_Math",
+    "Linear_Algebra",
+    "Analytic_Geometry",
+    "Mixed_or_Interdisciplinary",
+  ];
+  const previousValue = branchSelect.value;
+  const branchSet = new Set(branches.filter((branch) => typeof branch === "string" && branch.trim()));
+  const ordered = preferredOrder.filter((branch) => branchSet.has(branch));
+  const extras = [...branchSet]
+    .filter((branch) => !preferredOrder.includes(branch))
+    .sort((a, b) => a.localeCompare(b));
+  const allBranches = [...ordered, ...extras];
+
+  branchSelect.innerHTML = "";
+  branchSelect.insertAdjacentHTML("beforeend", '<option value="all">All branches</option>');
+
+  allBranches.forEach((branch) => {
+    const value = escapeHtml(branch);
+    const label = escapeHtml(formatBranchLabel(branch));
+    branchSelect.insertAdjacentHTML("beforeend", `<option value="${value}">${label}</option>`);
+  });
+
+  if (previousValue && (previousValue === "all" || allBranches.includes(previousValue))) {
+    branchSelect.value = previousValue;
+  } else {
+    branchSelect.value = "all";
+  }
+}
+
+function populateLevelFilterOptions(levels) {
+  if (!levels.length) {
+    return;
+  }
+  const previousMin = minLevelSelect.value;
+  const previousMax = maxLevelSelect.value;
+  const levelValues = levels.map(String);
+  const firstLevel = levelValues[0];
+  const lastLevel = levelValues[levelValues.length - 1];
+
+  minLevelSelect.innerHTML = "";
+  maxLevelSelect.innerHTML = "";
+
+  levels.forEach((level) => {
+    const value = String(level);
+    minLevelSelect.insertAdjacentHTML("beforeend", `<option value="${value}">${value}</option>`);
+    maxLevelSelect.insertAdjacentHTML("beforeend", `<option value="${value}">${value}</option>`);
+  });
+
+  if (levelValues.includes(previousMin)) {
+    minLevelSelect.value = previousMin;
+  } else {
+    minLevelSelect.value = firstLevel;
+  }
+  if (levelValues.includes(previousMax)) {
+    maxLevelSelect.value = previousMax;
+  } else {
+    maxLevelSelect.value = lastLevel;
+  }
+}
+
+function parseLevelSelectValue(value) {
+  const parsed = Number(value);
+  return Number.isFinite(parsed) ? parsed : null;
+}
+
+function normalizeLevelRange(minLevel, maxLevel) {
+  if (minLevel !== null && maxLevel !== null && minLevel > maxLevel) {
+    return [maxLevel, minLevel];
+  }
+  return [minLevel, maxLevel];
+}
+
+function onLevelRangeChange() {
+  const minLevel = parseLevelSelectValue(minLevelSelect.value);
+  const maxLevel = parseLevelSelectValue(maxLevelSelect.value);
+  const [normalizedMin, normalizedMax] = normalizeLevelRange(minLevel, maxLevel);
+
+  minLevelSelect.value = normalizedMin === null ? minLevelSelect.value : String(normalizedMin);
+  maxLevelSelect.value = normalizedMax === null ? maxLevelSelect.value : String(normalizedMax);
+  renderGrid();
+}
+
+function onPinInput() {
+  const digitsOnly = pinInput.value.replace(/\D/g, "").slice(0, 4);
+  if (pinInput.value !== digitsOnly) {
+    pinInput.value = digitsOnly;
+  }
+}
+
+function formatStaticDataLastUpdated(value) {
   if (typeof value !== "string") {
     return "-";
   }
+
   const normalized = value.trim().replace("T", " ").replace(/Z$/i, "");
-  return normalized || "-";
+  const matched = normalized.match(/^(\d{4})-(\d{2})-(\d{2})\s+(\d{2}):(\d{2})(?::(\d{2}))?$/);
+  if (!matched) {
+    return normalized || "-";
+  }
+
+  const [, year, month, day, hour, minute, second = "0"] = matched;
+  const utcDate = new Date(Date.UTC(
+    Number(year),
+    Number(month) - 1,
+    Number(day),
+    Number(hour),
+    Number(minute),
+    Number(second)
+  ));
+
+  if (Number.isNaN(utcDate.getTime())) {
+    return "-";
+  }
+  return utcDate.toLocaleString();
 }
 
 async function onLoginSubmit(event) {
@@ -234,12 +548,66 @@ async function completeLogin(profile, silent) {
 
   await claimDisplayName(profile.displayName, normalizedDisplayName, profile.pin);
 
+  localStorage.removeItem(explicitLogoutKey);
   localStorage.setItem(rememberedDisplayNameKey, profile.displayName.trim());
 
   currentDisplayName = profile.displayName;
   showMainApp();
   startRealtimeListeners();
   loginStatus.textContent = "";
+}
+
+async function tryAutoResumeLogin() {
+  if (autoResumeAttempted || listenersStarted || currentDisplayName) {
+    return;
+  }
+  if (localStorage.getItem(explicitLogoutKey) === "1") {
+    return;
+  }
+
+  const rememberedDisplayName = displayNameInput.value.trim();
+  if (!rememberedDisplayName) {
+    return;
+  }
+
+  const normalizedDisplayName = normalizeDisplayName(rememberedDisplayName);
+  if (!normalizedDisplayName || !currentUid) {
+    return;
+  }
+
+  autoResumeAttempted = true;
+  loginStatus.textContent = "Restoring your session...";
+
+  try {
+    const nameRef = doc(db, "displayNames", normalizedDisplayName);
+    const nameSnap = await getDoc(nameRef);
+    if (!nameSnap.exists()) {
+      return;
+    }
+
+    const stored = nameSnap.data();
+    if (stored.ownerUid !== currentUid) {
+      return;
+    }
+
+    const resolvedName = typeof stored.displayName === "string" && stored.displayName.trim()
+      ? stored.displayName.trim()
+      : rememberedDisplayName;
+
+    currentDisplayName = resolvedName;
+    displayNameInput.value = resolvedName;
+    localStorage.setItem(rememberedDisplayNameKey, resolvedName);
+
+    showMainApp();
+    startRealtimeListeners();
+    loginStatus.textContent = "";
+  } catch (_error) {
+    // Keep manual login available if auto-resume check fails.
+  } finally {
+    if (!listenersStarted) {
+      loginStatus.textContent = "";
+    }
+  }
 }
 
 function showMainApp() {
@@ -330,14 +698,42 @@ function stopRealtimeListeners() {
 
 function renderGrid() {
   const searchText = searchInput.value.trim();
+  const selectedMinLevel = parseLevelSelectValue(minLevelSelect.value);
+  const selectedMaxLevel = parseLevelSelectValue(maxLevelSelect.value);
+  const selectedBranch = branchSelect.value;
+  const [minLevel, maxLevel] = normalizeLevelRange(selectedMinLevel, selectedMaxLevel);
   const tiles = [];
+  const counts = {
+    all: 0,
+    "my-solves": 0,
+    solved: 0,
+    unsolved: 0,
+    assignment: 0,
+    "solved in lecture": 0,
+  };
 
   for (let number = 1; number <= maxProblemNumber; number += 1) {
     const data = allProblems.get(number) || DEFAULT_PROBLEM;
     const status = normalizeStatus(data.statusLabel);
+    const difficulty = levelsByProblem.has(number) ? levelsByProblem.get(number) : null;
+    const branch = branchesByProblem.get(number) || "";
 
     if (searchText && !String(number).includes(searchText)) {
       continue;
+    }
+    if (!isDifficultyInRange(difficulty, minLevel, maxLevel)) {
+      continue;
+    }
+    if (selectedBranch !== "all" && branch !== selectedBranch) {
+      continue;
+    }
+
+    counts.all += 1;
+    if (Object.prototype.hasOwnProperty.call(counts, status)) {
+      counts[status] += 1;
+    }
+    if (solvedByCurrentUser.has(number)) {
+      counts["my-solves"] += 1;
     }
     if (currentFilter === "my-solves" && !solvedByCurrentUser.has(number)) {
       continue;
@@ -346,8 +742,10 @@ function renderGrid() {
       continue;
     }
 
-    tiles.push(tileTemplate(number, data));
+    tiles.push(tileTemplate(number, data, selectedBranch));
   }
+
+  updateFilterButtonCounts(counts);
 
   if (!tiles.length) {
     problemGrid.innerHTML = '<p class="status">No matching problems found.</p>';
@@ -357,18 +755,65 @@ function renderGrid() {
   problemGrid.innerHTML = tiles.join("");
 }
 
-function tileTemplate(number, data) {
+function isDifficultyInRange(difficulty, minLevel, maxLevel) {
+  if (!levelsByProblem.size) {
+    return true;
+  }
+
+  const hasNumericLevel = typeof difficulty === "number" && Number.isFinite(difficulty);
+  if (!hasNumericLevel) {
+    return true;
+  }
+  if (minLevel === null && maxLevel === null) {
+    return true;
+  }
+  if (minLevel !== null && difficulty < minLevel) {
+    return false;
+  }
+  if (maxLevel !== null && difficulty > maxLevel) {
+    return false;
+  }
+  return true;
+}
+
+function updateFilterButtonCounts(counts) {
+  filterBar.querySelectorAll(".filter-btn").forEach((btn) => {
+    if (!(btn instanceof HTMLButtonElement)) {
+      return;
+    }
+    const filterKey = btn.dataset.filter;
+    if (!filterKey) {
+      return;
+    }
+
+    const existingLabel = btn.dataset.baseLabel || btn.textContent || "";
+    const baseLabel = existingLabel.replace(/\s*\(\d+\)\s*$/, "").trim();
+    btn.dataset.baseLabel = baseLabel;
+
+    const count = Number.isInteger(counts[filterKey]) ? counts[filterKey] : 0;
+    btn.textContent = `${baseLabel} (${count})`;
+  });
+}
+
+function tileTemplate(number, data, selectedBranch) {
   const difficulty = levelsByProblem.has(number) ? levelsByProblem.get(number) : null;
-  const difficultyText = difficulty === null ? "-" : String(difficulty);
+  const difficultyText = difficulty === null ? "" : String(difficulty);
   const solvedCount = Number(data.solvedCount || 0);
   const status = normalizeStatus(data.statusLabel);
   const statusClass = chipClassName(status);
   const statusText = formatStatus(status, solvedCount);
+  const confidence = confidenceByProblem.get(number);
+  const confidenceText = formatConfidence(confidence);
+  const selectedSpecificBranch = selectedBranch && selectedBranch !== "all";
+  const levelMeta = difficultyText ? `<span class="tile-meta">level ${escapeHtml(difficultyText)}</span>` : "";
+  const extraMetaText = selectedSpecificBranch ? `conf ${confidenceText}` : "\u00A0";
+  const extraMeta = `<span class="tile-meta">${escapeHtml(extraMetaText)}</span>`;
   return `
     <button type="button" class="tile ${statusClass}" data-role="problem-tile" data-problem="${number}">
       <span class="tile-number">${number}</span>
-      <span class="tile-meta">Level ${escapeHtml(difficultyText)}</span>
+      ${levelMeta}
       <span class="tile-meta">${escapeHtml(statusText)}</span>
+      ${extraMeta}
     </button>
   `;
 }
@@ -412,7 +857,8 @@ function onGridClick(event) {
 function openPanel(number) {
   activeProblemNumber = number;
   const data = allProblems.get(number) || DEFAULT_PROBLEM;
-  panelTitle.textContent = `Problem ${number}`;
+  const problemTitle = titlesByProblem.get(number) || "";
+  panelTitle.textContent = problemTitle ? `Problem ${number}: ${problemTitle}` : `Problem ${number}`;
   panelProblemLink.href = `https://projecteuler.net/problem=${number}`;
   panelStatusSelect.value = normalizeStatus(data.statusLabel);
   applyPanelPermissions();
@@ -437,9 +883,65 @@ function refreshPanelMeta() {
 
 function renderPanelMeta(number, data) {
   const difficulty = levelsByProblem.has(number) ? levelsByProblem.get(number) : null;
-  metaLevel.textContent = difficulty === null ? "-" : String(difficulty);
+  const branch = branchesByProblem.get(number) || "-";
+  const confidence = confidenceByProblem.get(number);
+  const tags = topicTagsByProblem.get(number) || [];
+  if (metaLevel) {
+    metaLevel.textContent = difficulty === null ? "" : String(difficulty);
+  }
+  if (metaBranch) {
+    metaBranch.textContent = formatBranchLabel(branch);
+  }
+  if (metaConfidence) {
+    metaConfidence.textContent = formatConfidence(confidence);
+  }
+  if (metaTags) {
+    if (tags.length) {
+      metaTags.textContent = tags.map((tag) => formatTagLabel(tag)).join(", ");
+    } else {
+      metaTags.textContent = "-";
+    }
+  }
   metaSolvedCount.textContent = String(Number(data.solvedCount || 0));
   metaLastSolved.textContent = formatTimestamp(data.lastSolvedAt);
+}
+
+function formatTagLabel(tag) {
+  if (typeof tag !== "string") {
+    return "";
+  }
+  return tag.trim().replaceAll("_", " ");
+}
+
+function formatConfidence(value) {
+  if (typeof value !== "number" || !Number.isFinite(value)) {
+    return "-";
+  }
+  const normalized = Math.max(0, Math.min(1, value));
+  return normalized.toFixed(2);
+}
+
+function formatBranchLabel(rawBranch) {
+  if (typeof rawBranch !== "string" || !rawBranch.trim()) {
+    return "-";
+  }
+  const normalized = rawBranch.trim();
+  const labels = {
+    Algebra: "Algebra",
+    Geometry: "Geometry",
+    Trigonometry: "Trigonometry",
+    Calculus: "Calculus",
+    Probability_Statistics: "Probability & Statistics",
+    Number_Theory: "Number Theory",
+    Discrete_Math: "Discrete Math",
+    Linear_Algebra: "Linear Algebra",
+    Analytic_Geometry: "Analytic Geometry",
+    Mixed_or_Interdisciplinary: "Mixed / Interdisciplinary",
+  };
+  if (Object.prototype.hasOwnProperty.call(labels, normalized)) {
+    return labels[normalized];
+  }
+  return normalized.replaceAll("_", " ");
 }
 
 function closePanel() {
@@ -713,6 +1215,7 @@ async function seedProblems() {
 
 async function onLogout() {
   try {
+    localStorage.setItem(explicitLogoutKey, "1");
     await signOut(auth);
     currentUid = null;
     currentDisplayName = "";

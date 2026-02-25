@@ -7,14 +7,25 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    (() => {
+      try {
+        const storedTheme = localStorage.getItem("pe_tracker_theme");
+        document.documentElement.setAttribute("data-theme", storedTheme === "dark" ? "dark" : "light");
+      } catch (_error) {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  </script>
   <link rel="stylesheet" href="style.css?v=__ASSET_VERSION__">
 </head>
 <body>
   <div class="app-shell">
     <header class="top">
+      <button id="themeToggleBtn" type="button" class="ghost theme-toggle">Dark mode</button>
       <button id="logoutBtn" type="button" class="secondary hidden">Log out</button>
       <h1>Project Euler Tracker</h1>
-      <p class="db-updated db-updated-top hidden" id="databaseUpdatedLabel">Database last updated at -</p>
+      <p class="db-updated db-updated-top hidden" id="databaseUpdatedLabel">Static data last updated: -</p>
     </header>
 
     <section class="card login-card" id="loginCard">
@@ -25,7 +36,7 @@
         </label>
         <label>
           4-digit PIN
-          <input id="pin" type="password" pattern="\d{4}" inputmode="numeric" maxlength="4" required placeholder="1234" autocomplete="one-time-code">
+          <input id="pin" type="password" pattern="[0-9]*" inputmode="numeric" maxlength="4" enterkeyhint="done" required placeholder="1234" autocomplete="one-time-code">
         </label>
         <button type="submit">Continue</button>
       </form>
@@ -34,19 +45,31 @@
 
     <main id="mainApp" class="hidden">
       <section class="card controls-card">
-        <div class="legend-row">
-          <div class="legend-items">
-            <span class="legend-item"><span class="dot s-unsolved"></span>Unsolved</span>
-            <span class="legend-item"><span class="dot s-solved"></span>Solved</span>
-            <span class="legend-item"><span class="dot s-assignment"></span>Assignment</span>
-            <span class="legend-item"><span class="dot s-lecture"></span>Class</span>
-          </div>
-        </div>
-
         <div class="toolbar">
           <label>
             Search #
             <input type="number" id="searchInput" min="1" placeholder="e.g. 144">
+          </label>
+
+          <label>
+            Min level
+            <select id="minLevelSelect">
+              <option value="0">0</option>
+            </select>
+          </label>
+
+          <label>
+            Max level
+            <select id="maxLevelSelect">
+              <option value="38">38</option>
+            </select>
+          </label>
+
+          <label>
+            Branch (AI)
+            <select id="branchSelect">
+              <option value="all">All branches</option>
+            </select>
           </label>
 
           <div id="filterBar" class="filter-bar">
@@ -61,6 +84,14 @@
       </section>
 
       <section class="card board-card">
+        <div class="legend-row">
+          <div class="legend-items">
+            <span class="legend-item"><span class="dot s-unsolved"></span>Unsolved</span>
+            <span class="legend-item"><span class="dot s-solved"></span>Solved</span>
+            <span class="legend-item"><span class="dot s-assignment"></span>Assignment</span>
+            <span class="legend-item"><span class="dot s-lecture"></span>Class</span>
+          </div>
+        </div>
         <div id="problemGrid" class="problem-grid"></div>
       </section>
 
@@ -71,7 +102,19 @@
         <div id="panelMeta" class="panel-meta-grid">
           <div class="meta-row">
             <span>Level</span>
-            <strong id="metaLevel">-</strong>
+            <strong id="metaLevel"></strong>
+          </div>
+          <div class="meta-row">
+            <span>Branch (AI)</span>
+            <strong id="metaBranch">-</strong>
+          </div>
+          <div class="meta-row">
+            <span>AI Confidence</span>
+            <strong id="metaConfidence">-</strong>
+          </div>
+          <div class="meta-row">
+            <span>Tags (AI)</span>
+            <strong id="metaTags">-</strong>
           </div>
           <div class="meta-row">
             <span>Solved Count</span>
