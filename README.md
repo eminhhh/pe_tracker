@@ -6,6 +6,8 @@ Simple shared tracker for Project Euler problem.
 
 - Sign in with display name + 4-digit PIN
 - Display names are unique; same name can be reused only with matching PIN
+- PIN is stored as hash (`pinHash`) in Firestore, never as raw PIN
+- Browser remembers only display name (PIN is not persisted)
 - Show one global board for everyone
 - Filter board with `My solves` (problems solved by current login)
 - Track `status`, `solvedCount`, and `lastSolvedAt`

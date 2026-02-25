@@ -83,8 +83,7 @@ const opFeedback = document.getElementById("opFeedback");
 const opMessage = document.getElementById("opMessage");
 const opProgressBar = document.getElementById("opProgressBar");
 
-const profileKey = "pe_tracker_profile";
-const profileCookieName = "pe_tracker_profile";
+const rememberedDisplayNameKey = "pe_tracker_display_name";
 
 let authReady = false;
 let currentUid = null;
@@ -97,11 +96,9 @@ let listenersStarted = false;
 let unSubProblems = null;
 let unSubMySolveEventsByNameKey = null;
 let unSubMySolveEventsByName = null;
-let pendingProfile = null;
 let opProgressTimer = null;
 let opHideTimer = null;
 let maxProblemNumber = DEFAULT_MAX_PROBLEM_NUMBER;
-let autoLoginInProgress = false;
 let solvedByCurrentUser = new Set();
 let solvedByCurrentUserByNameKey = new Set();
 let solvedByCurrentUserByName = new Set();
@@ -117,7 +114,6 @@ function boot() {
     if (user) {
       currentUid = user.uid;
       authReady = true;
-      await tryAutoLogin();
       return;
     }
 
@@ -128,21 +124,9 @@ function boot() {
     }
   });
 
-  const cookieProfile = readProfileCookie();
-  const saved = cookieProfile || localStorage.getItem(profileKey);
-  if (saved) {
-    try {
-      const parsed = typeof saved === "string" ? JSON.parse(saved) : saved;
-      if (isValidProfile(parsed)) {
-        displayNameInput.value = parsed.displayName;
-        pinInput.value = parsed.pin;
-        pendingProfile = parsed;
-        void tryAutoLogin();
-      }
-    } catch (_e) {
-      localStorage.removeItem(profileKey);
-      clearProfileCookie();
-    }
+  const rememberedDisplayName = localStorage.getItem(rememberedDisplayNameKey);
+  if (typeof rememberedDisplayName === "string" && rememberedDisplayName.trim()) {
+    displayNameInput.value = rememberedDisplayName.trim();
   }
 
   loginForm.addEventListener("submit", onLoginSubmit);
@@ -158,30 +142,6 @@ function boot() {
   logoutBtn.addEventListener("click", onLogout);
 
   loadLevelsData();
-}
-
-async function tryAutoLogin() {
-  if (
-    autoLoginInProgress ||
-    !pendingProfile ||
-    !authReady ||
-    !currentUid ||
-    !mainApp.classList.contains("hidden")
-  ) {
-    return;
-  }
-
-  autoLoginInProgress = true;
-  try {
-    await completeLogin(pendingProfile, true);
-  } catch (error) {
-    loginStatus.textContent = `Auto-login failed: ${error.message}`;
-    pendingProfile = null;
-    clearProfileCookie();
-    localStorage.removeItem(profileKey);
-  } finally {
-    autoLoginInProgress = false;
-  }
 }
 
 async function loadLevelsData() {
@@ -255,8 +215,7 @@ async function onLoginSubmit(event) {
   }
 
   try {
-    pendingProfile = { displayName, pin };
-    await completeLogin(pendingProfile, false);
+    await completeLogin({ displayName, pin }, false);
   } catch (error) {
     loginStatus.textContent = `Login failed: ${error.message}`;
   }
@@ -275,13 +234,11 @@ async function completeLogin(profile, silent) {
 
   await claimDisplayName(profile.displayName, normalizedDisplayName, profile.pin);
 
-  localStorage.setItem(profileKey, JSON.stringify(profile));
-  writeProfileCookie(profile);
+  localStorage.setItem(rememberedDisplayNameKey, profile.displayName.trim());
 
   currentDisplayName = profile.displayName;
   showMainApp();
   startRealtimeListeners();
-  pendingProfile = null;
   loginStatus.textContent = "";
 }
 
@@ -759,8 +716,6 @@ async function onLogout() {
     await signOut(auth);
     currentUid = null;
     currentDisplayName = "";
-    localStorage.removeItem(profileKey);
-    clearProfileCookie();
     stopRealtimeListeners();
     closePanel();
     opFeedback.classList.add("hidden");
@@ -806,16 +761,6 @@ function formatStatus(status, solvedCount) {
     return "class";
   }
   return status;
-}
-
-function isValidProfile(profile) {
-  return (
-    profile &&
-    typeof profile.displayName === "string" &&
-    profile.displayName.trim().length > 0 &&
-    typeof profile.pin === "string" &&
-    /^\d{4}$/.test(profile.pin)
-  );
 }
 
 function formatTimestamp(value) {
@@ -951,45 +896,23 @@ function showOperationError(message) {
   opProgressBar.style.width = "100%";
 }
 
-function writeProfileCookie(profile) {
-  const value = encodeURIComponent(JSON.stringify(profile));
-  document.cookie = `${profileCookieName}=${value}; Max-Age=2592000; Path=/; SameSite=Lax`;
-}
-
-function readProfileCookie() {
-  const nameEq = `${profileCookieName}=`;
-  const parts = document.cookie.split(";");
-  for (const raw of parts) {
-    const part = raw.trim();
-    if (part.startsWith(nameEq)) {
-      const value = part.slice(nameEq.length);
-      try {
-        return JSON.parse(decodeURIComponent(value));
-      } catch (_e) {
-        return null;
-      }
-    }
-  }
-  return null;
-}
-
-function clearProfileCookie() {
-  document.cookie = `${profileCookieName}=; Max-Age=0; Path=/; SameSite=Lax`;
-}
-
 function handleError(error) {
   appStatus.textContent = `Realtime error: ${error.message}`;
 }
 
 async function claimDisplayName(displayName, normalizedDisplayName, pin) {
+  const pinHash = await hashPin(pin);
+
   await runTransaction(db, async (tx) => {
     const nameRef = doc(db, "displayNames", normalizedDisplayName);
     const nameSnap = await tx.get(nameRef);
 
     if (nameSnap.exists()) {
       const ownerUid = nameSnap.data().ownerUid;
-      const storedPin = String(nameSnap.data().pin || "");
-      if (ownerUid !== currentUid && storedPin !== pin) {
+      const storedPinHash = String(nameSnap.data().pinHash || "");
+      const legacyPin = String(nameSnap.data().pin || "");
+      const pinMatches = storedPinHash ? storedPinHash === pinHash : legacyPin === pin;
+      if (ownerUid !== currentUid && !pinMatches) {
         throw new Error("Display name is already in use or PIN is incorrect.");
       }
     }
@@ -999,13 +922,25 @@ async function claimDisplayName(displayName, normalizedDisplayName, pin) {
       {
         ownerUid: currentUid,
         displayName,
-        pin,
+        pinHash,
+        pin: deleteField(),
         updatedAt: serverTimestamp(),
         createdAt: serverTimestamp(),
       },
       { merge: true }
     );
   });
+}
+
+async function hashPin(pin) {
+  const encoded = new TextEncoder().encode(String(pin));
+  const digest = await crypto.subtle.digest("SHA-256", encoded);
+  const bytes = new Uint8Array(digest);
+  let hex = "";
+  bytes.forEach((value) => {
+    hex += value.toString(16).padStart(2, "0");
+  });
+  return hex;
 }
 
 function normalizeDisplayName(value) {

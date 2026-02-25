@@ -38,19 +38,21 @@ service cloud.firestore {
     }
 
     match /displayNames/{nameKey} {
-      allow read: if true;
+      allow read: if isSignedIn();
       allow create: if isSignedIn()
-        && request.resource.data.keys().hasOnly(['ownerUid', 'displayName', 'pin', 'updatedAt', 'createdAt'])
+        && request.resource.data.keys().hasOnly(['ownerUid', 'displayName', 'pinHash', 'updatedAt', 'createdAt'])
         && request.resource.data.ownerUid == request.auth.uid
         && request.resource.data.displayName is string
-        && request.resource.data.pin is string
+        && request.resource.data.pinHash is string
+        && request.resource.data.pinHash.matches('^[0-9a-f]{64}$')
         && request.resource.data.updatedAt is timestamp
         && request.resource.data.createdAt is timestamp;
       allow update: if isSignedIn()
-        && request.resource.data.keys().hasOnly(['ownerUid', 'displayName', 'pin', 'updatedAt', 'createdAt'])
+        && request.resource.data.keys().hasOnly(['ownerUid', 'displayName', 'pinHash', 'updatedAt', 'createdAt'])
         && request.resource.data.ownerUid == request.auth.uid
         && request.resource.data.displayName is string
-        && request.resource.data.pin is string
+        && request.resource.data.pinHash is string
+        && request.resource.data.pinHash.matches('^[0-9a-f]{64}$')
         && request.resource.data.updatedAt is timestamp
         && request.resource.data.createdAt is timestamp;
       allow delete: if isSignedIn() && resource.data.ownerUid == request.auth.uid;
