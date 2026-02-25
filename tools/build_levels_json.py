@@ -2,8 +2,8 @@
 """Build levels.json from a saved Project Euler progress HTML page.
 
 Usage:
-  python3 build_levels_json.py
-  python3 build_levels_json.py --input data/pe_data.html --output data/levels.json
+  python3 tools/build_levels_json.py
+  python3 tools/build_levels_json.py --input data/pe_data.html --output data/levels.json
 """
 
 from __future__ import annotations
@@ -64,13 +64,11 @@ def parse_levels(html_text: str) -> tuple[dict[str, dict[str, object]], int]:
     if max_problem_id == 0:
         return {}, 0
 
-    # Fill missing problem IDs explicitly so the app never guesses 0.
     for problem_id in range(1, max_problem_id + 1):
         key = str(problem_id)
         if key not in result:
             result[key] = {"difficulty": None, "title": ""}
 
-    # Keep numeric ordering in the output file.
     ordered = {str(i): result[str(i)] for i in range(1, max_problem_id + 1)}
     return ordered, max_problem_id
 
@@ -86,8 +84,6 @@ def parse_html_updated_utc(html_text: str) -> str | None:
     except ValueError:
         return None
 
-    # Source timezone is not explicitly included in exported HTML.
-    # We store it as UTC-normalized string for UI consistency.
     parsed_utc = parsed.replace(tzinfo=dt.timezone.utc)
     return parsed_utc.strftime("%Y-%m-%d %H:%M")
 

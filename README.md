@@ -10,9 +10,11 @@ Simple shared tracker for Project Euler problem.
 - Browser remembers only display name (PIN is not persisted)
 - Show one global board for everyone
 - Filter board with `My solves` (problems solved by current login)
+- Filter by level range (`Min level`/`Max level`) and math branch (`All branches` or a specific branch)
 - Track `status`, `solvedCount`, and `lastSolvedAt`
 - Allow removing only your own solve logs
 - Read levels from `data/levels.json` (not Firestore)
+- Read branch categories from `data/question_categories.jsonl` when available
 
 Allowed status labels:
 
@@ -37,7 +39,7 @@ Note: this app tracks only group progress (no personal dashboard).
 This repo includes `.github/workflows/deploy-pages.yml`.
 
 - On every push to `main`, it deploys the site to GitHub Pages.
-- It also runs `python3 build_levels_json.py` only if `data/pe_data.html` exists in the checked-out source.
+- It also runs `python3 tools/build_levels_json.py` only if `data/pe_data.html` exists in the checked-out source.
 - It injects an asset version (`?v=<commit-sha>`) into `index.html` so `app.js` and `style.css` always bypass stale browser cache after deploy.
 
 Because `data/pe_data.html` is ignored in this repo, the normal flow is:
@@ -52,11 +54,11 @@ Then GitHub Actions deploys the updated site automatically.
 
 Run from project root:
 
-`python3 build_levels_json.py`
+`python3 tools/build_levels_json.py`
 
 Optional arguments:
 
-`python3 build_levels_json.py --input data/pe_data.html --output data/levels.json`
+`python3 tools/build_levels_json.py --input data/pe_data.html --output data/levels.json`
 
 What it does:
 
@@ -66,3 +68,15 @@ What it does:
 - Writes `_meta.last_updated_utc`, `_meta.generated_at_utc`, and `_meta.max_problem_number`
 
 If new Project Euler problems are released, replace `data/pe_data.html` with a newer export and run the same command again.
+
+## Download question text files
+
+Download minimal Project Euler statements into `data/questions`:
+
+`python3 tools/download_questions.py`
+
+Optional examples:
+
+`python3 tools/download_questions.py --start 1 --end 100`
+
+`python3 tools/download_questions.py --force`
