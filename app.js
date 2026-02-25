@@ -819,55 +819,24 @@ function handleError(error) {
 
 async function claimDisplayName(displayName, normalizedDisplayName, pin) {
   await runTransaction(db, async (tx) => {
-    const userRef = doc(db, "users", currentUid);
-    const newNameRef = doc(db, "displayNames", normalizedDisplayName);
+    const nameRef = doc(db, "displayNames", normalizedDisplayName);
+    const nameSnap = await tx.get(nameRef);
 
-    const [userSnap, newNameSnap] = await Promise.all([
-      tx.get(userRef),
-      tx.get(newNameRef),
-    ]);
-
-    if (newNameSnap.exists()) {
-      const ownerUid = newNameSnap.data().ownerUid;
-      const storedPin = String(newNameSnap.data().pin || "");
+    if (nameSnap.exists()) {
+      const ownerUid = nameSnap.data().ownerUid;
+      const storedPin = String(nameSnap.data().pin || "");
       if (ownerUid !== currentUid && storedPin !== pin) {
         throw new Error("Display name is already in use or PIN is incorrect.");
       }
     }
 
-    if (userSnap.exists()) {
-      const previousName = userSnap.data().normalizedDisplayName;
-      if (
-        typeof previousName === "string" &&
-        previousName &&
-        previousName !== normalizedDisplayName
-      ) {
-        const oldNameRef = doc(db, "displayNames", previousName);
-        const oldNameSnap = await tx.get(oldNameRef);
-        if (oldNameSnap.exists() && oldNameSnap.data().ownerUid === currentUid) {
-          tx.delete(oldNameRef);
-        }
-      }
-    }
-
     tx.set(
-      newNameRef,
+      nameRef,
       {
         ownerUid: currentUid,
         displayName,
         pin,
         updatedAt: serverTimestamp(),
-        createdAt: serverTimestamp(),
-      },
-      { merge: true }
-    );
-
-    tx.set(
-      userRef,
-      {
-        displayName,
-        normalizedDisplayName,
-        pin,
         createdAt: serverTimestamp(),
       },
       { merge: true }
