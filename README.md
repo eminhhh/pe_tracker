@@ -7,8 +7,9 @@ Simple shared tracker for Project Euler problem.
 - Sign in with display name + 4-digit PIN
 - Display names are unique; same name can be reused only with matching PIN
 - Show one global board for everyone
+- Filter board with `My solves` (problems solved by current login)
 - Track `status`, `solvedCount`, and `lastSolvedAt`
-- Allow removing one solve count when needed
+- Allow removing only your own solve logs
 - Read levels from `data/levels.json` (not Firestore)
 
 Allowed status labels:

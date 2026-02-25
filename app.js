@@ -96,11 +96,13 @@ let currentFilter = "all";
 let activeProblemNumber = null;
 let listenersStarted = false;
 let unSubProblems = null;
+let unSubMySolveEvents = null;
 let pendingProfile = null;
 let opProgressTimer = null;
 let opHideTimer = null;
 let maxProblemNumber = DEFAULT_MAX_PROBLEM_NUMBER;
 let autoLoginInProgress = false;
+let solvedByCurrentUser = new Set();
 
 boot();
 
@@ -307,6 +309,24 @@ function startRealtimeListeners() {
     handleError
   );
 
+  if (currentUid) {
+    unSubMySolveEvents = onSnapshot(
+      query(collection(db, "solveEvents"), where("solverUid", "==", currentUid)),
+      (snapshot) => {
+        const solved = new Set();
+        snapshot.forEach((item) => {
+          const number = Number(item.data().problemNumber);
+          if (Number.isInteger(number) && number > 0) {
+            solved.add(number);
+          }
+        });
+        solvedByCurrentUser = solved;
+        renderGrid();
+      },
+      handleError
+    );
+  }
+
 }
 
 function stopRealtimeListeners() {
@@ -314,6 +334,11 @@ function stopRealtimeListeners() {
     unSubProblems();
     unSubProblems = null;
   }
+  if (unSubMySolveEvents) {
+    unSubMySolveEvents();
+    unSubMySolveEvents = null;
+  }
+  solvedByCurrentUser = new Set();
   listenersStarted = false;
 }
 
@@ -328,7 +353,10 @@ function renderGrid() {
     if (searchText && !String(number).includes(searchText)) {
       continue;
     }
-    if (currentFilter !== "all" && status !== currentFilter) {
+    if (currentFilter === "my-solves" && !solvedByCurrentUser.has(number)) {
+      continue;
+    }
+    if (currentFilter !== "all" && currentFilter !== "my-solves" && status !== currentFilter) {
       continue;
     }
 
@@ -508,6 +536,8 @@ async function onPanelSolve() {
     await addDoc(collection(db, "solveEvents"), {
       problemNumber: number,
       solvedAt: serverTimestamp(),
+      solverUid: currentUid,
+      solverName: currentDisplayName,
     });
 
     showOperationSuccess(`Solved count updated for #${number}.`);
@@ -529,22 +559,38 @@ async function onPanelDeleteSolve() {
   setPanelBusy(true);
   showOperationLoading(`Deleting one solve for #${number}...`);
   try {
-    const eventsQuery = query(
+    const ownEventsQuery = query(
+      collection(db, "solveEvents"),
+      where("solverUid", "==", currentUid)
+    );
+    const ownEventsSnapshot = await getDocs(ownEventsQuery);
+    const ownDocs = ownEventsSnapshot.docs
+      .filter((item) => Number(item.data().problemNumber) === number)
+      .sort((a, b) => {
+        const aTs = toMillis(a.data().solvedAt);
+        const bTs = toMillis(b.data().solvedAt);
+        return bTs - aTs;
+      });
+
+    if (!ownDocs.length) {
+      showOperationError("You have no solve to remove for this problem.");
+      appStatus.textContent = `No personal solve found for #${number}.`;
+      return;
+    }
+
+    await deleteDoc(ownDocs[0].ref);
+
+    const allEventsQuery = query(
       collection(db, "solveEvents"),
       where("problemNumber", "==", number)
     );
-    const eventsSnapshot = await getDocs(eventsQuery);
-    const docs = [...eventsSnapshot.docs].sort((a, b) => {
+    const allEventsSnapshot = await getDocs(allEventsQuery);
+    const allDocs = [...allEventsSnapshot.docs].sort((a, b) => {
       const aTs = toMillis(a.data().solvedAt);
       const bTs = toMillis(b.data().solvedAt);
       return bTs - aTs;
     });
-
-    if (docs.length > 0) {
-      await deleteDoc(docs[0].ref);
-    }
-
-    const previousSolvedAt = docs.length > 1 ? docs[1].data().solvedAt : null;
+    const latestSolvedAt = allDocs.length > 0 ? allDocs[0].data().solvedAt : null;
 
     await runTransaction(db, async (tx) => {
       const ref = doc(db, "problems", String(number));
@@ -567,7 +613,7 @@ async function onPanelDeleteSolve() {
         {
           solvedCount: nextCount,
           statusLabel: nextStatus,
-          lastSolvedAt: nextCount === 0 ? null : (previousSolvedAt || null),
+          lastSolvedAt: nextCount === 0 ? null : (latestSolvedAt || null),
           difficulty: deleteField(),
         },
         { merge: true }
@@ -738,7 +784,7 @@ function waitForAuth() {
 function setPanelBusy(busy) {
   panelSaveBtn.disabled = busy || !isAdminUser();
   panelSolveBtn.disabled = busy;
-  panelDeleteBtn.disabled = busy;
+  panelDeleteBtn.disabled = busy || !currentUid;
   panelCloseBtn.disabled = busy;
   panelStatusSelect.disabled = busy || !isAdminUser();
 }

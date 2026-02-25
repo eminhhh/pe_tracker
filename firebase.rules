@@ -59,12 +59,18 @@ service cloud.firestore {
     match /solveEvents/{eventId} {
       allow read: if true;
       allow create: if isSignedIn()
-        && request.resource.data.keys().hasOnly(['problemNumber', 'solvedAt'])
+        && request.resource.data.keys().hasOnly(['problemNumber', 'solvedAt', 'solverUid', 'solverName'])
         && request.resource.data.problemNumber is int
         && request.resource.data.problemNumber >= 1
-        && request.resource.data.solvedAt is timestamp;
+        && request.resource.data.solvedAt is timestamp
+        && request.resource.data.solverUid is string
+        && request.resource.data.solverUid == request.auth.uid
+        && (
+          !('solverName' in request.resource.data)
+          || request.resource.data.solverName is string
+        );
       allow update: if false;
-      allow delete: if isSignedIn();
+      allow delete: if isSignedIn() && resource.data.solverUid == request.auth.uid;
     }
   }
 }
