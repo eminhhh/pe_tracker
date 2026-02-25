@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project Euler Group Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="top">
+      <button id="logoutBtn" type="button" class="secondary hidden">Log out</button>
+      <h1>Project Euler Tracker</h1>
+      <p class="db-updated db-updated-top hidden" id="databaseUpdatedLabel">Database last updated at -</p>
+    </header>
+
+    <section class="card login-card" id="loginCard">
+      <form id="loginForm">
+        <label>
+          Display name
+          <input id="displayName" type="text" maxlength="40" required placeholder="e.g. Aisha" autocomplete="nickname">
+        </label>
+        <label>
+          4-digit PIN
+          <input id="pin" type="password" pattern="\d{4}" inputmode="numeric" maxlength="4" required placeholder="1234" autocomplete="one-time-code">
+        </label>
+        <button type="submit">Continue</button>
+      </form>
+      <p class="status" id="loginStatus"></p>
+    </section>
+
+    <main id="mainApp" class="hidden">
+      <section class="card controls-card">
+        <div class="legend-row">
+          <div class="legend-items">
+            <span class="legend-item"><span class="dot s-unsolved"></span>Unsolved</span>
+            <span class="legend-item"><span class="dot s-solved"></span>Solved</span>
+            <span class="legend-item"><span class="dot s-assignment"></span>Assignment</span>
+            <span class="legend-item"><span class="dot s-lecture"></span>Class</span>
+          </div>
+        </div>
+
+        <div class="toolbar">
+          <label>
+            Search #
+            <input type="number" id="searchInput" min="1" placeholder="e.g. 144">
+          </label>
+
+          <div id="filterBar" class="filter-bar">
+            <button class="filter-btn active" data-filter="all" type="button">All</button>
+            <button class="filter-btn" data-filter="solved" type="button">Solved</button>
+            <button class="filter-btn" data-filter="unsolved" type="button">Unsolved</button>
+            <button class="filter-btn" data-filter="assignment" type="button">Assignment</button>
+            <button class="filter-btn" data-filter="solved in lecture" type="button">Class</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="card board-card">
+        <div id="problemGrid" class="problem-grid"></div>
+      </section>
+
+      <div id="panelBackdrop" class="panel-backdrop hidden"></div>
+      <section id="problemPanel" class="problem-panel hidden">
+        <h3 id="panelTitle">Problem</h3>
+        <a id="panelProblemLink" class="problem-link" href="#" target="_blank" rel="noopener noreferrer">Open on Project Euler</a>
+        <div id="panelMeta" class="panel-meta-grid">
+          <div class="meta-row">
+            <span>Level</span>
+            <strong id="metaLevel">-</strong>
+          </div>
+          <div class="meta-row">
+            <span>Solved Count</span>
+            <strong id="metaSolvedCount">0</strong>
+          </div>
+          <div class="meta-row">
+            <span>Last Solved</span>
+            <strong id="metaLastSolved">-</strong>
+          </div>
+        </div>
+        <div id="statusEditor">
+          <label>
+            Status
+            <select id="panelStatusSelect">
+              <option value="assignment">assignment</option>
+              <option value="solved in lecture">class</option>
+              <option value="solved">solved</option>
+              <option value="unsolved">unsolved</option>
+            </select>
+          </label>
+        </div>
+        <div class="panel-actions">
+          <button id="panelSaveBtn" type="button" class="secondary">Save Status</button>
+          <button id="panelSolveBtn" type="button">Mark Solved</button>
+          <button id="panelDeleteBtn" type="button" class="danger">Delete Solve</button>
+          <button id="panelCloseBtn" type="button" class="ghost">Close</button>
+        </div>
+      </section>
+
+      <section id="opFeedback" class="op-feedback hidden" aria-live="polite">
+        <p id="opMessage" class="op-message"></p>
+        <div class="op-progress-track">
+          <span id="opProgressBar" class="op-progress-bar"></span>
+        </div>
+      </section>
+
+      <p class="status" id="appStatus"></p>
+    </main>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

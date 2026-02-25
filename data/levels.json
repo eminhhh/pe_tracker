@@ -1,0 +1,3948 @@
+{
+  "_meta": {
+    "last_updated_utc": "2026-02-25 07:09",
+    "generated_at_utc": "2026-02-25 09:47",
+    "source": "data/pe_data.html",
+    "max_problem_number": 985
+  },
+  "1": {
+    "difficulty": 0,
+    "title": "Multiples of 3 or 5"
+  },
+  "2": {
+    "difficulty": 0,
+    "title": "Even Fibonacci Numbers"
+  },
+  "3": {
+    "difficulty": 0,
+    "title": "Largest Prime Factor"
+  },
+  "4": {
+    "difficulty": 0,
+    "title": "Largest Palindrome Product"
+  },
+  "5": {
+    "difficulty": 0,
+    "title": "Smallest Multiple"
+  },
+  "6": {
+    "difficulty": 0,
+    "title": "Sum Square Difference"
+  },
+  "7": {
+    "difficulty": 0,
+    "title": "10 001st Prime"
+  },
+  "8": {
+    "difficulty": 0,
+    "title": "Largest Product in a Series"
+  },
+  "9": {
+    "difficulty": 0,
+    "title": "Special Pythagorean Triplet"
+  },
+  "10": {
+    "difficulty": 0,
+    "title": "Summation of Primes"
+  },
+  "11": {
+    "difficulty": 1,
+    "title": "Largest Product in a Grid"
+  },
+  "12": {
+    "difficulty": 0,
+    "title": "Highly Divisible Triangular Number"
+  },
+  "13": {
+    "difficulty": 0,
+    "title": "Large Sum"
+  },
+  "14": {
+    "difficulty": 0,
+    "title": "Longest Collatz Sequence"
+  },
+  "15": {
+    "difficulty": 1,
+    "title": "Lattice Paths"
+  },
+  "16": {
+    "difficulty": 0,
+    "title": "Power Digit Sum"
+  },
+  "17": {
+    "difficulty": 1,
+    "title": "Number Letter Counts"
+  },
+  "18": {
+    "difficulty": 1,
+    "title": "Maximum Path Sum I"
+  },
+  "19": {
+    "difficulty": 1,
+    "title": "Counting Sundays"
+  },
+  "20": {
+    "difficulty": 0,
+    "title": "Factorial Digit Sum"
+  },
+  "21": {
+    "difficulty": 1,
+    "title": "Amicable Numbers"
+  },
+  "22": {
+    "difficulty": 0,
+    "title": "Names Scores"
+  },
+  "23": {
+    "difficulty": 2,
+    "title": "Non-Abundant Sums"
+  },
+  "24": {
+    "difficulty": 1,
+    "title": "Lexicographic Permutations"
+  },
+  "25": {
+    "difficulty": 0,
+    "title": "$1000$-digit Fibonacci Number"
+  },
+  "26": {
+    "difficulty": 2,
+    "title": "Reciprocal Cycles"
+  },
+  "27": {
+    "difficulty": 1,
+    "title": "Quadratic Primes"
+  },
+  "28": {
+    "difficulty": 1,
+    "title": "Number Spiral Diagonals"
+  },
+  "29": {
+    "difficulty": 1,
+    "title": "Distinct Powers"
+  },
+  "30": {
+    "difficulty": 0,
+    "title": "Digit Fifth Powers"
+  },
+  "31": {
+    "difficulty": 2,
+    "title": "Coin Sums"
+  },
+  "32": {
+    "difficulty": 2,
+    "title": "Pandigital Products"
+  },
+  "33": {
+    "difficulty": 0,
+    "title": "Digit Cancelling Fractions"
+  },
+  "34": {
+    "difficulty": 0,
+    "title": "Digit Factorials"
+  },
+  "35": {
+    "difficulty": 1,
+    "title": "Circular Primes"
+  },
+  "36": {
+    "difficulty": 0,
+    "title": "Double-base Palindromes"
+  },
+  "37": {
+    "difficulty": 1,
+    "title": "Truncatable Primes"
+  },
+  "38": {
+    "difficulty": 2,
+    "title": "Pandigital Multiples"
+  },
+  "39": {
+    "difficulty": 1,
+    "title": "Integer Right Triangles"
+  },
+  "40": {
+    "difficulty": 1,
+    "title": "Champernowne's Constant"
+  },
+  "41": {
+    "difficulty": 1,
+    "title": "Pandigital Prime"
+  },
+  "42": {
+    "difficulty": 0,
+    "title": "Coded Triangle Numbers"
+  },
+  "43": {
+    "difficulty": 1,
+    "title": "Sub-string Divisibility"
+  },
+  "44": {
+    "difficulty": 2,
+    "title": "Pentagon Numbers"
+  },
+  "45": {
+    "difficulty": 1,
+    "title": "Triangular, Pentagonal, and Hexagonal"
+  },
+  "46": {
+    "difficulty": 2,
+    "title": "Goldbach's Other Conjecture"
+  },
+  "47": {
+    "difficulty": 1,
+    "title": "Distinct Primes Factors"
+  },
+  "48": {
+    "difficulty": 0,
+    "title": "Self Powers"
+  },
+  "49": {
+    "difficulty": 1,
+    "title": "Prime Permutations"
+  },
+  "50": {
+    "difficulty": 2,
+    "title": "Consecutive Prime Sum"
+  },
+  "51": {
+    "difficulty": 3,
+    "title": "Prime Digit Replacements"
+  },
+  "52": {
+    "difficulty": 0,
+    "title": "Permuted Multiples"
+  },
+  "53": {
+    "difficulty": 1,
+    "title": "Combinatoric Selections"
+  },
+  "54": {
+    "difficulty": 3,
+    "title": "Poker Hands"
+  },
+  "55": {
+    "difficulty": 2,
+    "title": "Lychrel Numbers"
+  },
+  "56": {
+    "difficulty": 1,
+    "title": "Powerful Digit Sum"
+  },
+  "57": {
+    "difficulty": 1,
+    "title": "Square Root Convergents"
+  },
+  "58": {
+    "difficulty": 2,
+    "title": "Spiral Primes"
+  },
+  "59": {
+    "difficulty": 2,
+    "title": "XOR Decryption"
+  },
+  "60": {
+    "difficulty": 4,
+    "title": "Prime Pair Sets"
+  },
+  "61": {
+    "difficulty": 3,
+    "title": "Cyclical Figurate Numbers"
+  },
+  "62": {
+    "difficulty": 2,
+    "title": "Cubic Permutations"
+  },
+  "63": {
+    "difficulty": 2,
+    "title": "Powerful Digit Counts"
+  },
+  "64": {
+    "difficulty": 3,
+    "title": "Odd Period Square Roots"
+  },
+  "65": {
+    "difficulty": 2,
+    "title": "Convergents of $e$"
+  },
+  "66": {
+    "difficulty": 12,
+    "title": "Diophantine Equation"
+  },
+  "67": {
+    "difficulty": 1,
+    "title": "Maximum Path Sum II"
+  },
+  "68": {
+    "difficulty": 4,
+    "title": "Magic 5-gon Ring"
+  },
+  "69": {
+    "difficulty": 2,
+    "title": "Totient Maximum"
+  },
+  "70": {
+    "difficulty": 4,
+    "title": "Totient Permutation"
+  },
+  "71": {
+    "difficulty": 2,
+    "title": "Ordered Fractions"
+  },
+  "72": {
+    "difficulty": 3,
+    "title": "Counting Fractions"
+  },
+  "73": {
+    "difficulty": 3,
+    "title": "Counting Fractions in a Range"
+  },
+  "74": {
+    "difficulty": 2,
+    "title": "Digit Factorial Chains"
+  },
+  "75": {
+    "difficulty": 7,
+    "title": "Singular Integer Right Triangles"
+  },
+  "76": {
+    "difficulty": 3,
+    "title": "Counting Summations"
+  },
+  "77": {
+    "difficulty": 4,
+    "title": "Prime Summations"
+  },
+  "78": {
+    "difficulty": 5,
+    "title": "Coin Partitions"
+  },
+  "79": {
+    "difficulty": 2,
+    "title": "Passcode Derivation"
+  },
+  "80": {
+    "difficulty": 4,
+    "title": "Square Root Digital Expansion"
+  },
+  "81": {
+    "difficulty": 2,
+    "title": "Path Sum: Two Ways"
+  },
+  "82": {
+    "difficulty": 4,
+    "title": "Path Sum: Three Ways"
+  },
+  "83": {
+    "difficulty": 5,
+    "title": "Path Sum: Four Ways"
+  },
+  "84": {
+    "difficulty": 7,
+    "title": "Monopoly Odds"
+  },
+  "85": {
+    "difficulty": 2,
+    "title": "Counting Rectangles"
+  },
+  "86": {
+    "difficulty": 7,
+    "title": "Cuboid Route"
+  },
+  "87": {
+    "difficulty": 3,
+    "title": "Prime Power Triples"
+  },
+  "88": {
+    "difficulty": 10,
+    "title": "Product-sum Numbers"
+  },
+  "89": {
+    "difficulty": 4,
+    "title": "Roman Numerals"
+  },
+  "90": {
+    "difficulty": 9,
+    "title": "Cube Digit Pairs"
+  },
+  "91": {
+    "difficulty": 6,
+    "title": "Right Triangles with Integer Coordinates"
+  },
+  "92": {
+    "difficulty": 1,
+    "title": "Square Digit Chains"
+  },
+  "93": {
+    "difficulty": 8,
+    "title": "Arithmetic Expressions"
+  },
+  "94": {
+    "difficulty": 13,
+    "title": "Almost Equilateral Triangles"
+  },
+  "95": {
+    "difficulty": 6,
+    "title": "Amicable Chains"
+  },
+  "96": {
+    "difficulty": 5,
+    "title": "Su Doku"
+  },
+  "97": {
+    "difficulty": 1,
+    "title": "Large Non-Mersenne Prime"
+  },
+  "98": {
+    "difficulty": 7,
+    "title": "Anagramic Squares"
+  },
+  "99": {
+    "difficulty": 2,
+    "title": "Largest Exponential"
+  },
+  "100": {
+    "difficulty": 7,
+    "title": "Arranged Probability"
+  },
+  "101": {
+    "difficulty": 7,
+    "title": "Optimum Polynomial"
+  },
+  "102": {
+    "difficulty": 3,
+    "title": "Triangle Containment"
+  },
+  "103": {
+    "difficulty": 11,
+    "title": "Special Subset Sums: Optimum"
+  },
+  "104": {
+    "difficulty": 4,
+    "title": "Pandigital Fibonacci Ends"
+  },
+  "105": {
+    "difficulty": 11,
+    "title": "Special Subset Sums: Testing"
+  },
+  "106": {
+    "difficulty": 13,
+    "title": "Special Subset Sums: Meta-testing"
+  },
+  "107": {
+    "difficulty": 8,
+    "title": "Minimal Network"
+  },
+  "108": {
+    "difficulty": 6,
+    "title": "Diophantine Reciprocals I"
+  },
+  "109": {
+    "difficulty": 10,
+    "title": "Darts"
+  },
+  "110": {
+    "difficulty": 15,
+    "title": "Diophantine Reciprocals II"
+  },
+  "111": {
+    "difficulty": 13,
+    "title": "Primes with Runs"
+  },
+  "112": {
+    "difficulty": 2,
+    "title": "Bouncy Numbers"
+  },
+  "113": {
+    "difficulty": 7,
+    "title": "Non-bouncy Numbers"
+  },
+  "114": {
+    "difficulty": 8,
+    "title": "Counting Block Combinations I"
+  },
+  "115": {
+    "difficulty": 8,
+    "title": "Counting Block Combinations II"
+  },
+  "116": {
+    "difficulty": 6,
+    "title": "Red, Green or Blue Tiles"
+  },
+  "117": {
+    "difficulty": 7,
+    "title": "Red, Green, and Blue Tiles"
+  },
+  "118": {
+    "difficulty": 11,
+    "title": "Pandigital Prime Sets"
+  },
+  "119": {
+    "difficulty": 6,
+    "title": "Digit Power Sum"
+  },
+  "120": {
+    "difficulty": 5,
+    "title": "Square Remainders"
+  },
+  "121": {
+    "difficulty": 9,
+    "title": "Disc Game Prize Fund"
+  },
+  "122": {
+    "difficulty": 14,
+    "title": "Efficient Exponentiation"
+  },
+  "123": {
+    "difficulty": 6,
+    "title": "Prime Square Remainders"
+  },
+  "124": {
+    "difficulty": 4,
+    "title": "Ordered Radicals"
+  },
+  "125": {
+    "difficulty": 5,
+    "title": "Palindromic Sums"
+  },
+  "126": {
+    "difficulty": 17,
+    "title": "Cuboid Layers"
+  },
+  "127": {
+    "difficulty": 13,
+    "title": "abc-hits"
+  },
+  "128": {
+    "difficulty": 15,
+    "title": "Hexagonal Tile Differences"
+  },
+  "129": {
+    "difficulty": 16,
+    "title": "Repunit Divisibility"
+  },
+  "130": {
+    "difficulty": 14,
+    "title": "Composites with Prime Repunit Property"
+  },
+  "131": {
+    "difficulty": 12,
+    "title": "Prime Cube Partnership"
+  },
+  "132": {
+    "difficulty": 12,
+    "title": "Large Repunit Factors"
+  },
+  "133": {
+    "difficulty": 13,
+    "title": "Repunit Nonfactors"
+  },
+  "134": {
+    "difficulty": 11,
+    "title": "Prime Pair Connection"
+  },
+  "135": {
+    "difficulty": 12,
+    "title": "Same Differences"
+  },
+  "136": {
+    "difficulty": 13,
+    "title": "Singleton Difference"
+  },
+  "137": {
+    "difficulty": 14,
+    "title": "Fibonacci Golden Nuggets"
+  },
+  "138": {
+    "difficulty": 12,
+    "title": "Special Isosceles Triangles"
+  },
+  "139": {
+    "difficulty": 13,
+    "title": "Pythagorean Tiles"
+  },
+  "140": {
+    "difficulty": 17,
+    "title": "Modified Fibonacci Golden Nuggets"
+  },
+  "141": {
+    "difficulty": 21,
+    "title": "Square Progressive Numbers"
+  },
+  "142": {
+    "difficulty": 14,
+    "title": "Perfect Square Collection"
+  },
+  "143": {
+    "difficulty": 22,
+    "title": "Torricelli Triangles"
+  },
+  "144": {
+    "difficulty": 14,
+    "title": "Laser Beam Reflections"
+  },
+  "145": {
+    "difficulty": 3,
+    "title": "Reversible Numbers"
+  },
+  "146": {
+    "difficulty": 16,
+    "title": "Investigating a Prime Pattern"
+  },
+  "147": {
+    "difficulty": 21,
+    "title": "Rectangles in Cross-hatched Grids"
+  },
+  "148": {
+    "difficulty": 14,
+    "title": "Exploring Pascal's Triangle"
+  },
+  "149": {
+    "difficulty": 16,
+    "title": "Maximum-sum Subsequence"
+  },
+  "150": {
+    "difficulty": 17,
+    "title": "Sub-triangle Sums"
+  },
+  "151": {
+    "difficulty": 17,
+    "title": "A Preference for A5"
+  },
+  "152": {
+    "difficulty": 27,
+    "title": "Sums of Square Reciprocals"
+  },
+  "153": {
+    "difficulty": 22,
+    "title": "Investigating Gaussian Integers"
+  },
+  "154": {
+    "difficulty": 25,
+    "title": "Exploring Pascal's Pyramid"
+  },
+  "155": {
+    "difficulty": 25,
+    "title": "Counting Capacitor Circuits"
+  },
+  "156": {
+    "difficulty": 25,
+    "title": "Counting Digits"
+  },
+  "157": {
+    "difficulty": 24,
+    "title": "Base-10 Diophantine Reciprocal"
+  },
+  "158": {
+    "difficulty": 18,
+    "title": "Lexicographical Neighbours"
+  },
+  "159": {
+    "difficulty": 18,
+    "title": "Digital Root Sums of Factorisations"
+  },
+  "160": {
+    "difficulty": 30,
+    "title": "Factorial Trailing Digits"
+  },
+  "161": {
+    "difficulty": 25,
+    "title": "Triominoes"
+  },
+  "162": {
+    "difficulty": 18,
+    "title": "Hexadecimal Numbers"
+  },
+  "163": {
+    "difficulty": 29,
+    "title": "Cross-hatched Triangles"
+  },
+  "164": {
+    "difficulty": 12,
+    "title": "Three Consecutive Digital Sum Limit"
+  },
+  "165": {
+    "difficulty": 26,
+    "title": "Intersections"
+  },
+  "166": {
+    "difficulty": 20,
+    "title": "Criss Cross"
+  },
+  "167": {
+    "difficulty": 30,
+    "title": "Investigating Ulam Sequences"
+  },
+  "168": {
+    "difficulty": 25,
+    "title": "Number Rotations"
+  },
+  "169": {
+    "difficulty": 16,
+    "title": "Sums of Powers of Two"
+  },
+  "170": {
+    "difficulty": 27,
+    "title": "Pandigital Concatenating Products"
+  },
+  "171": {
+    "difficulty": 25,
+    "title": "Square Sum of the Digital Squares"
+  },
+  "172": {
+    "difficulty": 18,
+    "title": "Few Repeated Digits"
+  },
+  "173": {
+    "difficulty": 6,
+    "title": "Hollow Square Laminae I"
+  },
+  "174": {
+    "difficulty": 11,
+    "title": "Hollow Square Laminae II"
+  },
+  "175": {
+    "difficulty": 26,
+    "title": "Fractions and Sum of Powers of Two"
+  },
+  "176": {
+    "difficulty": 25,
+    "title": "Common Cathetus Right-angled Triangles"
+  },
+  "177": {
+    "difficulty": 37,
+    "title": "Integer Angled Quadrilaterals"
+  },
+  "178": {
+    "difficulty": 19,
+    "title": "Step Numbers"
+  },
+  "179": {
+    "difficulty": 5,
+    "title": "Consecutive Positive Divisors"
+  },
+  "180": {
+    "difficulty": 32,
+    "title": "Golden Triplets"
+  },
+  "181": {
+    "difficulty": 27,
+    "title": "Grouping Two Different Coloured Objects"
+  },
+  "182": {
+    "difficulty": 22,
+    "title": "RSA Encryption"
+  },
+  "183": {
+    "difficulty": 14,
+    "title": "Maximum Product of Parts"
+  },
+  "184": {
+    "difficulty": 27,
+    "title": "Triangles Containing the Origin"
+  },
+  "185": {
+    "difficulty": 19,
+    "title": "Number Mind"
+  },
+  "186": {
+    "difficulty": 22,
+    "title": "Connectedness of a Network"
+  },
+  "187": {
+    "difficulty": 5,
+    "title": "Semiprimes"
+  },
+  "188": {
+    "difficulty": 10,
+    "title": "Hyperexponentiation"
+  },
+  "189": {
+    "difficulty": 26,
+    "title": "Tri-colouring a Triangular Grid"
+  },
+  "190": {
+    "difficulty": 16,
+    "title": "Maximising a Weighted Product"
+  },
+  "191": {
+    "difficulty": 9,
+    "title": "Prize Strings"
+  },
+  "192": {
+    "difficulty": 35,
+    "title": "Best Approximations"
+  },
+  "193": {
+    "difficulty": 18,
+    "title": "Squarefree Numbers"
+  },
+  "194": {
+    "difficulty": 29,
+    "title": "Coloured Configurations"
+  },
+  "195": {
+    "difficulty": 28,
+    "title": "$60$-degree Triangle Inscribed Circles"
+  },
+  "196": {
+    "difficulty": 22,
+    "title": "Prime Triplets"
+  },
+  "197": {
+    "difficulty": 13,
+    "title": "A Recursively Defined Sequence"
+  },
+  "198": {
+    "difficulty": 33,
+    "title": "Ambiguous Numbers"
+  },
+  "199": {
+    "difficulty": 24,
+    "title": "Iterative Circle Packing"
+  },
+  "200": {
+    "difficulty": 23,
+    "title": "Prime-proof Squbes"
+  },
+  "201": {
+    "difficulty": 24,
+    "title": "Subsets with a Unique Sum"
+  },
+  "202": {
+    "difficulty": 23,
+    "title": "Laserbeam"
+  },
+  "203": {
+    "difficulty": 6,
+    "title": "Squarefree Binomial Coefficients"
+  },
+  "204": {
+    "difficulty": 7,
+    "title": "Generalised Hamming Numbers"
+  },
+  "205": {
+    "difficulty": 4,
+    "title": "Dice Game"
+  },
+  "206": {
+    "difficulty": 2,
+    "title": "Concealed Square"
+  },
+  "207": {
+    "difficulty": 13,
+    "title": "Integer Partition Equations"
+  },
+  "208": {
+    "difficulty": 26,
+    "title": "Robot Walks"
+  },
+  "209": {
+    "difficulty": 22,
+    "title": "Circular Logic"
+  },
+  "210": {
+    "difficulty": 32,
+    "title": "Obtuse Angled Triangles"
+  },
+  "211": {
+    "difficulty": 16,
+    "title": "Divisor Square Sum"
+  },
+  "212": {
+    "difficulty": 29,
+    "title": "Combined Volume of Cuboids"
+  },
+  "213": {
+    "difficulty": 28,
+    "title": "Flea Circus"
+  },
+  "214": {
+    "difficulty": 13,
+    "title": "Totient Chains"
+  },
+  "215": {
+    "difficulty": 16,
+    "title": "Crack-free Walls"
+  },
+  "216": {
+    "difficulty": 14,
+    "title": "The Primality of $2n^2 - 1$"
+  },
+  "217": {
+    "difficulty": 27,
+    "title": "Balanced Numbers"
+  },
+  "218": {
+    "difficulty": 20,
+    "title": "Perfect Right-angled Triangles"
+  },
+  "219": {
+    "difficulty": 28,
+    "title": "Skew-cost Coding"
+  },
+  "220": {
+    "difficulty": 21,
+    "title": "Heighway Dragon"
+  },
+  "221": {
+    "difficulty": 29,
+    "title": "Alexandrian Integers"
+  },
+  "222": {
+    "difficulty": 23,
+    "title": "Sphere Packing"
+  },
+  "223": {
+    "difficulty": 31,
+    "title": "Almost Right-angled Triangles I"
+  },
+  "224": {
+    "difficulty": 28,
+    "title": "Almost Right-angled Triangles II"
+  },
+  "225": {
+    "difficulty": 14,
+    "title": "Tribonacci Non-divisors"
+  },
+  "226": {
+    "difficulty": 26,
+    "title": "A Scoop of Blancmange"
+  },
+  "227": {
+    "difficulty": 29,
+    "title": "The Chase"
+  },
+  "228": {
+    "difficulty": 28,
+    "title": "Minkowski Sums"
+  },
+  "229": {
+    "difficulty": 28,
+    "title": "Four Representations Using Squares"
+  },
+  "230": {
+    "difficulty": 19,
+    "title": "Fibonacci Words"
+  },
+  "231": {
+    "difficulty": 11,
+    "title": "Prime Factorisation of Binomial Coefficients"
+  },
+  "232": {
+    "difficulty": 30,
+    "title": "The Race"
+  },
+  "233": {
+    "difficulty": 33,
+    "title": "Lattice Points on a Circle"
+  },
+  "234": {
+    "difficulty": 17,
+    "title": "Semidivisible Numbers"
+  },
+  "235": {
+    "difficulty": 13,
+    "title": "An Arithmetic Geometric Sequence"
+  },
+  "236": {
+    "difficulty": 34,
+    "title": "Luxury Hampers"
+  },
+  "237": {
+    "difficulty": 27,
+    "title": "Tours on a $4 \\times N$ Playing Board"
+  },
+  "238": {
+    "difficulty": 33,
+    "title": "Infinite String Tour"
+  },
+  "239": {
+    "difficulty": 31,
+    "title": "Twenty-two Foolish Primes"
+  },
+  "240": {
+    "difficulty": 23,
+    "title": "Top Dice"
+  },
+  "241": {
+    "difficulty": 35,
+    "title": "Perfection Quotients"
+  },
+  "242": {
+    "difficulty": 32,
+    "title": "Odd Triplets"
+  },
+  "243": {
+    "difficulty": 12,
+    "title": "Resilience"
+  },
+  "244": {
+    "difficulty": 30,
+    "title": "Sliders"
+  },
+  "245": {
+    "difficulty": 37,
+    "title": "Coresilience"
+  },
+  "246": {
+    "difficulty": 32,
+    "title": "Tangents to an Ellipse"
+  },
+  "247": {
+    "difficulty": 25,
+    "title": "Squares Under a Hyperbola"
+  },
+  "248": {
+    "difficulty": 30,
+    "title": "Euler's Totient Function Equals 13!"
+  },
+  "249": {
+    "difficulty": 24,
+    "title": "Prime Subset Sums"
+  },
+  "250": {
+    "difficulty": 23,
+    "title": "$250250$"
+  },
+  "251": {
+    "difficulty": 31,
+    "title": "Cardano Triplets"
+  },
+  "252": {
+    "difficulty": 33,
+    "title": "Convex Holes"
+  },
+  "253": {
+    "difficulty": 33,
+    "title": "Tidying Up A"
+  },
+  "254": {
+    "difficulty": 34,
+    "title": "Sums of Digit Factorials"
+  },
+  "255": {
+    "difficulty": 33,
+    "title": "Rounded Square Roots"
+  },
+  "256": {
+    "difficulty": 32,
+    "title": "Tatami-Free Rooms"
+  },
+  "257": {
+    "difficulty": 35,
+    "title": "Angular Bisectors"
+  },
+  "258": {
+    "difficulty": 28,
+    "title": "A Lagged Fibonacci Sequence"
+  },
+  "259": {
+    "difficulty": 30,
+    "title": "Reachable Numbers"
+  },
+  "260": {
+    "difficulty": 28,
+    "title": "Stone Game"
+  },
+  "261": {
+    "difficulty": 38,
+    "title": "Pivotal Square Sums"
+  },
+  "262": {
+    "difficulty": 34,
+    "title": "Mountain Range"
+  },
+  "263": {
+    "difficulty": 33,
+    "title": "An Engineers' Dream Come True"
+  },
+  "264": {
+    "difficulty": 36,
+    "title": "Triangle Centres"
+  },
+  "265": {
+    "difficulty": 14,
+    "title": "Binary Circles"
+  },
+  "266": {
+    "difficulty": 30,
+    "title": "Pseudo Square Root"
+  },
+  "267": {
+    "difficulty": 17,
+    "title": "Billionaire"
+  },
+  "268": {
+    "difficulty": 29,
+    "title": "At Least Four Distinct Prime Factors Less Than 100"
+  },
+  "269": {
+    "difficulty": 33,
+    "title": "Polynomials with at Least One Integer Root"
+  },
+  "270": {
+    "difficulty": 35,
+    "title": "Cutting Squares"
+  },
+  "271": {
+    "difficulty": 21,
+    "title": "Modular Cubes, Part 1"
+  },
+  "272": {
+    "difficulty": 34,
+    "title": "Modular Cubes, Part 2"
+  },
+  "273": {
+    "difficulty": 30,
+    "title": "Sum of Squares"
+  },
+  "274": {
+    "difficulty": 25,
+    "title": "Divisibility Multipliers"
+  },
+  "275": {
+    "difficulty": 35,
+    "title": "Balanced Sculptures"
+  },
+  "276": {
+    "difficulty": 31,
+    "title": "Primitive Triangles"
+  },
+  "277": {
+    "difficulty": 11,
+    "title": "A Modified Collatz Sequence"
+  },
+  "278": {
+    "difficulty": 21,
+    "title": "Linear Combinations of Semiprimes"
+  },
+  "279": {
+    "difficulty": 28,
+    "title": "Triangles with Integral Sides and an Integral Angle"
+  },
+  "280": {
+    "difficulty": 29,
+    "title": "Ant and Seeds"
+  },
+  "281": {
+    "difficulty": 21,
+    "title": "Pizza Toppings"
+  },
+  "282": {
+    "difficulty": 32,
+    "title": "The Ackermann Function"
+  },
+  "283": {
+    "difficulty": 34,
+    "title": "Integer Sided Triangles with Integral Area/perimeter Ratio"
+  },
+  "284": {
+    "difficulty": 24,
+    "title": "Steady Squares"
+  },
+  "285": {
+    "difficulty": 23,
+    "title": "Pythagorean Odds"
+  },
+  "286": {
+    "difficulty": 16,
+    "title": "Scoring Probabilities"
+  },
+  "287": {
+    "difficulty": 15,
+    "title": "Quadtree Encoding (a Simple Compression Algorithm)"
+  },
+  "288": {
+    "difficulty": 11,
+    "title": "An Enormous Factorial"
+  },
+  "289": {
+    "difficulty": 35,
+    "title": "Eulerian Cycles"
+  },
+  "290": {
+    "difficulty": 20,
+    "title": "Digital Signature"
+  },
+  "291": {
+    "difficulty": 20,
+    "title": "Panaitopol Primes"
+  },
+  "292": {
+    "difficulty": 29,
+    "title": "Pythagorean Polygons"
+  },
+  "293": {
+    "difficulty": 9,
+    "title": "Pseudo-Fortunate Numbers"
+  },
+  "294": {
+    "difficulty": 18,
+    "title": "Sum of Digits - Experience #23"
+  },
+  "295": {
+    "difficulty": 33,
+    "title": "Lenticular Holes"
+  },
+  "296": {
+    "difficulty": 27,
+    "title": "Angular Bisector and Tangent"
+  },
+  "297": {
+    "difficulty": 10,
+    "title": "Zeckendorf Representation"
+  },
+  "298": {
+    "difficulty": 31,
+    "title": "Selective Amnesia"
+  },
+  "299": {
+    "difficulty": 28,
+    "title": "Three Similar Triangles"
+  },
+  "300": {
+    "difficulty": 20,
+    "title": "Protein Folding"
+  },
+  "301": {
+    "difficulty": 4,
+    "title": "Nim"
+  },
+  "302": {
+    "difficulty": 27,
+    "title": "Strong Achilles Numbers"
+  },
+  "303": {
+    "difficulty": 9,
+    "title": "Multiples with Small Digits"
+  },
+  "304": {
+    "difficulty": 15,
+    "title": "Primonacci"
+  },
+  "305": {
+    "difficulty": 29,
+    "title": "Reflexive Position"
+  },
+  "306": {
+    "difficulty": 22,
+    "title": "Paper-strip Game"
+  },
+  "307": {
+    "difficulty": 17,
+    "title": "Chip Defects"
+  },
+  "308": {
+    "difficulty": 29,
+    "title": "An Amazing Prime-generating Automaton"
+  },
+  "309": {
+    "difficulty": 20,
+    "title": "Integer Ladders"
+  },
+  "310": {
+    "difficulty": 14,
+    "title": "Nim Square"
+  },
+  "311": {
+    "difficulty": 32,
+    "title": "Biclinic Integral Quadrilaterals"
+  },
+  "312": {
+    "difficulty": 19,
+    "title": "Cyclic Paths on Sierpi\u0144ski Graphs"
+  },
+  "313": {
+    "difficulty": 8,
+    "title": "Sliding Game"
+  },
+  "314": {
+    "difficulty": 36,
+    "title": "The Mouse on the Moon"
+  },
+  "315": {
+    "difficulty": 5,
+    "title": "Digital Root Clocks"
+  },
+  "316": {
+    "difficulty": 25,
+    "title": "Numbers in Decimal Expansions"
+  },
+  "317": {
+    "difficulty": 18,
+    "title": "Firecracker"
+  },
+  "318": {
+    "difficulty": 21,
+    "title": "2011 Nines"
+  },
+  "319": {
+    "difficulty": 36,
+    "title": "Bounded Sequences"
+  },
+  "320": {
+    "difficulty": 20,
+    "title": "Factorials Divisible by a Huge Integer"
+  },
+  "321": {
+    "difficulty": 10,
+    "title": "Swapping Counters"
+  },
+  "322": {
+    "difficulty": 32,
+    "title": "Binomial Coefficients Divisible by 10"
+  },
+  "323": {
+    "difficulty": 7,
+    "title": "Bitwise-OR Operations on Random Integers"
+  },
+  "324": {
+    "difficulty": 21,
+    "title": "Building a Tower"
+  },
+  "325": {
+    "difficulty": 33,
+    "title": "Stone Game II"
+  },
+  "326": {
+    "difficulty": 25,
+    "title": "Modulo Summations"
+  },
+  "327": {
+    "difficulty": 14,
+    "title": "Rooms of Doom"
+  },
+  "328": {
+    "difficulty": 36,
+    "title": "Lowest-cost Search"
+  },
+  "329": {
+    "difficulty": 10,
+    "title": "Prime Frog"
+  },
+  "330": {
+    "difficulty": 31,
+    "title": "Euler's Number"
+  },
+  "331": {
+    "difficulty": 36,
+    "title": "Cross Flips"
+  },
+  "332": {
+    "difficulty": 22,
+    "title": "Spherical Triangles"
+  },
+  "333": {
+    "difficulty": 13,
+    "title": "Special Partitions"
+  },
+  "334": {
+    "difficulty": 28,
+    "title": "Spilling the Beans"
+  },
+  "335": {
+    "difficulty": 30,
+    "title": "Gathering the Beans"
+  },
+  "336": {
+    "difficulty": 6,
+    "title": "Maximix Arrangements"
+  },
+  "337": {
+    "difficulty": 30,
+    "title": "Totient Stairstep Sequences"
+  },
+  "338": {
+    "difficulty": 37,
+    "title": "Cutting Rectangular Grid Paper"
+  },
+  "339": {
+    "difficulty": 31,
+    "title": "Peredur Fab Efrawg"
+  },
+  "340": {
+    "difficulty": 9,
+    "title": "Crazy Function"
+  },
+  "341": {
+    "difficulty": 19,
+    "title": "Golomb's Self-describing Sequence"
+  },
+  "342": {
+    "difficulty": 23,
+    "title": "The Totient of a Square Is a Cube"
+  },
+  "343": {
+    "difficulty": 11,
+    "title": "Fractional Sequences"
+  },
+  "344": {
+    "difficulty": 37,
+    "title": "Silver Dollar Game"
+  },
+  "345": {
+    "difficulty": 5,
+    "title": "Matrix Sum"
+  },
+  "346": {
+    "difficulty": 3,
+    "title": "Strong Repunits"
+  },
+  "347": {
+    "difficulty": 4,
+    "title": "Largest Integer Divisible by Two Primes"
+  },
+  "348": {
+    "difficulty": 6,
+    "title": "Sum of a Square and a Cube"
+  },
+  "349": {
+    "difficulty": 11,
+    "title": "Langton's Ant"
+  },
+  "350": {
+    "difficulty": 26,
+    "title": "Constraining the Least Greatest and the Greatest Least"
+  },
+  "351": {
+    "difficulty": 6,
+    "title": "Hexagonal Orchards"
+  },
+  "352": {
+    "difficulty": 24,
+    "title": "Blood Tests"
+  },
+  "353": {
+    "difficulty": 24,
+    "title": "Risky Moon"
+  },
+  "354": {
+    "difficulty": 31,
+    "title": "Distances in a Bee's Honeycomb"
+  },
+  "355": {
+    "difficulty": 32,
+    "title": "Maximal Coprime Subset"
+  },
+  "356": {
+    "difficulty": 30,
+    "title": "Largest Roots of Cubic Polynomials"
+  },
+  "357": {
+    "difficulty": 4,
+    "title": "Prime Generating Integers"
+  },
+  "358": {
+    "difficulty": 10,
+    "title": "Cyclic Numbers"
+  },
+  "359": {
+    "difficulty": 8,
+    "title": "Hilbert's New Hotel"
+  },
+  "360": {
+    "difficulty": 23,
+    "title": "Scary Sphere"
+  },
+  "361": {
+    "difficulty": 36,
+    "title": "Subsequence of Thue-Morse Sequence"
+  },
+  "362": {
+    "difficulty": 32,
+    "title": "Squarefree Factors"
+  },
+  "363": {
+    "difficulty": 13,
+    "title": "B\u00e9zier Curves"
+  },
+  "364": {
+    "difficulty": 23,
+    "title": "Comfortable Distance"
+  },
+  "365": {
+    "difficulty": 20,
+    "title": "A Huge Binomial Coefficient"
+  },
+  "366": {
+    "difficulty": 17,
+    "title": "Stone Game III"
+  },
+  "367": {
+    "difficulty": 26,
+    "title": "Bozo Sort"
+  },
+  "368": {
+    "difficulty": 21,
+    "title": "A Kempner-like Series"
+  },
+  "369": {
+    "difficulty": 27,
+    "title": "Badugi"
+  },
+  "370": {
+    "difficulty": 30,
+    "title": "Geometric Triangles"
+  },
+  "371": {
+    "difficulty": 21,
+    "title": "Licence Plates"
+  },
+  "372": {
+    "difficulty": 29,
+    "title": "Pencils of Rays"
+  },
+  "373": {
+    "difficulty": 34,
+    "title": "Circumscribed Circles"
+  },
+  "374": {
+    "difficulty": 15,
+    "title": "Maximum Integer Partition Product"
+  },
+  "375": {
+    "difficulty": 19,
+    "title": "Minimum of Subsequences"
+  },
+  "376": {
+    "difficulty": 31,
+    "title": "Nontransitive Sets of Dice"
+  },
+  "377": {
+    "difficulty": 20,
+    "title": "Sum of Digits - Experience #13"
+  },
+  "378": {
+    "difficulty": 12,
+    "title": "Triangle Triples"
+  },
+  "379": {
+    "difficulty": 31,
+    "title": "Least Common Multiple Count"
+  },
+  "380": {
+    "difficulty": 28,
+    "title": "Amazing Mazes!"
+  },
+  "381": {
+    "difficulty": 2,
+    "title": "$(\\text{prime}-k)$ Factorial"
+  },
+  "382": {
+    "difficulty": 29,
+    "title": "Generating Polygons"
+  },
+  "383": {
+    "difficulty": 23,
+    "title": "Divisibility Comparison Between Factorials"
+  },
+  "384": {
+    "difficulty": 31,
+    "title": "Rudin-Shapiro Sequence"
+  },
+  "385": {
+    "difficulty": 31,
+    "title": "Ellipses Inside Triangles"
+  },
+  "386": {
+    "difficulty": 17,
+    "title": "Maximum Length of an Antichain"
+  },
+  "387": {
+    "difficulty": 3,
+    "title": "Harshad Numbers"
+  },
+  "388": {
+    "difficulty": 23,
+    "title": "Distinct Lines"
+  },
+  "389": {
+    "difficulty": 11,
+    "title": "Platonic Dice"
+  },
+  "390": {
+    "difficulty": 28,
+    "title": "Triangles with Non Rational Sides and Integral Area"
+  },
+  "391": {
+    "difficulty": 34,
+    "title": "Hopping Game"
+  },
+  "392": {
+    "difficulty": 22,
+    "title": "Enmeshed Unit Circle"
+  },
+  "393": {
+    "difficulty": 21,
+    "title": "Migrating Ants"
+  },
+  "394": {
+    "difficulty": 25,
+    "title": "Eating Pie"
+  },
+  "395": {
+    "difficulty": 19,
+    "title": "Pythagorean Tree"
+  },
+  "396": {
+    "difficulty": 16,
+    "title": "Weak Goodstein Sequence"
+  },
+  "397": {
+    "difficulty": 31,
+    "title": "Triangle on Parabola"
+  },
+  "398": {
+    "difficulty": 26,
+    "title": "Cutting Rope"
+  },
+  "399": {
+    "difficulty": 19,
+    "title": "Squarefree Fibonacci Numbers"
+  },
+  "400": {
+    "difficulty": 23,
+    "title": "Fibonacci Tree Game"
+  },
+  "401": {
+    "difficulty": 8,
+    "title": "Sum of Squares of Divisors"
+  },
+  "402": {
+    "difficulty": 27,
+    "title": "Integer-valued Polynomials"
+  },
+  "403": {
+    "difficulty": 24,
+    "title": "Lattice Points Enclosed by Parabola and Line"
+  },
+  "404": {
+    "difficulty": 29,
+    "title": "Crisscross Ellipses"
+  },
+  "405": {
+    "difficulty": 16,
+    "title": "A Rectangular Tiling"
+  },
+  "406": {
+    "difficulty": 24,
+    "title": "Guessing Game"
+  },
+  "407": {
+    "difficulty": 9,
+    "title": "Idempotents"
+  },
+  "408": {
+    "difficulty": 20,
+    "title": "Admissible Paths Through a Grid"
+  },
+  "409": {
+    "difficulty": 25,
+    "title": "Nim Extreme"
+  },
+  "410": {
+    "difficulty": 32,
+    "title": "Circle and Tangent Line"
+  },
+  "411": {
+    "difficulty": 20,
+    "title": "Uphill Paths"
+  },
+  "412": {
+    "difficulty": 21,
+    "title": "Gnomon Numbering"
+  },
+  "413": {
+    "difficulty": 32,
+    "title": "One-child Numbers"
+  },
+  "414": {
+    "difficulty": 27,
+    "title": "Kaprekar Constant"
+  },
+  "415": {
+    "difficulty": 38,
+    "title": "Titanic Sets"
+  },
+  "416": {
+    "difficulty": 34,
+    "title": "A Frog's Trip"
+  },
+  "417": {
+    "difficulty": 12,
+    "title": "Reciprocal Cycles II"
+  },
+  "418": {
+    "difficulty": 20,
+    "title": "Factorisation Triples"
+  },
+  "419": {
+    "difficulty": 21,
+    "title": "Look and Say Sequence"
+  },
+  "420": {
+    "difficulty": 28,
+    "title": "$2 \\times 2$ Positive Integer Matrix"
+  },
+  "421": {
+    "difficulty": 25,
+    "title": "Prime Factors of $n^{15}+1$"
+  },
+  "422": {
+    "difficulty": 34,
+    "title": "Sequence of Points on a Hyperbola"
+  },
+  "423": {
+    "difficulty": 20,
+    "title": "Consecutive Die Throws"
+  },
+  "424": {
+    "difficulty": 26,
+    "title": "Kakuro"
+  },
+  "425": {
+    "difficulty": 8,
+    "title": "Prime Connection"
+  },
+  "426": {
+    "difficulty": 34,
+    "title": "Box-Ball System"
+  },
+  "427": {
+    "difficulty": 36,
+    "title": "$n$-sequences"
+  },
+  "428": {
+    "difficulty": 36,
+    "title": "Necklace of Circles"
+  },
+  "429": {
+    "difficulty": 4,
+    "title": "Sum of Squares of Unitary Divisors"
+  },
+  "430": {
+    "difficulty": 12,
+    "title": "Range Flips"
+  },
+  "431": {
+    "difficulty": 15,
+    "title": "Square Space Silo"
+  },
+  "432": {
+    "difficulty": 33,
+    "title": "Totient Sum"
+  },
+  "433": {
+    "difficulty": 30,
+    "title": "Steps in Euclid's Algorithm"
+  },
+  "434": {
+    "difficulty": 33,
+    "title": "Rigid Graphs"
+  },
+  "435": {
+    "difficulty": 19,
+    "title": "Polynomials of Fibonacci Numbers"
+  },
+  "436": {
+    "difficulty": 30,
+    "title": "Unfair Wager"
+  },
+  "437": {
+    "difficulty": 11,
+    "title": "Fibonacci Primitive Roots"
+  },
+  "438": {
+    "difficulty": 38,
+    "title": "Integer Part of Polynomial Equation's Solutions"
+  },
+  "439": {
+    "difficulty": 34,
+    "title": "Sum of Sum of Divisors"
+  },
+  "440": {
+    "difficulty": 27,
+    "title": "GCD and Tiling"
+  },
+  "441": {
+    "difficulty": 30,
+    "title": "The Inverse Summation of Coprime Couples"
+  },
+  "442": {
+    "difficulty": 28,
+    "title": "Eleven-free Integers"
+  },
+  "443": {
+    "difficulty": 10,
+    "title": "GCD Sequence"
+  },
+  "444": {
+    "difficulty": 28,
+    "title": "The Roundtable Lottery"
+  },
+  "445": {
+    "difficulty": 24,
+    "title": "Retractions A"
+  },
+  "446": {
+    "difficulty": 28,
+    "title": "Retractions B"
+  },
+  "447": {
+    "difficulty": 37,
+    "title": "Retractions C"
+  },
+  "448": {
+    "difficulty": 34,
+    "title": "Average Least Common Multiple"
+  },
+  "449": {
+    "difficulty": 16,
+    "title": "Chocolate Covered Candy"
+  },
+  "450": {
+    "difficulty": 38,
+    "title": "Hypocycloid and Lattice Points"
+  },
+  "451": {
+    "difficulty": 15,
+    "title": "Modular Inverses"
+  },
+  "452": {
+    "difficulty": 17,
+    "title": "Long Products"
+  },
+  "453": {
+    "difficulty": 37,
+    "title": "Lattice Quadrilaterals"
+  },
+  "454": {
+    "difficulty": 23,
+    "title": "Diophantine Reciprocals III"
+  },
+  "455": {
+    "difficulty": 16,
+    "title": "Powers with Trailing Digits"
+  },
+  "456": {
+    "difficulty": 24,
+    "title": "Triangles Containing the Origin II"
+  },
+  "457": {
+    "difficulty": 13,
+    "title": "A Polynomial Modulo the Square of a Prime"
+  },
+  "458": {
+    "difficulty": 17,
+    "title": "Permutations of Project"
+  },
+  "459": {
+    "difficulty": 37,
+    "title": "Flipping Game"
+  },
+  "460": {
+    "difficulty": 26,
+    "title": "An Ant on the Move"
+  },
+  "461": {
+    "difficulty": 13,
+    "title": "Almost Pi"
+  },
+  "462": {
+    "difficulty": 28,
+    "title": "Permutation of 3-smooth Numbers"
+  },
+  "463": {
+    "difficulty": 12,
+    "title": "A Weird Recurrence Relation"
+  },
+  "464": {
+    "difficulty": 27,
+    "title": "M\u00f6bius Function and Intervals"
+  },
+  "465": {
+    "difficulty": 36,
+    "title": "Polar Polygons"
+  },
+  "466": {
+    "difficulty": 31,
+    "title": "Distinct Terms in a Multiplication Table"
+  },
+  "467": {
+    "difficulty": 22,
+    "title": "Superinteger"
+  },
+  "468": {
+    "difficulty": 32,
+    "title": "Smooth Divisors of Binomial Coefficients"
+  },
+  "469": {
+    "difficulty": 16,
+    "title": "Empty Chairs"
+  },
+  "470": {
+    "difficulty": 31,
+    "title": "Super Ramvok"
+  },
+  "471": {
+    "difficulty": 33,
+    "title": "Triangle Inscribed in Ellipse"
+  },
+  "472": {
+    "difficulty": 29,
+    "title": "Comfortable Distance II"
+  },
+  "473": {
+    "difficulty": 12,
+    "title": "Phigital Number Base"
+  },
+  "474": {
+    "difficulty": 23,
+    "title": "Last Digits of Divisors"
+  },
+  "475": {
+    "difficulty": 21,
+    "title": "Music Festival"
+  },
+  "476": {
+    "difficulty": 19,
+    "title": "Circle Packing II"
+  },
+  "477": {
+    "difficulty": 31,
+    "title": "Number Sequence Game"
+  },
+  "478": {
+    "difficulty": 37,
+    "title": "Mixtures"
+  },
+  "479": {
+    "difficulty": 8,
+    "title": "Roots on the Rise"
+  },
+  "480": {
+    "difficulty": 20,
+    "title": "The Last Question"
+  },
+  "481": {
+    "difficulty": 32,
+    "title": "Chef Showdown"
+  },
+  "482": {
+    "difficulty": 36,
+    "title": "The Incenter of a Triangle"
+  },
+  "483": {
+    "difficulty": 38,
+    "title": "Repeated Permutation"
+  },
+  "484": {
+    "difficulty": 36,
+    "title": "Arithmetic Derivative"
+  },
+  "485": {
+    "difficulty": 9,
+    "title": "Maximum Number of Divisors"
+  },
+  "486": {
+    "difficulty": 33,
+    "title": "Palindrome-containing Strings"
+  },
+  "487": {
+    "difficulty": 17,
+    "title": "Sums of Power Sums"
+  },
+  "488": {
+    "difficulty": 35,
+    "title": "Unbalanced Nim"
+  },
+  "489": {
+    "difficulty": 37,
+    "title": "Common Factors Between Two Sequences"
+  },
+  "490": {
+    "difficulty": 36,
+    "title": "Jumping Frog"
+  },
+  "491": {
+    "difficulty": 13,
+    "title": "Double Pandigital Number Divisible by $11$"
+  },
+  "492": {
+    "difficulty": 28,
+    "title": "Exploding Sequence"
+  },
+  "493": {
+    "difficulty": 9,
+    "title": "Under the Rainbow"
+  },
+  "494": {
+    "difficulty": 38,
+    "title": "Collatz Prefix Families"
+  },
+  "495": {
+    "difficulty": 38,
+    "title": "Writing $n$ as the Product of $k$ Distinct Positive Integers"
+  },
+  "496": {
+    "difficulty": 23,
+    "title": "Incenter and Circumcenter of Triangle"
+  },
+  "497": {
+    "difficulty": 15,
+    "title": "Drunken Tower of Hanoi"
+  },
+  "498": {
+    "difficulty": 16,
+    "title": "Remainder of Polynomial Division"
+  },
+  "499": {
+    "difficulty": 38,
+    "title": "St. Petersburg Lottery"
+  },
+  "500": {
+    "difficulty": 7,
+    "title": "Problem 500!!!"
+  },
+  "501": {
+    "difficulty": 18,
+    "title": "Eight Divisors"
+  },
+  "502": {
+    "difficulty": 37,
+    "title": "Counting Castles"
+  },
+  "503": {
+    "difficulty": 29,
+    "title": "Compromise or Persist"
+  },
+  "504": {
+    "difficulty": 4,
+    "title": "Square on the Inside"
+  },
+  "505": {
+    "difficulty": 36,
+    "title": "Bidirectional Recurrence"
+  },
+  "506": {
+    "difficulty": 9,
+    "title": "Clock Sequence"
+  },
+  "507": {
+    "difficulty": 37,
+    "title": "Shortest Lattice Vector"
+  },
+  "508": {
+    "difficulty": 36,
+    "title": "Integers in Base $i-1$"
+  },
+  "509": {
+    "difficulty": 16,
+    "title": "Divisor Nim"
+  },
+  "510": {
+    "difficulty": 10,
+    "title": "Tangent Circles"
+  },
+  "511": {
+    "difficulty": 25,
+    "title": "Sequences with Nice Divisibility Properties"
+  },
+  "512": {
+    "difficulty": 8,
+    "title": "Sums of Totients of Powers"
+  },
+  "513": {
+    "difficulty": 29,
+    "title": "Integral Median"
+  },
+  "514": {
+    "difficulty": 36,
+    "title": "Geoboard Shapes"
+  },
+  "515": {
+    "difficulty": 16,
+    "title": "Dissonant Numbers"
+  },
+  "516": {
+    "difficulty": 7,
+    "title": "$5$-smooth Totients"
+  },
+  "517": {
+    "difficulty": 17,
+    "title": "A Real Recursion"
+  },
+  "518": {
+    "difficulty": 6,
+    "title": "Prime Triples and Geometric Sequences"
+  },
+  "519": {
+    "difficulty": 24,
+    "title": "Tricoloured Coin Fountains"
+  },
+  "520": {
+    "difficulty": 20,
+    "title": "Simbers"
+  },
+  "521": {
+    "difficulty": 21,
+    "title": "Smallest Prime Factor"
+  },
+  "522": {
+    "difficulty": 35,
+    "title": "Hilbert's Blackout"
+  },
+  "523": {
+    "difficulty": 10,
+    "title": "First Sort I"
+  },
+  "524": {
+    "difficulty": 35,
+    "title": "First Sort II"
+  },
+  "525": {
+    "difficulty": 20,
+    "title": "Rolling Ellipse"
+  },
+  "526": {
+    "difficulty": 30,
+    "title": "Largest Prime Factors of Consecutive Numbers"
+  },
+  "527": {
+    "difficulty": 10,
+    "title": "Randomized Binary Search"
+  },
+  "528": {
+    "difficulty": 26,
+    "title": "Constrained Sums"
+  },
+  "529": {
+    "difficulty": 36,
+    "title": "$10$-substrings"
+  },
+  "530": {
+    "difficulty": 27,
+    "title": "GCD of Divisors"
+  },
+  "531": {
+    "difficulty": 7,
+    "title": "Chinese Leftovers"
+  },
+  "532": {
+    "difficulty": 26,
+    "title": "Nanobots on Geodesics"
+  },
+  "533": {
+    "difficulty": 22,
+    "title": "Minimum Values of the Carmichael Function"
+  },
+  "534": {
+    "difficulty": 25,
+    "title": "Weak Queens"
+  },
+  "535": {
+    "difficulty": 26,
+    "title": "Fractal Sequence"
+  },
+  "536": {
+    "difficulty": 27,
+    "title": "Modulo Power Identity"
+  },
+  "537": {
+    "difficulty": 12,
+    "title": "Counting Tuples"
+  },
+  "538": {
+    "difficulty": 17,
+    "title": "Maximum Quadrilaterals"
+  },
+  "539": {
+    "difficulty": 11,
+    "title": "Odd Elimination"
+  },
+  "540": {
+    "difficulty": 13,
+    "title": "Counting Primitive Pythagorean Triples"
+  },
+  "541": {
+    "difficulty": 37,
+    "title": "Divisibility of Harmonic Number Denominators"
+  },
+  "542": {
+    "difficulty": 31,
+    "title": "Geometric Progression with Maximum Sum"
+  },
+  "543": {
+    "difficulty": 11,
+    "title": "Prime-Sum Numbers"
+  },
+  "544": {
+    "difficulty": 35,
+    "title": "Chromatic Conundrum"
+  },
+  "545": {
+    "difficulty": 11,
+    "title": "Faulhaber's Formulas"
+  },
+  "546": {
+    "difficulty": 35,
+    "title": "The Floor's Revenge"
+  },
+  "547": {
+    "difficulty": 33,
+    "title": "Distance of Random Points Within Hollow Square Laminae"
+  },
+  "548": {
+    "difficulty": 15,
+    "title": "Gozinta Chains"
+  },
+  "549": {
+    "difficulty": 5,
+    "title": "Divisibility of Factorials"
+  },
+  "550": {
+    "difficulty": 27,
+    "title": "Divisor Game"
+  },
+  "551": {
+    "difficulty": 23,
+    "title": "Sum of Digits Sequence"
+  },
+  "552": {
+    "difficulty": 18,
+    "title": "Chinese Leftovers II"
+  },
+  "553": {
+    "difficulty": 35,
+    "title": "Power Sets of Power Sets"
+  },
+  "554": {
+    "difficulty": 34,
+    "title": "Centaurs on a Chess Board"
+  },
+  "555": {
+    "difficulty": 10,
+    "title": "McCarthy 91 Function"
+  },
+  "556": {
+    "difficulty": 35,
+    "title": "Squarefree Gaussian Integers"
+  },
+  "557": {
+    "difficulty": 25,
+    "title": "Cutting Triangles"
+  },
+  "558": {
+    "difficulty": 29,
+    "title": "Irrational Base"
+  },
+  "559": {
+    "difficulty": 37,
+    "title": "Permuted Matrices"
+  },
+  "560": {
+    "difficulty": 32,
+    "title": "Coprime Nim"
+  },
+  "561": {
+    "difficulty": 10,
+    "title": "Divisor Pairs"
+  },
+  "562": {
+    "difficulty": 34,
+    "title": "Maximal Perimeter"
+  },
+  "563": {
+    "difficulty": 19,
+    "title": "Robot Welders"
+  },
+  "564": {
+    "difficulty": 26,
+    "title": "Maximal Polygons"
+  },
+  "565": {
+    "difficulty": 14,
+    "title": "Divisibility of Sum of Divisors"
+  },
+  "566": {
+    "difficulty": 38,
+    "title": "Cake Icing Puzzle"
+  },
+  "567": {
+    "difficulty": 24,
+    "title": "Reciprocal Games I"
+  },
+  "568": {
+    "difficulty": 24,
+    "title": "Reciprocal Games II"
+  },
+  "569": {
+    "difficulty": 19,
+    "title": "Prime Mountain Range"
+  },
+  "570": {
+    "difficulty": 25,
+    "title": "Snowflakes"
+  },
+  "571": {
+    "difficulty": 8,
+    "title": "Super Pandigital Numbers"
+  },
+  "572": {
+    "difficulty": 22,
+    "title": "Idempotent Matrices"
+  },
+  "573": {
+    "difficulty": 34,
+    "title": "Unfair Race"
+  },
+  "574": {
+    "difficulty": 23,
+    "title": "Verifying Primes"
+  },
+  "575": {
+    "difficulty": 18,
+    "title": "Wandering Robots"
+  },
+  "576": {
+    "difficulty": 26,
+    "title": "Irrational Jumps"
+  },
+  "577": {
+    "difficulty": 6,
+    "title": "Counting Hexagons"
+  },
+  "578": {
+    "difficulty": 33,
+    "title": "Integers with Decreasing Prime Powers"
+  },
+  "579": {
+    "difficulty": 38,
+    "title": "Lattice Points in Lattice Cubes"
+  },
+  "580": {
+    "difficulty": 33,
+    "title": "Squarefree Hilbert Numbers"
+  },
+  "581": {
+    "difficulty": 13,
+    "title": "$47$-smooth Triangular Numbers"
+  },
+  "582": {
+    "difficulty": 22,
+    "title": "Nearly Isosceles $120$ Degree Triangles"
+  },
+  "583": {
+    "difficulty": 20,
+    "title": "Heron Envelopes"
+  },
+  "584": {
+    "difficulty": 38,
+    "title": "Birthday Problem Revisited"
+  },
+  "585": {
+    "difficulty": 38,
+    "title": "Nested Square Roots"
+  },
+  "586": {
+    "difficulty": 33,
+    "title": "Binary Quadratic Form"
+  },
+  "587": {
+    "difficulty": 4,
+    "title": "Concave Triangle"
+  },
+  "588": {
+    "difficulty": 15,
+    "title": "Quintinomial Coefficients"
+  },
+  "589": {
+    "difficulty": 37,
+    "title": "Poohsticks Marathon"
+  },
+  "590": {
+    "difficulty": 29,
+    "title": "Sets with a Given Least Common Multiple"
+  },
+  "591": {
+    "difficulty": 38,
+    "title": "Best Approximations by Quadratic Integers"
+  },
+  "592": {
+    "difficulty": 29,
+    "title": "Factorial Trailing Digits 2"
+  },
+  "593": {
+    "difficulty": 11,
+    "title": "Fleeting Medians"
+  },
+  "594": {
+    "difficulty": 35,
+    "title": "Rhombus Tilings"
+  },
+  "595": {
+    "difficulty": 11,
+    "title": "Incremental Random Sort"
+  },
+  "596": {
+    "difficulty": 21,
+    "title": "Number of Lattice Points in a Hyperball"
+  },
+  "597": {
+    "difficulty": 38,
+    "title": "Torpids"
+  },
+  "598": {
+    "difficulty": 16,
+    "title": "Split Divisibilities"
+  },
+  "599": {
+    "difficulty": 28,
+    "title": "Distinct Colourings of a Rubik's Cube"
+  },
+  "600": {
+    "difficulty": 11,
+    "title": "Integer Sided Equiangular Hexagons"
+  },
+  "601": {
+    "difficulty": 6,
+    "title": "Divisibility Streaks"
+  },
+  "602": {
+    "difficulty": 12,
+    "title": "Product of Head Counts"
+  },
+  "603": {
+    "difficulty": 19,
+    "title": "Substring Sums of Prime Concatenations"
+  },
+  "604": {
+    "difficulty": 16,
+    "title": "Convex Path in Square"
+  },
+  "605": {
+    "difficulty": 7,
+    "title": "Pairwise Coin-Tossing Game"
+  },
+  "606": {
+    "difficulty": 21,
+    "title": "Gozinta Chains II"
+  },
+  "607": {
+    "difficulty": 8,
+    "title": "Marsh Crossing"
+  },
+  "608": {
+    "difficulty": 35,
+    "title": "Divisor Sums"
+  },
+  "609": {
+    "difficulty": 6,
+    "title": "$\\pi$ Sequences"
+  },
+  "610": {
+    "difficulty": 14,
+    "title": "Roman Numerals II"
+  },
+  "611": {
+    "difficulty": 26,
+    "title": "Hallway of Square Steps"
+  },
+  "612": {
+    "difficulty": 9,
+    "title": "Friend Numbers"
+  },
+  "613": {
+    "difficulty": 15,
+    "title": "Pythagorean Ant"
+  },
+  "614": {
+    "difficulty": 26,
+    "title": "Special Partitions 2"
+  },
+  "615": {
+    "difficulty": 14,
+    "title": "The Millionth Number with at Least One Million Prime Factors"
+  },
+  "616": {
+    "difficulty": 25,
+    "title": "Creative Numbers"
+  },
+  "617": {
+    "difficulty": 15,
+    "title": "Mirror Power Sequence"
+  },
+  "618": {
+    "difficulty": 7,
+    "title": "Numbers with a Given Prime Factor Sum"
+  },
+  "619": {
+    "difficulty": 18,
+    "title": "Square Subsets"
+  },
+  "620": {
+    "difficulty": 35,
+    "title": "Planetary Gears"
+  },
+  "621": {
+    "difficulty": 12,
+    "title": "Expressing an Integer as the Sum of Triangular Numbers"
+  },
+  "622": {
+    "difficulty": 11,
+    "title": "Riffle Shuffles"
+  },
+  "623": {
+    "difficulty": 20,
+    "title": "Lambda Count"
+  },
+  "624": {
+    "difficulty": 10,
+    "title": "Two Heads Are Better Than One"
+  },
+  "625": {
+    "difficulty": 12,
+    "title": "Gcd Sum"
+  },
+  "626": {
+    "difficulty": 31,
+    "title": "Counting Binary Matrices"
+  },
+  "627": {
+    "difficulty": 28,
+    "title": "Counting Products"
+  },
+  "628": {
+    "difficulty": 9,
+    "title": "Open Chess Positions"
+  },
+  "629": {
+    "difficulty": 26,
+    "title": "Scatterstone Nim"
+  },
+  "630": {
+    "difficulty": 5,
+    "title": "Crossed Lines"
+  },
+  "631": {
+    "difficulty": 31,
+    "title": "Constrained Permutations"
+  },
+  "632": {
+    "difficulty": 14,
+    "title": "Square Prime Factors"
+  },
+  "633": {
+    "difficulty": 22,
+    "title": "Square Prime Factors II"
+  },
+  "634": {
+    "difficulty": 15,
+    "title": "Numbers of the Form $a^2b^3$"
+  },
+  "635": {
+    "difficulty": 16,
+    "title": "Subset Sums"
+  },
+  "636": {
+    "difficulty": 36,
+    "title": "Restricted Factorisations"
+  },
+  "637": {
+    "difficulty": 19,
+    "title": "Flexible Digit Sum"
+  },
+  "638": {
+    "difficulty": 15,
+    "title": "Weighted Lattice Paths"
+  },
+  "639": {
+    "difficulty": 31,
+    "title": "Summing a Multiplicative Function"
+  },
+  "640": {
+    "difficulty": 22,
+    "title": "Shut the Box"
+  },
+  "641": {
+    "difficulty": 18,
+    "title": "A Long Row of Dice"
+  },
+  "642": {
+    "difficulty": 19,
+    "title": "Sum of Largest Prime Factors"
+  },
+  "643": {
+    "difficulty": 7,
+    "title": "$2$-Friendly"
+  },
+  "644": {
+    "difficulty": 37,
+    "title": "Squares on the Line"
+  },
+  "645": {
+    "difficulty": 33,
+    "title": "Every Day Is a Holiday"
+  },
+  "646": {
+    "difficulty": 17,
+    "title": "Bounded Divisors"
+  },
+  "647": {
+    "difficulty": 10,
+    "title": "Linear Transformations of Polygonal Numbers"
+  },
+  "648": {
+    "difficulty": 19,
+    "title": "Skipping Squares"
+  },
+  "649": {
+    "difficulty": 10,
+    "title": "Low-Prime Chessboard Nim"
+  },
+  "650": {
+    "difficulty": 3,
+    "title": "Divisors of Binomial Product"
+  },
+  "651": {
+    "difficulty": 32,
+    "title": "Patterned Cylinders"
+  },
+  "652": {
+    "difficulty": 32,
+    "title": "Distinct Values of a Proto-logarithmic Function"
+  },
+  "653": {
+    "difficulty": 20,
+    "title": "Frictionless Tube"
+  },
+  "654": {
+    "difficulty": 21,
+    "title": "Neighbourly Constraints"
+  },
+  "655": {
+    "difficulty": 14,
+    "title": "Divisible Palindromes"
+  },
+  "656": {
+    "difficulty": 20,
+    "title": "Palindromic Sequences"
+  },
+  "657": {
+    "difficulty": 9,
+    "title": "Incomplete Words"
+  },
+  "658": {
+    "difficulty": 26,
+    "title": "Incomplete Words II"
+  },
+  "659": {
+    "difficulty": 9,
+    "title": "Largest Prime"
+  },
+  "660": {
+    "difficulty": 15,
+    "title": "Pandigital Triangles"
+  },
+  "661": {
+    "difficulty": 26,
+    "title": "A Long Chess Match"
+  },
+  "662": {
+    "difficulty": 9,
+    "title": "Fibonacci Paths"
+  },
+  "663": {
+    "difficulty": 12,
+    "title": "Sums of Subarrays"
+  },
+  "664": {
+    "difficulty": 30,
+    "title": "An Infinite Game"
+  },
+  "665": {
+    "difficulty": 24,
+    "title": "Proportionate Nim"
+  },
+  "666": {
+    "difficulty": 18,
+    "title": "Polymorphic Bacteria"
+  },
+  "667": {
+    "difficulty": 35,
+    "title": "Moving Pentagon"
+  },
+  "668": {
+    "difficulty": 9,
+    "title": "Square Root Smooth Numbers"
+  },
+  "669": {
+    "difficulty": 19,
+    "title": "The King's Banquet"
+  },
+  "670": {
+    "difficulty": 17,
+    "title": "Colouring a Strip"
+  },
+  "671": {
+    "difficulty": 35,
+    "title": "Colouring a Loop"
+  },
+  "672": {
+    "difficulty": 24,
+    "title": "One More One"
+  },
+  "673": {
+    "difficulty": 14,
+    "title": "Beds and Desks"
+  },
+  "674": {
+    "difficulty": 34,
+    "title": "Solving $\\mathcal{I}$-equations"
+  },
+  "675": {
+    "difficulty": 7,
+    "title": "$2^{\\omega(n)}$"
+  },
+  "676": {
+    "difficulty": 24,
+    "title": "Matching Digit Sums"
+  },
+  "677": {
+    "difficulty": 35,
+    "title": "Coloured Graphs"
+  },
+  "678": {
+    "difficulty": 26,
+    "title": "Fermat-like Equations"
+  },
+  "679": {
+    "difficulty": 5,
+    "title": "Freefarea"
+  },
+  "680": {
+    "difficulty": 29,
+    "title": "Yarra Gnisrever"
+  },
+  "681": {
+    "difficulty": 24,
+    "title": "Maximal Area"
+  },
+  "682": {
+    "difficulty": 23,
+    "title": "$5$-Smooth Pairs"
+  },
+  "683": {
+    "difficulty": 20,
+    "title": "The Chase II"
+  },
+  "684": {
+    "difficulty": 14,
+    "title": "Inverse Digit Sum"
+  },
+  "685": {
+    "difficulty": 30,
+    "title": "Inverse Digit Sum II"
+  },
+  "686": {
+    "difficulty": 3,
+    "title": "Powers of Two"
+  },
+  "687": {
+    "difficulty": 19,
+    "title": "Shuffling Cards"
+  },
+  "688": {
+    "difficulty": 6,
+    "title": "Piles of Plates"
+  },
+  "689": {
+    "difficulty": 32,
+    "title": "Binary Series"
+  },
+  "690": {
+    "difficulty": 29,
+    "title": "Tom and Jerry"
+  },
+  "691": {
+    "difficulty": 17,
+    "title": "Long Substring with Many Repetitions"
+  },
+  "692": {
+    "difficulty": 3,
+    "title": "Siegbert and Jo"
+  },
+  "693": {
+    "difficulty": 17,
+    "title": "Finite Sequence Generator"
+  },
+  "694": {
+    "difficulty": 5,
+    "title": "Cube-full Divisors"
+  },
+  "695": {
+    "difficulty": 32,
+    "title": "Random Rectangles"
+  },
+  "696": {
+    "difficulty": 38,
+    "title": "Mahjong"
+  },
+  "697": {
+    "difficulty": 11,
+    "title": "Randomly Decaying Sequence"
+  },
+  "698": {
+    "difficulty": 10,
+    "title": "123 Numbers"
+  },
+  "699": {
+    "difficulty": 34,
+    "title": "Triffle Numbers"
+  },
+  "700": {
+    "difficulty": 19,
+    "title": "Eulercoin"
+  },
+  "701": {
+    "difficulty": 18,
+    "title": "Random Connected Area"
+  },
+  "702": {
+    "difficulty": 37,
+    "title": "Jumping Flea"
+  },
+  "703": {
+    "difficulty": 18,
+    "title": "Circular Logic II"
+  },
+  "704": {
+    "difficulty": 5,
+    "title": "Factors of Two in Binomial Coefficients"
+  },
+  "705": {
+    "difficulty": 8,
+    "title": "Total Inversion Count of Divided Sequences"
+  },
+  "706": {
+    "difficulty": 6,
+    "title": "$3$-Like Numbers"
+  },
+  "707": {
+    "difficulty": 26,
+    "title": "Lights Out"
+  },
+  "708": {
+    "difficulty": 23,
+    "title": "Twos Are All You Need"
+  },
+  "709": {
+    "difficulty": 5,
+    "title": "Even Stevens"
+  },
+  "710": {
+    "difficulty": 5,
+    "title": "One Million Members"
+  },
+  "711": {
+    "difficulty": 12,
+    "title": "Binary Blackboard"
+  },
+  "712": {
+    "difficulty": 9,
+    "title": "Exponent Difference"
+  },
+  "713": {
+    "difficulty": 5,
+    "title": "Tur\u00e1n's Water Heating System"
+  },
+  "714": {
+    "difficulty": 6,
+    "title": "Duodigits"
+  },
+  "715": {
+    "difficulty": 30,
+    "title": "Sextuplet Norms"
+  },
+  "716": {
+    "difficulty": 19,
+    "title": "Grid Graphs"
+  },
+  "717": {
+    "difficulty": 7,
+    "title": "Summation of a Modular Formula"
+  },
+  "718": {
+    "difficulty": 13,
+    "title": "Unreachable Numbers"
+  },
+  "719": {
+    "difficulty": 3,
+    "title": "Number Splitting"
+  },
+  "720": {
+    "difficulty": 12,
+    "title": "Unpredictable Permutations"
+  },
+  "721": {
+    "difficulty": 10,
+    "title": "High Powers of Irrational Numbers"
+  },
+  "722": {
+    "difficulty": 12,
+    "title": "Slowly Converging Series"
+  },
+  "723": {
+    "difficulty": 30,
+    "title": "Pythagorean Quadrilaterals"
+  },
+  "724": {
+    "difficulty": 12,
+    "title": "Drone Delivery"
+  },
+  "725": {
+    "difficulty": 5,
+    "title": "Digit Sum Numbers"
+  },
+  "726": {
+    "difficulty": 21,
+    "title": "Falling Bottles"
+  },
+  "727": {
+    "difficulty": 8,
+    "title": "Triangle of Circular Arcs"
+  },
+  "728": {
+    "difficulty": 15,
+    "title": "Circle of Coins"
+  },
+  "729": {
+    "difficulty": 32,
+    "title": "Range of Periodic Sequence"
+  },
+  "730": {
+    "difficulty": 30,
+    "title": "Shifted Pythagorean Triples"
+  },
+  "731": {
+    "difficulty": 6,
+    "title": "A Stoneham Number"
+  },
+  "732": {
+    "difficulty": 16,
+    "title": "Standing on the Shoulders of Trolls"
+  },
+  "733": {
+    "difficulty": 8,
+    "title": "Ascending Subsequences"
+  },
+  "734": {
+    "difficulty": 12,
+    "title": "A Bit of Prime"
+  },
+  "735": {
+    "difficulty": 30,
+    "title": "Divisors of $2n^2$"
+  },
+  "736": {
+    "difficulty": 21,
+    "title": "Paths to Equality"
+  },
+  "737": {
+    "difficulty": 11,
+    "title": "Coin Loops"
+  },
+  "738": {
+    "difficulty": 14,
+    "title": "Counting Ordered Factorisations"
+  },
+  "739": {
+    "difficulty": 7,
+    "title": "Summation of Summations"
+  },
+  "740": {
+    "difficulty": 24,
+    "title": "Secret Santa"
+  },
+  "741": {
+    "difficulty": 35,
+    "title": "Binary Grid Colouring"
+  },
+  "742": {
+    "difficulty": 34,
+    "title": "Minimum Area of a Convex Grid Polygon"
+  },
+  "743": {
+    "difficulty": 4,
+    "title": "Window into a Matrix"
+  },
+  "744": {
+    "difficulty": 17,
+    "title": "What? Where? When?"
+  },
+  "745": {
+    "difficulty": 4,
+    "title": "Sum of Squares II"
+  },
+  "746": {
+    "difficulty": 14,
+    "title": "A Messy Dinner"
+  },
+  "747": {
+    "difficulty": 29,
+    "title": "Triangular Pizza"
+  },
+  "748": {
+    "difficulty": 15,
+    "title": "Upside Down Diophantine Equation"
+  },
+  "749": {
+    "difficulty": 5,
+    "title": "Near Power Sums"
+  },
+  "750": {
+    "difficulty": 15,
+    "title": "Optimal Card Stacking"
+  },
+  "751": {
+    "difficulty": 3,
+    "title": "Concatenation Coincidence"
+  },
+  "752": {
+    "difficulty": 9,
+    "title": "Powers of $1+\\sqrt 7$"
+  },
+  "753": {
+    "difficulty": 15,
+    "title": "Fermat Equation"
+  },
+  "754": {
+    "difficulty": 11,
+    "title": "Product of Gauss Factorials"
+  },
+  "755": {
+    "difficulty": 4,
+    "title": "Not Zeckendorf"
+  },
+  "756": {
+    "difficulty": 12,
+    "title": "Approximating a Sum"
+  },
+  "757": {
+    "difficulty": 3,
+    "title": "Stealthy Numbers"
+  },
+  "758": {
+    "difficulty": 22,
+    "title": "Buckets of Water"
+  },
+  "759": {
+    "difficulty": 8,
+    "title": "A Squared Recurrence Relation"
+  },
+  "760": {
+    "difficulty": 11,
+    "title": "Sum over Bitwise Operators"
+  },
+  "761": {
+    "difficulty": 36,
+    "title": "Runner and Swimmer"
+  },
+  "762": {
+    "difficulty": 22,
+    "title": "Amoebas in a 2D Grid"
+  },
+  "763": {
+    "difficulty": 38,
+    "title": "Amoebas in a 3D Grid"
+  },
+  "764": {
+    "difficulty": 15,
+    "title": "Asymmetric Diophantine Equation"
+  },
+  "765": {
+    "difficulty": 31,
+    "title": "Trillionaire"
+  },
+  "766": {
+    "difficulty": 14,
+    "title": "Sliding Block Puzzle"
+  },
+  "767": {
+    "difficulty": 27,
+    "title": "Window into a Matrix II"
+  },
+  "768": {
+    "difficulty": 38,
+    "title": "Chandelier"
+  },
+  "769": {
+    "difficulty": 36,
+    "title": "Binary Quadratic Form II"
+  },
+  "770": {
+    "difficulty": 10,
+    "title": "Delphi Flip"
+  },
+  "771": {
+    "difficulty": 35,
+    "title": "Pseudo Geometric Sequences"
+  },
+  "772": {
+    "difficulty": 5,
+    "title": "Balanceable $k$-bounded Partitions"
+  },
+  "773": {
+    "difficulty": 22,
+    "title": "Ruff Numbers"
+  },
+  "774": {
+    "difficulty": 36,
+    "title": "Conjunctive Sequences"
+  },
+  "775": {
+    "difficulty": 16,
+    "title": "Saving Paper"
+  },
+  "776": {
+    "difficulty": 8,
+    "title": "Digit Sum Division"
+  },
+  "777": {
+    "difficulty": 37,
+    "title": "Lissajous Curves"
+  },
+  "778": {
+    "difficulty": 9,
+    "title": "Freshman's Product"
+  },
+  "779": {
+    "difficulty": 7,
+    "title": "Prime Factor and Exponent"
+  },
+  "780": {
+    "difficulty": 38,
+    "title": "Toriangulations"
+  },
+  "781": {
+    "difficulty": 37,
+    "title": "Feynman Diagrams"
+  },
+  "782": {
+    "difficulty": 31,
+    "title": "Distinct Rows and Columns"
+  },
+  "783": {
+    "difficulty": 24,
+    "title": "Urns"
+  },
+  "784": {
+    "difficulty": 9,
+    "title": "Reciprocal Pairs"
+  },
+  "785": {
+    "difficulty": 27,
+    "title": "Symmetric Diophantine Equation"
+  },
+  "786": {
+    "difficulty": 38,
+    "title": "Billiard"
+  },
+  "787": {
+    "difficulty": 18,
+    "title": "B\u00e9zout's Game"
+  },
+  "788": {
+    "difficulty": 3,
+    "title": "Dominating Numbers"
+  },
+  "789": {
+    "difficulty": 27,
+    "title": "Minimal Pairing Modulo $p$"
+  },
+  "790": {
+    "difficulty": 19,
+    "title": "Clock Grid"
+  },
+  "791": {
+    "difficulty": 27,
+    "title": "Average and Variance"
+  },
+  "792": {
+    "difficulty": 38,
+    "title": "Too Many Twos"
+  },
+  "793": {
+    "difficulty": 8,
+    "title": "Median of Products"
+  },
+  "794": {
+    "difficulty": 16,
+    "title": "Seventeen Points"
+  },
+  "795": {
+    "difficulty": 10,
+    "title": "Alternating GCD Sum"
+  },
+  "796": {
+    "difficulty": 25,
+    "title": "A Grand Shuffle"
+  },
+  "797": {
+    "difficulty": 23,
+    "title": "Cyclogenic Polynomials"
+  },
+  "798": {
+    "difficulty": 38,
+    "title": "Card Stacking Game"
+  },
+  "799": {
+    "difficulty": 23,
+    "title": "Pentagonal Puzzle"
+  },
+  "800": {
+    "difficulty": 4,
+    "title": "Hybrid Integers"
+  },
+  "801": {
+    "difficulty": 21,
+    "title": "$x^y \\equiv y^x$"
+  },
+  "802": {
+    "difficulty": 17,
+    "title": "Iterated Composition"
+  },
+  "803": {
+    "difficulty": 25,
+    "title": "Pseudorandom Sequence"
+  },
+  "804": {
+    "difficulty": 10,
+    "title": "Counting Binary Quadratic Representations"
+  },
+  "805": {
+    "difficulty": 27,
+    "title": "Shifted Multiples"
+  },
+  "806": {
+    "difficulty": 37,
+    "title": "Nim on Towers of Hanoi"
+  },
+  "807": {
+    "difficulty": 37,
+    "title": "Loops of Ropes"
+  },
+  "808": {
+    "difficulty": 3,
+    "title": "Reversible Prime Squares"
+  },
+  "809": {
+    "difficulty": 13,
+    "title": "Rational Recurrence Relation"
+  },
+  "810": {
+    "difficulty": 7,
+    "title": "XOR-Primes"
+  },
+  "811": {
+    "difficulty": 18,
+    "title": "Bitwise Recursion"
+  },
+  "812": {
+    "difficulty": 38,
+    "title": "Dynamical Polynomials"
+  },
+  "813": {
+    "difficulty": 9,
+    "title": "XOR-Powers"
+  },
+  "814": {
+    "difficulty": 21,
+    "title": "Mezzo-forte"
+  },
+  "815": {
+    "difficulty": 11,
+    "title": "Group by Value"
+  },
+  "816": {
+    "difficulty": 5,
+    "title": "Shortest Distance Among Points"
+  },
+  "817": {
+    "difficulty": 8,
+    "title": "Digits in Squares"
+  },
+  "818": {
+    "difficulty": 36,
+    "title": "SET"
+  },
+  "819": {
+    "difficulty": 20,
+    "title": "Iterative Sampling"
+  },
+  "820": {
+    "difficulty": 2,
+    "title": "$N$<sup>th</sup> Digit of Reciprocals"
+  },
+  "821": {
+    "difficulty": 33,
+    "title": "123-Separable"
+  },
+  "822": {
+    "difficulty": 8,
+    "title": "Square the Smallest"
+  },
+  "823": {
+    "difficulty": 24,
+    "title": "Factor Shuffle"
+  },
+  "824": {
+    "difficulty": 38,
+    "title": "Chess Sliders"
+  },
+  "825": {
+    "difficulty": 27,
+    "title": "Chasing Game"
+  },
+  "826": {
+    "difficulty": 19,
+    "title": "Birds on a Wire"
+  },
+  "827": {
+    "difficulty": 22,
+    "title": "Pythagorean Triple Occurrence"
+  },
+  "828": {
+    "difficulty": 5,
+    "title": "Numbers Challenge"
+  },
+  "829": {
+    "difficulty": 21,
+    "title": "Integral Fusion"
+  },
+  "830": {
+    "difficulty": 33,
+    "title": "Binomials and Powers"
+  },
+  "831": {
+    "difficulty": 28,
+    "title": "Triple Product"
+  },
+  "832": {
+    "difficulty": 10,
+    "title": "Mex Sequence"
+  },
+  "833": {
+    "difficulty": 30,
+    "title": "Square Triangle Products"
+  },
+  "834": {
+    "difficulty": 8,
+    "title": "Add and Divide"
+  },
+  "835": {
+    "difficulty": 9,
+    "title": "Supernatural Triangles"
+  },
+  "836": {
+    "difficulty": 0,
+    "title": "A Bold Proposition"
+  },
+  "837": {
+    "difficulty": 24,
+    "title": "Amidakuji"
+  },
+  "838": {
+    "difficulty": 17,
+    "title": "Not Coprime"
+  },
+  "839": {
+    "difficulty": 10,
+    "title": "Beans in Bowls"
+  },
+  "840": {
+    "difficulty": 6,
+    "title": "Sum of Products"
+  },
+  "841": {
+    "difficulty": 19,
+    "title": "Regular Star Polygons"
+  },
+  "842": {
+    "difficulty": 33,
+    "title": "Irregular Star Polygons"
+  },
+  "843": {
+    "difficulty": 35,
+    "title": "Periodic Circles"
+  },
+  "844": {
+    "difficulty": 17,
+    "title": "$k$-Markov Numbers"
+  },
+  "845": {
+    "difficulty": 3,
+    "title": "Prime Digit Sum"
+  },
+  "846": {
+    "difficulty": 21,
+    "title": "Magic Bracelets"
+  },
+  "847": {
+    "difficulty": 35,
+    "title": "Jack's Bean"
+  },
+  "848": {
+    "difficulty": 20,
+    "title": "Guessing with Sets"
+  },
+  "849": {
+    "difficulty": 19,
+    "title": "The Tournament"
+  },
+  "850": {
+    "difficulty": 34,
+    "title": "Fractions of Powers"
+  },
+  "851": {
+    "difficulty": 36,
+    "title": "SOP and POS"
+  },
+  "852": {
+    "difficulty": 22,
+    "title": "Coins in a Box"
+  },
+  "853": {
+    "difficulty": 9,
+    "title": "Pisano Periods 1"
+  },
+  "854": {
+    "difficulty": 18,
+    "title": "Pisano Periods 2"
+  },
+  "855": {
+    "difficulty": 30,
+    "title": "Delphi Paper"
+  },
+  "856": {
+    "difficulty": 13,
+    "title": "Waiting for a Pair"
+  },
+  "857": {
+    "difficulty": 26,
+    "title": "Beautiful Graphs"
+  },
+  "858": {
+    "difficulty": 23,
+    "title": "LCM"
+  },
+  "859": {
+    "difficulty": 25,
+    "title": "Cookie Game"
+  },
+  "860": {
+    "difficulty": 7,
+    "title": "Gold and Silver Coin Game"
+  },
+  "861": {
+    "difficulty": 18,
+    "title": "Products of Bi-Unitary Divisors"
+  },
+  "862": {
+    "difficulty": 4,
+    "title": "Larger Digit Permutation"
+  },
+  "863": {
+    "difficulty": 12,
+    "title": "Different Dice"
+  },
+  "864": {
+    "difficulty": 30,
+    "title": "Square + 1 = Squarefree"
+  },
+  "865": {
+    "difficulty": 13,
+    "title": "Triplicate Numbers"
+  },
+  "866": {
+    "difficulty": 5,
+    "title": "Tidying Up B"
+  },
+  "867": {
+    "difficulty": 25,
+    "title": "Tiling Dodecagon"
+  },
+  "868": {
+    "difficulty": 5,
+    "title": "Belfry Maths"
+  },
+  "869": {
+    "difficulty": 4,
+    "title": "Prime Guessing"
+  },
+  "870": {
+    "difficulty": 28,
+    "title": "Stone Game IV"
+  },
+  "871": {
+    "difficulty": 9,
+    "title": "Drifting Subsets"
+  },
+  "872": {
+    "difficulty": 3,
+    "title": "Recursive Tree"
+  },
+  "873": {
+    "difficulty": 9,
+    "title": "Words with Gaps"
+  },
+  "874": {
+    "difficulty": 22,
+    "title": "Maximal Prime Score"
+  },
+  "875": {
+    "difficulty": 13,
+    "title": "Quadruple Congruence"
+  },
+  "876": {
+    "difficulty": 36,
+    "title": "Triplet Tricks"
+  },
+  "877": {
+    "difficulty": 6,
+    "title": "XOR-Equation A"
+  },
+  "878": {
+    "difficulty": 15,
+    "title": "XOR-Equation B"
+  },
+  "879": {
+    "difficulty": 7,
+    "title": "Touch-screen Password"
+  },
+  "880": {
+    "difficulty": 35,
+    "title": "Nested Radicals"
+  },
+  "881": {
+    "difficulty": 7,
+    "title": "Divisor Graph Width"
+  },
+  "882": {
+    "difficulty": 33,
+    "title": "Removing Bits"
+  },
+  "883": {
+    "difficulty": 36,
+    "title": "Remarkable Triangles"
+  },
+  "884": {
+    "difficulty": 8,
+    "title": "Removing Cubes"
+  },
+  "885": {
+    "difficulty": 4,
+    "title": "Sorted Digits"
+  },
+  "886": {
+    "difficulty": 17,
+    "title": "Coprime Permutations"
+  },
+  "887": {
+    "difficulty": 10,
+    "title": "Bounded Binary Search"
+  },
+  "888": {
+    "difficulty": 20,
+    "title": "1249 Nim"
+  },
+  "889": {
+    "difficulty": 32,
+    "title": "Rational Blancmange"
+  },
+  "890": {
+    "difficulty": 25,
+    "title": "Binary Partitions"
+  },
+  "891": {
+    "difficulty": 32,
+    "title": "Ambiguous Clock"
+  },
+  "892": {
+    "difficulty": 28,
+    "title": "Zebra Circles"
+  },
+  "893": {
+    "difficulty": 18,
+    "title": "Matchsticks"
+  },
+  "894": {
+    "difficulty": 15,
+    "title": "Spiral of Circles"
+  },
+  "895": {
+    "difficulty": 37,
+    "title": "Gold & Silver Coin Game II"
+  },
+  "896": {
+    "difficulty": 22,
+    "title": "Divisible Ranges"
+  },
+  "897": {
+    "difficulty": 15,
+    "title": "Maximal $n$-gon in a region"
+  },
+  "898": {
+    "difficulty": 16,
+    "title": "Claire Voyant"
+  },
+  "899": {
+    "difficulty": 6,
+    "title": "DistribuNim I"
+  },
+  "900": {
+    "difficulty": 29,
+    "title": "DistribuNim II"
+  },
+  "901": {
+    "difficulty": 27,
+    "title": "Well Drilling"
+  },
+  "902": {
+    "difficulty": 24,
+    "title": "Permutation Powers"
+  },
+  "903": {
+    "difficulty": 37,
+    "title": "Total Permutation Powers"
+  },
+  "904": {
+    "difficulty": 18,
+    "title": "Pythagorean Angle"
+  },
+  "905": {
+    "difficulty": 18,
+    "title": "Now I Know"
+  },
+  "906": {
+    "difficulty": 16,
+    "title": "A Collective Decision"
+  },
+  "907": {
+    "difficulty": 12,
+    "title": "Stacking Cups"
+  },
+  "908": {
+    "difficulty": 29,
+    "title": "Clock Sequence II"
+  },
+  "909": {
+    "difficulty": 31,
+    "title": "L-expressions I"
+  },
+  "910": {
+    "difficulty": 37,
+    "title": "L-expressions II"
+  },
+  "911": {
+    "difficulty": 25,
+    "title": "Khinchin Exceptions"
+  },
+  "912": {
+    "difficulty": 22,
+    "title": "Where are the Odds?"
+  },
+  "913": {
+    "difficulty": 28,
+    "title": "Row-major vs Column-major"
+  },
+  "914": {
+    "difficulty": 8,
+    "title": "Triangles inside Circles"
+  },
+  "915": {
+    "difficulty": 18,
+    "title": "Giant GCDs"
+  },
+  "916": {
+    "difficulty": 24,
+    "title": "Restricted Permutations"
+  },
+  "917": {
+    "difficulty": 23,
+    "title": "Minimal Path Using Additive Cost"
+  },
+  "918": {
+    "difficulty": 3,
+    "title": "Recursive Sequence Summation"
+  },
+  "919": {
+    "difficulty": 14,
+    "title": "Fortunate Triangles"
+  },
+  "920": {
+    "difficulty": 13,
+    "title": "Tau Numbers"
+  },
+  "921": {
+    "difficulty": 20,
+    "title": "Golden Recurrence"
+  },
+  "922": {
+    "difficulty": 32,
+    "title": "Young's Game A"
+  },
+  "923": {
+    "difficulty": 37,
+    "title": "Young's Game B"
+  },
+  "924": {
+    "difficulty": 18,
+    "title": "Larger Digit Permutation II"
+  },
+  "925": {
+    "difficulty": 26,
+    "title": "Larger Digit Permutation III"
+  },
+  "926": {
+    "difficulty": 6,
+    "title": "Total Roundness"
+  },
+  "927": {
+    "difficulty": 22,
+    "title": "Prime-ary Tree"
+  },
+  "928": {
+    "difficulty": 18,
+    "title": "Cribbage"
+  },
+  "929": {
+    "difficulty": 14,
+    "title": "Odd-Run Compositions"
+  },
+  "930": {
+    "difficulty": 34,
+    "title": "The Gathering"
+  },
+  "931": {
+    "difficulty": 24,
+    "title": "Totient Graph"
+  },
+  "932": {
+    "difficulty": 5,
+    "title": "$2025$"
+  },
+  "933": {
+    "difficulty": 21,
+    "title": "Paper Cutting"
+  },
+  "934": {
+    "difficulty": 15,
+    "title": "Unlucky Primes"
+  },
+  "935": {
+    "difficulty": 34,
+    "title": "Rolling Square"
+  },
+  "936": {
+    "difficulty": 34,
+    "title": "Peerless Trees"
+  },
+  "937": {
+    "difficulty": 23,
+    "title": "Equiproduct Partition"
+  },
+  "938": {
+    "difficulty": 3,
+    "title": "Exhausting a Colour"
+  },
+  "939": {
+    "difficulty": 27,
+    "title": "Partisan Nim"
+  },
+  "940": {
+    "difficulty": 4,
+    "title": "Two-Dimensional Recurrence"
+  },
+  "941": {
+    "difficulty": 32,
+    "title": "de Bruijn's Combination Lock"
+  },
+  "942": {
+    "difficulty": 34,
+    "title": "Mersenne's Square Root"
+  },
+  "943": {
+    "difficulty": 38,
+    "title": "Self Describing Sequences"
+  },
+  "944": {
+    "difficulty": 7,
+    "title": "Sum of Elevisors"
+  },
+  "945": {
+    "difficulty": 16,
+    "title": "XOR-Equation C"
+  },
+  "946": {
+    "difficulty": 10,
+    "title": "Continued Fraction Fraction"
+  },
+  "947": {
+    "difficulty": 31,
+    "title": "Fibonacci Residues"
+  },
+  "948": {
+    "difficulty": 8,
+    "title": "Left vs Right"
+  },
+  "949": {
+    "difficulty": 38,
+    "title": "Left vs Right II"
+  },
+  "950": {
+    "difficulty": 32,
+    "title": "Pirate Treasure"
+  },
+  "951": {
+    "difficulty": 8,
+    "title": "A Game of Chance"
+  },
+  "952": {
+    "difficulty": 15,
+    "title": "Order Modulo Factorial"
+  },
+  "953": {
+    "difficulty": 23,
+    "title": "Factorisation Nim"
+  },
+  "954": {
+    "difficulty": 27,
+    "title": "Heptaphobia"
+  },
+  "955": {
+    "difficulty": 11,
+    "title": "Finding Triangles"
+  },
+  "956": {
+    "difficulty": 4,
+    "title": "Super Duper Sum"
+  },
+  "957": {
+    "difficulty": 36,
+    "title": "Point Genesis"
+  },
+  "958": {
+    "difficulty": 29,
+    "title": "Euclid's Labour"
+  },
+  "959": {
+    "difficulty": 22,
+    "title": "Asymmetric Random Walk"
+  },
+  "960": {
+    "difficulty": 19,
+    "title": "Stone Game Solitaire"
+  },
+  "961": {
+    "difficulty": 3,
+    "title": "Removing Digits"
+  },
+  "962": {
+    "difficulty": 35,
+    "title": "Angular Bisector and Tangent 2"
+  },
+  "963": {
+    "difficulty": 37,
+    "title": "Removing Trits"
+  },
+  "964": {
+    "difficulty": 31,
+    "title": "Musical Chairs Revisited"
+  },
+  "965": {
+    "difficulty": 6,
+    "title": "Expected Minimal Fractional Value"
+  },
+  "966": {
+    "difficulty": 34,
+    "title": "Triangle Circle Intersection"
+  },
+  "967": {
+    "difficulty": 17,
+    "title": "$B$-Trivisible Numbers"
+  },
+  "968": {
+    "difficulty": 33,
+    "title": "5D Summation"
+  },
+  "969": {
+    "difficulty": 13,
+    "title": "Kangaroo Hopping"
+  },
+  "970": {
+    "difficulty": 33,
+    "title": "Kangaroo Hopping over Sixes"
+  },
+  "971": {
+    "difficulty": 14,
+    "title": "Modular Polynomial Composition"
+  },
+  "972": {
+    "difficulty": 17,
+    "title": "Hyperbolic Plane"
+  },
+  "973": {
+    "difficulty": 34,
+    "title": "Random Dealings"
+  },
+  "974": {
+    "difficulty": 6,
+    "title": "Very Odd Numbers"
+  },
+  "975": {
+    "difficulty": 26,
+    "title": "A Winding Path"
+  },
+  "976": {
+    "difficulty": null,
+    "title": "XO Game"
+  },
+  "977": {
+    "difficulty": null,
+    "title": "Iterated Functions"
+  },
+  "978": {
+    "difficulty": null,
+    "title": "Random Walk Skewness"
+  },
+  "979": {
+    "difficulty": null,
+    "title": "Heptagon Hopping"
+  },
+  "980": {
+    "difficulty": null,
+    "title": "The Quaternion Group I"
+  },
+  "981": {
+    "difficulty": null,
+    "title": "The Quaternion Group II"
+  },
+  "982": {
+    "difficulty": null,
+    "title": "The Third Dice"
+  },
+  "983": {
+    "difficulty": null,
+    "title": "Consonant Circle Crossing"
+  },
+  "984": {
+    "difficulty": null,
+    "title": "Knights and Horses"
+  },
+  "985": {
+    "difficulty": null,
+    "title": "Telescoping Triangles"
+  }
+}
