@@ -8,7 +8,6 @@ import {
   signOut,
 } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
 import {
-  addDoc,
   collection,
   deleteField,
   deleteDoc,
@@ -546,14 +545,20 @@ async function onPanelSolve() {
   showOperationLoading(`Saving solve for #${number}...`);
   try {
     appStatus.textContent = `Saving solve for #${number}...`;
+    const solverNameKey = normalizeDisplayName(currentDisplayName);
+    if (!solverNameKey) {
+      throw new Error("Display name is invalid.");
+    }
+    const eventRef = doc(collection(db, "solveEvents"));
+
     await runTransaction(db, async (tx) => {
-      const ref = doc(db, "problems", String(number));
-      const snap = await tx.get(ref);
+      const problemRef = doc(db, "problems", String(number));
+      const snap = await tx.get(problemRef);
       const current = snap.exists() ? snap.data() : DEFAULT_PROBLEM;
       const nextCount = Number(current.solvedCount || 0) + 1;
 
       tx.set(
-        ref,
+        problemRef,
         {
           solvedCount: nextCount,
           statusLabel: "solved",
@@ -562,14 +567,13 @@ async function onPanelSolve() {
         },
         { merge: true }
       );
-    });
-
-    await addDoc(collection(db, "solveEvents"), {
-      problemNumber: number,
-      solvedAt: serverTimestamp(),
-      solverUid: currentUid,
-      solverName: currentDisplayName,
-      solverNameKey: normalizeDisplayName(currentDisplayName),
+      tx.set(eventRef, {
+        problemNumber: number,
+        solvedAt: serverTimestamp(),
+        solverUid: currentUid,
+        solverName: currentDisplayName,
+        solverNameKey,
+      });
     });
 
     showOperationSuccess(`Solved count updated for #${number}.`);
