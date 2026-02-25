@@ -36,6 +36,7 @@ This repo includes `.github/workflows/deploy-pages.yml`.
 
 - On every push to `main`, it deploys the site to GitHub Pages.
 - It also runs `python3 build_levels_json.py` only if `data/pe_data.html` exists in the checked-out source.
+- It injects an asset version (`?v=<commit-sha>`) into `index.html` so `app.js` and `style.css` always bypass stale browser cache after deploy.
 
 Because `data/pe_data.html` is ignored in this repo, the normal flow is:
 

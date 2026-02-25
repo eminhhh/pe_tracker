@@ -445,6 +445,7 @@ function refreshPanelMeta() {
 
   const data = allProblems.get(activeProblemNumber) || DEFAULT_PROBLEM;
   panelStatusSelect.value = normalizeStatus(data.statusLabel);
+  applyPanelPermissions();
   renderPanelMeta(activeProblemNumber, data);
 }
 
@@ -573,8 +574,22 @@ async function onPanelDeleteSolve() {
       });
 
     if (!ownDocs.length) {
-      showOperationError("You have no solve to remove for this problem.");
-      appStatus.textContent = `No personal solve found for #${number}.`;
+      const allEventsQuery = query(
+        collection(db, "solveEvents"),
+        where("problemNumber", "==", number)
+      );
+      const allEventsSnapshot = await getDocs(allEventsQuery);
+      const hasLegacyEvents = allEventsSnapshot.docs.some(
+        (item) => typeof item.data().solverUid !== "string" || !item.data().solverUid
+      );
+
+      if (hasLegacyEvents) {
+        showOperationError("This problem only has legacy solves without owner info.");
+        appStatus.textContent = `Legacy solves on #${number} cannot be deleted per-user.`;
+      } else {
+        showOperationError("You have no solve to remove for this problem.");
+        appStatus.textContent = `No personal solve found for #${number}.`;
+      }
       return;
     }
 
@@ -784,7 +799,7 @@ function waitForAuth() {
 function setPanelBusy(busy) {
   panelSaveBtn.disabled = busy || !isAdminUser();
   panelSolveBtn.disabled = busy;
-  panelDeleteBtn.disabled = busy || !currentUid;
+  panelDeleteBtn.disabled = busy || !canDeleteOwnSolveForActiveProblem();
   panelCloseBtn.disabled = busy;
   panelStatusSelect.disabled = busy || !isAdminUser();
 }
@@ -794,6 +809,15 @@ function applyPanelPermissions() {
   statusEditor.classList.toggle("hidden", !admin);
   panelSaveBtn.classList.toggle("hidden", !admin);
   panelSaveBtn.disabled = !admin;
+  panelDeleteBtn.disabled = !canDeleteOwnSolveForActiveProblem();
+}
+
+function canDeleteOwnSolveForActiveProblem() {
+  return Boolean(
+    currentUid &&
+    activeProblemNumber &&
+    solvedByCurrentUser.has(activeProblemNumber)
+  );
 }
 
 function isAdminUser() {
