@@ -813,22 +813,36 @@ select:focus-visible,
 @media (max-width: 560px) {
   .top {
     padding-top: 0.7rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.45rem;
   }
 
   .top h1 {
     font-size: clamp(1.35rem, 7vw, 1.9rem);
-    padding-right: 4.8rem;
-    padding-left: 4.8rem;
+    order: 2;
+    width: 100%;
+    padding: 0;
+    margin-top: 0.1rem;
   }
 
   .top #logoutBtn {
-    top: 0.62rem;
-    right: 0.7rem;
+    position: static;
+    order: 1;
+    margin-left: auto;
   }
 
   .top .theme-toggle {
-    top: 0.62rem;
-    left: 0.7rem;
+    position: static;
+    order: 0;
+    margin-right: auto;
+  }
+
+  .top .db-updated-top {
+    order: 3;
+    width: 100%;
   }
 
   .legend-item {
