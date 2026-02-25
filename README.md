@@ -29,6 +29,21 @@ Allowed status labels:
 
 Note: this app tracks only group progress (no personal dashboard).
 
+## GitHub Pages auto-deploy
+
+This repo includes `.github/workflows/deploy-pages.yml`.
+
+- On every push to `main`, it deploys the site to GitHub Pages.
+- It also runs `python3 build_levels_json.py` only if `data/pe_data.html` exists in the checked-out source.
+
+Because `data/pe_data.html` is ignored in this repo, the normal flow is:
+
+1. Regenerate `data/levels.json` locally.
+2. Commit updated `data/levels.json`.
+3. Push to `main`.
+
+Then GitHub Actions deploys the updated site automatically.
+
 ## Build `levels.json` from PE HTML
 
 Run from project root:
