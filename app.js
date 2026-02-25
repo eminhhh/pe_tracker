@@ -96,13 +96,16 @@ let currentFilter = "all";
 let activeProblemNumber = null;
 let listenersStarted = false;
 let unSubProblems = null;
-let unSubMySolveEvents = null;
+let unSubMySolveEventsByNameKey = null;
+let unSubMySolveEventsByName = null;
 let pendingProfile = null;
 let opProgressTimer = null;
 let opHideTimer = null;
 let maxProblemNumber = DEFAULT_MAX_PROBLEM_NUMBER;
 let autoLoginInProgress = false;
 let solvedByCurrentUser = new Set();
+let solvedByCurrentUserByNameKey = new Set();
+let solvedByCurrentUserByName = new Set();
 
 boot();
 
@@ -309,9 +312,10 @@ function startRealtimeListeners() {
     handleError
   );
 
-  if (currentUid) {
-    unSubMySolveEvents = onSnapshot(
-      query(collection(db, "solveEvents"), where("solverUid", "==", currentUid)),
+  const currentNameKey = normalizeDisplayName(currentDisplayName);
+  if (currentNameKey) {
+    unSubMySolveEventsByNameKey = onSnapshot(
+      query(collection(db, "solveEvents"), where("solverNameKey", "==", currentNameKey)),
       (snapshot) => {
         const solved = new Set();
         snapshot.forEach((item) => {
@@ -320,7 +324,27 @@ function startRealtimeListeners() {
             solved.add(number);
           }
         });
-        solvedByCurrentUser = solved;
+        solvedByCurrentUserByNameKey = solved;
+        rebuildSolvedByCurrentUser();
+        renderGrid();
+      },
+      handleError
+    );
+  }
+
+  if (currentDisplayName) {
+    unSubMySolveEventsByName = onSnapshot(
+      query(collection(db, "solveEvents"), where("solverName", "==", currentDisplayName)),
+      (snapshot) => {
+        const solved = new Set();
+        snapshot.forEach((item) => {
+          const number = Number(item.data().problemNumber);
+          if (Number.isInteger(number) && number > 0) {
+            solved.add(number);
+          }
+        });
+        solvedByCurrentUserByName = solved;
+        rebuildSolvedByCurrentUser();
         renderGrid();
       },
       handleError
@@ -334,11 +358,17 @@ function stopRealtimeListeners() {
     unSubProblems();
     unSubProblems = null;
   }
-  if (unSubMySolveEvents) {
-    unSubMySolveEvents();
-    unSubMySolveEvents = null;
+  if (unSubMySolveEventsByNameKey) {
+    unSubMySolveEventsByNameKey();
+    unSubMySolveEventsByNameKey = null;
+  }
+  if (unSubMySolveEventsByName) {
+    unSubMySolveEventsByName();
+    unSubMySolveEventsByName = null;
   }
   solvedByCurrentUser = new Set();
+  solvedByCurrentUserByNameKey = new Set();
+  solvedByCurrentUserByName = new Set();
   listenersStarted = false;
 }
 
@@ -539,6 +569,7 @@ async function onPanelSolve() {
       solvedAt: serverTimestamp(),
       solverUid: currentUid,
       solverName: currentDisplayName,
+      solverNameKey: normalizeDisplayName(currentDisplayName),
     });
 
     showOperationSuccess(`Solved count updated for #${number}.`);
@@ -560,12 +591,27 @@ async function onPanelDeleteSolve() {
   setPanelBusy(true);
   showOperationLoading(`Deleting one solve for #${number}...`);
   try {
-    const ownEventsQuery = query(
+    const currentNameKey = normalizeDisplayName(currentDisplayName);
+    const ownEventsByNameKeyQuery = query(
       collection(db, "solveEvents"),
-      where("solverUid", "==", currentUid)
+      where("solverNameKey", "==", currentNameKey)
     );
-    const ownEventsSnapshot = await getDocs(ownEventsQuery);
-    const ownDocs = ownEventsSnapshot.docs
+    const ownEventsByNameQuery = query(
+      collection(db, "solveEvents"),
+      where("solverName", "==", currentDisplayName)
+    );
+
+    const ownByNameKeySnapshot = await getDocs(ownEventsByNameKeyQuery);
+    const ownByNameSnapshot = await getDocs(ownEventsByNameQuery);
+    const ownDocsById = new Map();
+    ownByNameKeySnapshot.docs.forEach((item) => {
+      ownDocsById.set(item.id, item);
+    });
+    ownByNameSnapshot.docs.forEach((item) => {
+      ownDocsById.set(item.id, item);
+    });
+
+    const ownDocs = [...ownDocsById.values()]
       .filter((item) => Number(item.data().problemNumber) === number)
       .sort((a, b) => {
         const aTs = toMillis(a.data().solvedAt);
@@ -818,6 +864,17 @@ function canDeleteOwnSolveForActiveProblem() {
     activeProblemNumber &&
     solvedByCurrentUser.has(activeProblemNumber)
   );
+}
+
+function rebuildSolvedByCurrentUser() {
+  const merged = new Set();
+  solvedByCurrentUserByNameKey.forEach((number) => {
+    merged.add(number);
+  });
+  solvedByCurrentUserByName.forEach((number) => {
+    merged.add(number);
+  });
+  solvedByCurrentUser = merged;
 }
 
 function isAdminUser() {
