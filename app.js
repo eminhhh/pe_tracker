@@ -576,6 +576,10 @@ async function onPanelSolve() {
       });
     });
 
+    markProblemSolvedByCurrentUser(number);
+    applyPanelPermissions();
+    renderGrid();
+
     showOperationSuccess(`Solved count updated for #${number}.`);
     appStatus.textContent = `Problem #${number} marked solved.`;
   } catch (error) {
@@ -644,6 +648,12 @@ async function onPanelDeleteSolve() {
     }
 
     await deleteDoc(ownDocs[0].ref);
+
+    if (ownDocs.length === 1) {
+      unmarkProblemSolvedByCurrentUser(number);
+      applyPanelPermissions();
+      renderGrid();
+    }
 
     const allEventsQuery = query(
       collection(db, "solveEvents"),
@@ -879,6 +889,29 @@ function rebuildSolvedByCurrentUser() {
     merged.add(number);
   });
   solvedByCurrentUser = merged;
+}
+
+function markProblemSolvedByCurrentUser(number) {
+  if (!Number.isInteger(number) || number < 1) {
+    return;
+  }
+  const nameKey = normalizeDisplayName(currentDisplayName);
+  if (nameKey) {
+    solvedByCurrentUserByNameKey.add(number);
+  }
+  if (currentDisplayName) {
+    solvedByCurrentUserByName.add(number);
+  }
+  rebuildSolvedByCurrentUser();
+}
+
+function unmarkProblemSolvedByCurrentUser(number) {
+  if (!Number.isInteger(number) || number < 1) {
+    return;
+  }
+  solvedByCurrentUserByNameKey.delete(number);
+  solvedByCurrentUserByName.delete(number);
+  rebuildSolvedByCurrentUser();
 }
 
 function isAdminUser() {
