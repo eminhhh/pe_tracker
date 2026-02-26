@@ -228,17 +228,6 @@ button.danger {
   justify-content: center;
 }
 
-.db-updated {
-  color: var(--muted);
-  font-size: 0.82rem;
-  white-space: nowrap;
-}
-
-.db-updated-top {
-  margin: 0 0 0.25rem;
-  text-align: center;
-}
-
 .legend-item {
   display: inline-flex;
   align-items: center;
@@ -815,17 +804,6 @@ select:focus-visible,
   .filter-btn {
     width: 100%;
     min-height: 42px;
-  }
-
-  .db-updated {
-    width: 100%;
-    white-space: normal;
-    font-size: 0.78rem;
-  }
-
-  .db-updated-top {
-    margin-bottom: 0.2rem;
-    font-size: 0.78rem;
   }
 
   .problem-panel {

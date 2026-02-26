@@ -37,7 +37,7 @@ Note: this app tracks only group progress (no personal dashboard).
 ## Security notes (client-only auth)
 
 - `displayNames` allows document reads (`get`) but blocks collection listing (`list`) to reduce hash scraping risk.
-- Legacy users with old hash/plain PIN fields are migrated to `pinHash` + `pinSalt` on next successful login.
+- Legacy users with unsalted `pinHash` are migrated to salted `pinHash` + `pinSalt` on next successful login.
 - This is still a client-only 4-digit PIN model; for stronger protection use backend-verified auth.
 
 ## GitHub Pages auto-deploy

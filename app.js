@@ -1399,6 +1399,7 @@ async function seedProblems() {
 async function onLogout() {
   try {
     localStorage.setItem(explicitLogoutKey, "1");
+    localStorage.removeItem(rememberedDisplayNameKey);
     await signOut(auth);
     currentUid = null;
     currentDisplayName = "";

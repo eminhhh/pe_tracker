@@ -54,5 +54,13 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "chore(data): refresh levels, questions, and search index"
-          git pull --rebase origin main
-          git push
+          attempts=0
+          until [ "$attempts" -ge 2 ]; do
+            git pull --rebase origin main && git push && break
+            attempts=$((attempts + 1))
+            if [ "$attempts" -ge 2 ]; then
+              echo "Failed to push refreshed data after retry." >&2
+              exit 1
+            fi
+            sleep 2
+          done

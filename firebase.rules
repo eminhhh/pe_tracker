@@ -52,7 +52,8 @@ service cloud.firestore {
         && request.resource.data.createdAt is timestamp;
       allow update: if isSignedIn()
         && request.resource.data.keys().hasOnly(['ownerUid', 'displayName', 'pinHash', 'pinSalt', 'updatedAt', 'createdAt'])
-        && request.resource.data.ownerUid == request.auth.uid
+        && resource.data.ownerUid == request.auth.uid
+        && request.resource.data.ownerUid == resource.data.ownerUid
         && request.resource.data.displayName is string
         && request.resource.data.pinHash is string
         && request.resource.data.pinHash.matches('^[0-9a-f]{64}$')
