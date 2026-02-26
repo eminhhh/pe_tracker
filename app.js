@@ -686,6 +686,7 @@ async function completeLogin(profile, silent) {
 
   localStorage.removeItem(explicitLogoutKey);
   localStorage.setItem(rememberedDisplayNameKey, resolvedDisplayName.trim());
+  void upsertDisplayProfile(normalizedDisplayName, resolvedDisplayName);
 
   currentDisplayName = resolvedDisplayName;
   displayNameInput.value = resolvedDisplayName;
@@ -1607,8 +1608,8 @@ async function claimDisplayName(displayName, normalizedDisplayName, pin) {
 
   await runTransaction(db, async (tx) => {
     const nameRef = doc(db, "displayNames", normalizedDisplayName);
-    const profileRef = doc(db, "displayProfiles", normalizedDisplayName);
     const nameSnap = await tx.get(nameRef);
+    const existingCreatedAt = nameSnap.exists() ? nameSnap.data().createdAt : null;
 
     if (nameSnap.exists()) {
       const ownerUid = nameSnap.data().ownerUid;
@@ -1646,23 +1647,33 @@ async function claimDisplayName(displayName, normalizedDisplayName, pin) {
         pinSalt: nextPinSalt,
         pin: deleteField(),
         updatedAt: serverTimestamp(),
-        createdAt: serverTimestamp(),
-      },
-      { merge: true }
-    );
-
-    tx.set(
-      profileRef,
-      {
-        displayName: resolvedDisplayName,
-        updatedAt: serverTimestamp(),
-        createdAt: serverTimestamp(),
+        createdAt: existingCreatedAt || serverTimestamp(),
       },
       { merge: true }
     );
   });
 
   return resolvedDisplayName;
+}
+
+async function upsertDisplayProfile(normalizedDisplayName, displayName) {
+  try {
+    const profileRef = doc(db, "displayProfiles", normalizedDisplayName);
+    const profileSnap = await getDoc(profileRef);
+    const existingCreatedAt = profileSnap.exists() ? profileSnap.data().createdAt : null;
+
+    await setDoc(
+      profileRef,
+      {
+        displayName,
+        updatedAt: serverTimestamp(),
+        createdAt: existingCreatedAt || serverTimestamp(),
+      },
+      { merge: true }
+    );
+  } catch (_error) {
+    // Profile counters are non-critical and should not block login flow.
+  }
 }
 
 function bytesToHex(bytes) {

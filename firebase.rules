@@ -69,7 +69,9 @@ service cloud.firestore {
         && request.resource.data.keys().hasOnly(['displayName', 'updatedAt', 'createdAt'])
         && request.resource.data.displayName is string
         && request.resource.data.updatedAt is timestamp
-        && request.resource.data.createdAt is timestamp;
+        && request.resource.data.createdAt is timestamp
+        && exists(/databases/$(database)/documents/displayNames/$(nameKey))
+        && get(/databases/$(database)/documents/displayNames/$(nameKey)).data.ownerUid == request.auth.uid;
       allow delete: if false;
     }
 
