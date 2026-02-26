@@ -1,1 +1,4 @@
 data/pe_data.html
+.env/*
+!.env/projecteuler.env.example
+!.env/projecteuler_server.env.example

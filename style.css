@@ -102,6 +102,10 @@ body::before {
   color: var(--muted);
 }
 
+.top .registered-users {
+  font-size: 0.92rem;
+}
+
 .card {
   background: var(--surface-2);
   padding: 0.9rem 1rem;
@@ -375,6 +379,11 @@ thead th {
   gap: 0.15rem;
 }
 
+.problem-grid.problem-grid-compact .tile {
+  min-height: 66px;
+  padding-block: 0.3rem;
+}
+
 .tile:hover {
   transform: translateY(-1px);
 }
@@ -389,6 +398,18 @@ thead th {
   font-size: 0.74rem;
   color: var(--muted-strong);
   line-height: 1.05;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.tile-meta-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.1;
+  min-height: calc(2 * 1.1em);
 }
 
 .tile.s-unsolved {
@@ -840,7 +861,7 @@ select:focus-visible,
     margin-right: auto;
   }
 
-  .top .db-updated-top {
+  .top .registered-users {
     order: 3;
     width: 100%;
   }

@@ -12,6 +12,7 @@ import {
   deleteField,
   deleteDoc,
   doc,
+  getCountFromServer,
   getDoc,
   getDocs,
   getFirestore,
@@ -64,7 +65,6 @@ const themeToggleBtn = document.getElementById("themeToggleBtn");
 
 const mainApp = document.getElementById("mainApp");
 const appStatus = document.getElementById("appStatus");
-const databaseUpdatedLabel = document.getElementById("databaseUpdatedLabel");
 const searchInput = document.getElementById("searchInput");
 const minLevelSelect = document.getElementById("minLevelSelect");
 const maxLevelSelect = document.getElementById("maxLevelSelect");
@@ -72,6 +72,7 @@ const branchSelect = document.getElementById("branchSelect");
 const filterBar = document.getElementById("filterBar");
 const problemGrid = document.getElementById("problemGrid");
 const logoutBtn = document.getElementById("logoutBtn");
+const registeredUsersLabel = document.getElementById("registeredUsersLabel");
 
 const panelBackdrop = document.getElementById("panelBackdrop");
 const problemPanel = document.getElementById("problemPanel");
@@ -81,6 +82,7 @@ const metaLevel = document.getElementById("metaLevel");
 const metaBranch = document.getElementById("metaBranch");
 const metaConfidence = document.getElementById("metaConfidence");
 const metaTags = document.getElementById("metaTags");
+const metaSolvedBy = document.getElementById("metaSolvedBy");
 const metaSolvedCount = document.getElementById("metaSolvedCount");
 const metaLastSolved = document.getElementById("metaLastSolved");
 const statusEditor = document.getElementById("statusEditor");
@@ -103,6 +105,7 @@ let currentDisplayName = "";
 let allProblems = new Map();
 let levelsByProblem = new Map();
 let titlesByProblem = new Map();
+let solvedByPeByProblem = new Map();
 let branchesByProblem = new Map();
 let confidenceByProblem = new Map();
 let topicTagsByProblem = new Map();
@@ -131,6 +134,7 @@ function boot() {
     if (user) {
       currentUid = user.uid;
       authReady = true;
+      loadRegisteredUsersCount();
       await tryAutoResumeLogin();
       return;
     }
@@ -202,6 +206,32 @@ function applyTheme(theme) {
   themeToggleBtn.setAttribute("aria-label", `Switch to ${nextLabel.toLowerCase()}`);
 }
 
+function formatProblemTitle(value) {
+  if (typeof value !== "string") {
+    return "";
+  }
+  return value.replaceAll("$", "").replace(/\s{2,}/g, " ").trim();
+}
+
+async function loadRegisteredUsersCount() {
+  if (!registeredUsersLabel) {
+    return;
+  }
+
+  try {
+    const snapshot = await getCountFromServer(collection(db, "displayNames"));
+    const count = snapshot.data().count;
+    if (!Number.isFinite(count)) {
+      return;
+    }
+    const normalizedCount = Math.max(0, Math.floor(count));
+    const noun = normalizedCount === 1 ? "user" : "users";
+    registeredUsersLabel.textContent = `${normalizedCount.toLocaleString("en-US")} ${noun} registered`;
+  } catch (_error) {
+    // Keep default label when count is unavailable.
+  }
+}
+
 async function loadLevelsData() {
   try {
     const response = await fetch("data/levels.json", { cache: "no-store" });
@@ -211,11 +241,9 @@ async function loadLevelsData() {
     const raw = await response.json();
     const levelMap = new Map();
     const titleMap = new Map();
+    const solvedByMap = new Map();
     let inferredMaxProblem = 0;
     const meta = raw._meta;
-    if (meta && typeof meta === "object" && typeof meta.last_updated_utc === "string") {
-      databaseUpdatedLabel.textContent = `Static data last updated: ${formatStaticDataLastUpdated(meta.last_updated_utc)}`;
-    }
 
     Object.entries(raw).forEach(([key, value]) => {
       const number = Number(key);
@@ -225,8 +253,20 @@ async function loadLevelsData() {
 
       inferredMaxProblem = Math.max(inferredMaxProblem, number);
       const rawDifficulty = value.difficulty;
-      const rawTitle = typeof value.title === "string" ? value.title.trim() : "";
+      const rawTitle = formatProblemTitle(value.title);
+      const rawSolvedBy = value.solved_by;
       titleMap.set(number, rawTitle);
+
+      if (rawSolvedBy === null || rawSolvedBy === undefined || rawSolvedBy === "") {
+        solvedByMap.set(number, null);
+      } else {
+        const parsedSolvedBy = Number(rawSolvedBy);
+        solvedByMap.set(
+          number,
+          Number.isFinite(parsedSolvedBy) && parsedSolvedBy >= 0 ? parsedSolvedBy : null
+        );
+      }
+
       if (rawDifficulty === null || rawDifficulty === undefined || rawDifficulty === "") {
         levelMap.set(number, null);
         return;
@@ -246,6 +286,7 @@ async function loadLevelsData() {
     searchInput.max = String(maxProblemNumber);
     levelsByProblem = levelMap;
     titlesByProblem = titleMap;
+    solvedByPeByProblem = solvedByMap;
     populateLevelFilterOptions(getAvailableLevels(levelsByProblem));
     renderGrid();
     refreshPanelMeta();
@@ -486,33 +527,6 @@ function onPinInput() {
   }
 }
 
-function formatStaticDataLastUpdated(value) {
-  if (typeof value !== "string") {
-    return "-";
-  }
-
-  const normalized = value.trim().replace("T", " ").replace(/Z$/i, "");
-  const matched = normalized.match(/^(\d{4})-(\d{2})-(\d{2})\s+(\d{2}):(\d{2})(?::(\d{2}))?$/);
-  if (!matched) {
-    return normalized || "-";
-  }
-
-  const [, year, month, day, hour, minute, second = "0"] = matched;
-  const utcDate = new Date(Date.UTC(
-    Number(year),
-    Number(month) - 1,
-    Number(day),
-    Number(hour),
-    Number(minute),
-    Number(second)
-  ));
-
-  if (Number.isNaN(utcDate.getTime())) {
-    return "-";
-  }
-  return utcDate.toLocaleString();
-}
-
 async function onLoginSubmit(event) {
   event.preventDefault();
 
@@ -613,7 +627,6 @@ async function tryAutoResumeLogin() {
 function showMainApp() {
   loginCard.classList.add("hidden");
   mainApp.classList.remove("hidden");
-  databaseUpdatedLabel.classList.remove("hidden");
   logoutBtn.classList.remove("hidden");
 }
 
@@ -701,8 +714,10 @@ function renderGrid() {
   const selectedMinLevel = parseLevelSelectValue(minLevelSelect.value);
   const selectedMaxLevel = parseLevelSelectValue(maxLevelSelect.value);
   const selectedBranch = branchSelect.value;
+  const selectedSpecificBranch = selectedBranch && selectedBranch !== "all";
   const [minLevel, maxLevel] = normalizeLevelRange(selectedMinLevel, selectedMaxLevel);
   const tiles = [];
+  let allBranchesCount = 0;
   const counts = {
     all: 0,
     "my-solves": 0,
@@ -724,6 +739,14 @@ function renderGrid() {
     if (!isDifficultyInRange(difficulty, minLevel, maxLevel)) {
       continue;
     }
+
+    const matchesCurrentFilter = currentFilter === "my-solves"
+      ? solvedByCurrentUser.has(number)
+      : (currentFilter === "all" || status === currentFilter);
+    if (matchesCurrentFilter) {
+      allBranchesCount += 1;
+    }
+
     if (selectedBranch !== "all" && branch !== selectedBranch) {
       continue;
     }
@@ -741,11 +764,13 @@ function renderGrid() {
     if (currentFilter !== "all" && currentFilter !== "my-solves" && status !== currentFilter) {
       continue;
     }
-
     tiles.push(tileTemplate(number, data, selectedBranch));
   }
 
   updateFilterButtonCounts(counts);
+  updateAllBranchesOptionLabel(allBranchesCount);
+
+  problemGrid.classList.toggle("problem-grid-compact", !selectedSpecificBranch);
 
   if (!tiles.length) {
     problemGrid.innerHTML = '<p class="status">No matching problems found.</p>';
@@ -753,6 +778,15 @@ function renderGrid() {
   }
 
   problemGrid.innerHTML = tiles.join("");
+}
+
+function updateAllBranchesOptionLabel(count) {
+  const allOption = branchSelect.querySelector('option[value="all"]');
+  if (!(allOption instanceof HTMLOptionElement)) {
+    return;
+  }
+  const normalized = Number.isFinite(count) ? Math.max(0, Math.floor(count)) : 0;
+  allOption.textContent = `All branches (${normalized})`;
 }
 
 function isDifficultyInRange(difficulty, minLevel, maxLevel) {
@@ -798,6 +832,7 @@ function updateFilterButtonCounts(counts) {
 function tileTemplate(number, data, selectedBranch) {
   const difficulty = levelsByProblem.has(number) ? levelsByProblem.get(number) : null;
   const difficultyText = difficulty === null ? "" : String(difficulty);
+  const rawTitle = titlesByProblem.get(number) || "";
   const solvedCount = Number(data.solvedCount || 0);
   const status = normalizeStatus(data.statusLabel);
   const statusClass = chipClassName(status);
@@ -805,14 +840,20 @@ function tileTemplate(number, data, selectedBranch) {
   const confidence = confidenceByProblem.get(number);
   const confidenceText = formatConfidence(confidence);
   const selectedSpecificBranch = selectedBranch && selectedBranch !== "all";
-  const levelMeta = difficultyText ? `<span class="tile-meta">level ${escapeHtml(difficultyText)}</span>` : "";
+  const topMetaText = difficultyText ? `level ${difficultyText}` : "\u00A0";
+  const topMeta = `<span class="tile-meta">${escapeHtml(topMetaText)}</span>`;
+  const hasTitleMeta = status === "unsolved";
+  const statusMetaText = hasTitleMeta ? (rawTitle || "\u00A0") : statusText;
+  const statusMetaClass = hasTitleMeta ? "tile-meta tile-meta-title" : "tile-meta";
   const extraMetaText = selectedSpecificBranch ? `conf ${confidenceText}` : "\u00A0";
-  const extraMeta = `<span class="tile-meta">${escapeHtml(extraMetaText)}</span>`;
+  const extraMeta = selectedSpecificBranch
+    ? `<span class="tile-meta">${escapeHtml(extraMetaText)}</span>`
+    : "";
   return `
     <button type="button" class="tile ${statusClass}" data-role="problem-tile" data-problem="${number}">
       <span class="tile-number">${number}</span>
-      ${levelMeta}
-      <span class="tile-meta">${escapeHtml(statusText)}</span>
+      ${topMeta}
+      <span class="${statusMetaClass}">${escapeHtml(statusMetaText)}</span>
       ${extraMeta}
     </button>
   `;
@@ -883,6 +924,7 @@ function refreshPanelMeta() {
 
 function renderPanelMeta(number, data) {
   const difficulty = levelsByProblem.has(number) ? levelsByProblem.get(number) : null;
+  const solvedByPe = solvedByPeByProblem.has(number) ? solvedByPeByProblem.get(number) : null;
   const branch = branchesByProblem.get(number) || "-";
   const confidence = confidenceByProblem.get(number);
   const tags = topicTagsByProblem.get(number) || [];
@@ -901,6 +943,11 @@ function renderPanelMeta(number, data) {
     } else {
       metaTags.textContent = "-";
     }
+  }
+  if (metaSolvedBy) {
+    metaSolvedBy.textContent = typeof solvedByPe === "number" && Number.isFinite(solvedByPe)
+      ? solvedByPe.toLocaleString("en-US")
+      : "-";
   }
   metaSolvedCount.textContent = String(Number(data.solvedCount || 0));
   metaLastSolved.textContent = formatTimestamp(data.lastSolvedAt);
@@ -1224,7 +1271,6 @@ async function onLogout() {
     opFeedback.classList.add("hidden");
     mainApp.classList.add("hidden");
     loginCard.classList.remove("hidden");
-    databaseUpdatedLabel.classList.add("hidden");
     logoutBtn.classList.add("hidden");
     loginStatus.textContent = "Signed out.";
     appStatus.textContent = "";

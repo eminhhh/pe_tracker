@@ -1,0 +1,56 @@
+name: Refresh Project Euler Data
+
+on:
+  schedule:
+    - cron: "17 2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-pe-data
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Python dependency
+        run: python3 -m pip install --disable-pip-version-check requests
+
+      - name: Create runtime Project Euler cookie file
+        run: |
+          if [ -z "${{ secrets.PE_PJ_COOKIE }}" ]; then
+            echo "PE_PJ_COOKIE secret is required." >&2
+            exit 1
+          fi
+
+          mkdir -p .env
+          printf 'PJ_COOKIE=%s\n' "${{ secrets.PE_PJ_COOKIE }}" > .env/projecteuler_server.env
+
+      - name: Refresh levels and missing question files
+        run: |
+          python3 tools/build_levels_json.py
+          python3 tools/download_questions.py
+
+      - name: Commit and push data changes
+        run: |
+          git add data/levels.json data/questions
+          if git diff --cached --quiet; then
+            echo "No data updates detected."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore(data): refresh levels and missing questions"
+          git push

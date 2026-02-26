@@ -25,7 +25,7 @@
       <button id="themeToggleBtn" type="button" class="ghost theme-toggle">Dark mode</button>
       <button id="logoutBtn" type="button" class="secondary hidden">Log out</button>
       <h1>Project Euler Tracker</h1>
-      <p class="db-updated db-updated-top hidden" id="databaseUpdatedLabel">Static data last updated: -</p>
+      <p id="registeredUsersLabel" class="registered-users">- users registered</p>
     </header>
 
     <section class="card login-card" id="loginCard">
@@ -105,20 +105,24 @@
             <strong id="metaLevel"></strong>
           </div>
           <div class="meta-row">
-            <span>Branch (AI)</span>
-            <strong id="metaBranch">-</strong>
+            <span>Solved</span>
+            <strong id="metaSolvedCount">0</strong>
           </div>
           <div class="meta-row">
-            <span>AI Confidence</span>
-            <strong id="metaConfidence">-</strong>
+            <span>Solved in PE</span>
+            <strong id="metaSolvedBy">-</strong>
+          </div>
+          <div class="meta-row">
+            <span>Branch (AI)</span>
+            <strong id="metaBranch">-</strong>
           </div>
           <div class="meta-row">
             <span>Tags (AI)</span>
             <strong id="metaTags">-</strong>
           </div>
           <div class="meta-row">
-            <span>Solved Count</span>
-            <strong id="metaSolvedCount">0</strong>
+            <span>Confidence (AI)</span>
+            <strong id="metaConfidence">-</strong>
           </div>
           <div class="meta-row">
             <span>Last Solved</span>
