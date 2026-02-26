@@ -1409,6 +1409,8 @@ async function onLogout() {
     mainApp.classList.add("hidden");
     loginCard.classList.remove("hidden");
     logoutBtn.classList.add("hidden");
+    displayNameInput.value = "";
+    pinInput.value = "";
     loginStatus.textContent = "Signed out.";
     appStatus.textContent = "";
   } catch (error) {
@@ -1607,6 +1609,13 @@ async function claimDisplayName(displayName, normalizedDisplayName, pin) {
         resolvedDisplayName = storedDisplayName;
       }
 
+      if (typeof ownerUid === "string" && ownerUid && ownerUid !== currentUid) {
+        throw new Error(
+          "This display name is linked to another session. "
+          + "Use the original session or choose a different display name."
+        );
+      }
+
       let pinMatches = false;
       if (storedPinHash) {
         if (storedPinSalt) {
@@ -1619,7 +1628,7 @@ async function claimDisplayName(displayName, normalizedDisplayName, pin) {
         pinMatches = legacyPin === pin;
       }
 
-      if (ownerUid !== currentUid && !pinMatches) {
+      if (!pinMatches) {
         throw new Error("Display name is already in use or PIN is incorrect.");
       }
     }
