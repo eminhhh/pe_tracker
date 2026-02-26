@@ -124,6 +124,7 @@ let solvedByCurrentUserByNameKey = new Set();
 let solvedByCurrentUserByName = new Set();
 let autoResumeAttempted = false;
 let searchInputDebounceTimer = null;
+let loginInProgress = false;
 
 boot();
 
@@ -632,20 +633,44 @@ function onPinInput() {
   if (digitsOnly.length > 0 && loginStatus.textContent.startsWith("Session changed.")) {
     loginStatus.textContent = "";
   }
+
+  if (digitsOnly.length === 4 && displayNameInput.value.trim() && !loginInProgress) {
+    void attemptLogin();
+  }
 }
 
 async function onLoginSubmit(event) {
   event.preventDefault();
+
+  await attemptLogin();
+}
+
+function setLoginInputsDisabled(disabled) {
+  displayNameInput.disabled = disabled;
+  pinInput.disabled = disabled;
+}
+
+async function attemptLogin() {
+  if (loginInProgress) {
+    return;
+  }
+
+  loginInProgress = true;
+  setLoginInputsDisabled(true);
 
   const displayName = displayNameInput.value.trim();
   const pin = pinInput.value.trim();
 
   if (!displayName) {
     loginStatus.textContent = "Display name is required.";
+    setLoginInputsDisabled(false);
+    loginInProgress = false;
     return;
   }
   if (!/^\d{4}$/.test(pin)) {
     loginStatus.textContent = "PIN must be exactly 4 digits.";
+    setLoginInputsDisabled(false);
+    loginInProgress = false;
     return;
   }
 
@@ -653,6 +678,11 @@ async function onLoginSubmit(event) {
     await completeLogin({ displayName, pin }, false);
   } catch (error) {
     loginStatus.textContent = `Login failed: ${error.message}`;
+    pinInput.focus();
+    pinInput.select();
+  } finally {
+    setLoginInputsDisabled(false);
+    loginInProgress = false;
   }
 }
 
