@@ -1,20 +1,18 @@
 # Project Euler Tracker
 
-Simple shared tracker for Project Euler problem.
+Simple shared tracker for Project Euler problems.
 
 ## What it does
 
 - Sign in with display name + 4-digit PIN
 - Display names are unique; same name can be reused only with matching PIN
 - PIN is stored as salted PBKDF2 hash (`pinHash` + `pinSalt`) in Firestore, never as raw PIN
-- Browser remembers only display name (PIN is not persisted)
-- Show one global board for everyone
 - Filter board with `My solves` (problems solved by current login)
 - Filter by level range (`Min level`/`Max level`) and math branch (`All branches` or a specific branch)
 - Track `status`, `solvedCount`, and `lastSolvedAt`
 - Allow removing only your own solve logs
-- Read levels from `data/levels.json` (not Firestore)
 - Read branch categories from `data/question_categories.jsonl` when available
+- Search by question number or text using `data/question_search_index.json`
 
 Allowed status labels:
 
@@ -31,8 +29,6 @@ Allowed status labels:
 4. Paste your Firebase config in `app.js`.
 5. Copy `firebase.rules` into Firestore Rules and click Publish.
 6. Deploy this folder on GitHub Pages.
-
-Note: this app tracks only group progress (no personal dashboard).
 
 ## Security notes (client-only auth)
 
@@ -51,15 +47,22 @@ This repo includes `.github/workflows/deploy-pages.yml`.
 
 This repo also includes `.github/workflows/refresh-pe-data.yml`.
 
-- Runs daily (and manually via workflow dispatch).
+- Runs every 3 hours at minute `00` UTC (and manually via workflow dispatch).
 - Regenerates `data/levels.json`, downloads missing files in `data/questions`, and rebuilds `data/question_search_index.json`.
-- Commits and pushes data updates automatically.
+- Commits and pushes data updates automatically when changes are detected.
+- Deploys GitHub Pages in the same workflow run when data was updated.
 
 Before using it, add repository secret:
 
 - `PE_PJ_COOKIE` -> value of your `__Host-PHPSESSID` cookie.
 
-At runtime, GitHub Actions writes this to `.env/projecteuler_server.env`.
+At runtime, GitHub Actions writes this to `.env/projecteuler_server.env` and uses it for the refresh scripts.
+
+## Categorization prompt
+
+`tools/categorization_prompt.md` contains the LLM prompt/workflow for classifying missing question files into branches and tags.
+
+Use it together with `data/question_categories.jsonl` when you want to update or extend category metadata.
 
 ## Build `levels.json` from Project Euler web progress
 
