@@ -629,6 +629,9 @@ function onPinInput() {
   if (pinInput.value !== digitsOnly) {
     pinInput.value = digitsOnly;
   }
+  if (digitsOnly.length > 0 && loginStatus.textContent.startsWith("Session changed.")) {
+    loginStatus.textContent = "";
+  }
 }
 
 async function onLoginSubmit(event) {
