@@ -452,6 +452,10 @@ thead th {
   color: #254d97;
 }
 
+.tile .tile-meta.tile-meta-level-missing {
+  color: #b42318;
+}
+
 .panel-backdrop {
   position: fixed;
   inset: 0;
@@ -705,6 +709,10 @@ thead th {
 :root[data-theme="dark"] .tile.s-assignment .tile-meta,
 :root[data-theme="dark"] .tile.s-lecture .tile-meta {
   color: rgba(255, 255, 255, 0.9);
+}
+
+:root[data-theme="dark"] .tile .tile-meta.tile-meta-level-missing {
+  color: #ff6b6b;
 }
 
 :root[data-theme="dark"] thead th {

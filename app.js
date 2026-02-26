@@ -452,12 +452,19 @@ function populateBranchFilterOptions(branches) {
   const allBranches = [...ordered, ...extras];
 
   branchSelect.innerHTML = "";
-  branchSelect.insertAdjacentHTML("beforeend", '<option value="all">All branches</option>');
+  const allOption = document.createElement("option");
+  allOption.value = "all";
+  allOption.dataset.baseLabel = "All branches";
+  allOption.textContent = "All branches";
+  branchSelect.append(allOption);
 
   allBranches.forEach((branch) => {
-    const value = escapeHtml(branch);
-    const label = escapeHtml(formatBranchLabel(branch));
-    branchSelect.insertAdjacentHTML("beforeend", `<option value="${value}">${label}</option>`);
+    const option = document.createElement("option");
+    const baseLabel = formatBranchLabel(branch);
+    option.value = branch;
+    option.dataset.baseLabel = baseLabel;
+    option.textContent = baseLabel;
+    branchSelect.append(option);
   });
 
   if (previousValue && (previousValue === "all" || allBranches.includes(previousValue))) {
@@ -718,6 +725,7 @@ function renderGrid() {
   const [minLevel, maxLevel] = normalizeLevelRange(selectedMinLevel, selectedMaxLevel);
   const tiles = [];
   let allBranchesCount = 0;
+  const branchCounts = new Map();
   const counts = {
     all: 0,
     "my-solves": 0,
@@ -745,6 +753,9 @@ function renderGrid() {
       : (currentFilter === "all" || status === currentFilter);
     if (matchesCurrentFilter) {
       allBranchesCount += 1;
+      if (branch) {
+        branchCounts.set(branch, (branchCounts.get(branch) || 0) + 1);
+      }
     }
 
     if (selectedBranch !== "all" && branch !== selectedBranch) {
@@ -768,7 +779,7 @@ function renderGrid() {
   }
 
   updateFilterButtonCounts(counts);
-  updateAllBranchesOptionLabel(allBranchesCount);
+  updateBranchOptionLabels(allBranchesCount, branchCounts);
 
   problemGrid.classList.toggle("problem-grid-compact", !selectedSpecificBranch);
 
@@ -780,13 +791,26 @@ function renderGrid() {
   problemGrid.innerHTML = tiles.join("");
 }
 
-function updateAllBranchesOptionLabel(count) {
+function updateBranchOptionLabels(allCount, branchCounts) {
+  const normalizedAllCount = Number.isFinite(allCount) ? Math.max(0, Math.floor(allCount)) : 0;
   const allOption = branchSelect.querySelector('option[value="all"]');
-  if (!(allOption instanceof HTMLOptionElement)) {
-    return;
+  if (allOption instanceof HTMLOptionElement) {
+    const allBaseLabel = allOption.dataset.baseLabel || "All branches";
+    allOption.textContent = `${allBaseLabel} (${normalizedAllCount})`;
   }
-  const normalized = Number.isFinite(count) ? Math.max(0, Math.floor(count)) : 0;
-  allOption.textContent = `All branches (${normalized})`;
+
+  branchSelect.querySelectorAll("option").forEach((option) => {
+    if (!(option instanceof HTMLOptionElement)) {
+      return;
+    }
+    if (option.value === "all") {
+      return;
+    }
+
+    const baseLabel = option.dataset.baseLabel || option.textContent || "";
+    const count = branchCounts.get(option.value) || 0;
+    option.textContent = `${baseLabel} (${count})`;
+  });
 }
 
 function isDifficultyInRange(difficulty, minLevel, maxLevel) {
@@ -833,6 +857,7 @@ function tileTemplate(number, data, selectedBranch) {
   const difficulty = levelsByProblem.has(number) ? levelsByProblem.get(number) : null;
   const difficultyText = difficulty === null ? "" : String(difficulty);
   const rawTitle = titlesByProblem.get(number) || "";
+  const tileTitle = rawTitle ? rawTitle.toLowerCase() : "";
   const solvedCount = Number(data.solvedCount || 0);
   const status = normalizeStatus(data.statusLabel);
   const statusClass = chipClassName(status);
@@ -840,10 +865,12 @@ function tileTemplate(number, data, selectedBranch) {
   const confidence = confidenceByProblem.get(number);
   const confidenceText = formatConfidence(confidence);
   const selectedSpecificBranch = selectedBranch && selectedBranch !== "all";
-  const topMetaText = difficultyText ? `level ${difficultyText}` : "\u00A0";
-  const topMeta = `<span class="tile-meta">${escapeHtml(topMetaText)}</span>`;
+  const hasLevel = difficultyText.length > 0;
+  const topMetaText = hasLevel ? `level ${difficultyText}` : "no level";
+  const topMetaClass = hasLevel ? "tile-meta" : "tile-meta tile-meta-level-missing";
+  const topMeta = `<span class="${topMetaClass}">${escapeHtml(topMetaText)}</span>`;
   const hasTitleMeta = status === "unsolved";
-  const statusMetaText = hasTitleMeta ? (rawTitle || "\u00A0") : statusText;
+  const statusMetaText = hasTitleMeta ? (tileTitle || "\u00A0") : statusText;
   const statusMetaClass = hasTitleMeta ? "tile-meta tile-meta-title" : "tile-meta";
   const extraMetaText = selectedSpecificBranch ? `conf ${confidenceText}` : "\u00A0";
   const extraMeta = selectedSpecificBranch
@@ -929,7 +956,11 @@ function renderPanelMeta(number, data) {
   const confidence = confidenceByProblem.get(number);
   const tags = topicTagsByProblem.get(number) || [];
   if (metaLevel) {
-    metaLevel.textContent = difficulty === null ? "" : String(difficulty);
+    if (difficulty === null) {
+      metaLevel.textContent = "-";
+    } else {
+      metaLevel.textContent = String(difficulty);
+    }
   }
   if (metaBranch) {
     metaBranch.textContent = formatBranchLabel(branch);
