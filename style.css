@@ -102,10 +102,6 @@ body::before {
   color: var(--muted);
 }
 
-.top .registered-users {
-  font-size: 0.92rem;
-}
-
 .card {
   background: var(--surface-2);
   padding: 0.9rem 1rem;
@@ -867,11 +863,6 @@ select:focus-visible,
     position: static;
     order: 0;
     margin-right: auto;
-  }
-
-  .top .registered-users {
-    order: 3;
-    width: 100%;
   }
 
   .legend-item {

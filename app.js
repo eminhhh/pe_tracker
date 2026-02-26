@@ -12,7 +12,6 @@ import {
   deleteField,
   deleteDoc,
   doc,
-  getCountFromServer,
   getDoc,
   getDocs,
   getFirestore,
@@ -74,7 +73,6 @@ const branchSelect = document.getElementById("branchSelect");
 const filterBar = document.getElementById("filterBar");
 const problemGrid = document.getElementById("problemGrid");
 const logoutBtn = document.getElementById("logoutBtn");
-const registeredUsersLabel = document.getElementById("registeredUsersLabel");
 
 const panelBackdrop = document.getElementById("panelBackdrop");
 const problemPanel = document.getElementById("problemPanel");
@@ -138,7 +136,6 @@ function boot() {
     if (user) {
       currentUid = user.uid;
       authReady = true;
-      loadRegisteredUsersCount();
       await tryAutoResumeLogin();
       return;
     }
@@ -232,25 +229,6 @@ function onDisplayNameInputChange() {
   autoResumeAttempted = false;
   if (!listenersStarted && loginStatus.textContent.startsWith("Session changed.")) {
     loginStatus.textContent = "";
-  }
-}
-
-async function loadRegisteredUsersCount() {
-  if (!registeredUsersLabel) {
-    return;
-  }
-
-  try {
-    const snapshot = await getCountFromServer(collection(db, "displayProfiles"));
-    const count = snapshot.data().count;
-    if (!Number.isFinite(count)) {
-      return;
-    }
-    const normalizedCount = Math.max(0, Math.floor(count));
-    const noun = normalizedCount === 1 ? "user" : "users";
-    registeredUsersLabel.textContent = `${normalizedCount.toLocaleString("en-US")} ${noun} registered`;
-  } catch (_error) {
-    // Keep default label when count is unavailable.
   }
 }
 
@@ -694,7 +672,6 @@ async function completeLogin(profile, silent) {
 
   localStorage.removeItem(explicitLogoutKey);
   localStorage.setItem(rememberedDisplayNameKey, resolvedDisplayName.trim());
-  void upsertDisplayProfile(normalizedDisplayName, resolvedDisplayName);
 
   currentDisplayName = resolvedDisplayName;
   displayNameInput.value = resolvedDisplayName;
@@ -1662,30 +1639,6 @@ async function claimDisplayName(displayName, normalizedDisplayName, pin) {
   });
 
   return resolvedDisplayName;
-}
-
-async function upsertDisplayProfile(normalizedDisplayName, displayName, attempt = 1) {
-  try {
-    const profileRef = doc(db, "displayProfiles", normalizedDisplayName);
-    const profileSnap = await getDoc(profileRef);
-    const existingCreatedAt = profileSnap.exists() ? profileSnap.data().createdAt : null;
-
-    await setDoc(
-      profileRef,
-      {
-        displayName,
-        updatedAt: serverTimestamp(),
-        createdAt: existingCreatedAt || serverTimestamp(),
-      },
-      { merge: true }
-    );
-  } catch (_error) {
-    if (attempt < 2) {
-      window.setTimeout(() => {
-        void upsertDisplayProfile(normalizedDisplayName, displayName, attempt + 1);
-      }, 1500);
-    }
-  }
 }
 
 function bytesToHex(bytes) {
