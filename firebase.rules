@@ -54,8 +54,7 @@ service cloud.firestore {
         && request.resource.data.createdAt is timestamp;
       allow update: if isSignedIn()
         && request.resource.data.keys().hasOnly(['ownerUid', 'displayName', 'pinHash', 'pinSalt', 'updatedAt', 'createdAt'])
-        && resource.data.ownerUid == request.auth.uid
-        && request.resource.data.ownerUid == resource.data.ownerUid
+        && request.resource.data.ownerUid == request.auth.uid
         && request.resource.data.displayName is string
         && request.resource.data.displayName.size() > 0
         && request.resource.data.displayName.size() <= 40

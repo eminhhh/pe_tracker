@@ -6,7 +6,6 @@ Simple shared tracker for Project Euler problem.
 
 - Sign in with display name + 4-digit PIN
 - Display names are unique; same name can be reused only with matching PIN
-- Display-name ownership stays bound to the current authenticated session (no client-side ownership transfer)
 - PIN is stored as salted PBKDF2 hash (`pinHash` + `pinSalt`) in Firestore, never as raw PIN
 - Browser remembers only display name (PIN is not persisted)
 - Show one global board for everyone

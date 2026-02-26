@@ -1609,13 +1609,6 @@ async function claimDisplayName(displayName, normalizedDisplayName, pin) {
         resolvedDisplayName = storedDisplayName;
       }
 
-      if (typeof ownerUid === "string" && ownerUid && ownerUid !== currentUid) {
-        throw new Error(
-          "This display name is linked to another session. "
-          + "Use the original session or choose a different display name."
-        );
-      }
-
       let pinMatches = false;
       if (storedPinHash) {
         if (storedPinSalt) {
@@ -1628,7 +1621,7 @@ async function claimDisplayName(displayName, normalizedDisplayName, pin) {
         pinMatches = legacyPin === pin;
       }
 
-      if (!pinMatches) {
+      if (ownerUid !== currentUid && !pinMatches) {
         throw new Error("Display name is already in use or PIN is incorrect.");
       }
     }
