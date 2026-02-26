@@ -233,7 +233,7 @@ async function loadRegisteredUsersCount() {
   }
 
   try {
-    const snapshot = await getCountFromServer(collection(db, "displayNames"));
+    const snapshot = await getCountFromServer(collection(db, "displayProfiles"));
     const count = snapshot.data().count;
     if (!Number.isFinite(count)) {
       return;
@@ -1607,6 +1607,7 @@ async function claimDisplayName(displayName, normalizedDisplayName, pin) {
 
   await runTransaction(db, async (tx) => {
     const nameRef = doc(db, "displayNames", normalizedDisplayName);
+    const profileRef = doc(db, "displayProfiles", normalizedDisplayName);
     const nameSnap = await tx.get(nameRef);
 
     if (nameSnap.exists()) {
@@ -1644,6 +1645,16 @@ async function claimDisplayName(displayName, normalizedDisplayName, pin) {
         pinHash: nextPinHash,
         pinSalt: nextPinSalt,
         pin: deleteField(),
+        updatedAt: serverTimestamp(),
+        createdAt: serverTimestamp(),
+      },
+      { merge: true }
+    );
+
+    tx.set(
+      profileRef,
+      {
+        displayName: resolvedDisplayName,
         updatedAt: serverTimestamp(),
         createdAt: serverTimestamp(),
       },
