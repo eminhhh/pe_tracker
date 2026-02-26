@@ -41,10 +41,11 @@ jobs:
         run: |
           python3 tools/build_levels_json.py
           python3 tools/download_questions.py
+          python3 tools/build_question_search_index.py
 
       - name: Commit and push data changes
         run: |
-          git add data/levels.json data/questions
+          git add data/levels.json data/questions data/question_search_index.json
           if git diff --cached --quiet; then
             echo "No data updates detected."
             exit 0

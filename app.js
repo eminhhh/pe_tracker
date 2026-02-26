@@ -106,6 +106,7 @@ let allProblems = new Map();
 let levelsByProblem = new Map();
 let titlesByProblem = new Map();
 let solvedByPeByProblem = new Map();
+let questionSearchByProblem = new Map();
 let branchesByProblem = new Map();
 let confidenceByProblem = new Map();
 let topicTagsByProblem = new Map();
@@ -122,6 +123,7 @@ let solvedByCurrentUser = new Set();
 let solvedByCurrentUserByNameKey = new Set();
 let solvedByCurrentUserByName = new Set();
 let autoResumeAttempted = false;
+let searchInputDebounceTimer = null;
 
 boot();
 
@@ -157,12 +159,11 @@ function boot() {
   requestAnimationFrame(() => {
     document.documentElement.classList.add("theme-ready");
   });
-  searchInput.addEventListener("input", renderGrid);
+  searchInput.addEventListener("input", onSearchInput);
   pinInput.addEventListener("input", onPinInput);
   minLevelSelect.addEventListener("change", onLevelRangeChange);
   maxLevelSelect.addEventListener("change", onLevelRangeChange);
   branchSelect.addEventListener("change", renderGrid);
-  searchInput.max = String(maxProblemNumber);
   populateLevelFilterOptions(buildInclusiveRange(DEFAULT_MIN_LEVEL, DEFAULT_MAX_LEVEL));
   populateBranchFilterOptions([]);
   filterBar.addEventListener("click", onFilterClick);
@@ -175,6 +176,7 @@ function boot() {
   logoutBtn.addEventListener("click", onLogout);
 
   loadLevelsData();
+  loadQuestionSearchIndex();
   loadQuestionCategories();
 }
 
@@ -211,6 +213,16 @@ function formatProblemTitle(value) {
     return "";
   }
   return value.replaceAll("$", "").replace(/\s{2,}/g, " ").trim();
+}
+
+function onSearchInput() {
+  if (searchInputDebounceTimer) {
+    clearTimeout(searchInputDebounceTimer);
+  }
+  searchInputDebounceTimer = setTimeout(() => {
+    searchInputDebounceTimer = null;
+    renderGrid();
+  }, 150);
 }
 
 async function loadRegisteredUsersCount() {
@@ -283,7 +295,6 @@ async function loadLevelsData() {
       maxProblemNumber = inferredMaxProblem;
     }
 
-    searchInput.max = String(maxProblemNumber);
     levelsByProblem = levelMap;
     titlesByProblem = titleMap;
     solvedByPeByProblem = solvedByMap;
@@ -292,6 +303,46 @@ async function loadLevelsData() {
     refreshPanelMeta();
   } catch (_error) {
     // Keep default level fallback when file is unavailable.
+  }
+}
+
+async function loadQuestionSearchIndex() {
+  try {
+    const response = await fetch("data/question_search_index.json", { cache: "no-store" });
+    if (!response.ok) {
+      return;
+    }
+
+    const payload = await response.json();
+    if (!payload || typeof payload !== "object") {
+      return;
+    }
+
+    const indexMap = new Map();
+    Object.entries(payload).forEach(([key, value]) => {
+      if (key === "_meta") {
+        return;
+      }
+      const number = Number(key);
+      if (!Number.isInteger(number) || number < 1) {
+        return;
+      }
+      if (!value || typeof value !== "object") {
+        return;
+      }
+
+      const raw = typeof value.search_text === "string" ? value.search_text : "";
+      indexMap.set(number, normalizeSearchText(raw));
+    });
+
+    if (!indexMap.size) {
+      return;
+    }
+
+    questionSearchByProblem = indexMap;
+    renderGrid();
+  } catch (_error) {
+    // Search falls back to title/tags when index is unavailable.
   }
 }
 
@@ -527,6 +578,64 @@ function onLevelRangeChange() {
   renderGrid();
 }
 
+function normalizeSearchText(value) {
+  if (typeof value !== "string") {
+    return "";
+  }
+  return value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function tokenizeSearchQuery(value) {
+  const normalized = normalizeSearchText(value);
+  if (!normalized) {
+    return [];
+  }
+  return normalized.split(" ").filter(Boolean);
+}
+
+function getSearchBlobForProblem(number) {
+  const indexed = questionSearchByProblem.get(number);
+  if (typeof indexed === "string" && indexed) {
+    return indexed;
+  }
+
+  const rawTitle = titlesByProblem.get(number) || "";
+  const tags = topicTagsByProblem.get(number) || [];
+  return normalizeSearchText(`${rawTitle} ${tags.join(" ")}`);
+}
+
+function matchesSearchQuery(number, queryTokens) {
+  if (!queryTokens.length) {
+    return true;
+  }
+
+  const numberText = String(number);
+  const searchBlob = getSearchBlobForProblem(number);
+
+  for (const token of queryTokens) {
+    if (!token) {
+      continue;
+    }
+
+    if (/^\d+$/.test(token)) {
+      if (!numberText.includes(token) && !searchBlob.includes(token)) {
+        return false;
+      }
+      continue;
+    }
+
+    if (!searchBlob.includes(token)) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
 function onPinInput() {
   const digitsOnly = pinInput.value.replace(/\D/g, "").slice(0, 4);
   if (pinInput.value !== digitsOnly) {
@@ -717,7 +826,7 @@ function stopRealtimeListeners() {
 }
 
 function renderGrid() {
-  const searchText = searchInput.value.trim();
+  const queryTokens = tokenizeSearchQuery(searchInput.value);
   const selectedMinLevel = parseLevelSelectValue(minLevelSelect.value);
   const selectedMaxLevel = parseLevelSelectValue(maxLevelSelect.value);
   const selectedBranch = branchSelect.value;
@@ -741,7 +850,7 @@ function renderGrid() {
     const difficulty = levelsByProblem.has(number) ? levelsByProblem.get(number) : null;
     const branch = branchesByProblem.get(number) || "";
 
-    if (searchText && !String(number).includes(searchText)) {
+    if (!matchesSearchQuery(number, queryTokens)) {
       continue;
     }
     if (!isDifficultyInRange(difficulty, minLevel, maxLevel)) {

@@ -46,7 +46,7 @@ This repo includes `.github/workflows/deploy-pages.yml`.
 This repo also includes `.github/workflows/refresh-pe-data.yml`.
 
 - Runs daily (and manually via workflow dispatch).
-- Regenerates `data/levels.json` and downloads missing files in `data/questions`.
+- Regenerates `data/levels.json`, downloads missing files in `data/questions`, and rebuilds `data/question_search_index.json`.
 - Commits and pushes data updates automatically.
 
 Before using it, add repository secret:
@@ -97,3 +97,13 @@ Optional examples:
 `python3 tools/download_questions.py --start 1 --end 100`
 
 `python3 tools/download_questions.py --force`
+
+## Build question search index
+
+Build the text-search index used by the main search bar (`#` + title/body/tags):
+
+`python3 tools/build_question_search_index.py`
+
+Optional argument:
+
+`python3 tools/build_question_search_index.py --out data/question_search_index.json`
