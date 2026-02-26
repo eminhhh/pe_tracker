@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "last_updated_utc": "2026-02-26 18:50",
-    "generated_at_utc": "2026-02-26 18:50",
+    "last_updated_utc": "2026-02-26 21:29",
+    "generated_at_utc": "2026-02-26 21:30",
     "source": "https://projecteuler.net/progress",
     "max_problem_number": 985
   },
@@ -102,7 +102,7 @@
   },
   "20": {
     "difficulty": 0,
-    "solved_by": 214580,
+    "solved_by": 214579,
     "title": "Factorial Digit Sum"
   },
   "21": {
@@ -137,7 +137,7 @@
   },
   "27": {
     "difficulty": 1,
-    "solved_by": 96670,
+    "solved_by": 96672,
     "title": "Quadratic Primes"
   },
   "28": {
@@ -167,7 +167,7 @@
   },
   "33": {
     "difficulty": 0,
-    "solved_by": 79496,
+    "solved_by": 79497,
     "title": "Digit Cancelling Fractions"
   },
   "34": {
@@ -202,7 +202,7 @@
   },
   "40": {
     "difficulty": 1,
-    "solved_by": 88064,
+    "solved_by": 88065,
     "title": "Champernowne's Constant"
   },
   "41": {
@@ -217,12 +217,12 @@
   },
   "43": {
     "difficulty": 1,
-    "solved_by": 66676,
+    "solved_by": 66677,
     "title": "Sub-string Divisibility"
   },
   "44": {
     "difficulty": 2,
-    "solved_by": 65355,
+    "solved_by": 65356,
     "title": "Pentagon Numbers"
   },
   "45": {
@@ -232,27 +232,27 @@
   },
   "46": {
     "difficulty": 2,
-    "solved_by": 68713,
+    "solved_by": 68714,
     "title": "Goldbach's Other Conjecture"
   },
   "47": {
     "difficulty": 1,
-    "solved_by": 64686,
+    "solved_by": 64688,
     "title": "Distinct Primes Factors"
   },
   "48": {
     "difficulty": 0,
-    "solved_by": 121981,
+    "solved_by": 121982,
     "title": "Self Powers"
   },
   "49": {
     "difficulty": 1,
-    "solved_by": 64509,
+    "solved_by": 64510,
     "title": "Prime Permutations"
   },
   "50": {
     "difficulty": 2,
-    "solved_by": 69578,
+    "solved_by": 69579,
     "title": "Consecutive Prime Sum"
   },
   "51": {
@@ -287,7 +287,7 @@
   },
   "57": {
     "difficulty": 1,
-    "solved_by": 46647,
+    "solved_by": 46648,
     "title": "Square Root Convergents"
   },
   "58": {
@@ -307,7 +307,7 @@
   },
   "61": {
     "difficulty": 3,
-    "solved_by": 29143,
+    "solved_by": 29144,
     "title": "Cyclical Figurate Numbers"
   },
   "62": {
@@ -372,7 +372,7 @@
   },
   "74": {
     "difficulty": 2,
-    "solved_by": 30151,
+    "solved_by": 30152,
     "title": "Digit Factorial Chains"
   },
   "75": {
@@ -382,7 +382,7 @@
   },
   "76": {
     "difficulty": 3,
-    "solved_by": 32119,
+    "solved_by": 32120,
     "title": "Counting Summations"
   },
   "77": {
@@ -397,7 +397,7 @@
   },
   "79": {
     "difficulty": 2,
-    "solved_by": 44831,
+    "solved_by": 44833,
     "title": "Passcode Derivation"
   },
   "80": {
@@ -407,17 +407,17 @@
   },
   "81": {
     "difficulty": 2,
-    "solved_by": 38180,
+    "solved_by": 38181,
     "title": "Path Sum: Two Ways"
   },
   "82": {
     "difficulty": 4,
-    "solved_by": 23913,
+    "solved_by": 23915,
     "title": "Path Sum: Three Ways"
   },
   "83": {
     "difficulty": 5,
-    "solved_by": 20793,
+    "solved_by": 20795,
     "title": "Path Sum: Four Ways"
   },
   "84": {
@@ -427,7 +427,7 @@
   },
   "85": {
     "difficulty": 2,
-    "solved_by": 27860,
+    "solved_by": 27861,
     "title": "Counting Rectangles"
   },
   "86": {
@@ -442,7 +442,7 @@
   },
   "88": {
     "difficulty": 10,
-    "solved_by": 11956,
+    "solved_by": 11957,
     "title": "Product-sum Numbers"
   },
   "89": {
@@ -467,7 +467,7 @@
   },
   "93": {
     "difficulty": 8,
-    "solved_by": 13786,
+    "solved_by": 13787,
     "title": "Arithmetic Expressions"
   },
   "94": {
@@ -547,7 +547,7 @@
   },
   "109": {
     "difficulty": 10,
-    "solved_by": 9418,
+    "solved_by": 9419,
     "title": "Darts"
   },
   "110": {
@@ -607,7 +607,7 @@
   },
   "121": {
     "difficulty": 9,
-    "solved_by": 11022,
+    "solved_by": 11023,
     "title": "Disc Game Prize Fund"
   },
   "122": {
@@ -647,7 +647,7 @@
   },
   "129": {
     "difficulty": 16,
-    "solved_by": 7248,
+    "solved_by": 7249,
     "title": "Repunit Divisibility"
   },
   "130": {
@@ -677,12 +677,12 @@
   },
   "135": {
     "difficulty": 12,
-    "solved_by": 7408,
+    "solved_by": 7409,
     "title": "Same Differences"
   },
   "136": {
     "difficulty": 13,
-    "solved_by": 6616,
+    "solved_by": 6617,
     "title": "Singleton Difference"
   },
   "137": {
@@ -737,7 +737,7 @@
   },
   "147": {
     "difficulty": 21,
-    "solved_by": 3547,
+    "solved_by": 3548,
     "title": "Rectangles in Cross-hatched Grids"
   },
   "148": {
@@ -1017,7 +1017,7 @@
   },
   "203": {
     "difficulty": 6,
-    "solved_by": 10109,
+    "solved_by": 10110,
     "title": "Squarefree Binomial Coefficients"
   },
   "204": {
@@ -1032,7 +1032,7 @@
   },
   "206": {
     "difficulty": 2,
-    "solved_by": 26666,
+    "solved_by": 26668,
     "title": "Concealed Square"
   },
   "207": {
@@ -1067,7 +1067,7 @@
   },
   "213": {
     "difficulty": 29,
-    "solved_by": 2723,
+    "solved_by": 2724,
     "title": "Flea Circus"
   },
   "214": {
@@ -1802,7 +1802,7 @@
   },
   "360": {
     "difficulty": 23,
-    "solved_by": 667,
+    "solved_by": 668,
     "title": "Scary Sphere"
   },
   "361": {
@@ -1907,7 +1907,7 @@
   },
   "381": {
     "difficulty": 2,
-    "solved_by": 4950,
+    "solved_by": 4951,
     "title": "$(\\text{prime}-k)$ Factorial"
   },
   "382": {
@@ -2147,7 +2147,7 @@
   },
   "429": {
     "difficulty": 4,
-    "solved_by": 2912,
+    "solved_by": 2913,
     "title": "Sum of Squares of Unitary Divisors"
   },
   "430": {
@@ -2217,7 +2217,7 @@
   },
   "443": {
     "difficulty": 10,
-    "solved_by": 1339,
+    "solved_by": 1340,
     "title": "GCD Sequence"
   },
   "444": {
@@ -2267,7 +2267,7 @@
   },
   "453": {
     "difficulty": 37,
-    "solved_by": 262,
+    "solved_by": 263,
     "title": "Lattice Quadrilaterals"
   },
   "454": {
@@ -2562,7 +2562,7 @@
   },
   "512": {
     "difficulty": 8,
-    "solved_by": 1746,
+    "solved_by": 1747,
     "title": "Sums of Totients of Powers"
   },
   "513": {
@@ -3012,7 +3012,7 @@
   },
   "602": {
     "difficulty": 13,
-    "solved_by": 593,
+    "solved_by": 594,
     "title": "Product of Head Counts"
   },
   "603": {
@@ -3462,7 +3462,7 @@
   },
   "692": {
     "difficulty": 3,
-    "solved_by": 1637,
+    "solved_by": 1638,
     "title": "Siegbert and Jo"
   },
   "693": {
@@ -3487,7 +3487,7 @@
   },
   "697": {
     "difficulty": 11,
-    "solved_by": 681,
+    "solved_by": 682,
     "title": "Randomly Decaying Sequence"
   },
   "698": {
@@ -4102,7 +4102,7 @@
   },
   "820": {
     "difficulty": 2,
-    "solved_by": 1263,
+    "solved_by": 1264,
     "title": "$N$<sup>th</sup> Digit of Reciprocals"
   },
   "821": {
@@ -4117,7 +4117,7 @@
   },
   "823": {
     "difficulty": 24,
-    "solved_by": 219,
+    "solved_by": 220,
     "title": "Factor Shuffle"
   },
   "824": {
@@ -4282,7 +4282,7 @@
   },
   "856": {
     "difficulty": 13,
-    "solved_by": 726,
+    "solved_by": 727,
     "title": "Waiting for a Pair"
   },
   "857": {
@@ -4372,7 +4372,7 @@
   },
   "874": {
     "difficulty": 22,
-    "solved_by": 605,
+    "solved_by": 606,
     "title": "Maximal Prime Score"
   },
   "875": {
@@ -4512,7 +4512,7 @@
   },
   "902": {
     "difficulty": 24,
-    "solved_by": 191,
+    "solved_by": 192,
     "title": "Permutation Powers"
   },
   "903": {
