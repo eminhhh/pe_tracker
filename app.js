@@ -156,6 +156,7 @@ function boot() {
   }
 
   loginForm.addEventListener("submit", onLoginSubmit);
+  displayNameInput.addEventListener("input", onDisplayNameInputChange);
   themeToggleBtn.addEventListener("click", onThemeToggle);
   restoreThemePreference();
   requestAnimationFrame(() => {
@@ -225,6 +226,13 @@ function onSearchInput() {
     searchInputDebounceTimer = null;
     renderGrid();
   }, 150);
+}
+
+function onDisplayNameInputChange() {
+  autoResumeAttempted = false;
+  if (!listenersStarted && loginStatus.textContent.startsWith("Session changed.")) {
+    loginStatus.textContent = "";
+  }
 }
 
 async function loadRegisteredUsersCount() {
@@ -1656,7 +1664,7 @@ async function claimDisplayName(displayName, normalizedDisplayName, pin) {
   return resolvedDisplayName;
 }
 
-async function upsertDisplayProfile(normalizedDisplayName, displayName) {
+async function upsertDisplayProfile(normalizedDisplayName, displayName, attempt = 1) {
   try {
     const profileRef = doc(db, "displayProfiles", normalizedDisplayName);
     const profileSnap = await getDoc(profileRef);
@@ -1672,7 +1680,11 @@ async function upsertDisplayProfile(normalizedDisplayName, displayName) {
       { merge: true }
     );
   } catch (_error) {
-    // Profile counters are non-critical and should not block login flow.
+    if (attempt < 2) {
+      window.setTimeout(() => {
+        void upsertDisplayProfile(normalizedDisplayName, displayName, attempt + 1);
+      }, 1500);
+    }
   }
 }
 

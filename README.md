@@ -38,6 +38,7 @@ Note: this app tracks only group progress (no personal dashboard).
 
 - `displayNames` allows document reads (`get`) but blocks collection listing (`list`) to reduce hash scraping risk.
 - Registered-user count is read from `displayProfiles`, which is writable only by the owner of matching `displayNames/{nameKey}`.
+- A `displayProfiles` entry is created/updated after successful login and powers the header registered-user count.
 - Legacy users with old hash/plain PIN fields are migrated to `pinHash` + `pinSalt` on next successful login.
 - This is still a client-only 4-digit PIN model; for stronger protection use backend-verified auth.
 

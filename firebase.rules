@@ -68,10 +68,13 @@ service cloud.firestore {
       allow create, update: if isSignedIn()
         && request.resource.data.keys().hasOnly(['displayName', 'updatedAt', 'createdAt'])
         && request.resource.data.displayName is string
+        && request.resource.data.displayName.size() > 0
+        && request.resource.data.displayName.size() <= 40
         && request.resource.data.updatedAt is timestamp
         && request.resource.data.createdAt is timestamp
         && exists(/databases/$(database)/documents/displayNames/$(nameKey))
-        && get(/databases/$(database)/documents/displayNames/$(nameKey)).data.ownerUid == request.auth.uid;
+        && get(/databases/$(database)/documents/displayNames/$(nameKey)).data.ownerUid == request.auth.uid
+        && get(/databases/$(database)/documents/displayNames/$(nameKey)).data.displayName == request.resource.data.displayName;
       allow delete: if false;
     }
 
