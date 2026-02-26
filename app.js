@@ -51,6 +51,8 @@ const DEFAULT_PROBLEM = {
 const DEFAULT_MAX_PROBLEM_NUMBER = 985;
 const DEFAULT_MIN_LEVEL = 0;
 const DEFAULT_MAX_LEVEL = 38;
+const PIN_HASH_ITERATIONS = 120000;
+const PIN_SALT_BYTES = 16;
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
@@ -676,12 +678,17 @@ async function completeLogin(profile, silent) {
     throw new Error("Display name is invalid.");
   }
 
-  await claimDisplayName(profile.displayName, normalizedDisplayName, profile.pin);
+  const resolvedDisplayName = await claimDisplayName(
+    profile.displayName,
+    normalizedDisplayName,
+    profile.pin
+  );
 
   localStorage.removeItem(explicitLogoutKey);
-  localStorage.setItem(rememberedDisplayNameKey, profile.displayName.trim());
+  localStorage.setItem(rememberedDisplayNameKey, resolvedDisplayName.trim());
 
-  currentDisplayName = profile.displayName;
+  currentDisplayName = resolvedDisplayName;
+  displayNameInput.value = resolvedDisplayName;
   showMainApp();
   startRealtimeListeners();
   loginStatus.textContent = "";
@@ -707,6 +714,7 @@ async function tryAutoResumeLogin() {
 
   autoResumeAttempted = true;
   loginStatus.textContent = "Restoring your session...";
+  let requiresPinRelogin = false;
 
   try {
     const nameRef = doc(db, "displayNames", normalizedDisplayName);
@@ -717,6 +725,8 @@ async function tryAutoResumeLogin() {
 
     const stored = nameSnap.data();
     if (stored.ownerUid !== currentUid) {
+      requiresPinRelogin = true;
+      loginStatus.textContent = `Session changed. Enter PIN to continue as ${rememberedDisplayName}.`;
       return;
     }
 
@@ -734,7 +744,7 @@ async function tryAutoResumeLogin() {
   } catch (_error) {
     // Keep manual login available if auto-resume check fails.
   } finally {
-    if (!listenersStarted) {
+    if (!listenersStarted && !requiresPinRelogin) {
       loginStatus.textContent = "";
     }
   }
@@ -1590,7 +1600,10 @@ function handleError(error) {
 }
 
 async function claimDisplayName(displayName, normalizedDisplayName, pin) {
-  const pinHash = await hashPin(pin);
+  const pinHashLegacy = await hashPinLegacy(pin);
+  const nextPinSalt = generatePinSalt();
+  const nextPinHash = await hashPin(pin, normalizedDisplayName, nextPinSalt);
+  let resolvedDisplayName = displayName;
 
   await runTransaction(db, async (tx) => {
     const nameRef = doc(db, "displayNames", normalizedDisplayName);
@@ -1599,8 +1612,25 @@ async function claimDisplayName(displayName, normalizedDisplayName, pin) {
     if (nameSnap.exists()) {
       const ownerUid = nameSnap.data().ownerUid;
       const storedPinHash = String(nameSnap.data().pinHash || "");
+      const storedPinSalt = String(nameSnap.data().pinSalt || "");
       const legacyPin = String(nameSnap.data().pin || "");
-      const pinMatches = storedPinHash ? storedPinHash === pinHash : legacyPin === pin;
+      const storedDisplayName = String(nameSnap.data().displayName || "").trim();
+      if (storedDisplayName) {
+        resolvedDisplayName = storedDisplayName;
+      }
+
+      let pinMatches = false;
+      if (storedPinHash) {
+        if (storedPinSalt) {
+          const computedHash = await hashPin(pin, normalizedDisplayName, storedPinSalt);
+          pinMatches = computedHash ? computedHash === storedPinHash : storedPinHash === pinHashLegacy;
+        } else {
+          pinMatches = storedPinHash === pinHashLegacy;
+        }
+      } else {
+        pinMatches = legacyPin === pin;
+      }
+
       if (ownerUid !== currentUid && !pinMatches) {
         throw new Error("Display name is already in use or PIN is incorrect.");
       }
@@ -1610,8 +1640,9 @@ async function claimDisplayName(displayName, normalizedDisplayName, pin) {
       nameRef,
       {
         ownerUid: currentUid,
-        displayName,
-        pinHash,
+        displayName: resolvedDisplayName,
+        pinHash: nextPinHash,
+        pinSalt: nextPinSalt,
         pin: deleteField(),
         updatedAt: serverTimestamp(),
         createdAt: serverTimestamp(),
@@ -1619,17 +1650,68 @@ async function claimDisplayName(displayName, normalizedDisplayName, pin) {
       { merge: true }
     );
   });
+
+  return resolvedDisplayName;
 }
 
-async function hashPin(pin) {
-  const encoded = new TextEncoder().encode(String(pin));
-  const digest = await crypto.subtle.digest("SHA-256", encoded);
-  const bytes = new Uint8Array(digest);
+function bytesToHex(bytes) {
   let hex = "";
   bytes.forEach((value) => {
     hex += value.toString(16).padStart(2, "0");
   });
   return hex;
+}
+
+function hexToBytes(value) {
+  if (typeof value !== "string" || !/^[0-9a-f]{32}$/i.test(value)) {
+    return null;
+  }
+  const out = new Uint8Array(value.length / 2);
+  for (let i = 0; i < value.length; i += 2) {
+    out[i / 2] = Number.parseInt(value.slice(i, i + 2), 16);
+  }
+  return out;
+}
+
+function generatePinSalt() {
+  const bytes = new Uint8Array(PIN_SALT_BYTES);
+  crypto.getRandomValues(bytes);
+  return bytesToHex(bytes);
+}
+
+async function hashPinLegacy(pin) {
+  const encoded = new TextEncoder().encode(String(pin));
+  const digest = await crypto.subtle.digest("SHA-256", encoded);
+  const bytes = new Uint8Array(digest);
+  return bytesToHex(bytes);
+}
+
+async function hashPin(pin, normalizedDisplayName, pinSaltHex) {
+  const salt = hexToBytes(pinSaltHex);
+  if (!salt) {
+    return "";
+  }
+
+  const password = `${normalizedDisplayName}:${String(pin)}`;
+  const keyMaterial = await crypto.subtle.importKey(
+    "raw",
+    new TextEncoder().encode(password),
+    { name: "PBKDF2" },
+    false,
+    ["deriveBits"]
+  );
+  const bits = await crypto.subtle.deriveBits(
+    {
+      name: "PBKDF2",
+      hash: "SHA-256",
+      salt,
+      iterations: PIN_HASH_ITERATIONS,
+    },
+    keyMaterial,
+    256
+  );
+
+  return bytesToHex(new Uint8Array(bits));
 }
 
 function normalizeDisplayName(value) {

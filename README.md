@@ -6,7 +6,7 @@ Simple shared tracker for Project Euler problem.
 
 - Sign in with display name + 4-digit PIN
 - Display names are unique; same name can be reused only with matching PIN
-- PIN is stored as hash (`pinHash`) in Firestore, never as raw PIN
+- PIN is stored as salted PBKDF2 hash (`pinHash` + `pinSalt`) in Firestore, never as raw PIN
 - Browser remembers only display name (PIN is not persisted)
 - Show one global board for everyone
 - Filter board with `My solves` (problems solved by current login)
@@ -33,6 +33,12 @@ Allowed status labels:
 6. Deploy this folder on GitHub Pages.
 
 Note: this app tracks only group progress (no personal dashboard).
+
+## Security notes (client-only auth)
+
+- `displayNames` allows document reads (`get`) but blocks collection listing (`list`) to reduce hash scraping risk.
+- Legacy users with old hash/plain PIN fields are migrated to `pinHash` + `pinSalt` on next successful login.
+- This is still a client-only 4-digit PIN model; for stronger protection use backend-verified auth.
 
 ## GitHub Pages auto-deploy
 

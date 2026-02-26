@@ -22,19 +22,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
-      - name: Rebuild levels when source exists
-        run: |
-          if [ -f data/pe_data.html ]; then
-            python3 tools/build_levels_json.py
-          else
-            echo "data/pe_data.html not found; skipping level rebuild."
-          fi
-
       - name: Inject asset version for cache busting
         run: |
           ASSET_VERSION="${GITHUB_SHA::8}"
