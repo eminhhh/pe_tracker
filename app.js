@@ -1215,6 +1215,11 @@ async function onPanelSolve() {
   if (!number) {
     return;
   }
+  if (!canMarkSolveForActiveProblem()) {
+    showOperationError("Cannot mark assignment or class problem as solved.");
+    appStatus.textContent = `Problem #${number} cannot be marked solved from its current status.`;
+    return;
+  }
 
   setPanelBusy(true);
   showOperationLoading(`Saving solve for #${number}...`);
@@ -1468,6 +1473,9 @@ function normalizeStatus(status) {
   if (status === "solved by xx person") {
     return "solved";
   }
+  if (typeof status === "string" && status.trim().toLowerCase() === "class") {
+    return "solved in lecture";
+  }
   if (STATUS_VALUES.includes(status)) {
     return status;
   }
@@ -1524,7 +1532,7 @@ function waitForAuth() {
 
 function setPanelBusy(busy) {
   panelSaveBtn.disabled = busy || !isAdminUser();
-  panelSolveBtn.disabled = busy;
+  panelSolveBtn.disabled = busy || !canMarkSolveForActiveProblem();
   panelDeleteBtn.disabled = busy || !canDeleteOwnSolveForActiveProblem();
   panelCloseBtn.disabled = busy;
   panelStatusSelect.disabled = busy || !isAdminUser();
@@ -1532,10 +1540,24 @@ function setPanelBusy(busy) {
 
 function applyPanelPermissions() {
   const admin = isAdminUser();
+  const canMarkSolve = canMarkSolveForActiveProblem();
+  const canDeleteSolve = canDeleteOwnSolveForActiveProblem();
   statusEditor.classList.toggle("hidden", !admin);
   panelSaveBtn.classList.toggle("hidden", !admin);
+  panelSolveBtn.classList.toggle("hidden", !canMarkSolve);
+  panelDeleteBtn.classList.toggle("hidden", !canDeleteSolve);
   panelSaveBtn.disabled = !admin;
-  panelDeleteBtn.disabled = !canDeleteOwnSolveForActiveProblem();
+  panelSolveBtn.disabled = !canMarkSolve;
+  panelDeleteBtn.disabled = !canDeleteSolve;
+}
+
+function canMarkSolveForActiveProblem() {
+  if (!activeProblemNumber) {
+    return false;
+  }
+  const data = allProblems.get(activeProblemNumber) || DEFAULT_PROBLEM;
+  const status = normalizeStatus(data.statusLabel);
+  return status !== "assignment" && status !== "solved in lecture";
 }
 
 function canDeleteOwnSolveForActiveProblem() {
