@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Project Euler Tracker favicon">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1a2531"/>
+      <stop offset="1" stop-color="#111a24"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="56" height="56" rx="14" fill="url(#bg)"/>
+  <path d="M14 16h8c8 0 13 4 13 10s-5 10-13 10h-1v12h-7zm7 6v8h1c4 0 6-1 6-4s-2-4-6-4z" fill="#f29a2f"/>
+  <path d="M39 16h15v6H46v7h8v6h-8v7h8v6H39z" fill="#9ce8bf"/>
+</svg>
