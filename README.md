@@ -21,6 +21,10 @@ Allowed status labels:
 - `solved`
 - `unsolved`
 
+UI note:
+
+- Level `0` unsolved problems are shown as `not eligible for final` in the board/legend.
+
 ## Quick setup
 
 1. Create Firebase project.

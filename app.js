@@ -41,6 +41,8 @@ const STATUS_VALUES = [
   "unsolved",
 ];
 
+const MARK_SOLVABLE_STATUSES = new Set(["unsolved", "solved"]);
+
 const DEFAULT_PROBLEM = {
   statusLabel: "unsolved",
   solvedCount: 0,
@@ -125,6 +127,7 @@ let solvedByCurrentUserByName = new Set();
 let autoResumeAttempted = false;
 let searchInputDebounceTimer = null;
 let loginInProgress = false;
+let hasReceivedProblemsSnapshot = false;
 
 boot();
 
@@ -780,14 +783,19 @@ function startRealtimeListeners() {
     return;
   }
   listenersStarted = true;
+  hasReceivedProblemsSnapshot = false;
+  appStatus.textContent = "Loading problems from Firebase...";
+  renderGrid();
 
   unSubProblems = onSnapshot(
     collection(db, "problems"),
     (snapshot) => {
+      hasReceivedProblemsSnapshot = true;
       allProblems = new Map();
       snapshot.forEach((item) => {
         allProblems.set(Number(item.id), item.data());
       });
+      appStatus.textContent = "";
       renderGrid();
       refreshPanelMeta();
     },
@@ -851,10 +859,26 @@ function stopRealtimeListeners() {
   solvedByCurrentUser = new Set();
   solvedByCurrentUserByNameKey = new Set();
   solvedByCurrentUserByName = new Set();
+  hasReceivedProblemsSnapshot = false;
   listenersStarted = false;
 }
 
 function renderGrid() {
+  if (!hasReceivedProblemsSnapshot) {
+    const counts = {
+      all: 0,
+      "my-solves": 0,
+      solved: 0,
+      unsolved: 0,
+      assignment: 0,
+      "solved in lecture": 0,
+    };
+    updateFilterButtonCounts(counts);
+    updateBranchOptionLabels(0, new Map());
+    problemGrid.innerHTML = '<p class="status">Loading problems from Firebase...</p>';
+    return;
+  }
+
   const queryTokens = tokenizeSearchQuery(searchInput.value);
   const selectedMinLevel = parseLevelSelectValue(minLevelSelect.value);
   const selectedMaxLevel = parseLevelSelectValue(maxLevelSelect.value);
@@ -875,7 +899,7 @@ function renderGrid() {
 
   for (let number = 1; number <= maxProblemNumber; number += 1) {
     const data = allProblems.get(number) || DEFAULT_PROBLEM;
-    const status = normalizeStatus(data.statusLabel);
+    const status = resolveProblemStatus(number, data);
     const difficulty = levelsByProblem.has(number) ? levelsByProblem.get(number) : null;
     const branch = branchesByProblem.get(number) || "";
 
@@ -997,7 +1021,7 @@ function tileTemplate(number, data, selectedBranch) {
   const rawTitle = titlesByProblem.get(number) || "";
   const tileTitle = rawTitle ? rawTitle.toLowerCase() : "";
   const solvedCount = Number(data.solvedCount || 0);
-  const status = normalizeStatus(data.statusLabel);
+  const status = resolveProblemStatus(number, data);
   const statusClass = chipClassName(status);
   const statusText = formatStatus(status, solvedCount);
   const confidence = confidenceByProblem.get(number);
@@ -1216,7 +1240,7 @@ async function onPanelSolve() {
     return;
   }
   if (!canMarkSolveForActiveProblem()) {
-    showOperationError("Cannot mark assignment or class problem as solved.");
+    showOperationError("Only unsolved or solved problems can be marked solved.");
     appStatus.textContent = `Problem #${number} cannot be marked solved from its current status.`;
     return;
   }
@@ -1359,7 +1383,10 @@ async function onPanelDeleteSolve() {
       if (nextCount === 0 && currentStatus === "solved") {
         nextStatus = "unsolved";
       }
-      if (nextCount > 0 && currentStatus === "unsolved") {
+      if (
+        nextCount > 0
+        && currentStatus === "unsolved"
+      ) {
         nextStatus = "solved";
       }
 
@@ -1463,6 +1490,9 @@ function chipClassName(status) {
   if (status === "solved in lecture") {
     return "s-lecture";
   }
+  if (status === "not eligible for final") {
+    return "s-not-eligible";
+  }
   if (status === "solved") {
     return "s-solved";
   }
@@ -1470,6 +1500,12 @@ function chipClassName(status) {
 }
 
 function normalizeStatus(status) {
+  if (typeof status === "string") {
+    const normalized = status.trim().toLowerCase();
+    if (normalized === "not eligable for final" || normalized === "not eligible for final") {
+      return "unsolved";
+    }
+  }
   if (status === "solved by xx person") {
     return "solved";
   }
@@ -1490,6 +1526,19 @@ function formatStatus(status, solvedCount) {
     return "class";
   }
   return status;
+}
+
+function defaultStatusForProblem(number) {
+  const difficulty = levelsByProblem.has(number) ? levelsByProblem.get(number) : null;
+  return difficulty === 0 ? "not eligible for final" : "unsolved";
+}
+
+function resolveProblemStatus(number, data) {
+  const normalizedStatus = normalizeStatus(data.statusLabel);
+  if (normalizedStatus !== "unsolved") {
+    return normalizedStatus;
+  }
+  return defaultStatusForProblem(number);
 }
 
 function formatTimestamp(value) {
@@ -1556,8 +1605,8 @@ function canMarkSolveForActiveProblem() {
     return false;
   }
   const data = allProblems.get(activeProblemNumber) || DEFAULT_PROBLEM;
-  const status = normalizeStatus(data.statusLabel);
-  return status !== "assignment" && status !== "solved in lecture";
+  const status = resolveProblemStatus(activeProblemNumber, data);
+  return MARK_SOLVABLE_STATUSES.has(status);
 }
 
 function canDeleteOwnSolveForActiveProblem() {

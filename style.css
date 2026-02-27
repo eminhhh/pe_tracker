@@ -24,6 +24,9 @@
   --status-lecture-bg: #afcbff;
   --status-lecture-border: #184fb8;
   --status-lecture-text: #183b7d;
+  --status-not-eligible-bg: #ffd7d7;
+  --status-not-eligible-border: #cc2f2f;
+  --status-not-eligible-text: #6f1414;
 }
 
 * {
@@ -263,6 +266,11 @@ button.danger {
   border-color: var(--status-lecture-border);
 }
 
+.dot.s-not-eligible {
+  background: var(--status-not-eligible-bg);
+  border-color: var(--status-not-eligible-border);
+}
+
 .toolbar {
   display: flex;
   justify-content: center;
@@ -421,6 +429,12 @@ thead th {
   color: var(--status-lecture-text);
 }
 
+.tile.s-not-eligible {
+  background: var(--status-not-eligible-bg);
+  border-color: var(--status-not-eligible-border);
+  color: var(--status-not-eligible-text);
+}
+
 .tile.s-unsolved .tile-meta {
   color: #576377;
 }
@@ -435,6 +449,10 @@ thead th {
 
 .tile.s-lecture .tile-meta {
   color: #254d97;
+}
+
+.tile.s-not-eligible .tile-meta {
+  color: #852121;
 }
 
 .tile .tile-meta.tile-meta-level-missing {
@@ -578,6 +596,9 @@ thead th {
   --status-lecture-bg: #244364;
   --status-lecture-border: #6caeff;
   --status-lecture-text: #e0ecff;
+  --status-not-eligible-bg: #5a2323;
+  --status-not-eligible-border: #ff7d7d;
+  --status-not-eligible-text: #ffe8e8;
 }
 
 :root.theme-ready body,
@@ -679,6 +700,12 @@ thead th {
   border-color: var(--status-lecture-border);
 }
 
+:root[data-theme="dark"] .dot.s-not-eligible,
+:root[data-theme="dark"] .tile.s-not-eligible {
+  background: var(--status-not-eligible-bg);
+  border-color: var(--status-not-eligible-border);
+}
+
 :root[data-theme="dark"] .meta-row,
 :root[data-theme="dark"] th,
 :root[data-theme="dark"] td {
@@ -692,7 +719,8 @@ thead th {
 :root[data-theme="dark"] .tile.s-unsolved .tile-meta,
 :root[data-theme="dark"] .tile.s-solved .tile-meta,
 :root[data-theme="dark"] .tile.s-assignment .tile-meta,
-:root[data-theme="dark"] .tile.s-lecture .tile-meta {
+:root[data-theme="dark"] .tile.s-lecture .tile-meta,
+:root[data-theme="dark"] .tile.s-not-eligible .tile-meta {
   color: rgba(255, 255, 255, 0.9);
 }
 
