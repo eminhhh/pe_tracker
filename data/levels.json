@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "last_updated_utc": "2026-02-27 06:50",
-    "generated_at_utc": "2026-02-27 06:51",
+    "last_updated_utc": "2026-02-27 09:37",
+    "generated_at_utc": "2026-02-27 09:38",
     "source": "https://projecteuler.net/progress",
     "max_problem_number": 985
   },
@@ -47,7 +47,7 @@
   },
   "9": {
     "difficulty": 0,
-    "solved_by": 384417,
+    "solved_by": 384395,
     "title": "Special Pythagorean Triplet"
   },
   "10": {
@@ -137,7 +137,7 @@
   },
   "27": {
     "difficulty": 1,
-    "solved_by": 96672,
+    "solved_by": 96673,
     "title": "Quadratic Primes"
   },
   "28": {
@@ -167,7 +167,7 @@
   },
   "33": {
     "difficulty": 0,
-    "solved_by": 79498,
+    "solved_by": 79499,
     "title": "Digit Cancelling Fractions"
   },
   "34": {
@@ -182,12 +182,12 @@
   },
   "36": {
     "difficulty": 0,
-    "solved_by": 97542,
+    "solved_by": 97543,
     "title": "Double-base Palindromes"
   },
   "37": {
     "difficulty": 1,
-    "solved_by": 81522,
+    "solved_by": 81523,
     "title": "Truncatable Primes"
   },
   "38": {
@@ -242,12 +242,12 @@
   },
   "48": {
     "difficulty": 0,
-    "solved_by": 121982,
+    "solved_by": 121983,
     "title": "Self Powers"
   },
   "49": {
     "difficulty": 1,
-    "solved_by": 64511,
+    "solved_by": 64512,
     "title": "Prime Permutations"
   },
   "50": {
@@ -317,7 +317,7 @@
   },
   "63": {
     "difficulty": 2,
-    "solved_by": 48041,
+    "solved_by": 48042,
     "title": "Powerful Digit Counts"
   },
   "64": {
@@ -362,7 +362,7 @@
   },
   "72": {
     "difficulty": 3,
-    "solved_by": 25498,
+    "solved_by": 25499,
     "title": "Counting Fractions"
   },
   "73": {
@@ -427,7 +427,7 @@
   },
   "85": {
     "difficulty": 2,
-    "solved_by": 27861,
+    "solved_by": 27862,
     "title": "Counting Rectangles"
   },
   "86": {
@@ -672,7 +672,7 @@
   },
   "134": {
     "difficulty": 11,
-    "solved_by": 8101,
+    "solved_by": 8102,
     "title": "Prime Pair Connection"
   },
   "135": {
@@ -702,7 +702,7 @@
   },
   "140": {
     "difficulty": 16,
-    "solved_by": 5096,
+    "solved_by": 5097,
     "title": "Modified Fibonacci Golden Nuggets"
   },
   "141": {
@@ -712,7 +712,7 @@
   },
   "142": {
     "difficulty": 14,
-    "solved_by": 6669,
+    "solved_by": 6670,
     "title": "Perfect Square Collection"
   },
   "143": {
@@ -1032,7 +1032,7 @@
   },
   "206": {
     "difficulty": 2,
-    "solved_by": 26668,
+    "solved_by": 26669,
     "title": "Concealed Square"
   },
   "207": {
@@ -1337,7 +1337,7 @@
   },
   "267": {
     "difficulty": 17,
-    "solved_by": 3850,
+    "solved_by": 3851,
     "title": "Billionaire"
   },
   "268": {
@@ -1382,7 +1382,7 @@
   },
   "276": {
     "difficulty": 31,
-    "solved_by": 1266,
+    "solved_by": 1267,
     "title": "Primitive Triangles"
   },
   "277": {
@@ -1502,7 +1502,7 @@
   },
   "300": {
     "difficulty": 20,
-    "solved_by": 1294,
+    "solved_by": 1295,
     "title": "Protein Folding"
   },
   "301": {
@@ -1617,7 +1617,7 @@
   },
   "323": {
     "difficulty": 8,
-    "solved_by": 4413,
+    "solved_by": 4414,
     "title": "Bitwise-OR Operations on Random Integers"
   },
   "324": {
@@ -1907,7 +1907,7 @@
   },
   "381": {
     "difficulty": 2,
-    "solved_by": 4951,
+    "solved_by": 4952,
     "title": "$(\\text{prime}-k)$ Factorial"
   },
   "382": {
@@ -2272,7 +2272,7 @@
   },
   "454": {
     "difficulty": 23,
-    "solved_by": 565,
+    "solved_by": 566,
     "title": "Diophantine Reciprocals III"
   },
   "455": {
@@ -3257,7 +3257,7 @@
   },
   "651": {
     "difficulty": 32,
-    "solved_by": 201,
+    "solved_by": 202,
     "title": "Patterned Cylinders"
   },
   "652": {
@@ -3567,7 +3567,7 @@
   },
   "713": {
     "difficulty": 5,
-    "solved_by": 838,
+    "solved_by": 839,
     "title": "Tur\u00e1n's Water Heating System"
   },
   "714": {
@@ -3762,7 +3762,7 @@
   },
   "752": {
     "difficulty": 9,
-    "solved_by": 780,
+    "solved_by": 781,
     "title": "Powers of $1+\\sqrt 7$"
   },
   "753": {
@@ -4102,7 +4102,7 @@
   },
   "820": {
     "difficulty": 2,
-    "solved_by": 1265,
+    "solved_by": 1267,
     "title": "$N$<sup>th</sup> Digit of Reciprocals"
   },
   "821": {
@@ -4162,7 +4162,7 @@
   },
   "832": {
     "difficulty": 11,
-    "solved_by": 374,
+    "solved_by": 375,
     "title": "Mex Sequence"
   },
   "833": {
@@ -4332,7 +4332,7 @@
   },
   "866": {
     "difficulty": 5,
-    "solved_by": 500,
+    "solved_by": 501,
     "title": "Tidying Up B"
   },
   "867": {
@@ -4342,7 +4342,7 @@
   },
   "868": {
     "difficulty": 5,
-    "solved_by": 521,
+    "solved_by": 522,
     "title": "Belfry Maths"
   },
   "869": {
@@ -4537,7 +4537,7 @@
   },
   "907": {
     "difficulty": 12,
-    "solved_by": 301,
+    "solved_by": 302,
     "title": "Stacking Cups"
   },
   "908": {
@@ -4722,7 +4722,7 @@
   },
   "944": {
     "difficulty": 7,
-    "solved_by": 798,
+    "solved_by": 799,
     "title": "Sum of Elevisors"
   },
   "945": {
@@ -4782,7 +4782,7 @@
   },
   "956": {
     "difficulty": 4,
-    "solved_by": 449,
+    "solved_by": 450,
     "title": "Super Duper Sum"
   },
   "957": {
@@ -4892,7 +4892,7 @@
   },
   "978": {
     "difficulty": null,
-    "solved_by": 310,
+    "solved_by": 311,
     "title": "Random Walk Skewness"
   },
   "979": {
@@ -4927,7 +4927,7 @@
   },
   "985": {
     "difficulty": null,
-    "solved_by": 205,
+    "solved_by": 206,
     "title": "Telescoping Triangles"
   }
 }
