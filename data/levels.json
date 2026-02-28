@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "last_updated_utc": "2026-02-28 04:14",
-    "generated_at_utc": "2026-02-28 04:14",
+    "last_updated_utc": "2026-02-28 06:34",
+    "generated_at_utc": "2026-02-28 06:34",
     "source": "https://projecteuler.net/progress",
     "max_problem_number": 985
   },
@@ -162,12 +162,12 @@
   },
   "32": {
     "difficulty": 2,
-    "solved_by": 79266,
+    "solved_by": 79267,
     "title": "Pandigital Products"
   },
   "33": {
     "difficulty": 0,
-    "solved_by": 79501,
+    "solved_by": 79502,
     "title": "Digit Cancelling Fractions"
   },
   "34": {
@@ -237,12 +237,12 @@
   },
   "47": {
     "difficulty": 1,
-    "solved_by": 64689,
+    "solved_by": 64690,
     "title": "Distinct Primes Factors"
   },
   "48": {
     "difficulty": 0,
-    "solved_by": 121983,
+    "solved_by": 121984,
     "title": "Self Powers"
   },
   "49": {
@@ -272,7 +272,7 @@
   },
   "54": {
     "difficulty": 3,
-    "solved_by": 40660,
+    "solved_by": 40661,
     "title": "Poker Hands"
   },
   "55": {
@@ -302,7 +302,7 @@
   },
   "60": {
     "difficulty": 4,
-    "solved_by": 30884,
+    "solved_by": 30885,
     "title": "Prime Pair Sets"
   },
   "61": {
@@ -322,7 +322,7 @@
   },
   "64": {
     "difficulty": 3,
-    "solved_by": 25300,
+    "solved_by": 25301,
     "title": "Odd Period Square Roots"
   },
   "65": {
@@ -332,7 +332,7 @@
   },
   "66": {
     "difficulty": 11,
-    "solved_by": 22643,
+    "solved_by": 22644,
     "title": "Diophantine Equation"
   },
   "67": {
@@ -472,7 +472,7 @@
   },
   "94": {
     "difficulty": 13,
-    "solved_by": 14495,
+    "solved_by": 14496,
     "title": "Almost Equilateral Triangles"
   },
   "95": {
@@ -482,7 +482,7 @@
   },
   "96": {
     "difficulty": 5,
-    "solved_by": 19540,
+    "solved_by": 19541,
     "title": "Su Doku"
   },
   "97": {
@@ -597,7 +597,7 @@
   },
   "119": {
     "difficulty": 6,
-    "solved_by": 13953,
+    "solved_by": 13954,
     "title": "Digit Power Sum"
   },
   "120": {
@@ -707,7 +707,7 @@
   },
   "141": {
     "difficulty": 19,
-    "solved_by": 4656,
+    "solved_by": 4657,
     "title": "Square Progressive Numbers"
   },
   "142": {
@@ -782,7 +782,7 @@
   },
   "156": {
     "difficulty": 25,
-    "solved_by": 2890,
+    "solved_by": 2891,
     "title": "Counting Digits"
   },
   "157": {
@@ -1027,7 +1027,7 @@
   },
   "205": {
     "difficulty": 4,
-    "solved_by": 16432,
+    "solved_by": 16433,
     "title": "Dice Game"
   },
   "206": {
@@ -1532,7 +1532,7 @@
   },
   "306": {
     "difficulty": 22,
-    "solved_by": 1443,
+    "solved_by": 1444,
     "title": "Paper-strip Game"
   },
   "307": {
@@ -1907,7 +1907,7 @@
   },
   "381": {
     "difficulty": 2,
-    "solved_by": 4954,
+    "solved_by": 4955,
     "title": "$(\\text{prime}-k)$ Factorial"
   },
   "382": {
@@ -2642,7 +2642,7 @@
   },
   "528": {
     "difficulty": 26,
-    "solved_by": 357,
+    "solved_by": 358,
     "title": "Constrained Sums"
   },
   "529": {
@@ -2747,7 +2747,7 @@
   },
   "549": {
     "difficulty": 5,
-    "solved_by": 3178,
+    "solved_by": 3179,
     "title": "Divisibility of Factorials"
   },
   "550": {
@@ -2907,7 +2907,7 @@
   },
   "581": {
     "difficulty": 14,
-    "solved_by": 1037,
+    "solved_by": 1038,
     "title": "$47$-smooth Triangular Numbers"
   },
   "582": {
@@ -3142,7 +3142,7 @@
   },
   "628": {
     "difficulty": 9,
-    "solved_by": 935,
+    "solved_by": 936,
     "title": "Open Chess Positions"
   },
   "629": {
@@ -3532,7 +3532,7 @@
   },
   "706": {
     "difficulty": 6,
-    "solved_by": 689,
+    "solved_by": 690,
     "title": "$3$-Like Numbers"
   },
   "707": {
@@ -4152,7 +4152,7 @@
   },
   "830": {
     "difficulty": 33,
-    "solved_by": 193,
+    "solved_by": 194,
     "title": "Binomials and Powers"
   },
   "831": {
@@ -4927,7 +4927,7 @@
   },
   "985": {
     "difficulty": null,
-    "solved_by": 212,
+    "solved_by": 213,
     "title": "Telescoping Triangles"
   }
 }
