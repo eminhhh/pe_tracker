@@ -1239,6 +1239,11 @@ async function onPanelSolve() {
   if (!number) {
     return;
   }
+  if (solvedByCurrentUser.has(number)) {
+    showOperationError("You already marked this problem solved.");
+    appStatus.textContent = `Problem #${number} is already marked solved by you.`;
+    return;
+  }
   if (!canMarkSolveForActiveProblem()) {
     showOperationError("Only unsolved or solved problems can be marked solved.");
     appStatus.textContent = `Problem #${number} cannot be marked solved from its current status.`;
@@ -1253,10 +1258,15 @@ async function onPanelSolve() {
     if (!solverNameKey) {
       throw new Error("Display name is invalid.");
     }
-    const eventRef = doc(collection(db, "solveEvents"));
+    const eventId = buildSolveEventId(number, solverNameKey);
+    const eventRef = doc(db, "solveEvents", eventId);
 
     await runTransaction(db, async (tx) => {
       const problemRef = doc(db, "problems", String(number));
+      const existingSolveRef = await tx.get(eventRef);
+      if (existingSolveRef.exists()) {
+        throw new Error("You already marked this problem solved.");
+      }
       const snap = await tx.get(problemRef);
       const current = snap.exists() ? snap.data() : DEFAULT_PROBLEM;
       const nextCount = Number(current.solvedCount || 0) + 1;
@@ -1606,7 +1616,11 @@ function canMarkSolveForActiveProblem() {
   }
   const data = allProblems.get(activeProblemNumber) || DEFAULT_PROBLEM;
   const status = resolveProblemStatus(activeProblemNumber, data);
-  return MARK_SOLVABLE_STATUSES.has(status);
+  return MARK_SOLVABLE_STATUSES.has(status) && !solvedByCurrentUser.has(activeProblemNumber);
+}
+
+function buildSolveEventId(problemNumber, solverNameKey) {
+  return `${encodeURIComponent(solverNameKey)}__${problemNumber}`;
 }
 
 function canDeleteOwnSolveForActiveProblem() {
