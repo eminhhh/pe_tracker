@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "last_updated_utc": "2026-02-28 18:29",
-    "generated_at_utc": "2026-02-28 18:29",
+    "last_updated_utc": "2026-02-28 21:18",
+    "generated_at_utc": "2026-02-28 21:18",
     "source": "https://projecteuler.net/progress",
     "max_problem_number": 985
   },
@@ -187,7 +187,7 @@
   },
   "37": {
     "difficulty": 1,
-    "solved_by": 81525,
+    "solved_by": 81526,
     "title": "Truncatable Primes"
   },
   "38": {
@@ -242,12 +242,12 @@
   },
   "48": {
     "difficulty": 0,
-    "solved_by": 121986,
+    "solved_by": 121987,
     "title": "Self Powers"
   },
   "49": {
     "difficulty": 1,
-    "solved_by": 64514,
+    "solved_by": 64515,
     "title": "Prime Permutations"
   },
   "50": {
@@ -287,7 +287,7 @@
   },
   "57": {
     "difficulty": 1,
-    "solved_by": 46654,
+    "solved_by": 46655,
     "title": "Square Root Convergents"
   },
   "58": {
@@ -307,7 +307,7 @@
   },
   "61": {
     "difficulty": 3,
-    "solved_by": 29147,
+    "solved_by": 29149,
     "title": "Cyclical Figurate Numbers"
   },
   "62": {
@@ -327,7 +327,7 @@
   },
   "65": {
     "difficulty": 2,
-    "solved_by": 33622,
+    "solved_by": 33623,
     "title": "Convergents of $e$"
   },
   "66": {
@@ -452,7 +452,7 @@
   },
   "90": {
     "difficulty": 9,
-    "solved_by": 13223,
+    "solved_by": 13224,
     "title": "Cube Digit Pairs"
   },
   "91": {
@@ -512,7 +512,7 @@
   },
   "102": {
     "difficulty": 3,
-    "solved_by": 24567,
+    "solved_by": 24568,
     "title": "Triangle Containment"
   },
   "103": {
@@ -522,7 +522,7 @@
   },
   "104": {
     "difficulty": 4,
-    "solved_by": 18220,
+    "solved_by": 18221,
     "title": "Pandigital Fibonacci Ends"
   },
   "105": {
@@ -597,7 +597,7 @@
   },
   "119": {
     "difficulty": 6,
-    "solved_by": 13954,
+    "solved_by": 13955,
     "title": "Digit Power Sum"
   },
   "120": {
@@ -642,7 +642,7 @@
   },
   "128": {
     "difficulty": 16,
-    "solved_by": 5823,
+    "solved_by": 5824,
     "title": "Hexagonal Tile Differences"
   },
   "129": {
@@ -722,12 +722,12 @@
   },
   "144": {
     "difficulty": 14,
-    "solved_by": 7177,
+    "solved_by": 7178,
     "title": "Laser Beam Reflections"
   },
   "145": {
     "difficulty": 3,
-    "solved_by": 18514,
+    "solved_by": 18515,
     "title": "Reversible Numbers"
   },
   "146": {
@@ -867,7 +867,7 @@
   },
   "173": {
     "difficulty": 6,
-    "solved_by": 10209,
+    "solved_by": 10210,
     "title": "Hollow Square Laminae I"
   },
   "174": {
@@ -1027,7 +1027,7 @@
   },
   "205": {
     "difficulty": 4,
-    "solved_by": 16433,
+    "solved_by": 16434,
     "title": "Dice Game"
   },
   "206": {
@@ -1087,7 +1087,7 @@
   },
   "217": {
     "difficulty": 26,
-    "solved_by": 1765,
+    "solved_by": 1766,
     "title": "Balanced Numbers"
   },
   "218": {
@@ -1097,7 +1097,7 @@
   },
   "219": {
     "difficulty": 27,
-    "solved_by": 1714,
+    "solved_by": 1715,
     "title": "Skew-cost Coding"
   },
   "220": {
@@ -1307,7 +1307,7 @@
   },
   "261": {
     "difficulty": 37,
-    "solved_by": 824,
+    "solved_by": 825,
     "title": "Pivotal Square Sums"
   },
   "262": {
@@ -1327,7 +1327,7 @@
   },
   "265": {
     "difficulty": 14,
-    "solved_by": 4667,
+    "solved_by": 4668,
     "title": "Binary Circles"
   },
   "266": {
@@ -1362,7 +1362,7 @@
   },
   "272": {
     "difficulty": 34,
-    "solved_by": 1167,
+    "solved_by": 1168,
     "title": "Modular Cubes, Part 2"
   },
   "273": {
@@ -1507,7 +1507,7 @@
   },
   "301": {
     "difficulty": 4,
-    "solved_by": 7328,
+    "solved_by": 7329,
     "title": "Nim"
   },
   "302": {
@@ -1732,7 +1732,7 @@
   },
   "346": {
     "difficulty": 3,
-    "solved_by": 5016,
+    "solved_by": 5018,
     "title": "Strong Repunits"
   },
   "347": {
@@ -1787,7 +1787,7 @@
   },
   "357": {
     "difficulty": 4,
-    "solved_by": 9192,
+    "solved_by": 9193,
     "title": "Prime Generating Integers"
   },
   "358": {
@@ -1907,7 +1907,7 @@
   },
   "381": {
     "difficulty": 2,
-    "solved_by": 4956,
+    "solved_by": 4957,
     "title": "$(\\text{prime}-k)$ Factorial"
   },
   "382": {
@@ -1947,7 +1947,7 @@
   },
   "389": {
     "difficulty": 11,
-    "solved_by": 1766,
+    "solved_by": 1767,
     "title": "Platonic Dice"
   },
   "390": {
@@ -2087,7 +2087,7 @@
   },
   "417": {
     "difficulty": 12,
-    "solved_by": 1050,
+    "solved_by": 1051,
     "title": "Reciprocal Cycles II"
   },
   "418": {
@@ -2607,7 +2607,7 @@
   },
   "521": {
     "difficulty": 21,
-    "solved_by": 900,
+    "solved_by": 901,
     "title": "Smallest Prime Factor"
   },
   "522": {
@@ -2627,7 +2627,7 @@
   },
   "525": {
     "difficulty": 20,
-    "solved_by": 575,
+    "solved_by": 576,
     "title": "Rolling Ellipse"
   },
   "526": {
@@ -3472,7 +3472,7 @@
   },
   "694": {
     "difficulty": 5,
-    "solved_by": 1208,
+    "solved_by": 1209,
     "title": "Cube-full Divisors"
   },
   "695": {
@@ -3552,7 +3552,7 @@
   },
   "710": {
     "difficulty": 5,
-    "solved_by": 1539,
+    "solved_by": 1540,
     "title": "One Million Members"
   },
   "711": {
@@ -3637,7 +3637,7 @@
   },
   "727": {
     "difficulty": 8,
-    "solved_by": 623,
+    "solved_by": 624,
     "title": "Triangle of Circular Arcs"
   },
   "728": {
@@ -4077,7 +4077,7 @@
   },
   "815": {
     "difficulty": 11,
-    "solved_by": 515,
+    "solved_by": 516,
     "title": "Group by Value"
   },
   "816": {
@@ -4282,17 +4282,17 @@
   },
   "856": {
     "difficulty": 13,
-    "solved_by": 727,
+    "solved_by": 728,
     "title": "Waiting for a Pair"
   },
   "857": {
     "difficulty": 26,
-    "solved_by": 200,
+    "solved_by": 201,
     "title": "Beautiful Graphs"
   },
   "858": {
     "difficulty": 23,
-    "solved_by": 265,
+    "solved_by": 266,
     "title": "LCM"
   },
   "859": {
@@ -4327,7 +4327,7 @@
   },
   "865": {
     "difficulty": 13,
-    "solved_by": 308,
+    "solved_by": 309,
     "title": "Triplicate Numbers"
   },
   "866": {
@@ -4597,7 +4597,7 @@
   },
   "919": {
     "difficulty": 13,
-    "solved_by": 272,
+    "solved_by": 273,
     "title": "Fortunate Triangles"
   },
   "920": {
@@ -4762,7 +4762,7 @@
   },
   "952": {
     "difficulty": 15,
-    "solved_by": 297,
+    "solved_by": 298,
     "title": "Order Modulo Factorial"
   },
   "953": {
@@ -4882,7 +4882,7 @@
   },
   "976": {
     "difficulty": null,
-    "solved_by": 79,
+    "solved_by": 80,
     "title": "XO Game"
   },
   "977": {
@@ -4892,7 +4892,7 @@
   },
   "978": {
     "difficulty": null,
-    "solved_by": 313,
+    "solved_by": 315,
     "title": "Random Walk Skewness"
   },
   "979": {
