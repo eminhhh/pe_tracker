@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "last_updated_utc": "2026-03-01 02:04",
-    "generated_at_utc": "2026-03-01 02:04",
+    "last_updated_utc": "2026-03-01 04:51",
+    "generated_at_utc": "2026-03-01 04:51",
     "source": "https://projecteuler.net/progress",
     "max_problem_number": 986
   },
@@ -57,7 +57,7 @@
   },
   "11": {
     "difficulty": 1,
-    "solved_by": 253604,
+    "solved_by": 253605,
     "title": "Largest Product in a Grid"
   },
   "12": {
@@ -197,7 +197,7 @@
   },
   "39": {
     "difficulty": 1,
-    "solved_by": 80904,
+    "solved_by": 80905,
     "title": "Integer Right Triangles"
   },
   "40": {
@@ -247,7 +247,7 @@
   },
   "49": {
     "difficulty": 1,
-    "solved_by": 64515,
+    "solved_by": 64516,
     "title": "Prime Permutations"
   },
   "50": {
@@ -262,7 +262,7 @@
   },
   "52": {
     "difficulty": 0,
-    "solved_by": 72064,
+    "solved_by": 72065,
     "title": "Permuted Multiples"
   },
   "53": {
@@ -272,7 +272,7 @@
   },
   "54": {
     "difficulty": 3,
-    "solved_by": 40661,
+    "solved_by": 40662,
     "title": "Poker Hands"
   },
   "55": {
@@ -312,7 +312,7 @@
   },
   "62": {
     "difficulty": 2,
-    "solved_by": 35794,
+    "solved_by": 35795,
     "title": "Cubic Permutations"
   },
   "63": {
@@ -392,12 +392,12 @@
   },
   "78": {
     "difficulty": 5,
-    "solved_by": 19637,
+    "solved_by": 19638,
     "title": "Coin Partitions"
   },
   "79": {
     "difficulty": 2,
-    "solved_by": 44833,
+    "solved_by": 44834,
     "title": "Passcode Derivation"
   },
   "80": {
@@ -412,7 +412,7 @@
   },
   "82": {
     "difficulty": 4,
-    "solved_by": 23917,
+    "solved_by": 23918,
     "title": "Path Sum: Three Ways"
   },
   "83": {
@@ -422,7 +422,7 @@
   },
   "84": {
     "difficulty": 7,
-    "solved_by": 14644,
+    "solved_by": 14645,
     "title": "Monopoly Odds"
   },
   "85": {
@@ -432,7 +432,7 @@
   },
   "86": {
     "difficulty": 7,
-    "solved_by": 14720,
+    "solved_by": 14721,
     "title": "Cuboid Route"
   },
   "87": {
@@ -477,7 +477,7 @@
   },
   "95": {
     "difficulty": 5,
-    "solved_by": 16615,
+    "solved_by": 16616,
     "title": "Amicable Chains"
   },
   "96": {
@@ -662,7 +662,7 @@
   },
   "132": {
     "difficulty": 13,
-    "solved_by": 7291,
+    "solved_by": 7292,
     "title": "Large Repunit Factors"
   },
   "133": {
@@ -672,7 +672,7 @@
   },
   "134": {
     "difficulty": 12,
-    "solved_by": 8102,
+    "solved_by": 8103,
     "title": "Prime Pair Connection"
   },
   "135": {
@@ -1077,7 +1077,7 @@
   },
   "215": {
     "difficulty": 15,
-    "solved_by": 4150,
+    "solved_by": 4151,
     "title": "Crack-free Walls"
   },
   "216": {
@@ -1177,7 +1177,7 @@
   },
   "235": {
     "difficulty": 12,
-    "solved_by": 5531,
+    "solved_by": 5532,
     "title": "An Arithmetic Geometric Sequence"
   },
   "236": {
@@ -2087,7 +2087,7 @@
   },
   "417": {
     "difficulty": 12,
-    "solved_by": 1051,
+    "solved_by": 1052,
     "title": "Reciprocal Cycles II"
   },
   "418": {
@@ -2277,7 +2277,7 @@
   },
   "455": {
     "difficulty": 16,
-    "solved_by": 845,
+    "solved_by": 846,
     "title": "Powers with Trailing Digits"
   },
   "456": {
@@ -2962,7 +2962,7 @@
   },
   "592": {
     "difficulty": 29,
-    "solved_by": 342,
+    "solved_by": 343,
     "title": "Factorial Trailing Digits 2"
   },
   "593": {
@@ -3417,7 +3417,7 @@
   },
   "683": {
     "difficulty": 20,
-    "solved_by": 378,
+    "solved_by": 379,
     "title": "The Chase II"
   },
   "684": {
@@ -3597,7 +3597,7 @@
   },
   "719": {
     "difficulty": 4,
-    "solved_by": 4852,
+    "solved_by": 4853,
     "title": "Number Splitting"
   },
   "720": {
@@ -3762,7 +3762,7 @@
   },
   "752": {
     "difficulty": 9,
-    "solved_by": 781,
+    "solved_by": 782,
     "title": "Powers of $1+\\sqrt 7$"
   },
   "753": {
@@ -4932,7 +4932,7 @@
   },
   "986": {
     "difficulty": null,
-    "solved_by": 5,
+    "solved_by": 14,
     "title": "Another Infinite Game"
   }
 }
