@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "generated_at_utc": "2026-02-28 21:18",
-    "questions_count": 985,
+    "generated_at_utc": "2026-03-01 02:04",
+    "questions_count": 986,
     "source_questions_dir": "data/questions",
     "source_categories": "data/question_categories.jsonl"
   },
@@ -2959,5 +2959,8 @@
   },
   "985": {
     "search_text": "telescoping triangles problem 985 telescoping triangles source https projecteuler net minimal 985 given a triangle t k it is sometimes possible to construct a triangle t k 1 inside t k such that the three vertices of t k 1 lie one on each side of t k for each side of t k the angles formed between it and the two sides of t k 1 it touches are equal to each other illustrated above is such a sequence of three triangles starting with t 0 in blue having side lengths 8 9 10 then t 1 is shown in green and t 2 in red however no triangle can be drawn inside t 2 that satisfies the requirements in other words t 3 does not exist amongst all integer sided triangles t 0 such that t 2 exists but t 3 does not exist the smallest possible perimeter is 10 when t 0 has side lengths 3 3 4 suppose another triangle t 0 has integer side lengths and t 20 exists but t 21 does not exist what is the smallest possible perimeter of t 0 triangle geometry euclidean geometry"
+  },
+  "986": {
+    "search_text": "another infinite game problem 986 another infinite game source https projecteuler net minimal 986 peter is playing another game on an infinite row of squares each square of which can hold an unlimited number of tokens initially every square contains a token given positive integers c and d each move of the game consists of the following steps choose two tokens x and y such that y is c squares to the right of x move both x and y to the square that is d squares to the right of y peter s goal is to move as many tokens as possible into one square for example with c 2 and d 1 it is possible to move 7 tokens into one square following these steps where red color marks the chosen tokens 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 3 1 1 1 0 0 0 2 3 0 1 0 2 0 0 2 3 0 0 0 1 2 0 2 3 0 0 0 1 1 0 1 5 0 0 0 1 0 0 0 7 however it is not possible to move 8 tokens into one square let g c d be the maximum number of tokens peter can move into one square for example g 2 1 7 you are also given that g 1 2 7 g 3 1 11 g 2 2 3 and g 1 3 15 find the sum of g c d for all pairs of c d with 1 leq c d leq 160"
   }
 }
