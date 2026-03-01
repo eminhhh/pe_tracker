@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "last_updated_utc": "2026-03-01 12:42",
-    "generated_at_utc": "2026-03-01 12:42",
+    "last_updated_utc": "2026-03-01 15:20",
+    "generated_at_utc": "2026-03-01 15:21",
     "source": "https://projecteuler.net/progress",
     "max_problem_number": 986
   },
@@ -62,7 +62,7 @@
   },
   "12": {
     "difficulty": 0,
-    "solved_by": 240272,
+    "solved_by": 240271,
     "title": "Highly Divisible Triangular Number"
   },
   "13": {
@@ -172,7 +172,7 @@
   },
   "34": {
     "difficulty": 0,
-    "solved_by": 103713,
+    "solved_by": 103714,
     "title": "Digit Factorials"
   },
   "35": {
@@ -197,7 +197,7 @@
   },
   "39": {
     "difficulty": 1,
-    "solved_by": 80907,
+    "solved_by": 80908,
     "title": "Integer Right Triangles"
   },
   "40": {
@@ -237,7 +237,7 @@
   },
   "47": {
     "difficulty": 1,
-    "solved_by": 64692,
+    "solved_by": 64693,
     "title": "Distinct Primes Factors"
   },
   "48": {
@@ -247,7 +247,7 @@
   },
   "49": {
     "difficulty": 1,
-    "solved_by": 64517,
+    "solved_by": 64518,
     "title": "Prime Permutations"
   },
   "50": {
@@ -272,17 +272,17 @@
   },
   "54": {
     "difficulty": 3,
-    "solved_by": 40664,
+    "solved_by": 40665,
     "title": "Poker Hands"
   },
   "55": {
     "difficulty": 2,
-    "solved_by": 59612,
+    "solved_by": 59613,
     "title": "Lychrel Numbers"
   },
   "56": {
     "difficulty": 1,
-    "solved_by": 64437,
+    "solved_by": 64439,
     "title": "Powerful Digit Sum"
   },
   "57": {
@@ -292,7 +292,7 @@
   },
   "58": {
     "difficulty": 2,
-    "solved_by": 44993,
+    "solved_by": 44994,
     "title": "Spiral Primes"
   },
   "59": {
@@ -307,12 +307,12 @@
   },
   "61": {
     "difficulty": 3,
-    "solved_by": 29150,
+    "solved_by": 29151,
     "title": "Cyclical Figurate Numbers"
   },
   "62": {
     "difficulty": 2,
-    "solved_by": 35796,
+    "solved_by": 35797,
     "title": "Cubic Permutations"
   },
   "63": {
@@ -407,17 +407,17 @@
   },
   "81": {
     "difficulty": 2,
-    "solved_by": 38183,
+    "solved_by": 38185,
     "title": "Path Sum: Two Ways"
   },
   "82": {
     "difficulty": 4,
-    "solved_by": 23919,
+    "solved_by": 23920,
     "title": "Path Sum: Three Ways"
   },
   "83": {
     "difficulty": 5,
-    "solved_by": 20798,
+    "solved_by": 20799,
     "title": "Path Sum: Four Ways"
   },
   "84": {
@@ -462,7 +462,7 @@
   },
   "92": {
     "difficulty": 1,
-    "solved_by": 45831,
+    "solved_by": 45832,
     "title": "Square Digit Chains"
   },
   "93": {
@@ -477,7 +477,7 @@
   },
   "95": {
     "difficulty": 5,
-    "solved_by": 16617,
+    "solved_by": 16618,
     "title": "Amicable Chains"
   },
   "96": {
@@ -497,7 +497,7 @@
   },
   "99": {
     "difficulty": 2,
-    "solved_by": 34159,
+    "solved_by": 34160,
     "title": "Largest Exponential"
   },
   "100": {
@@ -507,7 +507,7 @@
   },
   "101": {
     "difficulty": 7,
-    "solved_by": 13420,
+    "solved_by": 13421,
     "title": "Optimum Polynomial"
   },
   "102": {
@@ -562,7 +562,7 @@
   },
   "112": {
     "difficulty": 2,
-    "solved_by": 27389,
+    "solved_by": 27390,
     "title": "Bouncy Numbers"
   },
   "113": {
@@ -612,7 +612,7 @@
   },
   "122": {
     "difficulty": 13,
-    "solved_by": 9003,
+    "solved_by": 9004,
     "title": "Efficient Exponentiation"
   },
   "123": {
@@ -812,7 +812,7 @@
   },
   "162": {
     "difficulty": 18,
-    "solved_by": 6053,
+    "solved_by": 6054,
     "title": "Hexadecimal Numbers"
   },
   "163": {
@@ -857,12 +857,12 @@
   },
   "171": {
     "difficulty": 25,
-    "solved_by": 3253,
+    "solved_by": 3254,
     "title": "Square Sum of the Digital Squares"
   },
   "172": {
     "difficulty": 18,
-    "solved_by": 4398,
+    "solved_by": 4399,
     "title": "Few Repeated Digits"
   },
   "173": {
@@ -872,7 +872,7 @@
   },
   "174": {
     "difficulty": 10,
-    "solved_by": 6696,
+    "solved_by": 6697,
     "title": "Hollow Square Laminae II"
   },
   "175": {
@@ -897,7 +897,7 @@
   },
   "179": {
     "difficulty": 5,
-    "solved_by": 12474,
+    "solved_by": 12475,
     "title": "Consecutive Positive Divisors"
   },
   "180": {
@@ -917,7 +917,7 @@
   },
   "183": {
     "difficulty": 14,
-    "solved_by": 5287,
+    "solved_by": 5288,
     "title": "Maximum Product of Parts"
   },
   "184": {
@@ -967,7 +967,7 @@
   },
   "193": {
     "difficulty": 19,
-    "solved_by": 3962,
+    "solved_by": 3963,
     "title": "Squarefree Numbers"
   },
   "194": {
@@ -1037,7 +1037,7 @@
   },
   "207": {
     "difficulty": 13,
-    "solved_by": 5289,
+    "solved_by": 5290,
     "title": "Integer Partition Equations"
   },
   "208": {
@@ -1437,7 +1437,7 @@
   },
   "287": {
     "difficulty": 15,
-    "solved_by": 1667,
+    "solved_by": 1668,
     "title": "Quadtree Encoding (a Simple Compression Algorithm)"
   },
   "288": {
@@ -1617,7 +1617,7 @@
   },
   "323": {
     "difficulty": 8,
-    "solved_by": 4415,
+    "solved_by": 4416,
     "title": "Bitwise-OR Operations on Random Integers"
   },
   "324": {
@@ -1907,7 +1907,7 @@
   },
   "381": {
     "difficulty": 2,
-    "solved_by": 4958,
+    "solved_by": 4959,
     "title": "$(\\text{prime}-k)$ Factorial"
   },
   "382": {
@@ -2592,7 +2592,7 @@
   },
   "518": {
     "difficulty": 6,
-    "solved_by": 1846,
+    "solved_by": 1847,
     "title": "Prime Triples and Geometric Sequences"
   },
   "519": {
@@ -2747,7 +2747,7 @@
   },
   "549": {
     "difficulty": 5,
-    "solved_by": 3179,
+    "solved_by": 3180,
     "title": "Divisibility of Factorials"
   },
   "550": {
@@ -2892,7 +2892,7 @@
   },
   "578": {
     "difficulty": 33,
-    "solved_by": 291,
+    "solved_by": 290,
     "title": "Integers with Decreasing Prime Powers"
   },
   "579": {
@@ -2922,7 +2922,7 @@
   },
   "584": {
     "difficulty": 38,
-    "solved_by": 253,
+    "solved_by": 252,
     "title": "Birthday Problem Revisited"
   },
   "585": {
@@ -3432,7 +3432,7 @@
   },
   "686": {
     "difficulty": 3,
-    "solved_by": 4152,
+    "solved_by": 4153,
     "title": "Powers of Two"
   },
   "687": {
@@ -3567,7 +3567,7 @@
   },
   "713": {
     "difficulty": 5,
-    "solved_by": 841,
+    "solved_by": 842,
     "title": "Tur\u00e1n's Water Heating System"
   },
   "714": {
@@ -3852,7 +3852,7 @@
   },
   "770": {
     "difficulty": 10,
-    "solved_by": 594,
+    "solved_by": 595,
     "title": "Delphi Flip"
   },
   "771": {
@@ -3862,7 +3862,7 @@
   },
   "772": {
     "difficulty": 5,
-    "solved_by": 624,
+    "solved_by": 625,
     "title": "Balanceable $k$-bounded Partitions"
   },
   "773": {
@@ -4182,7 +4182,7 @@
   },
   "836": {
     "difficulty": 0,
-    "solved_by": 5302,
+    "solved_by": 5304,
     "title": "A Bold Proposition"
   },
   "837": {
@@ -4437,7 +4437,7 @@
   },
   "887": {
     "difficulty": 10,
-    "solved_by": 290,
+    "solved_by": 291,
     "title": "Bounded Binary Search"
   },
   "888": {
@@ -4927,12 +4927,12 @@
   },
   "985": {
     "difficulty": null,
-    "solved_by": 219,
+    "solved_by": 220,
     "title": "Telescoping Triangles"
   },
   "986": {
     "difficulty": null,
-    "solved_by": 32,
+    "solved_by": 33,
     "title": "Another Infinite Game"
   }
 }
