@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "last_updated_utc": "2026-03-01 06:42",
-    "generated_at_utc": "2026-03-01 06:42",
+    "last_updated_utc": "2026-03-01 09:27",
+    "generated_at_utc": "2026-03-01 09:27",
     "source": "https://projecteuler.net/progress",
     "max_problem_number": 986
   },
@@ -147,17 +147,17 @@
   },
   "29": {
     "difficulty": 1,
-    "solved_by": 115883,
+    "solved_by": 115884,
     "title": "Distinct Powers"
   },
   "30": {
     "difficulty": 0,
-    "solved_by": 120491,
+    "solved_by": 120492,
     "title": "Digit Fifth Powers"
   },
   "31": {
     "difficulty": 2,
-    "solved_by": 94396,
+    "solved_by": 94397,
     "title": "Coin Sums"
   },
   "32": {
@@ -202,17 +202,17 @@
   },
   "40": {
     "difficulty": 1,
-    "solved_by": 88068,
+    "solved_by": 88069,
     "title": "Champernowne's Constant"
   },
   "41": {
     "difficulty": 2,
-    "solved_by": 75680,
+    "solved_by": 75682,
     "title": "Pandigital Prime"
   },
   "42": {
     "difficulty": 0,
-    "solved_by": 81922,
+    "solved_by": 81923,
     "title": "Coded Triangle Numbers"
   },
   "43": {
@@ -257,7 +257,7 @@
   },
   "51": {
     "difficulty": 3,
-    "solved_by": 38913,
+    "solved_by": 38914,
     "title": "Prime Digit Replacements"
   },
   "52": {
@@ -327,12 +327,12 @@
   },
   "65": {
     "difficulty": 2,
-    "solved_by": 33624,
+    "solved_by": 33625,
     "title": "Convergents of $e$"
   },
   "66": {
     "difficulty": 11,
-    "solved_by": 22645,
+    "solved_by": 22646,
     "title": "Diophantine Equation"
   },
   "67": {
@@ -442,27 +442,27 @@
   },
   "88": {
     "difficulty": 10,
-    "solved_by": 11959,
+    "solved_by": 11960,
     "title": "Product-sum Numbers"
   },
   "89": {
     "difficulty": 4,
-    "solved_by": 23701,
+    "solved_by": 23702,
     "title": "Roman Numerals"
   },
   "90": {
     "difficulty": 9,
-    "solved_by": 13224,
+    "solved_by": 13225,
     "title": "Cube Digit Pairs"
   },
   "91": {
     "difficulty": 5,
-    "solved_by": 17813,
+    "solved_by": 17814,
     "title": "Right Triangles with Integer Coordinates"
   },
   "92": {
     "difficulty": 1,
-    "solved_by": 45830,
+    "solved_by": 45831,
     "title": "Square Digit Chains"
   },
   "93": {
@@ -477,22 +477,22 @@
   },
   "95": {
     "difficulty": 5,
-    "solved_by": 16616,
+    "solved_by": 16617,
     "title": "Amicable Chains"
   },
   "96": {
     "difficulty": 5,
-    "solved_by": 19541,
+    "solved_by": 19542,
     "title": "Su Doku"
   },
   "97": {
     "difficulty": 1,
-    "solved_by": 47360,
+    "solved_by": 47361,
     "title": "Large Non-Mersenne Prime"
   },
   "98": {
     "difficulty": 7,
-    "solved_by": 13274,
+    "solved_by": 13275,
     "title": "Anagramic Squares"
   },
   "99": {
@@ -537,7 +537,7 @@
   },
   "107": {
     "difficulty": 8,
-    "solved_by": 12520,
+    "solved_by": 12521,
     "title": "Minimal Network"
   },
   "108": {
@@ -722,7 +722,7 @@
   },
   "144": {
     "difficulty": 14,
-    "solved_by": 7178,
+    "solved_by": 7179,
     "title": "Laser Beam Reflections"
   },
   "145": {
@@ -752,7 +752,7 @@
   },
   "150": {
     "difficulty": 17,
-    "solved_by": 4582,
+    "solved_by": 4583,
     "title": "Sub-triangle Sums"
   },
   "151": {
@@ -822,7 +822,7 @@
   },
   "164": {
     "difficulty": 11,
-    "solved_by": 6550,
+    "solved_by": 6551,
     "title": "Three Consecutive Digital Sum Limit"
   },
   "165": {
@@ -927,7 +927,7 @@
   },
   "185": {
     "difficulty": 19,
-    "solved_by": 3640,
+    "solved_by": 3641,
     "title": "Number Mind"
   },
   "186": {
@@ -1507,7 +1507,7 @@
   },
   "301": {
     "difficulty": 4,
-    "solved_by": 7329,
+    "solved_by": 7330,
     "title": "Nim"
   },
   "302": {
@@ -2287,7 +2287,7 @@
   },
   "457": {
     "difficulty": 13,
-    "solved_by": 947,
+    "solved_by": 948,
     "title": "A Polynomial Modulo the Square of a Prime"
   },
   "458": {
@@ -3252,7 +3252,7 @@
   },
   "650": {
     "difficulty": 3,
-    "solved_by": 1995,
+    "solved_by": 1996,
     "title": "Divisors of Binomial Product"
   },
   "651": {
@@ -3702,7 +3702,7 @@
   },
   "740": {
     "difficulty": 24,
-    "solved_by": 244,
+    "solved_by": 245,
     "title": "Secret Santa"
   },
   "741": {
@@ -3857,7 +3857,7 @@
   },
   "771": {
     "difficulty": 35,
-    "solved_by": 150,
+    "solved_by": 151,
     "title": "Pseudo Geometric Sequences"
   },
   "772": {
@@ -4102,7 +4102,7 @@
   },
   "820": {
     "difficulty": 2,
-    "solved_by": 1270,
+    "solved_by": 1271,
     "title": "$N$<sup>th</sup> Digit of Reciprocals"
   },
   "821": {
@@ -4182,7 +4182,7 @@
   },
   "836": {
     "difficulty": 0,
-    "solved_by": 5301,
+    "solved_by": 5302,
     "title": "A Bold Proposition"
   },
   "837": {
@@ -4627,7 +4627,7 @@
   },
   "925": {
     "difficulty": 26,
-    "solved_by": 175,
+    "solved_by": 176,
     "title": "Larger Digit Permutation III"
   },
   "926": {
@@ -4702,7 +4702,7 @@
   },
   "940": {
     "difficulty": 4,
-    "solved_by": 597,
+    "solved_by": 598,
     "title": "Two-Dimensional Recurrence"
   },
   "941": {
@@ -4932,7 +4932,7 @@
   },
   "986": {
     "difficulty": null,
-    "solved_by": 20,
+    "solved_by": 28,
     "title": "Another Infinite Game"
   }
 }
