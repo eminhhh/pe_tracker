@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "last_updated_utc": "2026-03-01 09:27",
-    "generated_at_utc": "2026-03-01 09:27",
+    "last_updated_utc": "2026-03-01 12:42",
+    "generated_at_utc": "2026-03-01 12:42",
     "source": "https://projecteuler.net/progress",
     "max_problem_number": 986
   },
@@ -132,17 +132,17 @@
   },
   "26": {
     "difficulty": 2,
-    "solved_by": 93178,
+    "solved_by": 93179,
     "title": "Reciprocal Cycles"
   },
   "27": {
     "difficulty": 1,
-    "solved_by": 96673,
+    "solved_by": 96674,
     "title": "Quadratic Primes"
   },
   "28": {
     "difficulty": 1,
-    "solved_by": 117961,
+    "solved_by": 117962,
     "title": "Number Spiral Diagonals"
   },
   "29": {
@@ -177,12 +177,12 @@
   },
   "35": {
     "difficulty": 1,
-    "solved_by": 93472,
+    "solved_by": 93473,
     "title": "Circular Primes"
   },
   "36": {
     "difficulty": 0,
-    "solved_by": 97545,
+    "solved_by": 97546,
     "title": "Double-base Palindromes"
   },
   "37": {
@@ -192,32 +192,32 @@
   },
   "38": {
     "difficulty": 2,
-    "solved_by": 70032,
+    "solved_by": 70033,
     "title": "Pandigital Multiples"
   },
   "39": {
     "difficulty": 1,
-    "solved_by": 80905,
+    "solved_by": 80907,
     "title": "Integer Right Triangles"
   },
   "40": {
     "difficulty": 1,
-    "solved_by": 88069,
+    "solved_by": 88071,
     "title": "Champernowne's Constant"
   },
   "41": {
     "difficulty": 2,
-    "solved_by": 75682,
+    "solved_by": 75683,
     "title": "Pandigital Prime"
   },
   "42": {
     "difficulty": 0,
-    "solved_by": 81923,
+    "solved_by": 81924,
     "title": "Coded Triangle Numbers"
   },
   "43": {
     "difficulty": 1,
-    "solved_by": 66681,
+    "solved_by": 66683,
     "title": "Sub-string Divisibility"
   },
   "44": {
@@ -227,12 +227,12 @@
   },
   "45": {
     "difficulty": 1,
-    "solved_by": 78306,
+    "solved_by": 78307,
     "title": "Triangular, Pentagonal, and Hexagonal"
   },
   "46": {
     "difficulty": 1,
-    "solved_by": 68719,
+    "solved_by": 68720,
     "title": "Goldbach's Other Conjecture"
   },
   "47": {
@@ -242,12 +242,12 @@
   },
   "48": {
     "difficulty": 0,
-    "solved_by": 121987,
+    "solved_by": 121988,
     "title": "Self Powers"
   },
   "49": {
     "difficulty": 1,
-    "solved_by": 64516,
+    "solved_by": 64517,
     "title": "Prime Permutations"
   },
   "50": {
@@ -262,17 +262,17 @@
   },
   "52": {
     "difficulty": 0,
-    "solved_by": 72065,
+    "solved_by": 72066,
     "title": "Permuted Multiples"
   },
   "53": {
     "difficulty": 1,
-    "solved_by": 65115,
+    "solved_by": 65116,
     "title": "Combinatoric Selections"
   },
   "54": {
     "difficulty": 3,
-    "solved_by": 40662,
+    "solved_by": 40664,
     "title": "Poker Hands"
   },
   "55": {
@@ -292,7 +292,7 @@
   },
   "58": {
     "difficulty": 2,
-    "solved_by": 44992,
+    "solved_by": 44993,
     "title": "Spiral Primes"
   },
   "59": {
@@ -312,12 +312,12 @@
   },
   "62": {
     "difficulty": 2,
-    "solved_by": 35795,
+    "solved_by": 35796,
     "title": "Cubic Permutations"
   },
   "63": {
     "difficulty": 2,
-    "solved_by": 48044,
+    "solved_by": 48045,
     "title": "Powerful Digit Counts"
   },
   "64": {
@@ -337,7 +337,7 @@
   },
   "67": {
     "difficulty": 1,
-    "solved_by": 104071,
+    "solved_by": 104070,
     "title": "Maximum Path Sum II"
   },
   "68": {
@@ -407,22 +407,22 @@
   },
   "81": {
     "difficulty": 2,
-    "solved_by": 38182,
+    "solved_by": 38183,
     "title": "Path Sum: Two Ways"
   },
   "82": {
     "difficulty": 4,
-    "solved_by": 23918,
+    "solved_by": 23919,
     "title": "Path Sum: Three Ways"
   },
   "83": {
     "difficulty": 5,
-    "solved_by": 20797,
+    "solved_by": 20798,
     "title": "Path Sum: Four Ways"
   },
   "84": {
     "difficulty": 7,
-    "solved_by": 14645,
+    "solved_by": 14646,
     "title": "Monopoly Odds"
   },
   "85": {
@@ -432,7 +432,7 @@
   },
   "86": {
     "difficulty": 7,
-    "solved_by": 14721,
+    "solved_by": 14722,
     "title": "Cuboid Route"
   },
   "87": {
@@ -487,7 +487,7 @@
   },
   "97": {
     "difficulty": 1,
-    "solved_by": 47361,
+    "solved_by": 47362,
     "title": "Large Non-Mersenne Prime"
   },
   "98": {
@@ -507,7 +507,7 @@
   },
   "101": {
     "difficulty": 7,
-    "solved_by": 13419,
+    "solved_by": 13420,
     "title": "Optimum Polynomial"
   },
   "102": {
@@ -522,7 +522,7 @@
   },
   "104": {
     "difficulty": 4,
-    "solved_by": 18223,
+    "solved_by": 18224,
     "title": "Pandigital Fibonacci Ends"
   },
   "105": {
@@ -557,7 +557,7 @@
   },
   "111": {
     "difficulty": 13,
-    "solved_by": 8469,
+    "solved_by": 8470,
     "title": "Primes with Runs"
   },
   "112": {
@@ -672,12 +672,12 @@
   },
   "134": {
     "difficulty": 12,
-    "solved_by": 8103,
+    "solved_by": 8104,
     "title": "Prime Pair Connection"
   },
   "135": {
     "difficulty": 12,
-    "solved_by": 7411,
+    "solved_by": 7412,
     "title": "Same Differences"
   },
   "136": {
@@ -827,7 +827,7 @@
   },
   "165": {
     "difficulty": 26,
-    "solved_by": 3050,
+    "solved_by": 3052,
     "title": "Intersections"
   },
   "166": {
@@ -872,7 +872,7 @@
   },
   "174": {
     "difficulty": 10,
-    "solved_by": 6695,
+    "solved_by": 6696,
     "title": "Hollow Square Laminae II"
   },
   "175": {
@@ -1027,7 +1027,7 @@
   },
   "205": {
     "difficulty": 4,
-    "solved_by": 16434,
+    "solved_by": 16435,
     "title": "Dice Game"
   },
   "206": {
@@ -1082,7 +1082,7 @@
   },
   "216": {
     "difficulty": 13,
-    "solved_by": 4743,
+    "solved_by": 4744,
     "title": "The Primality of $2n^2 - 1$"
   },
   "217": {
@@ -1422,12 +1422,12 @@
   },
   "284": {
     "difficulty": 24,
-    "solved_by": 1452,
+    "solved_by": 1453,
     "title": "Steady Squares"
   },
   "285": {
     "difficulty": 23,
-    "solved_by": 1433,
+    "solved_by": 1435,
     "title": "Pythagorean Odds"
   },
   "286": {
@@ -1547,7 +1547,7 @@
   },
   "309": {
     "difficulty": 20,
-    "solved_by": 966,
+    "solved_by": 967,
     "title": "Integer Ladders"
   },
   "310": {
@@ -1597,7 +1597,7 @@
   },
   "319": {
     "difficulty": 35,
-    "solved_by": 485,
+    "solved_by": 486,
     "title": "Bounded Sequences"
   },
   "320": {
@@ -1617,7 +1617,7 @@
   },
   "323": {
     "difficulty": 8,
-    "solved_by": 4414,
+    "solved_by": 4415,
     "title": "Bitwise-OR Operations on Random Integers"
   },
   "324": {
@@ -1682,7 +1682,7 @@
   },
   "336": {
     "difficulty": 6,
-    "solved_by": 2348,
+    "solved_by": 2349,
     "title": "Maximix Arrangements"
   },
   "337": {
@@ -2292,7 +2292,7 @@
   },
   "458": {
     "difficulty": 16,
-    "solved_by": 1103,
+    "solved_by": 1104,
     "title": "Permutations of Project"
   },
   "459": {
@@ -2942,7 +2942,7 @@
   },
   "588": {
     "difficulty": 15,
-    "solved_by": 516,
+    "solved_by": 517,
     "title": "Quintinomial Coefficients"
   },
   "589": {
@@ -3432,7 +3432,7 @@
   },
   "686": {
     "difficulty": 3,
-    "solved_by": 4151,
+    "solved_by": 4152,
     "title": "Powers of Two"
   },
   "687": {
@@ -3517,7 +3517,7 @@
   },
   "703": {
     "difficulty": 18,
-    "solved_by": 378,
+    "solved_by": 379,
     "title": "Circular Logic II"
   },
   "704": {
@@ -3922,7 +3922,7 @@
   },
   "784": {
     "difficulty": 9,
-    "solved_by": 471,
+    "solved_by": 472,
     "title": "Reciprocal Pairs"
   },
   "785": {
@@ -4927,12 +4927,12 @@
   },
   "985": {
     "difficulty": null,
-    "solved_by": 218,
+    "solved_by": 219,
     "title": "Telescoping Triangles"
   },
   "986": {
     "difficulty": null,
-    "solved_by": 28,
+    "solved_by": 32,
     "title": "Another Infinite Game"
   }
 }
