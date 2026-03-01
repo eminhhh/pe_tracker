@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "last_updated_utc": "2026-03-01 04:51",
-    "generated_at_utc": "2026-03-01 04:51",
+    "last_updated_utc": "2026-03-01 06:42",
+    "generated_at_utc": "2026-03-01 06:42",
     "source": "https://projecteuler.net/progress",
     "max_problem_number": 986
   },
@@ -27,7 +27,7 @@
   },
   "5": {
     "difficulty": 0,
-    "solved_by": 525879,
+    "solved_by": 525877,
     "title": "Smallest Multiple"
   },
   "6": {
@@ -292,7 +292,7 @@
   },
   "58": {
     "difficulty": 2,
-    "solved_by": 44991,
+    "solved_by": 44992,
     "title": "Spiral Primes"
   },
   "59": {
@@ -402,7 +402,7 @@
   },
   "80": {
     "difficulty": 4,
-    "solved_by": 22582,
+    "solved_by": 22583,
     "title": "Square Root Digital Expansion"
   },
   "81": {
@@ -457,12 +457,12 @@
   },
   "91": {
     "difficulty": 5,
-    "solved_by": 17812,
+    "solved_by": 17813,
     "title": "Right Triangles with Integer Coordinates"
   },
   "92": {
     "difficulty": 1,
-    "solved_by": 45829,
+    "solved_by": 45830,
     "title": "Square Digit Chains"
   },
   "93": {
@@ -497,7 +497,7 @@
   },
   "99": {
     "difficulty": 2,
-    "solved_by": 34158,
+    "solved_by": 34159,
     "title": "Largest Exponential"
   },
   "100": {
@@ -562,7 +562,7 @@
   },
   "112": {
     "difficulty": 2,
-    "solved_by": 27388,
+    "solved_by": 27389,
     "title": "Bouncy Numbers"
   },
   "113": {
@@ -637,7 +637,7 @@
   },
   "127": {
     "difficulty": 13,
-    "solved_by": 7272,
+    "solved_by": 7273,
     "title": "abc-hits"
   },
   "128": {
@@ -717,7 +717,7 @@
   },
   "143": {
     "difficulty": 22,
-    "solved_by": 3246,
+    "solved_by": 3247,
     "title": "Torricelli Triangles"
   },
   "144": {
@@ -867,7 +867,7 @@
   },
   "173": {
     "difficulty": 6,
-    "solved_by": 10211,
+    "solved_by": 10212,
     "title": "Hollow Square Laminae I"
   },
   "174": {
@@ -1032,7 +1032,7 @@
   },
   "206": {
     "difficulty": 2,
-    "solved_by": 26672,
+    "solved_by": 26673,
     "title": "Concealed Square"
   },
   "207": {
@@ -1477,7 +1477,7 @@
   },
   "295": {
     "difficulty": 34,
-    "solved_by": 548,
+    "solved_by": 549,
     "title": "Lenticular Holes"
   },
   "296": {
@@ -1702,7 +1702,7 @@
   },
   "340": {
     "difficulty": 9,
-    "solved_by": 1295,
+    "solved_by": 1296,
     "title": "Crazy Function"
   },
   "341": {
@@ -1902,7 +1902,7 @@
   },
   "380": {
     "difficulty": 28,
-    "solved_by": 599,
+    "solved_by": 600,
     "title": "Amazing Mazes!"
   },
   "381": {
@@ -3152,7 +3152,7 @@
   },
   "630": {
     "difficulty": 6,
-    "solved_by": 1202,
+    "solved_by": 1203,
     "title": "Crossed Lines"
   },
   "631": {
@@ -4732,7 +4732,7 @@
   },
   "946": {
     "difficulty": 10,
-    "solved_by": 258,
+    "solved_by": 259,
     "title": "Continued Fraction Fraction"
   },
   "947": {
@@ -4862,7 +4862,7 @@
   },
   "972": {
     "difficulty": 17,
-    "solved_by": 185,
+    "solved_by": 186,
     "title": "Hyperbolic Plane"
   },
   "973": {
@@ -4932,7 +4932,7 @@
   },
   "986": {
     "difficulty": null,
-    "solved_by": 14,
+    "solved_by": 20,
     "title": "Another Infinite Game"
   }
 }
