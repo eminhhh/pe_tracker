@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "last_updated_utc": "2026-03-02 06:54",
-    "generated_at_utc": "2026-03-02 06:54",
+    "last_updated_utc": "2026-03-02 09:44",
+    "generated_at_utc": "2026-03-02 09:45",
     "source": "https://projecteuler.net/progress",
     "max_problem_number": 986
   },
@@ -72,7 +72,7 @@
   },
   "14": {
     "difficulty": 0,
-    "solved_by": 245930,
+    "solved_by": 245924,
     "title": "Longest Collatz Sequence"
   },
   "15": {
@@ -132,7 +132,7 @@
   },
   "26": {
     "difficulty": 2,
-    "solved_by": 93180,
+    "solved_by": 93181,
     "title": "Reciprocal Cycles"
   },
   "27": {
@@ -167,12 +167,12 @@
   },
   "33": {
     "difficulty": 0,
-    "solved_by": 79504,
+    "solved_by": 79505,
     "title": "Digit Cancelling Fractions"
   },
   "34": {
     "difficulty": 0,
-    "solved_by": 103714,
+    "solved_by": 103715,
     "title": "Digit Factorials"
   },
   "35": {
@@ -187,12 +187,12 @@
   },
   "37": {
     "difficulty": 1,
-    "solved_by": 81527,
+    "solved_by": 81528,
     "title": "Truncatable Primes"
   },
   "38": {
     "difficulty": 2,
-    "solved_by": 70035,
+    "solved_by": 70036,
     "title": "Pandigital Multiples"
   },
   "39": {
@@ -202,12 +202,12 @@
   },
   "40": {
     "difficulty": 1,
-    "solved_by": 88074,
+    "solved_by": 88075,
     "title": "Champernowne's Constant"
   },
   "41": {
     "difficulty": 2,
-    "solved_by": 75684,
+    "solved_by": 75685,
     "title": "Pandigital Prime"
   },
   "42": {
@@ -222,17 +222,17 @@
   },
   "44": {
     "difficulty": 2,
-    "solved_by": 65364,
+    "solved_by": 65365,
     "title": "Pentagon Numbers"
   },
   "45": {
     "difficulty": 1,
-    "solved_by": 78308,
+    "solved_by": 78309,
     "title": "Triangular, Pentagonal, and Hexagonal"
   },
   "46": {
     "difficulty": 1,
-    "solved_by": 68722,
+    "solved_by": 68723,
     "title": "Goldbach's Other Conjecture"
   },
   "47": {
@@ -252,12 +252,12 @@
   },
   "50": {
     "difficulty": 2,
-    "solved_by": 69588,
+    "solved_by": 69590,
     "title": "Consecutive Prime Sum"
   },
   "51": {
     "difficulty": 3,
-    "solved_by": 38916,
+    "solved_by": 38917,
     "title": "Prime Digit Replacements"
   },
   "52": {
@@ -267,7 +267,7 @@
   },
   "53": {
     "difficulty": 1,
-    "solved_by": 65118,
+    "solved_by": 65119,
     "title": "Combinatoric Selections"
   },
   "54": {
@@ -297,7 +297,7 @@
   },
   "59": {
     "difficulty": 2,
-    "solved_by": 45872,
+    "solved_by": 45874,
     "title": "XOR Decryption"
   },
   "60": {
@@ -317,7 +317,7 @@
   },
   "63": {
     "difficulty": 2,
-    "solved_by": 48045,
+    "solved_by": 48046,
     "title": "Powerful Digit Counts"
   },
   "64": {
@@ -327,12 +327,12 @@
   },
   "65": {
     "difficulty": 2,
-    "solved_by": 33627,
+    "solved_by": 33628,
     "title": "Convergents of $e$"
   },
   "66": {
     "difficulty": 10,
-    "solved_by": 22649,
+    "solved_by": 22650,
     "title": "Diophantine Equation"
   },
   "67": {
@@ -357,7 +357,7 @@
   },
   "71": {
     "difficulty": 2,
-    "solved_by": 32947,
+    "solved_by": 32948,
     "title": "Ordered Fractions"
   },
   "72": {
@@ -382,7 +382,7 @@
   },
   "76": {
     "difficulty": 3,
-    "solved_by": 32122,
+    "solved_by": 32124,
     "title": "Counting Summations"
   },
   "77": {
@@ -477,7 +477,7 @@
   },
   "95": {
     "difficulty": 5,
-    "solved_by": 16618,
+    "solved_by": 16619,
     "title": "Amicable Chains"
   },
   "96": {
@@ -547,7 +547,7 @@
   },
   "109": {
     "difficulty": 10,
-    "solved_by": 9419,
+    "solved_by": 9420,
     "title": "Darts"
   },
   "110": {
@@ -802,17 +802,17 @@
   },
   "160": {
     "difficulty": 29,
-    "solved_by": 4100,
+    "solved_by": 4102,
     "title": "Factorial Trailing Digits"
   },
   "161": {
     "difficulty": 25,
-    "solved_by": 2530,
+    "solved_by": 2531,
     "title": "Triominoes"
   },
   "162": {
     "difficulty": 18,
-    "solved_by": 6055,
+    "solved_by": 6056,
     "title": "Hexadecimal Numbers"
   },
   "163": {
@@ -872,7 +872,7 @@
   },
   "174": {
     "difficulty": 10,
-    "solved_by": 6697,
+    "solved_by": 6698,
     "title": "Hollow Square Laminae II"
   },
   "175": {
@@ -1437,7 +1437,7 @@
   },
   "287": {
     "difficulty": 15,
-    "solved_by": 1668,
+    "solved_by": 1669,
     "title": "Quadtree Encoding (a Simple Compression Algorithm)"
   },
   "288": {
@@ -1452,7 +1452,7 @@
   },
   "290": {
     "difficulty": 20,
-    "solved_by": 1159,
+    "solved_by": 1160,
     "title": "Digital Signature"
   },
   "291": {
@@ -1567,7 +1567,7 @@
   },
   "313": {
     "difficulty": 8,
-    "solved_by": 1879,
+    "solved_by": 1880,
     "title": "Sliding Game"
   },
   "314": {
@@ -1757,7 +1757,7 @@
   },
   "351": {
     "difficulty": 6,
-    "solved_by": 2963,
+    "solved_by": 2964,
     "title": "Hexagonal Orchards"
   },
   "352": {
@@ -2352,7 +2352,7 @@
   },
   "470": {
     "difficulty": 31,
-    "solved_by": 268,
+    "solved_by": 269,
     "title": "Super Ramvok"
   },
   "471": {
@@ -3537,7 +3537,7 @@
   },
   "707": {
     "difficulty": 26,
-    "solved_by": 268,
+    "solved_by": 269,
     "title": "Lights Out"
   },
   "708": {
@@ -3717,7 +3717,7 @@
   },
   "743": {
     "difficulty": 4,
-    "solved_by": 1458,
+    "solved_by": 1459,
     "title": "Window into a Matrix"
   },
   "744": {
@@ -3727,7 +3727,7 @@
   },
   "745": {
     "difficulty": 4,
-    "solved_by": 1504,
+    "solved_by": 1505,
     "title": "Sum of Squares II"
   },
   "746": {
@@ -3772,7 +3772,7 @@
   },
   "754": {
     "difficulty": 11,
-    "solved_by": 847,
+    "solved_by": 848,
     "title": "Product of Gauss Factorials"
   },
   "755": {
@@ -4102,7 +4102,7 @@
   },
   "820": {
     "difficulty": 2,
-    "solved_by": 1273,
+    "solved_by": 1274,
     "title": "$N$<sup>th</sup> Digit of Reciprocals"
   },
   "821": {
@@ -4182,7 +4182,7 @@
   },
   "836": {
     "difficulty": 0,
-    "solved_by": 5306,
+    "solved_by": 5307,
     "title": "A Bold Proposition"
   },
   "837": {
@@ -4302,7 +4302,7 @@
   },
   "860": {
     "difficulty": 7,
-    "solved_by": 560,
+    "solved_by": 562,
     "title": "Gold and Silver Coin Game"
   },
   "861": {
@@ -4387,7 +4387,7 @@
   },
   "877": {
     "difficulty": 6,
-    "solved_by": 529,
+    "solved_by": 530,
     "title": "XOR-Equation A"
   },
   "878": {
@@ -4422,12 +4422,12 @@
   },
   "884": {
     "difficulty": 8,
-    "solved_by": 670,
+    "solved_by": 671,
     "title": "Removing Cubes"
   },
   "885": {
     "difficulty": 4,
-    "solved_by": 1161,
+    "solved_by": 1162,
     "title": "Sorted Digits"
   },
   "886": {
@@ -4932,7 +4932,7 @@
   },
   "986": {
     "difficulty": null,
-    "solved_by": 47,
+    "solved_by": 49,
     "title": "Another Infinite Game"
   }
 }
