@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "last_updated_utc": "2026-03-02 01:54",
-    "generated_at_utc": "2026-03-02 01:55",
+    "last_updated_utc": "2026-03-02 04:45",
+    "generated_at_utc": "2026-03-02 04:46",
     "source": "https://projecteuler.net/progress",
     "max_problem_number": 986
   },
@@ -137,7 +137,7 @@
   },
   "27": {
     "difficulty": 1,
-    "solved_by": 96674,
+    "solved_by": 96675,
     "title": "Quadratic Primes"
   },
   "28": {
@@ -167,7 +167,7 @@
   },
   "33": {
     "difficulty": 0,
-    "solved_by": 79503,
+    "solved_by": 79504,
     "title": "Digit Cancelling Fractions"
   },
   "34": {
@@ -202,7 +202,7 @@
   },
   "40": {
     "difficulty": 1,
-    "solved_by": 88073,
+    "solved_by": 88074,
     "title": "Champernowne's Constant"
   },
   "41": {
@@ -222,7 +222,7 @@
   },
   "44": {
     "difficulty": 2,
-    "solved_by": 65363,
+    "solved_by": 65364,
     "title": "Pentagon Numbers"
   },
   "45": {
@@ -252,7 +252,7 @@
   },
   "50": {
     "difficulty": 2,
-    "solved_by": 69586,
+    "solved_by": 69588,
     "title": "Consecutive Prime Sum"
   },
   "51": {
@@ -287,12 +287,12 @@
   },
   "57": {
     "difficulty": 1,
-    "solved_by": 46660,
+    "solved_by": 46661,
     "title": "Square Root Convergents"
   },
   "58": {
     "difficulty": 2,
-    "solved_by": 44997,
+    "solved_by": 44998,
     "title": "Spiral Primes"
   },
   "59": {
@@ -302,12 +302,12 @@
   },
   "60": {
     "difficulty": 4,
-    "solved_by": 30887,
+    "solved_by": 30888,
     "title": "Prime Pair Sets"
   },
   "61": {
     "difficulty": 3,
-    "solved_by": 29152,
+    "solved_by": 29153,
     "title": "Cyclical Figurate Numbers"
   },
   "62": {
@@ -422,7 +422,7 @@
   },
   "84": {
     "difficulty": 7,
-    "solved_by": 14646,
+    "solved_by": 14647,
     "title": "Monopoly Odds"
   },
   "85": {
@@ -437,7 +437,7 @@
   },
   "87": {
     "difficulty": 3,
-    "solved_by": 23679,
+    "solved_by": 23680,
     "title": "Prime Power Triples"
   },
   "88": {
@@ -447,12 +447,12 @@
   },
   "89": {
     "difficulty": 4,
-    "solved_by": 23704,
+    "solved_by": 23705,
     "title": "Roman Numerals"
   },
   "90": {
     "difficulty": 9,
-    "solved_by": 13226,
+    "solved_by": 13227,
     "title": "Cube Digit Pairs"
   },
   "91": {
@@ -712,7 +712,7 @@
   },
   "142": {
     "difficulty": 15,
-    "solved_by": 6670,
+    "solved_by": 6671,
     "title": "Perfect Square Collection"
   },
   "143": {
@@ -867,7 +867,7 @@
   },
   "173": {
     "difficulty": 6,
-    "solved_by": 10212,
+    "solved_by": 10213,
     "title": "Hollow Square Laminae I"
   },
   "174": {
@@ -947,7 +947,7 @@
   },
   "189": {
     "difficulty": 26,
-    "solved_by": 2439,
+    "solved_by": 2440,
     "title": "Tri-colouring a Triangular Grid"
   },
   "190": {
@@ -1142,7 +1142,7 @@
   },
   "228": {
     "difficulty": 27,
-    "solved_by": 1558,
+    "solved_by": 1559,
     "title": "Minkowski Sums"
   },
   "229": {
@@ -1292,7 +1292,7 @@
   },
   "258": {
     "difficulty": 29,
-    "solved_by": 1891,
+    "solved_by": 1892,
     "title": "A Lagged Fibonacci Sequence"
   },
   "259": {
@@ -1467,7 +1467,7 @@
   },
   "293": {
     "difficulty": 9,
-    "solved_by": 3391,
+    "solved_by": 3392,
     "title": "Pseudo-Fortunate Numbers"
   },
   "294": {
@@ -1482,7 +1482,7 @@
   },
   "296": {
     "difficulty": 27,
-    "solved_by": 771,
+    "solved_by": 772,
     "title": "Angular Bisector and Tangent"
   },
   "297": {
@@ -1517,7 +1517,7 @@
   },
   "303": {
     "difficulty": 9,
-    "solved_by": 4108,
+    "solved_by": 4109,
     "title": "Multiples with Small Digits"
   },
   "304": {
@@ -2037,7 +2037,7 @@
   },
   "407": {
     "difficulty": 9,
-    "solved_by": 2857,
+    "solved_by": 2858,
     "title": "Idempotents"
   },
   "408": {
@@ -4172,7 +4172,7 @@
   },
   "834": {
     "difficulty": 8,
-    "solved_by": 486,
+    "solved_by": 488,
     "title": "Add and Divide"
   },
   "835": {
@@ -4892,7 +4892,7 @@
   },
   "978": {
     "difficulty": null,
-    "solved_by": 315,
+    "solved_by": 316,
     "title": "Random Walk Skewness"
   },
   "979": {
@@ -4927,12 +4927,12 @@
   },
   "985": {
     "difficulty": null,
-    "solved_by": 220,
+    "solved_by": 221,
     "title": "Telescoping Triangles"
   },
   "986": {
     "difficulty": null,
-    "solved_by": 45,
+    "solved_by": 46,
     "title": "Another Infinite Game"
   }
 }
