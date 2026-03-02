@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "last_updated_utc": "2026-03-02 09:44",
-    "generated_at_utc": "2026-03-02 09:45",
+    "last_updated_utc": "2026-03-02 12:53",
+    "generated_at_utc": "2026-03-02 12:53",
     "source": "https://projecteuler.net/progress",
     "max_problem_number": 986
   },
@@ -87,12 +87,12 @@
   },
   "17": {
     "difficulty": 1,
-    "solved_by": 165316,
+    "solved_by": 165317,
     "title": "Number Letter Counts"
   },
   "18": {
     "difficulty": 1,
-    "solved_by": 158384,
+    "solved_by": 158385,
     "title": "Maximum Path Sum I"
   },
   "19": {
@@ -112,7 +112,7 @@
   },
   "22": {
     "difficulty": 0,
-    "solved_by": 146633,
+    "solved_by": 146634,
     "title": "Names Scores"
   },
   "23": {
@@ -127,7 +127,7 @@
   },
   "25": {
     "difficulty": 0,
-    "solved_by": 169334,
+    "solved_by": 169335,
     "title": "$1000$-digit Fibonacci Number"
   },
   "26": {
@@ -162,12 +162,12 @@
   },
   "32": {
     "difficulty": 2,
-    "solved_by": 79269,
+    "solved_by": 79270,
     "title": "Pandigital Products"
   },
   "33": {
     "difficulty": 0,
-    "solved_by": 79505,
+    "solved_by": 79506,
     "title": "Digit Cancelling Fractions"
   },
   "34": {
@@ -177,12 +177,12 @@
   },
   "35": {
     "difficulty": 1,
-    "solved_by": 93475,
+    "solved_by": 93476,
     "title": "Circular Primes"
   },
   "36": {
     "difficulty": 0,
-    "solved_by": 97547,
+    "solved_by": 97549,
     "title": "Double-base Palindromes"
   },
   "37": {
@@ -197,7 +197,7 @@
   },
   "39": {
     "difficulty": 1,
-    "solved_by": 80911,
+    "solved_by": 80912,
     "title": "Integer Right Triangles"
   },
   "40": {
@@ -237,7 +237,7 @@
   },
   "47": {
     "difficulty": 1,
-    "solved_by": 64694,
+    "solved_by": 64695,
     "title": "Distinct Primes Factors"
   },
   "48": {
@@ -257,27 +257,27 @@
   },
   "51": {
     "difficulty": 3,
-    "solved_by": 38917,
+    "solved_by": 38918,
     "title": "Prime Digit Replacements"
   },
   "52": {
     "difficulty": 0,
-    "solved_by": 72068,
+    "solved_by": 72070,
     "title": "Permuted Multiples"
   },
   "53": {
     "difficulty": 1,
-    "solved_by": 65119,
+    "solved_by": 65121,
     "title": "Combinatoric Selections"
   },
   "54": {
     "difficulty": 3,
-    "solved_by": 40667,
+    "solved_by": 40668,
     "title": "Poker Hands"
   },
   "55": {
     "difficulty": 2,
-    "solved_by": 59615,
+    "solved_by": 59616,
     "title": "Lychrel Numbers"
   },
   "56": {
@@ -302,7 +302,7 @@
   },
   "60": {
     "difficulty": 4,
-    "solved_by": 30888,
+    "solved_by": 30889,
     "title": "Prime Pair Sets"
   },
   "61": {
@@ -352,7 +352,7 @@
   },
   "70": {
     "difficulty": 4,
-    "solved_by": 25491,
+    "solved_by": 25492,
     "title": "Totient Permutation"
   },
   "71": {
@@ -372,7 +372,7 @@
   },
   "74": {
     "difficulty": 2,
-    "solved_by": 30159,
+    "solved_by": 30160,
     "title": "Digit Factorial Chains"
   },
   "75": {
@@ -417,7 +417,7 @@
   },
   "83": {
     "difficulty": 5,
-    "solved_by": 20800,
+    "solved_by": 20801,
     "title": "Path Sum: Four Ways"
   },
   "84": {
@@ -427,7 +427,7 @@
   },
   "85": {
     "difficulty": 2,
-    "solved_by": 27864,
+    "solved_by": 27865,
     "title": "Counting Rectangles"
   },
   "86": {
@@ -447,7 +447,7 @@
   },
   "89": {
     "difficulty": 4,
-    "solved_by": 23705,
+    "solved_by": 23706,
     "title": "Roman Numerals"
   },
   "90": {
@@ -487,7 +487,7 @@
   },
   "97": {
     "difficulty": 1,
-    "solved_by": 47365,
+    "solved_by": 47366,
     "title": "Large Non-Mersenne Prime"
   },
   "98": {
@@ -507,7 +507,7 @@
   },
   "101": {
     "difficulty": 7,
-    "solved_by": 13422,
+    "solved_by": 13423,
     "title": "Optimum Polynomial"
   },
   "102": {
@@ -517,7 +517,7 @@
   },
   "103": {
     "difficulty": 11,
-    "solved_by": 9421,
+    "solved_by": 9422,
     "title": "Special Subset Sums: Optimum"
   },
   "104": {
@@ -752,7 +752,7 @@
   },
   "150": {
     "difficulty": 17,
-    "solved_by": 4584,
+    "solved_by": 4585,
     "title": "Sub-triangle Sums"
   },
   "151": {
@@ -862,7 +862,7 @@
   },
   "172": {
     "difficulty": 18,
-    "solved_by": 4399,
+    "solved_by": 4401,
     "title": "Few Repeated Digits"
   },
   "173": {
@@ -877,12 +877,12 @@
   },
   "175": {
     "difficulty": 25,
-    "solved_by": 2125,
+    "solved_by": 2126,
     "title": "Fractions and Sum of Powers of Two"
   },
   "176": {
     "difficulty": 25,
-    "solved_by": 2237,
+    "solved_by": 2238,
     "title": "Common Cathetus Right-angled Triangles"
   },
   "177": {
@@ -932,7 +932,7 @@
   },
   "186": {
     "difficulty": 22,
-    "solved_by": 3307,
+    "solved_by": 3308,
     "title": "Connectedness of a Network"
   },
   "187": {
@@ -1327,7 +1327,7 @@
   },
   "265": {
     "difficulty": 14,
-    "solved_by": 4668,
+    "solved_by": 4669,
     "title": "Binary Circles"
   },
   "266": {
@@ -1592,7 +1592,7 @@
   },
   "318": {
     "difficulty": 21,
-    "solved_by": 1097,
+    "solved_by": 1098,
     "title": "2011 Nines"
   },
   "319": {
@@ -1617,7 +1617,7 @@
   },
   "323": {
     "difficulty": 7,
-    "solved_by": 4418,
+    "solved_by": 4419,
     "title": "Bitwise-OR Operations on Random Integers"
   },
   "324": {
@@ -2257,7 +2257,7 @@
   },
   "451": {
     "difficulty": 15,
-    "solved_by": 1702,
+    "solved_by": 1703,
     "title": "Modular Inverses"
   },
   "452": {
@@ -2502,7 +2502,7 @@
   },
   "500": {
     "difficulty": 8,
-    "solved_by": 4650,
+    "solved_by": 4651,
     "title": "Problem 500!!!"
   },
   "501": {
@@ -3142,7 +3142,7 @@
   },
   "628": {
     "difficulty": 9,
-    "solved_by": 936,
+    "solved_by": 937,
     "title": "Open Chess Positions"
   },
   "629": {
@@ -3317,7 +3317,7 @@
   },
   "663": {
     "difficulty": 13,
-    "solved_by": 419,
+    "solved_by": 420,
     "title": "Sums of Subarrays"
   },
   "664": {
@@ -3547,7 +3547,7 @@
   },
   "709": {
     "difficulty": 6,
-    "solved_by": 1074,
+    "solved_by": 1075,
     "title": "Even Stevens"
   },
   "710": {
@@ -3597,7 +3597,7 @@
   },
   "719": {
     "difficulty": 4,
-    "solved_by": 4853,
+    "solved_by": 4854,
     "title": "Number Splitting"
   },
   "720": {
@@ -3657,7 +3657,7 @@
   },
   "731": {
     "difficulty": 6,
-    "solved_by": 687,
+    "solved_by": 688,
     "title": "A Stoneham Number"
   },
   "732": {
@@ -4002,7 +4002,7 @@
   },
   "800": {
     "difficulty": 4,
-    "solved_by": 2391,
+    "solved_by": 2392,
     "title": "Hybrid Integers"
   },
   "801": {
@@ -4182,7 +4182,7 @@
   },
   "836": {
     "difficulty": 0,
-    "solved_by": 5307,
+    "solved_by": 5309,
     "title": "A Bold Proposition"
   },
   "837": {
@@ -4202,7 +4202,7 @@
   },
   "840": {
     "difficulty": 6,
-    "solved_by": 454,
+    "solved_by": 455,
     "title": "Sum of Products"
   },
   "841": {
@@ -4392,7 +4392,7 @@
   },
   "878": {
     "difficulty": 15,
-    "solved_by": 308,
+    "solved_by": 309,
     "title": "XOR-Equation B"
   },
   "879": {
@@ -4692,7 +4692,7 @@
   },
   "938": {
     "difficulty": 3,
-    "solved_by": 1114,
+    "solved_by": 1115,
     "title": "Exhausting a Colour"
   },
   "939": {
@@ -4807,7 +4807,7 @@
   },
   "961": {
     "difficulty": 3,
-    "solved_by": 742,
+    "solved_by": 743,
     "title": "Removing Digits"
   },
   "962": {
@@ -4827,7 +4827,7 @@
   },
   "965": {
     "difficulty": 6,
-    "solved_by": 488,
+    "solved_by": 489,
     "title": "Expected Minimal Fractional Value"
   },
   "966": {
@@ -4932,7 +4932,7 @@
   },
   "986": {
     "difficulty": null,
-    "solved_by": 49,
+    "solved_by": 50,
     "title": "Another Infinite Game"
   }
 }
