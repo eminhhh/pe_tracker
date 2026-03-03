@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "last_updated_utc": "2026-03-03 18:43",
-    "generated_at_utc": "2026-03-03 18:43",
+    "last_updated_utc": "2026-03-03 21:31",
+    "generated_at_utc": "2026-03-03 21:31",
     "source": "https://projecteuler.net/progress",
     "max_problem_number": 986
   },
@@ -122,7 +122,7 @@
   },
   "24": {
     "difficulty": 1,
-    "solved_by": 125771,
+    "solved_by": 125772,
     "title": "Lexicographic Permutations"
   },
   "25": {
@@ -132,12 +132,12 @@
   },
   "26": {
     "difficulty": 2,
-    "solved_by": 93185,
+    "solved_by": 93186,
     "title": "Reciprocal Cycles"
   },
   "27": {
     "difficulty": 1,
-    "solved_by": 96678,
+    "solved_by": 96679,
     "title": "Quadratic Primes"
   },
   "28": {
@@ -147,7 +147,7 @@
   },
   "29": {
     "difficulty": 1,
-    "solved_by": 115887,
+    "solved_by": 115888,
     "title": "Distinct Powers"
   },
   "30": {
@@ -197,7 +197,7 @@
   },
   "39": {
     "difficulty": 1,
-    "solved_by": 80914,
+    "solved_by": 80915,
     "title": "Integer Right Triangles"
   },
   "40": {
@@ -222,7 +222,7 @@
   },
   "44": {
     "difficulty": 2,
-    "solved_by": 65366,
+    "solved_by": 65367,
     "title": "Pentagon Numbers"
   },
   "45": {
@@ -272,7 +272,7 @@
   },
   "54": {
     "difficulty": 3,
-    "solved_by": 40669,
+    "solved_by": 40670,
     "title": "Poker Hands"
   },
   "55": {
@@ -292,7 +292,7 @@
   },
   "58": {
     "difficulty": 2,
-    "solved_by": 45000,
+    "solved_by": 45002,
     "title": "Spiral Primes"
   },
   "59": {
@@ -327,7 +327,7 @@
   },
   "65": {
     "difficulty": 2,
-    "solved_by": 33629,
+    "solved_by": 33630,
     "title": "Convergents of $e$"
   },
   "66": {
@@ -352,7 +352,7 @@
   },
   "70": {
     "difficulty": 4,
-    "solved_by": 25492,
+    "solved_by": 25493,
     "title": "Totient Permutation"
   },
   "71": {
@@ -422,12 +422,12 @@
   },
   "84": {
     "difficulty": 7,
-    "solved_by": 14648,
+    "solved_by": 14649,
     "title": "Monopoly Odds"
   },
   "85": {
     "difficulty": 2,
-    "solved_by": 27868,
+    "solved_by": 27870,
     "title": "Counting Rectangles"
   },
   "86": {
@@ -467,7 +467,7 @@
   },
   "93": {
     "difficulty": 8,
-    "solved_by": 13790,
+    "solved_by": 13791,
     "title": "Arithmetic Expressions"
   },
   "94": {
@@ -562,7 +562,7 @@
   },
   "112": {
     "difficulty": 2,
-    "solved_by": 27395,
+    "solved_by": 27396,
     "title": "Bouncy Numbers"
   },
   "113": {
@@ -697,7 +697,7 @@
   },
   "139": {
     "difficulty": 13,
-    "solved_by": 6554,
+    "solved_by": 6555,
     "title": "Pythagorean Tiles"
   },
   "140": {
@@ -792,7 +792,7 @@
   },
   "158": {
     "difficulty": 18,
-    "solved_by": 4186,
+    "solved_by": 4187,
     "title": "Lexicographical Neighbours"
   },
   "159": {
@@ -812,7 +812,7 @@
   },
   "162": {
     "difficulty": 18,
-    "solved_by": 6056,
+    "solved_by": 6057,
     "title": "Hexadecimal Numbers"
   },
   "163": {
@@ -917,7 +917,7 @@
   },
   "183": {
     "difficulty": 14,
-    "solved_by": 5290,
+    "solved_by": 5291,
     "title": "Maximum Product of Parts"
   },
   "184": {
@@ -942,7 +942,7 @@
   },
   "188": {
     "difficulty": 10,
-    "solved_by": 7163,
+    "solved_by": 7164,
     "title": "Hyperexponentiation"
   },
   "189": {
@@ -977,7 +977,7 @@
   },
   "195": {
     "difficulty": 28,
-    "solved_by": 1699,
+    "solved_by": 1700,
     "title": "$60$-degree Triangle Inscribed Circles"
   },
   "196": {
@@ -1077,7 +1077,7 @@
   },
   "215": {
     "difficulty": 15,
-    "solved_by": 4153,
+    "solved_by": 4154,
     "title": "Crack-free Walls"
   },
   "216": {
@@ -1487,7 +1487,7 @@
   },
   "297": {
     "difficulty": 9,
-    "solved_by": 3156,
+    "solved_by": 3157,
     "title": "Zeckendorf Representation"
   },
   "298": {
@@ -1572,7 +1572,7 @@
   },
   "314": {
     "difficulty": 36,
-    "solved_by": 607,
+    "solved_by": 608,
     "title": "The Mouse on the Moon"
   },
   "315": {
@@ -1687,7 +1687,7 @@
   },
   "337": {
     "difficulty": 30,
-    "solved_by": 617,
+    "solved_by": 618,
     "title": "Totient Stairstep Sequences"
   },
   "338": {
@@ -1797,7 +1797,7 @@
   },
   "359": {
     "difficulty": 8,
-    "solved_by": 1745,
+    "solved_by": 1746,
     "title": "Hilbert's New Hotel"
   },
   "360": {
@@ -2592,7 +2592,7 @@
   },
   "518": {
     "difficulty": 6,
-    "solved_by": 1848,
+    "solved_by": 1849,
     "title": "Prime Triples and Geometric Sequences"
   },
   "519": {
@@ -3037,7 +3037,7 @@
   },
   "607": {
     "difficulty": 8,
-    "solved_by": 1951,
+    "solved_by": 1952,
     "title": "Marsh Crossing"
   },
   "608": {
@@ -3117,7 +3117,7 @@
   },
   "623": {
     "difficulty": 20,
-    "solved_by": 383,
+    "solved_by": 384,
     "title": "Lambda Count"
   },
   "624": {
@@ -3162,7 +3162,7 @@
   },
   "632": {
     "difficulty": 14,
-    "solved_by": 593,
+    "solved_by": 594,
     "title": "Square Prime Factors"
   },
   "633": {
@@ -3352,7 +3352,7 @@
   },
   "670": {
     "difficulty": 17,
-    "solved_by": 406,
+    "solved_by": 407,
     "title": "Colouring a Strip"
   },
   "671": {
@@ -3767,7 +3767,7 @@
   },
   "753": {
     "difficulty": 15,
-    "solved_by": 471,
+    "solved_by": 472,
     "title": "Fermat Equation"
   },
   "754": {
@@ -4332,7 +4332,7 @@
   },
   "866": {
     "difficulty": 5,
-    "solved_by": 501,
+    "solved_by": 502,
     "title": "Tidying Up B"
   },
   "867": {
@@ -4407,7 +4407,7 @@
   },
   "881": {
     "difficulty": 7,
-    "solved_by": 578,
+    "solved_by": 579,
     "title": "Divisor Graph Width"
   },
   "882": {
@@ -4592,7 +4592,7 @@
   },
   "918": {
     "difficulty": 3,
-    "solved_by": 1323,
+    "solved_by": 1324,
     "title": "Recursive Sequence Summation"
   },
   "919": {
@@ -4872,7 +4872,7 @@
   },
   "974": {
     "difficulty": 6,
-    "solved_by": 355,
+    "solved_by": 356,
     "title": "Very Odd Numbers"
   },
   "975": {
@@ -4927,12 +4927,12 @@
   },
   "985": {
     "difficulty": null,
-    "solved_by": 227,
+    "solved_by": 228,
     "title": "Telescoping Triangles"
   },
   "986": {
     "difficulty": null,
-    "solved_by": 60,
+    "solved_by": 61,
     "title": "Another Infinite Game"
   }
 }
