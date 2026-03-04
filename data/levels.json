@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "last_updated_utc": "2026-03-04 15:37",
-    "generated_at_utc": "2026-03-04 15:38",
+    "last_updated_utc": "2026-03-04 18:43",
+    "generated_at_utc": "2026-03-04 18:44",
     "source": "https://projecteuler.net/progress",
     "max_problem_number": 986
   },
@@ -97,7 +97,7 @@
   },
   "19": {
     "difficulty": 1,
-    "solved_by": 147014,
+    "solved_by": 147015,
     "title": "Counting Sundays"
   },
   "20": {
@@ -192,7 +192,7 @@
   },
   "38": {
     "difficulty": 2,
-    "solved_by": 70038,
+    "solved_by": 70039,
     "title": "Pandigital Multiples"
   },
   "39": {
@@ -217,7 +217,7 @@
   },
   "43": {
     "difficulty": 1,
-    "solved_by": 66687,
+    "solved_by": 66689,
     "title": "Sub-string Divisibility"
   },
   "44": {
@@ -227,7 +227,7 @@
   },
   "45": {
     "difficulty": 1,
-    "solved_by": 78311,
+    "solved_by": 78312,
     "title": "Triangular, Pentagonal, and Hexagonal"
   },
   "46": {
@@ -277,17 +277,17 @@
   },
   "55": {
     "difficulty": 2,
-    "solved_by": 59621,
+    "solved_by": 59622,
     "title": "Lychrel Numbers"
   },
   "56": {
     "difficulty": 1,
-    "solved_by": 64446,
+    "solved_by": 64447,
     "title": "Powerful Digit Sum"
   },
   "57": {
     "difficulty": 1,
-    "solved_by": 46668,
+    "solved_by": 46669,
     "title": "Square Root Convergents"
   },
   "58": {
@@ -302,12 +302,12 @@
   },
   "60": {
     "difficulty": 3,
-    "solved_by": 30896,
+    "solved_by": 30897,
     "title": "Prime Pair Sets"
   },
   "61": {
     "difficulty": 3,
-    "solved_by": 29156,
+    "solved_by": 29157,
     "title": "Cyclical Figurate Numbers"
   },
   "62": {
@@ -327,7 +327,7 @@
   },
   "65": {
     "difficulty": 2,
-    "solved_by": 33631,
+    "solved_by": 33632,
     "title": "Convergents of $e$"
   },
   "66": {
@@ -422,27 +422,27 @@
   },
   "84": {
     "difficulty": 7,
-    "solved_by": 14649,
+    "solved_by": 14650,
     "title": "Monopoly Odds"
   },
   "85": {
     "difficulty": 2,
-    "solved_by": 27871,
+    "solved_by": 27873,
     "title": "Counting Rectangles"
   },
   "86": {
     "difficulty": 6,
-    "solved_by": 14725,
+    "solved_by": 14726,
     "title": "Cuboid Route"
   },
   "87": {
     "difficulty": 3,
-    "solved_by": 23681,
+    "solved_by": 23682,
     "title": "Prime Power Triples"
   },
   "88": {
     "difficulty": 10,
-    "solved_by": 11965,
+    "solved_by": 11966,
     "title": "Product-sum Numbers"
   },
   "89": {
@@ -462,7 +462,7 @@
   },
   "92": {
     "difficulty": 1,
-    "solved_by": 45837,
+    "solved_by": 45838,
     "title": "Square Digit Chains"
   },
   "93": {
@@ -517,7 +517,7 @@
   },
   "103": {
     "difficulty": 11,
-    "solved_by": 9426,
+    "solved_by": 9427,
     "title": "Special Subset Sums: Optimum"
   },
   "104": {
@@ -557,7 +557,7 @@
   },
   "111": {
     "difficulty": 13,
-    "solved_by": 8471,
+    "solved_by": 8472,
     "title": "Primes with Runs"
   },
   "112": {
@@ -572,12 +572,12 @@
   },
   "114": {
     "difficulty": 8,
-    "solved_by": 12386,
+    "solved_by": 12387,
     "title": "Counting Block Combinations I"
   },
   "115": {
     "difficulty": 8,
-    "solved_by": 11334,
+    "solved_by": 11335,
     "title": "Counting Block Combinations II"
   },
   "116": {
@@ -602,7 +602,7 @@
   },
   "120": {
     "difficulty": 5,
-    "solved_by": 15519,
+    "solved_by": 15520,
     "title": "Square Remainders"
   },
   "121": {
@@ -617,12 +617,12 @@
   },
   "123": {
     "difficulty": 6,
-    "solved_by": 13003,
+    "solved_by": 13004,
     "title": "Prime Square Remainders"
   },
   "124": {
     "difficulty": 4,
-    "solved_by": 15299,
+    "solved_by": 15300,
     "title": "Ordered Radicals"
   },
   "125": {
@@ -642,7 +642,7 @@
   },
   "128": {
     "difficulty": 16,
-    "solved_by": 5826,
+    "solved_by": 5827,
     "title": "Hexagonal Tile Differences"
   },
   "129": {
@@ -677,7 +677,7 @@
   },
   "135": {
     "difficulty": 12,
-    "solved_by": 7415,
+    "solved_by": 7416,
     "title": "Same Differences"
   },
   "136": {
@@ -747,7 +747,7 @@
   },
   "149": {
     "difficulty": 15,
-    "solved_by": 5561,
+    "solved_by": 5562,
     "title": "Maximum-sum Subsequence"
   },
   "150": {
@@ -757,7 +757,7 @@
   },
   "151": {
     "difficulty": 18,
-    "solved_by": 6378,
+    "solved_by": 6379,
     "title": "A Preference for A5"
   },
   "152": {
@@ -1032,7 +1032,7 @@
   },
   "206": {
     "difficulty": 2,
-    "solved_by": 26679,
+    "solved_by": 26680,
     "title": "Concealed Square"
   },
   "207": {
@@ -1177,7 +1177,7 @@
   },
   "235": {
     "difficulty": 12,
-    "solved_by": 5532,
+    "solved_by": 5533,
     "title": "An Arithmetic Geometric Sequence"
   },
   "236": {
@@ -1677,7 +1677,7 @@
   },
   "335": {
     "difficulty": 30,
-    "solved_by": 599,
+    "solved_by": 600,
     "title": "Gathering the Beans"
   },
   "336": {
@@ -1827,7 +1827,7 @@
   },
   "365": {
     "difficulty": 20,
-    "solved_by": 1495,
+    "solved_by": 1496,
     "title": "A Huge Binomial Coefficient"
   },
   "366": {
@@ -2592,7 +2592,7 @@
   },
   "518": {
     "difficulty": 6,
-    "solved_by": 1849,
+    "solved_by": 1850,
     "title": "Prime Triples and Geometric Sequences"
   },
   "519": {
@@ -2727,7 +2727,7 @@
   },
   "545": {
     "difficulty": 11,
-    "solved_by": 638,
+    "solved_by": 639,
     "title": "Faulhaber's Formulas"
   },
   "546": {
@@ -2942,7 +2942,7 @@
   },
   "588": {
     "difficulty": 15,
-    "solved_by": 517,
+    "solved_by": 518,
     "title": "Quintinomial Coefficients"
   },
   "589": {
@@ -2957,7 +2957,7 @@
   },
   "591": {
     "difficulty": 38,
-    "solved_by": 234,
+    "solved_by": 235,
     "title": "Best Approximations by Quadratic Integers"
   },
   "592": {
@@ -3197,7 +3197,7 @@
   },
   "639": {
     "difficulty": 31,
-    "solved_by": 328,
+    "solved_by": 329,
     "title": "Summing a Multiplicative Function"
   },
   "640": {
@@ -3742,7 +3742,7 @@
   },
   "748": {
     "difficulty": 15,
-    "solved_by": 351,
+    "solved_by": 352,
     "title": "Upside Down Diophantine Equation"
   },
   "749": {
@@ -3762,7 +3762,7 @@
   },
   "752": {
     "difficulty": 9,
-    "solved_by": 782,
+    "solved_by": 783,
     "title": "Powers of $1+\\sqrt 7$"
   },
   "753": {
@@ -3802,7 +3802,7 @@
   },
   "760": {
     "difficulty": 11,
-    "solved_by": 507,
+    "solved_by": 508,
     "title": "Sum over Bitwise Operators"
   },
   "761": {
@@ -3882,7 +3882,7 @@
   },
   "776": {
     "difficulty": 9,
-    "solved_by": 641,
+    "solved_by": 642,
     "title": "Digit Sum Division"
   },
   "777": {
@@ -3952,7 +3952,7 @@
   },
   "790": {
     "difficulty": 19,
-    "solved_by": 308,
+    "solved_by": 309,
     "title": "Clock Grid"
   },
   "791": {
@@ -4022,7 +4022,7 @@
   },
   "804": {
     "difficulty": 10,
-    "solved_by": 790,
+    "solved_by": 791,
     "title": "Counting Binary Quadratic Representations"
   },
   "805": {
@@ -4052,7 +4052,7 @@
   },
   "810": {
     "difficulty": 7,
-    "solved_by": 865,
+    "solved_by": 866,
     "title": "XOR-Primes"
   },
   "811": {
@@ -4067,7 +4067,7 @@
   },
   "813": {
     "difficulty": 8,
-    "solved_by": 700,
+    "solved_by": 701,
     "title": "XOR-Powers"
   },
   "814": {
@@ -4632,7 +4632,7 @@
   },
   "926": {
     "difficulty": 7,
-    "solved_by": 778,
+    "solved_by": 779,
     "title": "Total Roundness"
   },
   "927": {
@@ -4927,12 +4927,12 @@
   },
   "985": {
     "difficulty": null,
-    "solved_by": 231,
+    "solved_by": 234,
     "title": "Telescoping Triangles"
   },
   "986": {
     "difficulty": null,
-    "solved_by": 70,
+    "solved_by": 71,
     "title": "Another Infinite Game"
   }
 }
