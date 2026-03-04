@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "last_updated_utc": "2026-03-04 01:50",
-    "generated_at_utc": "2026-03-04 01:51",
+    "last_updated_utc": "2026-03-04 04:27",
+    "generated_at_utc": "2026-03-04 04:27",
     "source": "https://projecteuler.net/progress",
     "max_problem_number": 986
   },
@@ -87,7 +87,7 @@
   },
   "17": {
     "difficulty": 1,
-    "solved_by": 165317,
+    "solved_by": 165318,
     "title": "Number Letter Counts"
   },
   "18": {
@@ -197,7 +197,7 @@
   },
   "39": {
     "difficulty": 1,
-    "solved_by": 80915,
+    "solved_by": 80916,
     "title": "Integer Right Triangles"
   },
   "40": {
@@ -347,7 +347,7 @@
   },
   "69": {
     "difficulty": 2,
-    "solved_by": 39344,
+    "solved_by": 39345,
     "title": "Totient Maximum"
   },
   "70": {
@@ -372,7 +372,7 @@
   },
   "74": {
     "difficulty": 2,
-    "solved_by": 30163,
+    "solved_by": 30164,
     "title": "Digit Factorial Chains"
   },
   "75": {
@@ -407,12 +407,12 @@
   },
   "81": {
     "difficulty": 2,
-    "solved_by": 38191,
+    "solved_by": 38193,
     "title": "Path Sum: Two Ways"
   },
   "82": {
     "difficulty": 4,
-    "solved_by": 23924,
+    "solved_by": 23925,
     "title": "Path Sum: Three Ways"
   },
   "83": {
@@ -482,7 +482,7 @@
   },
   "96": {
     "difficulty": 5,
-    "solved_by": 19544,
+    "solved_by": 19545,
     "title": "Su Doku"
   },
   "97": {
@@ -497,7 +497,7 @@
   },
   "99": {
     "difficulty": 2,
-    "solved_by": 34165,
+    "solved_by": 34166,
     "title": "Largest Exponential"
   },
   "100": {
@@ -622,7 +622,7 @@
   },
   "124": {
     "difficulty": 4,
-    "solved_by": 15297,
+    "solved_by": 15298,
     "title": "Ordered Radicals"
   },
   "125": {
@@ -642,12 +642,12 @@
   },
   "128": {
     "difficulty": 16,
-    "solved_by": 5825,
+    "solved_by": 5826,
     "title": "Hexagonal Tile Differences"
   },
   "129": {
     "difficulty": 15,
-    "solved_by": 7252,
+    "solved_by": 7253,
     "title": "Repunit Divisibility"
   },
   "130": {
@@ -732,7 +732,7 @@
   },
   "146": {
     "difficulty": 16,
-    "solved_by": 5925,
+    "solved_by": 5926,
     "title": "Investigating a Prime Pattern"
   },
   "147": {
@@ -747,7 +747,7 @@
   },
   "149": {
     "difficulty": 15,
-    "solved_by": 5560,
+    "solved_by": 5561,
     "title": "Maximum-sum Subsequence"
   },
   "150": {
@@ -767,7 +767,7 @@
   },
   "153": {
     "difficulty": 22,
-    "solved_by": 3080,
+    "solved_by": 3081,
     "title": "Investigating Gaussian Integers"
   },
   "154": {
@@ -847,7 +847,7 @@
   },
   "169": {
     "difficulty": 16,
-    "solved_by": 5864,
+    "solved_by": 5865,
     "title": "Sums of Powers of Two"
   },
   "170": {
@@ -872,7 +872,7 @@
   },
   "174": {
     "difficulty": 10,
-    "solved_by": 6701,
+    "solved_by": 6702,
     "title": "Hollow Square Laminae II"
   },
   "175": {
@@ -942,7 +942,7 @@
   },
   "188": {
     "difficulty": 10,
-    "solved_by": 7164,
+    "solved_by": 7165,
     "title": "Hyperexponentiation"
   },
   "189": {
@@ -952,12 +952,12 @@
   },
   "190": {
     "difficulty": 16,
-    "solved_by": 4726,
+    "solved_by": 4727,
     "title": "Maximising a Weighted Product"
   },
   "191": {
     "difficulty": 9,
-    "solved_by": 7966,
+    "solved_by": 7967,
     "title": "Prize Strings"
   },
   "192": {
@@ -972,7 +972,7 @@
   },
   "194": {
     "difficulty": 29,
-    "solved_by": 1697,
+    "solved_by": 1699,
     "title": "Coloured Configurations"
   },
   "195": {
@@ -1077,7 +1077,7 @@
   },
   "215": {
     "difficulty": 15,
-    "solved_by": 4154,
+    "solved_by": 4155,
     "title": "Crack-free Walls"
   },
   "216": {
@@ -1437,7 +1437,7 @@
   },
   "287": {
     "difficulty": 15,
-    "solved_by": 1669,
+    "solved_by": 1670,
     "title": "Quadtree Encoding (a Simple Compression Algorithm)"
   },
   "288": {
@@ -1522,7 +1522,7 @@
   },
   "304": {
     "difficulty": 15,
-    "solved_by": 2545,
+    "solved_by": 2546,
     "title": "Primonacci"
   },
   "305": {
@@ -1647,7 +1647,7 @@
   },
   "329": {
     "difficulty": 10,
-    "solved_by": 2877,
+    "solved_by": 2878,
     "title": "Prime Frog"
   },
   "330": {
@@ -1792,7 +1792,7 @@
   },
   "358": {
     "difficulty": 10,
-    "solved_by": 1845,
+    "solved_by": 1846,
     "title": "Cyclic Numbers"
   },
   "359": {
@@ -2127,7 +2127,7 @@
   },
   "425": {
     "difficulty": 8,
-    "solved_by": 1706,
+    "solved_by": 1707,
     "title": "Prime Connection"
   },
   "426": {
@@ -2257,7 +2257,7 @@
   },
   "451": {
     "difficulty": 16,
-    "solved_by": 1703,
+    "solved_by": 1704,
     "title": "Modular Inverses"
   },
   "452": {
@@ -2572,7 +2572,7 @@
   },
   "514": {
     "difficulty": 36,
-    "solved_by": 264,
+    "solved_by": 265,
     "title": "Geoboard Shapes"
   },
   "515": {
@@ -2887,7 +2887,7 @@
   },
   "577": {
     "difficulty": 6,
-    "solved_by": 1806,
+    "solved_by": 1807,
     "title": "Counting Hexagons"
   },
   "578": {
@@ -3027,7 +3027,7 @@
   },
   "605": {
     "difficulty": 7,
-    "solved_by": 985,
+    "solved_by": 987,
     "title": "Pairwise Coin-Tossing Game"
   },
   "606": {
@@ -3062,7 +3062,7 @@
   },
   "612": {
     "difficulty": 9,
-    "solved_by": 810,
+    "solved_by": 811,
     "title": "Friend Numbers"
   },
   "613": {
@@ -3092,7 +3092,7 @@
   },
   "618": {
     "difficulty": 7,
-    "solved_by": 1225,
+    "solved_by": 1226,
     "title": "Numbers with a Given Prime Factor Sum"
   },
   "619": {
@@ -3367,7 +3367,7 @@
   },
   "673": {
     "difficulty": 14,
-    "solved_by": 379,
+    "solved_by": 380,
     "title": "Beds and Desks"
   },
   "674": {
@@ -3462,7 +3462,7 @@
   },
   "692": {
     "difficulty": 3,
-    "solved_by": 1642,
+    "solved_by": 1643,
     "title": "Siegbert and Jo"
   },
   "693": {
@@ -3882,7 +3882,7 @@
   },
   "776": {
     "difficulty": 9,
-    "solved_by": 640,
+    "solved_by": 641,
     "title": "Digit Sum Division"
   },
   "777": {
@@ -4227,7 +4227,7 @@
   },
   "845": {
     "difficulty": 3,
-    "solved_by": 982,
+    "solved_by": 983,
     "title": "Prime Digit Sum"
   },
   "846": {
@@ -4332,7 +4332,7 @@
   },
   "866": {
     "difficulty": 5,
-    "solved_by": 502,
+    "solved_by": 503,
     "title": "Tidying Up B"
   },
   "867": {
@@ -4592,7 +4592,7 @@
   },
   "918": {
     "difficulty": 3,
-    "solved_by": 1324,
+    "solved_by": 1325,
     "title": "Recursive Sequence Summation"
   },
   "919": {
@@ -4747,7 +4747,7 @@
   },
   "949": {
     "difficulty": 38,
-    "solved_by": 59,
+    "solved_by": 60,
     "title": "Left vs Right II"
   },
   "950": {
@@ -4932,7 +4932,7 @@
   },
   "986": {
     "difficulty": null,
-    "solved_by": 64,
+    "solved_by": 67,
     "title": "Another Infinite Game"
   }
 }
