@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "last_updated_utc": "2026-03-04 06:42",
-    "generated_at_utc": "2026-03-04 06:42",
+    "last_updated_utc": "2026-03-04 09:37",
+    "generated_at_utc": "2026-03-04 09:37",
     "source": "https://projecteuler.net/progress",
     "max_problem_number": 986
   },
@@ -122,7 +122,7 @@
   },
   "24": {
     "difficulty": 1,
-    "solved_by": 125772,
+    "solved_by": 125773,
     "title": "Lexicographic Permutations"
   },
   "25": {
@@ -152,7 +152,7 @@
   },
   "30": {
     "difficulty": 1,
-    "solved_by": 120496,
+    "solved_by": 120497,
     "title": "Digit Fifth Powers"
   },
   "31": {
@@ -182,7 +182,7 @@
   },
   "36": {
     "difficulty": 0,
-    "solved_by": 97553,
+    "solved_by": 97554,
     "title": "Double-base Palindromes"
   },
   "37": {
@@ -292,7 +292,7 @@
   },
   "58": {
     "difficulty": 2,
-    "solved_by": 45002,
+    "solved_by": 45003,
     "title": "Spiral Primes"
   },
   "59": {
@@ -322,7 +322,7 @@
   },
   "64": {
     "difficulty": 3,
-    "solved_by": 25304,
+    "solved_by": 25305,
     "title": "Odd Period Square Roots"
   },
   "65": {
@@ -582,7 +582,7 @@
   },
   "116": {
     "difficulty": 6,
-    "solved_by": 13735,
+    "solved_by": 13736,
     "title": "Red, Green or Blue Tiles"
   },
   "117": {
@@ -722,7 +722,7 @@
   },
   "144": {
     "difficulty": 14,
-    "solved_by": 7180,
+    "solved_by": 7181,
     "title": "Laser Beam Reflections"
   },
   "145": {
@@ -742,7 +742,7 @@
   },
   "148": {
     "difficulty": 14,
-    "solved_by": 5934,
+    "solved_by": 5936,
     "title": "Exploring Pascal's Triangle"
   },
   "149": {
@@ -852,17 +852,17 @@
   },
   "170": {
     "difficulty": 29,
-    "solved_by": 2325,
+    "solved_by": 2326,
     "title": "Pandigital Concatenating Products"
   },
   "171": {
     "difficulty": 25,
-    "solved_by": 3257,
+    "solved_by": 3258,
     "title": "Square Sum of the Digital Squares"
   },
   "172": {
     "difficulty": 17,
-    "solved_by": 4403,
+    "solved_by": 4404,
     "title": "Few Repeated Digits"
   },
   "173": {
@@ -917,7 +917,7 @@
   },
   "183": {
     "difficulty": 14,
-    "solved_by": 5291,
+    "solved_by": 5292,
     "title": "Maximum Product of Parts"
   },
   "184": {
@@ -1017,12 +1017,12 @@
   },
   "203": {
     "difficulty": 6,
-    "solved_by": 10113,
+    "solved_by": 10114,
     "title": "Squarefree Binomial Coefficients"
   },
   "204": {
     "difficulty": 8,
-    "solved_by": 8197,
+    "solved_by": 8198,
     "title": "Generalised Hamming Numbers"
   },
   "205": {
@@ -1057,7 +1057,7 @@
   },
   "211": {
     "difficulty": 16,
-    "solved_by": 4789,
+    "solved_by": 4790,
     "title": "Divisor Square Sum"
   },
   "212": {
@@ -1077,7 +1077,7 @@
   },
   "215": {
     "difficulty": 15,
-    "solved_by": 4155,
+    "solved_by": 4156,
     "title": "Crack-free Walls"
   },
   "216": {
@@ -1367,7 +1367,7 @@
   },
   "273": {
     "difficulty": 30,
-    "solved_by": 1622,
+    "solved_by": 1623,
     "title": "Sum of Squares"
   },
   "274": {
@@ -1632,7 +1632,7 @@
   },
   "326": {
     "difficulty": 25,
-    "solved_by": 627,
+    "solved_by": 628,
     "title": "Modulo Summations"
   },
   "327": {
@@ -1682,7 +1682,7 @@
   },
   "336": {
     "difficulty": 6,
-    "solved_by": 2351,
+    "solved_by": 2352,
     "title": "Maximix Arrangements"
   },
   "337": {
@@ -1727,12 +1727,12 @@
   },
   "345": {
     "difficulty": 5,
-    "solved_by": 6485,
+    "solved_by": 6486,
     "title": "Matrix Sum"
   },
   "346": {
     "difficulty": 3,
-    "solved_by": 5020,
+    "solved_by": 5021,
     "title": "Strong Repunits"
   },
   "347": {
@@ -2217,7 +2217,7 @@
   },
   "443": {
     "difficulty": 10,
-    "solved_by": 1341,
+    "solved_by": 1342,
     "title": "GCD Sequence"
   },
   "444": {
@@ -2857,7 +2857,7 @@
   },
   "571": {
     "difficulty": 8,
-    "solved_by": 1290,
+    "solved_by": 1291,
     "title": "Super Pandigital Numbers"
   },
   "572": {
@@ -3007,7 +3007,7 @@
   },
   "601": {
     "difficulty": 6,
-    "solved_by": 2404,
+    "solved_by": 2405,
     "title": "Divisibility Streaks"
   },
   "602": {
@@ -3622,7 +3622,7 @@
   },
   "724": {
     "difficulty": 12,
-    "solved_by": 476,
+    "solved_by": 477,
     "title": "Drone Delivery"
   },
   "725": {
@@ -3667,7 +3667,7 @@
   },
   "733": {
     "difficulty": 8,
-    "solved_by": 558,
+    "solved_by": 559,
     "title": "Ascending Subsequences"
   },
   "734": {
@@ -4182,7 +4182,7 @@
   },
   "836": {
     "difficulty": 0,
-    "solved_by": 5320,
+    "solved_by": 5321,
     "title": "A Bold Proposition"
   },
   "837": {
@@ -4362,7 +4362,7 @@
   },
   "872": {
     "difficulty": 3,
-    "solved_by": 1284,
+    "solved_by": 1285,
     "title": "Recursive Tree"
   },
   "873": {
@@ -4602,7 +4602,7 @@
   },
   "920": {
     "difficulty": 13,
-    "solved_by": 305,
+    "solved_by": 306,
     "title": "Tau Numbers"
   },
   "921": {
@@ -4662,7 +4662,7 @@
   },
   "932": {
     "difficulty": 5,
-    "solved_by": 1852,
+    "solved_by": 1853,
     "title": "$2025$"
   },
   "933": {
@@ -4692,7 +4692,7 @@
   },
   "938": {
     "difficulty": 3,
-    "solved_by": 1118,
+    "solved_by": 1119,
     "title": "Exhausting a Colour"
   },
   "939": {
@@ -4722,7 +4722,7 @@
   },
   "944": {
     "difficulty": 7,
-    "solved_by": 799,
+    "solved_by": 800,
     "title": "Sum of Elevisors"
   },
   "945": {
@@ -4847,7 +4847,7 @@
   },
   "969": {
     "difficulty": 13,
-    "solved_by": 240,
+    "solved_by": 241,
     "title": "Kangaroo Hopping"
   },
   "970": {
@@ -4902,7 +4902,7 @@
   },
   "980": {
     "difficulty": null,
-    "solved_by": 259,
+    "solved_by": 260,
     "title": "The Quaternion Group I"
   },
   "981": {
