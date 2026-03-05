@@ -49,7 +49,7 @@ const DEFAULT_PROBLEM = {
   lastSolvedAt: null,
 };
 
-const DEFAULT_MAX_PROBLEM_NUMBER = 985;
+const DEFAULT_MAX_PROBLEM_NUMBER = 986;
 const DEFAULT_MIN_LEVEL = 0;
 const DEFAULT_MAX_LEVEL = 38;
 const PIN_HASH_ITERATIONS = 120000;
@@ -128,6 +128,7 @@ let autoResumeAttempted = false;
 let searchInputDebounceTimer = null;
 let loginInProgress = false;
 let hasReceivedProblemsSnapshot = false;
+let hasInitializedLevelRange = false;
 
 boot();
 
@@ -246,7 +247,6 @@ async function loadLevelsData() {
     const levelMap = new Map();
     const titleMap = new Map();
     const solvedByMap = new Map();
-    let inferredMaxProblem = 0;
     const meta = raw._meta;
 
     Object.entries(raw).forEach(([key, value]) => {
@@ -255,7 +255,6 @@ async function loadLevelsData() {
         return;
       }
 
-      inferredMaxProblem = Math.max(inferredMaxProblem, number);
       const rawDifficulty = value.difficulty;
       const rawTitle = formatProblemTitle(value.title);
       const rawSolvedBy = value.solved_by;
@@ -281,11 +280,9 @@ async function loadLevelsData() {
     });
 
     const metaMaxProblem = Number(meta?.max_problem_number);
-    if (Number.isInteger(metaMaxProblem) && metaMaxProblem > 0) {
-      maxProblemNumber = metaMaxProblem;
-    } else if (inferredMaxProblem > 0) {
-      maxProblemNumber = inferredMaxProblem;
-    }
+    maxProblemNumber = Number.isInteger(metaMaxProblem) && metaMaxProblem > 0
+      ? metaMaxProblem
+      : DEFAULT_MAX_PROBLEM_NUMBER;
 
     levelsByProblem = levelMap;
     titlesByProblem = titleMap;
@@ -535,6 +532,14 @@ function populateLevelFilterOptions(levels) {
     minLevelSelect.insertAdjacentHTML("beforeend", `<option value="${value}">${value}</option>`);
     maxLevelSelect.insertAdjacentHTML("beforeend", `<option value="${value}">${value}</option>`);
   });
+
+  const hasLoadedLevelsData = levelsByProblem.size > 0;
+  if (!hasInitializedLevelRange && hasLoadedLevelsData) {
+    minLevelSelect.value = firstLevel;
+    maxLevelSelect.value = lastLevel;
+    hasInitializedLevelRange = true;
+    return;
+  }
 
   if (levelValues.includes(previousMin)) {
     minLevelSelect.value = previousMin;
