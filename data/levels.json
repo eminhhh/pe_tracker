@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "last_updated_utc": "2026-03-05 09:39",
-    "generated_at_utc": "2026-03-05 09:40",
+    "last_updated_utc": "2026-03-05 12:55",
+    "generated_at_utc": "2026-03-05 12:55",
     "source": "https://projecteuler.net/progress",
     "max_problem_number": 986
   },
@@ -287,7 +287,7 @@
   },
   "57": {
     "difficulty": 1,
-    "solved_by": 46672,
+    "solved_by": 46673,
     "title": "Square Root Convergents"
   },
   "58": {
@@ -317,62 +317,62 @@
   },
   "63": {
     "difficulty": 2,
-    "solved_by": 48052,
+    "solved_by": 48053,
     "title": "Powerful Digit Counts"
   },
   "64": {
     "difficulty": 3,
-    "solved_by": 25307,
+    "solved_by": 25308,
     "title": "Odd Period Square Roots"
   },
   "65": {
     "difficulty": 2,
-    "solved_by": 33633,
+    "solved_by": 33634,
     "title": "Convergents of $e$"
   },
   "66": {
     "difficulty": 11,
-    "solved_by": 22651,
+    "solved_by": 22652,
     "title": "Diophantine Equation"
   },
   "67": {
     "difficulty": 0,
-    "solved_by": 104082,
+    "solved_by": 104083,
     "title": "Maximum Path Sum II"
   },
   "68": {
     "difficulty": 4,
-    "solved_by": 23697,
+    "solved_by": 23698,
     "title": "Magic 5-gon Ring"
   },
   "69": {
     "difficulty": 2,
-    "solved_by": 39345,
+    "solved_by": 39346,
     "title": "Totient Maximum"
   },
   "70": {
     "difficulty": 4,
-    "solved_by": 25494,
+    "solved_by": 25495,
     "title": "Totient Permutation"
   },
   "71": {
     "difficulty": 2,
-    "solved_by": 32952,
+    "solved_by": 32953,
     "title": "Ordered Fractions"
   },
   "72": {
     "difficulty": 3,
-    "solved_by": 25504,
+    "solved_by": 25505,
     "title": "Counting Fractions"
   },
   "73": {
     "difficulty": 3,
-    "solved_by": 28262,
+    "solved_by": 28263,
     "title": "Counting Fractions in a Range"
   },
   "74": {
     "difficulty": 2,
-    "solved_by": 30165,
+    "solved_by": 30166,
     "title": "Digit Factorial Chains"
   },
   "75": {
@@ -392,7 +392,7 @@
   },
   "78": {
     "difficulty": 5,
-    "solved_by": 19641,
+    "solved_by": 19642,
     "title": "Coin Partitions"
   },
   "79": {
@@ -407,12 +407,12 @@
   },
   "81": {
     "difficulty": 2,
-    "solved_by": 38193,
+    "solved_by": 38194,
     "title": "Path Sum: Two Ways"
   },
   "82": {
     "difficulty": 4,
-    "solved_by": 23926,
+    "solved_by": 23927,
     "title": "Path Sum: Three Ways"
   },
   "83": {
@@ -517,7 +517,7 @@
   },
   "103": {
     "difficulty": 11,
-    "solved_by": 9428,
+    "solved_by": 9429,
     "title": "Special Subset Sums: Optimum"
   },
   "104": {
@@ -527,7 +527,7 @@
   },
   "105": {
     "difficulty": 11,
-    "solved_by": 9374,
+    "solved_by": 9376,
     "title": "Special Subset Sums: Testing"
   },
   "106": {
@@ -562,7 +562,7 @@
   },
   "112": {
     "difficulty": 2,
-    "solved_by": 27398,
+    "solved_by": 27399,
     "title": "Bouncy Numbers"
   },
   "113": {
@@ -572,12 +572,12 @@
   },
   "114": {
     "difficulty": 8,
-    "solved_by": 12388,
+    "solved_by": 12389,
     "title": "Counting Block Combinations I"
   },
   "115": {
     "difficulty": 8,
-    "solved_by": 11336,
+    "solved_by": 11337,
     "title": "Counting Block Combinations II"
   },
   "116": {
@@ -602,7 +602,7 @@
   },
   "120": {
     "difficulty": 5,
-    "solved_by": 15521,
+    "solved_by": 15522,
     "title": "Square Remainders"
   },
   "121": {
@@ -612,7 +612,7 @@
   },
   "122": {
     "difficulty": 13,
-    "solved_by": 9004,
+    "solved_by": 9005,
     "title": "Efficient Exponentiation"
   },
   "123": {
@@ -627,7 +627,7 @@
   },
   "125": {
     "difficulty": 5,
-    "solved_by": 15262,
+    "solved_by": 15263,
     "title": "Palindromic Sums"
   },
   "126": {
@@ -692,12 +692,12 @@
   },
   "138": {
     "difficulty": 14,
-    "solved_by": 6742,
+    "solved_by": 6743,
     "title": "Special Isosceles Triangles"
   },
   "139": {
     "difficulty": 13,
-    "solved_by": 6555,
+    "solved_by": 6556,
     "title": "Pythagorean Tiles"
   },
   "140": {
@@ -737,7 +737,7 @@
   },
   "147": {
     "difficulty": 22,
-    "solved_by": 3550,
+    "solved_by": 3551,
     "title": "Rectangles in Cross-hatched Grids"
   },
   "148": {
@@ -747,7 +747,7 @@
   },
   "149": {
     "difficulty": 15,
-    "solved_by": 5562,
+    "solved_by": 5563,
     "title": "Maximum-sum Subsequence"
   },
   "150": {
@@ -777,7 +777,7 @@
   },
   "155": {
     "difficulty": 24,
-    "solved_by": 4193,
+    "solved_by": 4194,
     "title": "Counting Capacitor Circuits"
   },
   "156": {
@@ -797,7 +797,7 @@
   },
   "159": {
     "difficulty": 18,
-    "solved_by": 3820,
+    "solved_by": 3822,
     "title": "Digital Root Sums of Factorisations"
   },
   "160": {
@@ -882,7 +882,7 @@
   },
   "176": {
     "difficulty": 25,
-    "solved_by": 2238,
+    "solved_by": 2239,
     "title": "Common Cathetus Right-angled Triangles"
   },
   "177": {
@@ -897,7 +897,7 @@
   },
   "179": {
     "difficulty": 5,
-    "solved_by": 12480,
+    "solved_by": 12481,
     "title": "Consecutive Positive Divisors"
   },
   "180": {
@@ -1017,7 +1017,7 @@
   },
   "203": {
     "difficulty": 6,
-    "solved_by": 10115,
+    "solved_by": 10116,
     "title": "Squarefree Binomial Coefficients"
   },
   "204": {
@@ -1107,7 +1107,7 @@
   },
   "221": {
     "difficulty": 30,
-    "solved_by": 2421,
+    "solved_by": 2422,
     "title": "Alexandrian Integers"
   },
   "222": {
@@ -1422,7 +1422,7 @@
   },
   "284": {
     "difficulty": 24,
-    "solved_by": 1453,
+    "solved_by": 1454,
     "title": "Steady Squares"
   },
   "285": {
@@ -1717,7 +1717,7 @@
   },
   "343": {
     "difficulty": 12,
-    "solved_by": 1617,
+    "solved_by": 1618,
     "title": "Fractional Sequences"
   },
   "344": {
@@ -1732,7 +1732,7 @@
   },
   "346": {
     "difficulty": 3,
-    "solved_by": 5022,
+    "solved_by": 5024,
     "title": "Strong Repunits"
   },
   "347": {
@@ -1937,7 +1937,7 @@
   },
   "387": {
     "difficulty": 3,
-    "solved_by": 5275,
+    "solved_by": 5276,
     "title": "Harshad Numbers"
   },
   "388": {
@@ -2727,7 +2727,7 @@
   },
   "545": {
     "difficulty": 11,
-    "solved_by": 639,
+    "solved_by": 640,
     "title": "Faulhaber's Formulas"
   },
   "546": {
@@ -3252,7 +3252,7 @@
   },
   "650": {
     "difficulty": 3,
-    "solved_by": 1999,
+    "solved_by": 2000,
     "title": "Divisors of Binomial Product"
   },
   "651": {
@@ -3682,7 +3682,7 @@
   },
   "736": {
     "difficulty": 20,
-    "solved_by": 261,
+    "solved_by": 262,
     "title": "Paths to Equality"
   },
   "737": {
@@ -3942,7 +3942,7 @@
   },
   "788": {
     "difficulty": 3,
-    "solved_by": 1478,
+    "solved_by": 1479,
     "title": "Dominating Numbers"
   },
   "789": {
@@ -3982,7 +3982,7 @@
   },
   "796": {
     "difficulty": 26,
-    "solved_by": 240,
+    "solved_by": 241,
     "title": "A Grand Shuffle"
   },
   "797": {
@@ -4097,12 +4097,12 @@
   },
   "819": {
     "difficulty": 20,
-    "solved_by": 266,
+    "solved_by": 267,
     "title": "Iterative Sampling"
   },
   "820": {
     "difficulty": 2,
-    "solved_by": 1279,
+    "solved_by": 1280,
     "title": "$N$<sup>th</sup> Digit of Reciprocals"
   },
   "821": {
@@ -4487,7 +4487,7 @@
   },
   "897": {
     "difficulty": 16,
-    "solved_by": 471,
+    "solved_by": 472,
     "title": "Maximal $n$-gon in a region"
   },
   "898": {
@@ -4872,7 +4872,7 @@
   },
   "974": {
     "difficulty": 6,
-    "solved_by": 358,
+    "solved_by": 359,
     "title": "Very Odd Numbers"
   },
   "975": {
