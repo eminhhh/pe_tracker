@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "last_updated_utc": "2026-03-05 06:48",
-    "generated_at_utc": "2026-03-05 06:48",
+    "last_updated_utc": "2026-03-05 09:39",
+    "generated_at_utc": "2026-03-05 09:40",
     "source": "https://projecteuler.net/progress",
     "max_problem_number": 986
   },
@@ -177,7 +177,7 @@
   },
   "35": {
     "difficulty": 1,
-    "solved_by": 93478,
+    "solved_by": 93479,
     "title": "Circular Primes"
   },
   "36": {
@@ -217,12 +217,12 @@
   },
   "43": {
     "difficulty": 1,
-    "solved_by": 66689,
+    "solved_by": 66690,
     "title": "Sub-string Divisibility"
   },
   "44": {
     "difficulty": 2,
-    "solved_by": 65368,
+    "solved_by": 65369,
     "title": "Pentagon Numbers"
   },
   "45": {
@@ -252,7 +252,7 @@
   },
   "50": {
     "difficulty": 2,
-    "solved_by": 69593,
+    "solved_by": 69594,
     "title": "Consecutive Prime Sum"
   },
   "51": {
@@ -262,7 +262,7 @@
   },
   "52": {
     "difficulty": 0,
-    "solved_by": 72078,
+    "solved_by": 72079,
     "title": "Permuted Multiples"
   },
   "53": {
@@ -312,7 +312,7 @@
   },
   "62": {
     "difficulty": 2,
-    "solved_by": 35804,
+    "solved_by": 35805,
     "title": "Cubic Permutations"
   },
   "63": {
@@ -367,7 +367,7 @@
   },
   "73": {
     "difficulty": 3,
-    "solved_by": 28261,
+    "solved_by": 28262,
     "title": "Counting Fractions in a Range"
   },
   "74": {
@@ -432,7 +432,7 @@
   },
   "86": {
     "difficulty": 6,
-    "solved_by": 14728,
+    "solved_by": 14729,
     "title": "Cuboid Route"
   },
   "87": {
@@ -492,7 +492,7 @@
   },
   "98": {
     "difficulty": 7,
-    "solved_by": 13278,
+    "solved_by": 13279,
     "title": "Anagramic Squares"
   },
   "99": {
@@ -562,7 +562,7 @@
   },
   "112": {
     "difficulty": 2,
-    "solved_by": 27397,
+    "solved_by": 27398,
     "title": "Bouncy Numbers"
   },
   "113": {
@@ -572,12 +572,12 @@
   },
   "114": {
     "difficulty": 8,
-    "solved_by": 12387,
+    "solved_by": 12388,
     "title": "Counting Block Combinations I"
   },
   "115": {
     "difficulty": 8,
-    "solved_by": 11335,
+    "solved_by": 11336,
     "title": "Counting Block Combinations II"
   },
   "116": {
@@ -692,7 +692,7 @@
   },
   "138": {
     "difficulty": 14,
-    "solved_by": 6741,
+    "solved_by": 6742,
     "title": "Special Isosceles Triangles"
   },
   "139": {
@@ -737,7 +737,7 @@
   },
   "147": {
     "difficulty": 22,
-    "solved_by": 3549,
+    "solved_by": 3550,
     "title": "Rectangles in Cross-hatched Grids"
   },
   "148": {
@@ -852,7 +852,7 @@
   },
   "170": {
     "difficulty": 28,
-    "solved_by": 2326,
+    "solved_by": 2327,
     "title": "Pandigital Concatenating Products"
   },
   "171": {
@@ -877,7 +877,7 @@
   },
   "175": {
     "difficulty": 25,
-    "solved_by": 2126,
+    "solved_by": 2127,
     "title": "Fractions and Sum of Powers of Two"
   },
   "176": {
@@ -892,12 +892,12 @@
   },
   "178": {
     "difficulty": 18,
-    "solved_by": 3954,
+    "solved_by": 3955,
     "title": "Step Numbers"
   },
   "179": {
     "difficulty": 5,
-    "solved_by": 12479,
+    "solved_by": 12480,
     "title": "Consecutive Positive Divisors"
   },
   "180": {
@@ -907,7 +907,7 @@
   },
   "181": {
     "difficulty": 26,
-    "solved_by": 2377,
+    "solved_by": 2378,
     "title": "Grouping Two Different Coloured Objects"
   },
   "182": {
@@ -917,7 +917,7 @@
   },
   "183": {
     "difficulty": 14,
-    "solved_by": 5292,
+    "solved_by": 5293,
     "title": "Maximum Product of Parts"
   },
   "184": {
@@ -1357,7 +1357,7 @@
   },
   "271": {
     "difficulty": 21,
-    "solved_by": 2747,
+    "solved_by": 2748,
     "title": "Modular Cubes, Part 1"
   },
   "272": {
@@ -1467,7 +1467,7 @@
   },
   "293": {
     "difficulty": 9,
-    "solved_by": 3396,
+    "solved_by": 3397,
     "title": "Pseudo-Fortunate Numbers"
   },
   "294": {
@@ -1507,7 +1507,7 @@
   },
   "301": {
     "difficulty": 4,
-    "solved_by": 7334,
+    "solved_by": 7335,
     "title": "Nim"
   },
   "302": {
@@ -1522,7 +1522,7 @@
   },
   "304": {
     "difficulty": 15,
-    "solved_by": 2546,
+    "solved_by": 2547,
     "title": "Primonacci"
   },
   "305": {
@@ -1887,7 +1887,7 @@
   },
   "377": {
     "difficulty": 21,
-    "solved_by": 906,
+    "solved_by": 907,
     "title": "Sum of Digits - Experience #13"
   },
   "378": {
@@ -2917,7 +2917,7 @@
   },
   "583": {
     "difficulty": 20,
-    "solved_by": 430,
+    "solved_by": 431,
     "title": "Heron Envelopes"
   },
   "584": {
@@ -2982,7 +2982,7 @@
   },
   "596": {
     "difficulty": 21,
-    "solved_by": 434,
+    "solved_by": 435,
     "title": "Number of Lattice Points in a Hyperball"
   },
   "597": {
@@ -3067,7 +3067,7 @@
   },
   "613": {
     "difficulty": 13,
-    "solved_by": 2073,
+    "solved_by": 2074,
     "title": "Pythagorean Ant"
   },
   "614": {
@@ -3787,7 +3787,7 @@
   },
   "757": {
     "difficulty": 3,
-    "solved_by": 1515,
+    "solved_by": 1516,
     "title": "Stealthy Numbers"
   },
   "758": {
@@ -3942,7 +3942,7 @@
   },
   "788": {
     "difficulty": 3,
-    "solved_by": 1477,
+    "solved_by": 1478,
     "title": "Dominating Numbers"
   },
   "789": {
@@ -4102,7 +4102,7 @@
   },
   "820": {
     "difficulty": 2,
-    "solved_by": 1278,
+    "solved_by": 1279,
     "title": "$N$<sup>th</sup> Digit of Reciprocals"
   },
   "821": {
@@ -4182,7 +4182,7 @@
   },
   "836": {
     "difficulty": 0,
-    "solved_by": 5324,
+    "solved_by": 5326,
     "title": "A Bold Proposition"
   },
   "837": {
@@ -4692,7 +4692,7 @@
   },
   "938": {
     "difficulty": 3,
-    "solved_by": 1120,
+    "solved_by": 1121,
     "title": "Exhausting a Colour"
   },
   "939": {
@@ -4807,7 +4807,7 @@
   },
   "961": {
     "difficulty": 3,
-    "solved_by": 752,
+    "solved_by": 753,
     "title": "Removing Digits"
   },
   "962": {
