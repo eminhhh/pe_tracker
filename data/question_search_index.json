@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "generated_at_utc": "2026-03-15 01:13",
-    "questions_count": 987,
+    "generated_at_utc": "2026-03-16 01:12",
+    "questions_count": 988,
     "source_questions_dir": "data/questions",
     "source_categories": "data/question_categories.jsonl"
   },
@@ -2965,5 +2965,8 @@
   },
   "987": {
     "search_text": "straight eight problem 987 straight eight source https projecteuler net minimal 987 in poker a straight is exactly five cards of sequential rank not all of the same suit in this problem an ace can rank either high as in a k q j 10 or low as in 5 4 3 2 a but cannot simultaneously rank both high and low so q k a 2 3 is not allowed there are 10200 ways of choosing a straight from a normal 52 card deck there are 31832952 ways of choosing two disjoint straights from a single 52 card deck find the number of ways of choosing eight disjoint straights from a single 52 card deck in this the order of choosing the straights does not matter"
+  },
+  "988": {
+    "search_text": "non attacking frogs problem 988 non attacking frogs source https projecteuler net minimal 988 frogs can be placed on the real number line at integer locations given coprime positive integers a b each frog has the ability to make jumps of distances a or b in the positive direction two frogs placed at m and n m n are attacking if the frog at m can hop to n with some series of jumps for example if a b 3 5 frogs placed at 0 and 11 are attacking as the former can make two jumps of 3 and one jump of 5 to reach 11 however frogs placed at 4 and 11 are non attacking a non attacking configuration is a placement of any number of frogs such that one frog is placed at 0 all other frogs are placed at distinct positive integers no two frogs are attacking define f a b to be sum of the integer locations of every frog summing over all non attacking configurations for example if a b 3 5 there are seven non attacking configurations 0 quad quad 0 1 quad quad 0 2 quad quad 0 4 quad quad 0 7 quad quad 0 1 2 quad quad 0 2 4 giving f 3 5 23 you are also given f 5 13 16336 find f 19 53"
   }
 }
