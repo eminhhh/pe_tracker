@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "generated_at_utc": "2026-03-22 01:07",
-    "questions_count": 988,
+    "generated_at_utc": "2026-03-23 01:08",
+    "questions_count": 989,
     "source_questions_dir": "data/questions",
     "source_categories": "data/question_categories.jsonl"
   },
@@ -2968,5 +2968,8 @@
   },
   "988": {
     "search_text": "non attacking frogs problem 988 non attacking frogs source https projecteuler net minimal 988 frogs can be placed on the real number line at integer locations given coprime positive integers a b each frog has the ability to make jumps of distances a or b in the positive direction two frogs placed at m and n m n are attacking if the frog at m can hop to n with some series of jumps for example if a b 3 5 frogs placed at 0 and 11 are attacking as the former can make two jumps of 3 and one jump of 5 to reach 11 however frogs placed at 4 and 11 are non attacking a non attacking configuration is a placement of any number of frogs such that one frog is placed at 0 all other frogs are placed at distinct positive integers no two frogs are attacking define f a b to be sum of the integer locations of every frog summing over all non attacking configurations for example if a b 3 5 there are seven non attacking configurations 0 quad quad 0 1 quad quad 0 2 quad quad 0 4 quad quad 0 7 quad quad 0 1 2 quad quad 0 2 4 giving f 3 5 23 you are also given f 5 13 16336 find f 19 53"
+  },
+  "989": {
+    "search_text": "fibonacci sum problem 989 fibonacci sum source https projecteuler net minimal 989 write f n for the n th fibonacci number with f 1 f 2 1 and f n 1 f n f n 1 it is known that f n is very well approximated by varphi n sqrt 5 where varphi the golden ratio is the positive root of the equation x 2 x 1 let g n be the number of distinct integers 0 leq x n such that x 2 equiv x 1 pmod n you are given displaystyle sum n 1 10 3 f ng n equiv 190950976 bmod 10 9 9 find displaystyle sum n 1 10 14 f ng n giving your answer modulo 10 9 9"
   }
 }
