@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "generated_at_utc": "2026-04-03 01:13",
-    "questions_count": 990,
+    "generated_at_utc": "2026-04-05 01:15",
+    "questions_count": 991,
     "source_questions_dir": "data/questions",
     "source_categories": "data/question_categories.jsonl"
   },
@@ -2974,5 +2974,8 @@
   },
   "990": {
     "search_text": "addition equations problem 990 addition equations source https projecteuler net minimal 990 a string forms an addition equation if it consists of digits forming positive integers no leading zeros are allowed a single plus sign between integers a single equality sign most importantly the equality must hold example of strings of length 7 forming addition equations 1 1 1 3 100 100 77 7 70 1 2 2 1 note that strings are considered different even if they form equivalent equations so for example here are three unique strings 1 2 3 2 1 3 3 1 2 the following strings do not form valid addition equations 1 1 3 1 1 02 0 1 1 1 1 2 1 1 let a n be the number of strings of length not larger than n forming addition equations you are given a 3 9 a 5 171 and a 7 4878 find a 50 give your answer modulo 10 9 7"
+  },
+  "991": {
+    "search_text": "fruit salad problem 991 fruit salad source https projecteuler net minimal 991 find the sum of unicode x1f34e unicode x1f34c unicode x1f34d for all triples of positive integers unicode x1f34e unicode x1f34c unicode x1f34d which satisfy frac unicode x1f34e unicode x1f34c unicode x1f34d frac unicode x1f34c unicode x1f34d unicode x1f34e frac unicode x1f34d unicode x1f34e unicode x1f34d 4 and unicode x1f34e unicode x1f34c unicode x1f34d le 10 7 in case your device cannot display emoji properly here is a rendered image of the problem statement"
   }
 }
