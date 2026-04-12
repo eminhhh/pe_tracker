@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "generated_at_utc": "2026-04-11 01:10",
-    "questions_count": 991,
+    "generated_at_utc": "2026-04-12 01:19",
+    "questions_count": 992,
     "source_questions_dir": "data/questions",
     "source_categories": "data/question_categories.jsonl"
   },
@@ -2977,5 +2977,8 @@
   },
   "991": {
     "search_text": "fruit salad problem 991 fruit salad source https projecteuler net minimal 991 find the sum of unicode x1f34e unicode x1f34c unicode x1f34d for all triples of positive integers unicode x1f34e unicode x1f34c unicode x1f34d which satisfy frac unicode x1f34e unicode x1f34c unicode x1f34d frac unicode x1f34c unicode x1f34d unicode x1f34e frac unicode x1f34d unicode x1f34e unicode x1f34d 4 and unicode x1f34e unicode x1f34c unicode x1f34d le 10 7 in case your device cannot display emoji properly here is a rendered image of the problem statement"
+  },
+  "992": {
+    "search_text": "another frog jumping problem 992 another frog jumping source https projecteuler net minimal 992 there are n 1 stones in a pond numbered 0 to n a frog starts by jumping onto stone 0 it then jumps between the stones only ever jumping to adjacent ones for fixed k it makes exactly k i visits to each stone i for 0 le i lt n however there are no restrictions on the number of times stone n is visited the frog can finish on any stone if n 3 and k 2 it would visit stone 0 two times stone 1 three times and stone 2 four times one way of achieving this is 0 to 1 to 0 to 1 to 2 to 3 to 2 to 1 to 2 to 3 to 2 let j n k be the number of ways the frog can make such a journey for example j 3 2 17 j 6 1 1320 and j 6 5 16793280 find displaystyle sum s 0 4 j 500 10 s give your answer modulo 987898789"
   }
 }
