@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "generated_at_utc": "2026-04-18 01:13",
-    "questions_count": 992,
+    "generated_at_utc": "2026-04-19 01:22",
+    "questions_count": 993,
     "source_questions_dir": "data/questions",
     "source_categories": "data/question_categories.jsonl"
   },
@@ -2980,5 +2980,8 @@
   },
   "992": {
     "search_text": "another frog jumping problem 992 another frog jumping source https projecteuler net minimal 992 there are n 1 stones in a pond numbered 0 to n a frog starts by jumping onto stone 0 it then jumps between the stones only ever jumping to adjacent ones for fixed k it makes exactly k i visits to each stone i for 0 le i lt n however there are no restrictions on the number of times stone n is visited the frog can finish on any stone if n 3 and k 2 it would visit stone 0 two times stone 1 three times and stone 2 four times one way of achieving this is 0 to 1 to 0 to 1 to 2 to 3 to 2 to 1 to 2 to 3 to 2 let j n k be the number of ways the frog can make such a journey for example j 3 2 17 j 6 1 1320 and j 6 5 16793280 find displaystyle sum s 0 4 j 500 10 s give your answer modulo 987898789"
+  },
+  "993": {
+    "search_text": "banana beaver problem 993 banana beaver source https projecteuler net minimal 993 a beaver plays a game on an infinitely long number line when the game starts the beaver is at position 0 carrying n bananas and there are no other bananas on the number line at each step the beaver will do the following according to the bananas it sees at positions x and x 1 where x is the beaver s current position if there is a banana at x and another banana at x 1 then the beaver will pick up a banana at position x 1 and then move itself to position x 1 if there is a banana at x but there is no banana at x 1 then it will pick up a banana at x and move itself to position x 2 if there is no banana at x but there is a banana at x 1 then it will move a banana from position x 1 to position x and move itself to position x 2 if there is no banana at x and no banana at x 1 then the beaver checks whether it still carries at least three bananas if so then it will drop a banana at each of the three positions x 1 x x 1 and move itself to position x 2 otherwise the game ends for example if n ge 3 then the last rule applies to the starting position so after 1 step there are 3 bananas on the number line at positions 1 0 1 with the beaver at position 2 similarly if n ge 5 then after 5 steps there are 5 bananas on the number line at positions 2 1 0 1 2 with the beaver at position 1 let operatorname bb n be the position of the beaver when the game ends which can be proved to always happen you are given operatorname bb 1000 1499 find operatorname bb 10 18"
   }
 }
