@@ -30,7 +30,7 @@ TOOLTIP_RE = re.compile(
     re.IGNORECASE | re.DOTALL,
 )
 
-DIFFICULTY_RE = re.compile(r"Difficulty\s*level\s*:\s*(\d+)", re.IGNORECASE)
+DIFFICULTY_RE = re.compile(r"Difficulty\s*:\s*Level\s*(\d+)", re.IGNORECASE)
 SOLVED_BY_RE = re.compile(r"Solved\s+by\s+([\d,]+)", re.IGNORECASE)
 TITLE_RE = re.compile(r"<div>\s*&quot;(.*?)&quot;\s*</div>", re.IGNORECASE | re.DOTALL)
 HTML_UPDATED_RE = re.compile(
