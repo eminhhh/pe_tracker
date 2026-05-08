@@ -8,6 +8,7 @@ Simple shared tracker for Project Euler problems.
 - Display names are unique; same name can be reused only with matching PIN
 - PIN is stored as salted PBKDF2 hash (`pinHash` + `pinSalt`) in Firestore, never as raw PIN
 - Filter board with `My solves` (problems solved by current login)
+- Switch between tracker and anonymous tile leaderboard views
 - Filter by level range (`Min level`/`Max level`) and math branch (`All branches` or a specific branch)
 - Track `status`, `solvedCount`, and `lastSolvedAt`
 - Allow removing only your own solve logs

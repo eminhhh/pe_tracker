@@ -26,7 +26,13 @@
     <header class="top">
       <button id="themeToggleBtn" type="button" class="ghost theme-toggle">Dark mode</button>
       <button id="logoutBtn" type="button" class="secondary hidden">Log out</button>
-      <h1>Project Euler Tracker</h1>
+      <div class="top-title">
+        <h1>Project Euler Tracker</h1>
+        <div id="viewSwitch" class="view-switch hidden" aria-label="View selector">
+          <button id="trackerViewBtn" type="button" class="filter-btn active">Tracker</button>
+          <button id="leaderboardBtn" type="button" class="filter-btn">Leaderboard</button>
+        </div>
+      </div>
     </header>
 
     <section class="card login-card" id="loginCard">
@@ -44,109 +50,129 @@
     </section>
 
     <main id="mainApp" class="hidden">
-      <section class="card controls-card">
-        <div class="toolbar">
-          <label>
-            Search
-            <input type="text" id="searchInput" placeholder="e.g. 144 or prime">
-          </label>
+      <div id="trackerView" class="app-view">
+        <section class="card controls-card">
+          <div class="toolbar">
+            <label>
+              Search
+              <input type="text" id="searchInput" placeholder="e.g. 144 or prime">
+            </label>
 
-          <label>
-            Min level
-            <select id="minLevelSelect">
-              <option value="0">0</option>
-            </select>
-          </label>
+            <label>
+              Min level
+              <select id="minLevelSelect">
+                <option value="0">0</option>
+              </select>
+            </label>
 
-          <label>
-            Max level
-            <select id="maxLevelSelect">
-              <option value="38">38</option>
-            </select>
-          </label>
+            <label>
+              Max level
+              <select id="maxLevelSelect">
+                <option value="38">38</option>
+              </select>
+            </label>
 
-          <label>
-            Branch (AI)
-            <select id="branchSelect">
-              <option value="all">All branches</option>
-            </select>
-          </label>
+            <label>
+              Branch (AI)
+              <select id="branchSelect">
+                <option value="all">All branches</option>
+              </select>
+            </label>
 
-          <div id="filterBar" class="filter-bar">
-            <button class="filter-btn active" data-filter="all" type="button">All</button>
-            <button class="filter-btn" data-filter="my-solves" type="button">My solves</button>
-            <button class="filter-btn" data-filter="solved" type="button">Solved</button>
-            <button class="filter-btn" data-filter="unsolved" type="button">Unsolved</button>
-            <button class="filter-btn" data-filter="assignment" type="button">Assignment</button>
-            <button class="filter-btn" data-filter="solved in lecture" type="button">Class</button>
+            <div id="filterBar" class="filter-bar">
+              <button class="filter-btn active" data-filter="all" type="button">All</button>
+              <button class="filter-btn" data-filter="my-solves" type="button">My solves</button>
+              <button class="filter-btn" data-filter="solved" type="button">Solved</button>
+              <button class="filter-btn" data-filter="unsolved" type="button">Unsolved</button>
+              <button class="filter-btn" data-filter="assignment" type="button">Assignment</button>
+              <button class="filter-btn" data-filter="solved in lecture" type="button">Class</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="card board-card">
+          <div class="legend-row">
+            <div class="legend-items">
+              <span class="legend-item"><span class="dot s-unsolved"></span>Unsolved</span>
+              <span class="legend-item"><span class="dot s-solved"></span>Solved</span>
+              <span class="legend-item"><span class="dot s-assignment"></span>Assignment</span>
+              <span class="legend-item"><span class="dot s-lecture"></span>Class</span>
+              <span class="legend-item"><span class="dot s-not-eligible"></span>Not eligible for final</span>
+            </div>
+          </div>
+          <div id="problemGrid" class="problem-grid"></div>
+        </section>
+
+        <div id="panelBackdrop" class="panel-backdrop hidden"></div>
+        <section id="problemPanel" class="problem-panel hidden">
+          <h3 id="panelTitle">Problem</h3>
+          <a id="panelProblemLink" class="problem-link" href="#" target="_blank" rel="noopener noreferrer">Open on Project Euler</a>
+          <div id="panelMeta" class="panel-meta-grid">
+            <div class="meta-row">
+              <span>Level</span>
+              <strong id="metaLevel"></strong>
+            </div>
+            <div class="meta-row">
+              <span>Solved</span>
+              <strong id="metaSolvedCount">0</strong>
+            </div>
+            <div class="meta-row">
+              <span>Solved in PE</span>
+              <strong id="metaSolvedBy">-</strong>
+            </div>
+            <div class="meta-row">
+              <span>Branch (AI)</span>
+              <strong id="metaBranch">-</strong>
+            </div>
+            <div class="meta-row">
+              <span>Tags (AI)</span>
+              <strong id="metaTags">-</strong>
+            </div>
+            <div class="meta-row">
+              <span>Confidence (AI)</span>
+              <strong id="metaConfidence">-</strong>
+            </div>
+            <div class="meta-row">
+              <span>Last Solved</span>
+              <strong id="metaLastSolved">-</strong>
+            </div>
+          </div>
+          <div id="statusEditor">
+            <label>
+              Status
+              <select id="panelStatusSelect">
+                <option value="assignment">assignment</option>
+                <option value="solved in lecture">class</option>
+                <option value="solved">solved</option>
+                <option value="unsolved">unsolved</option>
+              </select>
+            </label>
+          </div>
+          <div class="panel-actions">
+            <button id="panelSaveBtn" type="button" class="secondary">Save Status</button>
+            <button id="panelSolveBtn" type="button">Mark Solved</button>
+            <button id="panelDeleteBtn" type="button" class="danger">Delete Solve</button>
+            <button id="panelCloseBtn" type="button" class="ghost">Close</button>
+          </div>
+        </section>
+      </div>
+
+      <section id="leaderboardView" class="app-view card board-card leaderboard-view hidden" aria-label="Leaderboard">
+        <div class="leaderboard-heading">
+          <div id="leaderboardSortBar" class="filter-bar leaderboard-sort-bar">
+            <button class="filter-btn active" data-leaderboard-sort="score" type="button">Score</button>
+            <button class="filter-btn" data-leaderboard-sort="solutions" type="button">Solutions</button>
           </div>
         </div>
-      </section>
-
-      <section class="card board-card">
-        <div class="legend-row">
+        <div class="legend-row leaderboard-legend-row">
           <div class="legend-items">
-            <span class="legend-item"><span class="dot s-unsolved"></span>Unsolved</span>
-            <span class="legend-item"><span class="dot s-solved"></span>Solved</span>
-            <span class="legend-item"><span class="dot s-assignment"></span>Assignment</span>
-            <span class="legend-item"><span class="dot s-lecture"></span>Class</span>
-            <span class="legend-item"><span class="dot s-not-eligible"></span>Not eligible for final</span>
+            <span class="legend-item"><span class="dot s-solved"></span><span id="leaderboardCurrentUserLabel">You</span></span>
+            <span class="legend-item"><span class="dot s-unsolved"></span>Anonymous users</span>
+            <span class="legend-item">Score = sum of solved question difficulties</span>
           </div>
         </div>
-        <div id="problemGrid" class="problem-grid"></div>
-      </section>
-
-      <div id="panelBackdrop" class="panel-backdrop hidden"></div>
-      <section id="problemPanel" class="problem-panel hidden">
-        <h3 id="panelTitle">Problem</h3>
-        <a id="panelProblemLink" class="problem-link" href="#" target="_blank" rel="noopener noreferrer">Open on Project Euler</a>
-        <div id="panelMeta" class="panel-meta-grid">
-          <div class="meta-row">
-            <span>Level</span>
-            <strong id="metaLevel"></strong>
-          </div>
-          <div class="meta-row">
-            <span>Solved</span>
-            <strong id="metaSolvedCount">0</strong>
-          </div>
-          <div class="meta-row">
-            <span>Solved in PE</span>
-            <strong id="metaSolvedBy">-</strong>
-          </div>
-          <div class="meta-row">
-            <span>Branch (AI)</span>
-            <strong id="metaBranch">-</strong>
-          </div>
-          <div class="meta-row">
-            <span>Tags (AI)</span>
-            <strong id="metaTags">-</strong>
-          </div>
-          <div class="meta-row">
-            <span>Confidence (AI)</span>
-            <strong id="metaConfidence">-</strong>
-          </div>
-          <div class="meta-row">
-            <span>Last Solved</span>
-            <strong id="metaLastSolved">-</strong>
-          </div>
-        </div>
-        <div id="statusEditor">
-          <label>
-            Status
-            <select id="panelStatusSelect">
-              <option value="assignment">assignment</option>
-              <option value="solved in lecture">class</option>
-              <option value="solved">solved</option>
-              <option value="unsolved">unsolved</option>
-            </select>
-          </label>
-        </div>
-        <div class="panel-actions">
-          <button id="panelSaveBtn" type="button" class="secondary">Save Status</button>
-          <button id="panelSolveBtn" type="button">Mark Solved</button>
-          <button id="panelDeleteBtn" type="button" class="danger">Delete Solve</button>
-          <button id="panelCloseBtn" type="button" class="ghost">Close</button>
-        </div>
+        <div id="leaderboardGrid" class="problem-grid leaderboard-grid"></div>
+        <p id="leaderboardEmpty" class="status leaderboard-empty hidden">No solves yet.</p>
       </section>
 
       <section id="opFeedback" class="op-feedback hidden" aria-live="polite">

@@ -65,9 +65,14 @@ const loginStatus = document.getElementById("loginStatus");
 const displayNameInput = document.getElementById("displayName");
 const pinInput = document.getElementById("pin");
 const themeToggleBtn = document.getElementById("themeToggleBtn");
+const viewSwitch = document.getElementById("viewSwitch");
+const trackerViewBtn = document.getElementById("trackerViewBtn");
+const leaderboardBtn = document.getElementById("leaderboardBtn");
 
 const mainApp = document.getElementById("mainApp");
 const appStatus = document.getElementById("appStatus");
+const trackerView = document.getElementById("trackerView");
+const leaderboardView = document.getElementById("leaderboardView");
 const searchInput = document.getElementById("searchInput");
 const minLevelSelect = document.getElementById("minLevelSelect");
 const maxLevelSelect = document.getElementById("maxLevelSelect");
@@ -93,6 +98,10 @@ const panelSaveBtn = document.getElementById("panelSaveBtn");
 const panelSolveBtn = document.getElementById("panelSolveBtn");
 const panelDeleteBtn = document.getElementById("panelDeleteBtn");
 const panelCloseBtn = document.getElementById("panelCloseBtn");
+const leaderboardSortBar = document.getElementById("leaderboardSortBar");
+const leaderboardGrid = document.getElementById("leaderboardGrid");
+const leaderboardEmpty = document.getElementById("leaderboardEmpty");
+const leaderboardCurrentUserLabel = document.getElementById("leaderboardCurrentUserLabel");
 const opFeedback = document.getElementById("opFeedback");
 const opMessage = document.getElementById("opMessage");
 const opProgressBar = document.getElementById("opProgressBar");
@@ -118,16 +127,21 @@ let listenersStarted = false;
 let unSubProblems = null;
 let unSubMySolveEventsByNameKey = null;
 let unSubMySolveEventsByName = null;
+let unSubLeaderboardSolveEvents = null;
 let opProgressTimer = null;
 let opHideTimer = null;
 let maxProblemNumber = DEFAULT_MAX_PROBLEM_NUMBER;
 let solvedByCurrentUser = new Set();
 let solvedByCurrentUserByNameKey = new Set();
 let solvedByCurrentUserByName = new Set();
+let leaderboardEvents = [];
+let leaderboardSort = "score";
+let activeView = "tracker";
 let autoResumeAttempted = false;
 let searchInputDebounceTimer = null;
 let loginInProgress = false;
 let hasReceivedProblemsSnapshot = false;
+let hasReceivedLeaderboardSnapshot = false;
 let hasInitializedLevelRange = false;
 
 boot();
@@ -160,6 +174,8 @@ function boot() {
   loginForm.addEventListener("submit", onLoginSubmit);
   displayNameInput.addEventListener("input", onDisplayNameInputChange);
   themeToggleBtn.addEventListener("click", onThemeToggle);
+  trackerViewBtn.addEventListener("click", () => setActiveView("tracker"));
+  leaderboardBtn.addEventListener("click", () => setActiveView("leaderboard"));
   restoreThemePreference();
   requestAnimationFrame(() => {
     document.documentElement.classList.add("theme-ready");
@@ -178,6 +194,7 @@ function boot() {
   panelDeleteBtn.addEventListener("click", onPanelDeleteSolve);
   panelCloseBtn.addEventListener("click", closePanel);
   panelBackdrop.addEventListener("click", closePanel);
+  leaderboardSortBar.addEventListener("click", onLeaderboardSortClick);
   logoutBtn.addEventListener("click", onLogout);
 
   loadLevelsData();
@@ -289,6 +306,7 @@ async function loadLevelsData() {
     solvedByPeByProblem = solvedByMap;
     populateLevelFilterOptions(getAvailableLevels(levelsByProblem));
     renderGrid();
+    renderLeaderboard();
     refreshPanelMeta();
   } catch (_error) {
     // Keep default level fallback when file is unavailable.
@@ -780,7 +798,10 @@ async function tryAutoResumeLogin() {
 function showMainApp() {
   loginCard.classList.add("hidden");
   mainApp.classList.remove("hidden");
+  viewSwitch.classList.remove("hidden");
   logoutBtn.classList.remove("hidden");
+  updateLeaderboardLegend();
+  setActiveView(activeView);
 }
 
 function startRealtimeListeners() {
@@ -789,8 +810,10 @@ function startRealtimeListeners() {
   }
   listenersStarted = true;
   hasReceivedProblemsSnapshot = false;
+  hasReceivedLeaderboardSnapshot = false;
   appStatus.textContent = "Loading problems from Firebase...";
   renderGrid();
+  renderLeaderboard();
 
   unSubProblems = onSnapshot(
     collection(db, "problems"),
@@ -846,6 +869,18 @@ function startRealtimeListeners() {
     );
   }
 
+  unSubLeaderboardSolveEvents = onSnapshot(
+    collection(db, "solveEvents"),
+    (snapshot) => {
+      hasReceivedLeaderboardSnapshot = true;
+      leaderboardEvents = [];
+      snapshot.forEach((item) => {
+        leaderboardEvents.push({ id: item.id, data: item.data() });
+      });
+      renderLeaderboard();
+    },
+    handleError
+  );
 }
 
 function stopRealtimeListeners() {
@@ -861,11 +896,18 @@ function stopRealtimeListeners() {
     unSubMySolveEventsByName();
     unSubMySolveEventsByName = null;
   }
+  if (unSubLeaderboardSolveEvents) {
+    unSubLeaderboardSolveEvents();
+    unSubLeaderboardSolveEvents = null;
+  }
   solvedByCurrentUser = new Set();
   solvedByCurrentUserByNameKey = new Set();
   solvedByCurrentUserByName = new Set();
+  leaderboardEvents = [];
   hasReceivedProblemsSnapshot = false;
+  hasReceivedLeaderboardSnapshot = false;
   listenersStarted = false;
+  renderLeaderboard();
 }
 
 function renderGrid() {
@@ -1195,6 +1237,219 @@ function closePanel() {
   problemPanel.classList.add("hidden");
 }
 
+function setActiveView(view) {
+  const nextView = view === "leaderboard" ? "leaderboard" : "tracker";
+  activeView = nextView;
+
+  if (nextView === "leaderboard") {
+    closePanel();
+    renderLeaderboard();
+  }
+
+  trackerView.classList.toggle("hidden", nextView !== "tracker");
+  leaderboardView.classList.toggle("hidden", nextView !== "leaderboard");
+  trackerViewBtn.classList.toggle("active", nextView === "tracker");
+  leaderboardBtn.classList.toggle("active", nextView === "leaderboard");
+
+  trackerViewBtn.setAttribute("aria-pressed", String(nextView === "tracker"));
+  leaderboardBtn.setAttribute("aria-pressed", String(nextView === "leaderboard"));
+}
+
+function onLeaderboardSortClick(event) {
+  const target = event.target;
+  if (!(target instanceof HTMLButtonElement)) {
+    return;
+  }
+  const nextSort = target.dataset.leaderboardSort;
+  if (nextSort !== "solutions" && nextSort !== "score") {
+    return;
+  }
+  leaderboardSort = nextSort;
+  updateLeaderboardSortButtons();
+  renderLeaderboard();
+}
+
+function renderLeaderboard() {
+  if (!leaderboardGrid || !leaderboardEmpty) {
+    return;
+  }
+
+  updateLeaderboardLegend();
+  updateLeaderboardSortButtons();
+
+  if (!listenersStarted || !hasReceivedLeaderboardSnapshot) {
+    leaderboardGrid.innerHTML = '<p class="status">Loading leaderboard...</p>';
+    leaderboardEmpty.classList.add("hidden");
+    return;
+  }
+
+  const rows = buildLeaderboardRows();
+  if (!rows.length) {
+    leaderboardGrid.innerHTML = "";
+    leaderboardEmpty.classList.remove("hidden");
+    return;
+  }
+
+  leaderboardEmpty.classList.add("hidden");
+  leaderboardGrid.innerHTML = rows.map(leaderboardTileTemplate).join("");
+}
+
+function updateLeaderboardSortButtons() {
+  if (!leaderboardSortBar) {
+    return;
+  }
+  leaderboardSortBar.querySelectorAll(".filter-btn").forEach((btn) => {
+    if (btn instanceof HTMLButtonElement) {
+      btn.classList.toggle("active", btn.dataset.leaderboardSort === leaderboardSort);
+    }
+  });
+}
+
+function updateLeaderboardLegend() {
+  if (!leaderboardCurrentUserLabel) {
+    return;
+  }
+  leaderboardCurrentUserLabel.textContent = currentDisplayName
+    ? currentDisplayName
+    : "You";
+}
+
+function buildLeaderboardRows() {
+  const currentKeys = getCurrentLeaderboardKeys();
+  const aggregates = new Map();
+
+  leaderboardEvents.forEach((event) => {
+    const data = event.data || {};
+    const number = Number(data.problemNumber);
+    if (!Number.isInteger(number) || number < 1) {
+      return;
+    }
+
+    const userKey = getLeaderboardUserKey(data, event.id);
+    if (!userKey) {
+      return;
+    }
+
+    if (!aggregates.has(userKey)) {
+      aggregates.set(userKey, {
+        userKey,
+        isCurrentUser: false,
+        problems: new Set(),
+      });
+    }
+
+    const aggregate = aggregates.get(userKey);
+    aggregate.problems.add(number);
+    if (currentKeys.has(userKey)) {
+      aggregate.isCurrentUser = true;
+    }
+  });
+
+  const sortedOtherKeys = [...aggregates.values()]
+    .filter((entry) => !entry.isCurrentUser)
+    .map((entry) => entry.userKey)
+    .sort((a, b) => a.localeCompare(b));
+  const aliasesByKey = new Map();
+  sortedOtherKeys.forEach((userKey, index) => {
+    aliasesByKey.set(userKey, `User ${index + 1}`);
+  });
+
+  const rows = [...aggregates.values()].map((entry) => {
+    const solvedCount = entry.problems.size;
+    let score = 0;
+    entry.problems.forEach((number) => {
+      const difficulty = levelsByProblem.has(number) ? levelsByProblem.get(number) : null;
+      if (typeof difficulty === "number" && Number.isFinite(difficulty)) {
+        score += difficulty;
+      }
+    });
+
+    return {
+      label: entry.isCurrentUser ? "You" : aliasesByKey.get(entry.userKey),
+      isCurrentUser: entry.isCurrentUser,
+      solvedCount,
+      score,
+    };
+  });
+
+  rows.sort(compareLeaderboardRows);
+  return rows.map((row, index) => ({ ...row, rank: index + 1 }));
+}
+
+function getCurrentLeaderboardKeys() {
+  const keys = new Set();
+  const nameKey = normalizeDisplayName(currentDisplayName);
+  if (nameKey) {
+    keys.add(`name:${nameKey}`);
+  }
+  if (currentUid) {
+    keys.add(`uid:${currentUid}`);
+  }
+  return keys;
+}
+
+function getLeaderboardUserKey(data, fallbackId) {
+  const nameKey = normalizeDisplayName(data.solverNameKey);
+  if (nameKey) {
+    return `name:${nameKey}`;
+  }
+
+  const displayNameKey = normalizeDisplayName(data.solverName);
+  if (displayNameKey) {
+    return `name:${displayNameKey}`;
+  }
+
+  const uid = typeof data.solverUid === "string" ? data.solverUid.trim() : "";
+  if (uid) {
+    return `uid:${uid}`;
+  }
+
+  if (typeof fallbackId === "string" && fallbackId.includes("__")) {
+    const [rawNameKey] = fallbackId.split("__");
+    let decodedNameKey = rawNameKey;
+    try {
+      decodedNameKey = decodeURIComponent(rawNameKey);
+    } catch (_error) {
+      decodedNameKey = rawNameKey;
+    }
+    const fallbackNameKey = normalizeDisplayName(decodedNameKey);
+    if (fallbackNameKey) {
+      return `name:${fallbackNameKey}`;
+    }
+  }
+
+  return "";
+}
+
+function compareLeaderboardRows(a, b) {
+  if (leaderboardSort === "score") {
+    return (
+      b.score - a.score
+      || b.solvedCount - a.solvedCount
+      || a.label.localeCompare(b.label, undefined, { numeric: true })
+    );
+  }
+
+  return (
+    b.solvedCount - a.solvedCount
+    || b.score - a.score
+    || a.label.localeCompare(b.label, undefined, { numeric: true })
+  );
+}
+
+function leaderboardTileTemplate(row) {
+  const solvedLabel = row.solvedCount === 1 ? "1 solved" : `${row.solvedCount} solved`;
+  const tileClass = row.isCurrentUser ? "s-solved" : "s-unsolved";
+  return `
+    <article class="tile leaderboard-tile ${tileClass}" aria-label="Rank ${row.rank}, ${escapeHtml(row.label)}, ${solvedLabel}, ${row.score} score">
+      <span class="tile-number">#${row.rank}</span>
+      <span class="tile-meta leaderboard-alias">${escapeHtml(row.label)}</span>
+      <span class="tile-meta">${row.score.toLocaleString("en-US")} score</span>
+      <span class="tile-meta">${escapeHtml(solvedLabel)}</span>
+    </article>
+  `;
+}
+
 async function onPanelSave() {
   if (!isAdminUser()) {
     showOperationError("Only admin can change status label.");
@@ -1485,9 +1740,12 @@ async function onLogout() {
     currentDisplayName = "";
     stopRealtimeListeners();
     closePanel();
+    activeView = "tracker";
+    setActiveView(activeView);
     opFeedback.classList.add("hidden");
     mainApp.classList.add("hidden");
     loginCard.classList.remove("hidden");
+    viewSwitch.classList.add("hidden");
     logoutBtn.classList.add("hidden");
     displayNameInput.value = "";
     pinInput.value = "";

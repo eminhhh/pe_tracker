@@ -68,9 +68,32 @@ body::before {
   border-bottom: 1px solid var(--line);
 }
 
+.top-title {
+  display: inline-grid;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  max-width: calc(100% - 17rem);
+  min-height: 42px;
+}
+
 .top h1 {
   margin: 0;
   font-size: clamp(1.7rem, 2.8vw, 2.8rem);
+  width: 100%;
+}
+
+.view-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.view-switch .filter-btn {
+  min-height: 38px;
 }
 
 .top #logoutBtn {
@@ -482,6 +505,43 @@ thead th {
   box-shadow: 0 16px 40px rgba(6, 10, 14, 0.2);
 }
 
+.leaderboard-heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.8rem;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.leaderboard-sort-bar {
+  justify-content: center;
+  width: 100%;
+}
+
+.leaderboard-legend-row {
+  justify-content: center;
+  padding-bottom: 0.8rem;
+}
+
+.leaderboard-tile {
+  cursor: default;
+}
+
+.leaderboard-tile:hover {
+  transform: none;
+}
+
+.leaderboard-alias {
+  font-weight: 700;
+  color: inherit;
+}
+
+.leaderboard-empty {
+  text-align: center;
+}
+
 .panel-meta-grid {
   margin: 0 0 0.75rem;
   border: 1px solid var(--line);
@@ -764,6 +824,10 @@ select:focus-visible,
     padding-top: 0.8rem;
   }
 
+  .top-title {
+    max-width: calc(100% - 15rem);
+  }
+
   .card {
     padding: 0.75rem;
   }
@@ -853,9 +917,15 @@ select:focus-visible,
 
   .top h1 {
     font-size: clamp(1.35rem, 7vw, 1.9rem);
+    padding: 0;
+    margin-top: 0.1rem;
+  }
+
+  .top-title {
     order: 2;
     width: 100%;
-    padding: 0;
+    max-width: 100%;
+    gap: 0.5rem;
     margin-top: 0.1rem;
   }
 
@@ -902,6 +972,15 @@ select:focus-visible,
     border-left: none;
     border-right: none;
     border-bottom: none;
+  }
+
+  .leaderboard-heading {
+    align-items: flex-start;
+  }
+
+  .leaderboard-sort-bar {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .panel-actions {

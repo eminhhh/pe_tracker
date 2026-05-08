@@ -984,3 +984,11 @@
 {"file": "data/questions/0984.txt", "problem_id": 984, "title": "Knights and Horses", "primary_branch": "Number_Theory", "topic_tags": ["divisibility", "discrete_structures", "prime_numbers"], "confidence": 0.96}
 {"file": "data/questions/0985.txt", "problem_id": 985, "title": "Telescoping Triangles", "primary_branch": "Geometry", "topic_tags": ["triangle_geometry", "euclidean_geometry"], "confidence": 0.98}
 {"file":"data/questions/0986.txt","problem_id":986,"title":"Another Infinite Game","primary_branch":"Discrete_Math","topic_tags":["discrete_structures","combinatorics"],"confidence":0.78}
+{"file":"data/questions/0987.txt","problem_id":987,"title":"Straight Eight","primary_branch":"Discrete_Math","topic_tags":["combinatorics","card_counting","inclusion_exclusion"],"confidence":0.9}
+{"file":"data/questions/0988.txt","problem_id":988,"title":"Non-attacking Frogs","primary_branch":"Number_Theory","topic_tags":["numerical_semigroups","coprime_integers","combinatorics"],"confidence":0.82}
+{"file":"data/questions/0989.txt","problem_id":989,"title":"Fibonacci Sum","primary_branch":"Number_Theory","topic_tags":["modular_arithmetic","fibonacci_numbers","quadratic_congruences"],"confidence":0.96}
+{"file":"data/questions/0990.txt","problem_id":990,"title":"Addition Equations","primary_branch":"Discrete_Math","topic_tags":["combinatorics","digit_dp","generating_functions"],"confidence":0.87}
+{"file":"data/questions/0991.txt","problem_id":991,"title":"Fruit Salad","primary_branch":"Number_Theory","topic_tags":["diophantine_equations","rational_equations"],"confidence":0.86}
+{"file":"data/questions/0992.txt","problem_id":992,"title":"Another Frog Jumping","primary_branch":"Discrete_Math","topic_tags":["lattice_paths","combinatorics","dynamic_programming"],"confidence":0.91}
+{"file":"data/questions/0993.txt","problem_id":993,"title":"Banana Beaver","primary_branch":"Discrete_Math","topic_tags":["discrete_processes","recurrence_relations","state_machine"],"confidence":0.78}
+{"file":"data/questions/0994.txt","problem_id":994,"title":"Counting Triangles","primary_branch":"Geometry","topic_tags":["combinatorial_geometry","triangle_counting","line_arrangements"],"confidence":0.91}
