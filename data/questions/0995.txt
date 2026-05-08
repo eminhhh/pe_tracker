@@ -1,0 +1,8 @@
+Problem 995: A Particular Pair of Polynomials
+Source: https://projecteuler.net/minimal=995
+
+For each prime $p$ and each positive integer $n$ define two polynomials:
+$$ \begin{align} f_p(x) &= \sum_{i=0}^{p-1}x^i \\ g_n(x) &= 1+\sum_{d\mid n}x^d \end{align} $$
+Let $S(p)$ be the smallest positive integer $s$ such that $f_p(x)$ divides $g_s(x)$. For example, $S(2)=1$ as $f_2(x)=g_1(x)$. Also $S(5)=8$ because $f_5(x)\cdot(x^4-x^3+1)=g_8(x)$.
+Define $T(m)$ to be the product of $S(p)$ over all primes $p \lt m$. You are given that $T(20)=1348422598656$ and $T(100)\approx 1.37451\text{e}123$.
+Find $T(20\,000)$, giving your answer in scientific notation rounded to five significant digits after the decimal point. Use a lowercase e to separate the mantissa and the exponent.
