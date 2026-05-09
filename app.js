@@ -126,12 +126,14 @@ let activeProblemNumber = null;
 let listenersStarted = false;
 let unSubProblemSummary = null;
 let unSubMySolveEventsByNameKey = null;
+let unSubMySolveEventsByName = null;
 let unSubLeaderboardUsers = null;
 let opProgressTimer = null;
 let opHideTimer = null;
 let maxProblemNumber = DEFAULT_MAX_PROBLEM_NUMBER;
 let solvedByCurrentUser = new Set();
 let solvedByCurrentUserByNameKey = new Set();
+let solvedByCurrentUserByName = new Set();
 let leaderboardUsers = [];
 let leaderboardSort = "score";
 let activeView = "tracker";
@@ -891,6 +893,25 @@ function startRealtimeListeners() {
     );
   }
 
+  if (currentDisplayName) {
+    unSubMySolveEventsByName = onSnapshot(
+      query(collection(db, "solveEvents"), where("solverName", "==", currentDisplayName)),
+      (snapshot) => {
+        const solved = new Set();
+        snapshot.forEach((item) => {
+          const number = Number(item.data().problemNumber);
+          if (Number.isInteger(number) && number > 0) {
+            solved.add(number);
+          }
+        });
+        solvedByCurrentUserByName = solved;
+        rebuildSolvedByCurrentUser();
+        renderGrid();
+      },
+      handleError
+    );
+  }
+
   if (activeView === "leaderboard") {
     startLeaderboardListener();
   }
@@ -928,12 +949,17 @@ function stopRealtimeListeners() {
     unSubMySolveEventsByNameKey();
     unSubMySolveEventsByNameKey = null;
   }
+  if (unSubMySolveEventsByName) {
+    unSubMySolveEventsByName();
+    unSubMySolveEventsByName = null;
+  }
   if (unSubLeaderboardUsers) {
     unSubLeaderboardUsers();
     unSubLeaderboardUsers = null;
   }
   solvedByCurrentUser = new Set();
   solvedByCurrentUserByNameKey = new Set();
+  solvedByCurrentUserByName = new Set();
   leaderboardUsers = [];
   hasReceivedLeaderboardSnapshot = false;
   hasReceivedProblemSummary = false;
@@ -1862,6 +1888,9 @@ function rebuildSolvedByCurrentUser() {
   solvedByCurrentUserByNameKey.forEach((number) => {
     merged.add(number);
   });
+  solvedByCurrentUserByName.forEach((number) => {
+    merged.add(number);
+  });
   solvedByCurrentUser = merged;
 }
 
@@ -1873,6 +1902,9 @@ function markProblemSolvedByCurrentUser(number) {
   if (nameKey) {
     solvedByCurrentUserByNameKey.add(number);
   }
+  if (currentDisplayName) {
+    solvedByCurrentUserByName.add(number);
+  }
   rebuildSolvedByCurrentUser();
 }
 
@@ -1881,6 +1913,7 @@ function unmarkProblemSolvedByCurrentUser(number) {
     return;
   }
   solvedByCurrentUserByNameKey.delete(number);
+  solvedByCurrentUserByName.delete(number);
   rebuildSolvedByCurrentUser();
 }
 
