@@ -22,6 +22,7 @@ import {
   setDoc,
   updateDoc,
   where,
+  writeBatch,
 } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -64,14 +65,9 @@ const loginStatus = document.getElementById("loginStatus");
 const displayNameInput = document.getElementById("displayName");
 const pinInput = document.getElementById("pin");
 const themeToggleBtn = document.getElementById("themeToggleBtn");
-const viewSwitch = document.getElementById("viewSwitch");
-const trackerViewBtn = document.getElementById("trackerViewBtn");
-const leaderboardBtn = document.getElementById("leaderboardBtn");
 
 const mainApp = document.getElementById("mainApp");
 const appStatus = document.getElementById("appStatus");
-const trackerView = document.getElementById("trackerView");
-const leaderboardView = document.getElementById("leaderboardView");
 const searchInput = document.getElementById("searchInput");
 const minLevelSelect = document.getElementById("minLevelSelect");
 const maxLevelSelect = document.getElementById("maxLevelSelect");
@@ -97,10 +93,6 @@ const panelSaveBtn = document.getElementById("panelSaveBtn");
 const panelSolveBtn = document.getElementById("panelSolveBtn");
 const panelDeleteBtn = document.getElementById("panelDeleteBtn");
 const panelCloseBtn = document.getElementById("panelCloseBtn");
-const leaderboardSortBar = document.getElementById("leaderboardSortBar");
-const leaderboardGrid = document.getElementById("leaderboardGrid");
-const leaderboardEmpty = document.getElementById("leaderboardEmpty");
-const leaderboardCurrentUserLabel = document.getElementById("leaderboardCurrentUserLabel");
 const opFeedback = document.getElementById("opFeedback");
 const opMessage = document.getElementById("opMessage");
 const opProgressBar = document.getElementById("opProgressBar");
@@ -114,7 +106,6 @@ let currentUid = null;
 let currentDisplayName = "";
 let allProblems = new Map();
 let levelsByProblem = new Map();
-let statusByProblem = new Map();
 let titlesByProblem = new Map();
 let solvedByPeByProblem = new Map();
 let questionSearchByProblem = new Map();
@@ -124,32 +115,26 @@ let topicTagsByProblem = new Map();
 let currentFilter = "all";
 let activeProblemNumber = null;
 let listenersStarted = false;
-let unSubProblemSummary = null;
+let unSubProblems = null;
 let unSubMySolveEventsByNameKey = null;
 let unSubMySolveEventsByName = null;
-let unSubLeaderboardUsers = null;
 let opProgressTimer = null;
 let opHideTimer = null;
 let maxProblemNumber = DEFAULT_MAX_PROBLEM_NUMBER;
 let solvedByCurrentUser = new Set();
 let solvedByCurrentUserByNameKey = new Set();
 let solvedByCurrentUserByName = new Set();
-let leaderboardUsers = [];
-let leaderboardSort = "score";
-let activeView = "tracker";
 let autoResumeAttempted = false;
 let searchInputDebounceTimer = null;
 let loginInProgress = false;
-let hasReceivedLeaderboardSnapshot = false;
-let hasLoadedStaticProblems = false;
-let hasReceivedProblemSummary = false;
+let hasReceivedProblemsSnapshot = false;
 let hasInitializedLevelRange = false;
 
 boot();
 
 function boot() {
   setPersistence(auth, browserLocalPersistence).catch((error) => {
-    loginStatus.textContent = `Auth persistence warning: ${formatErrorMessage(error)}`;
+    loginStatus.textContent = `Auth persistence warning: ${error.message}`;
   });
 
   onAuthStateChanged(auth, async (user) => {
@@ -163,7 +148,7 @@ function boot() {
     try {
       await signInAnonymously(auth);
     } catch (error) {
-      loginStatus.textContent = `Auth error: ${formatErrorMessage(error)}`;
+      loginStatus.textContent = `Auth error: ${error.message}`;
     }
   });
 
@@ -175,8 +160,6 @@ function boot() {
   loginForm.addEventListener("submit", onLoginSubmit);
   displayNameInput.addEventListener("input", onDisplayNameInputChange);
   themeToggleBtn.addEventListener("click", onThemeToggle);
-  trackerViewBtn.addEventListener("click", () => setActiveView("tracker"));
-  leaderboardBtn.addEventListener("click", () => setActiveView("leaderboard"));
   restoreThemePreference();
   requestAnimationFrame(() => {
     document.documentElement.classList.add("theme-ready");
@@ -195,7 +178,6 @@ function boot() {
   panelDeleteBtn.addEventListener("click", onPanelDeleteSolve);
   panelCloseBtn.addEventListener("click", closePanel);
   panelBackdrop.addEventListener("click", closePanel);
-  leaderboardSortBar.addEventListener("click", onLeaderboardSortClick);
   logoutBtn.addEventListener("click", onLogout);
 
   loadLevelsData();
@@ -305,57 +287,12 @@ async function loadLevelsData() {
     levelsByProblem = levelMap;
     titlesByProblem = titleMap;
     solvedByPeByProblem = solvedByMap;
-    rebuildStaticProblems();
     populateLevelFilterOptions(getAvailableLevels(levelsByProblem));
     renderGrid();
-    renderLeaderboard();
     refreshPanelMeta();
   } catch (_error) {
     // Keep default level fallback when file is unavailable.
-    rebuildStaticProblems();
   }
-}
-
-function rebuildStaticProblems() {
-  const nextProblems = new Map();
-  for (let number = 1; number <= maxProblemNumber; number += 1) {
-    nextProblems.set(number, {
-      ...DEFAULT_PROBLEM,
-      statusLabel: statusByProblem.get(number) || defaultStatusForProblem(number),
-    });
-  }
-  allProblems = nextProblems;
-  hasLoadedStaticProblems = true;
-}
-
-function applyProblemSummary(summary) {
-  rebuildStaticProblems();
-  if (!summary || typeof summary !== "object") {
-    return;
-  }
-
-  const problems = summary.problems && typeof summary.problems === "object"
-    ? summary.problems
-    : {};
-  Object.entries(problems).forEach(([key, value]) => {
-    const number = Number(key);
-    if (!Number.isInteger(number) || number < 1 || !value || typeof value !== "object") {
-      return;
-    }
-
-    const existing = allProblems.get(number) || {
-      ...DEFAULT_PROBLEM,
-      statusLabel: defaultStatusForProblem(number),
-    };
-    const solvedCount = toNonNegativeInteger(value.solvedCount);
-    const statusLabel = normalizeStatus(value.statusLabel || existing.statusLabel);
-    allProblems.set(number, {
-      ...existing,
-      solvedCount,
-      statusLabel,
-      lastSolvedAt: value.lastSolvedAt || null,
-    });
-  });
 }
 
 async function loadQuestionSearchIndex() {
@@ -748,7 +685,7 @@ async function attemptLogin() {
   try {
     await completeLogin({ displayName, pin }, false);
   } catch (error) {
-    loginStatus.textContent = `Login failed: ${formatErrorMessage(error)}`;
+    loginStatus.textContent = `Login failed: ${error.message}`;
     pinInput.focus();
     pinInput.select();
   } finally {
@@ -843,10 +780,7 @@ async function tryAutoResumeLogin() {
 function showMainApp() {
   loginCard.classList.add("hidden");
   mainApp.classList.remove("hidden");
-  viewSwitch.classList.remove("hidden");
   logoutBtn.classList.remove("hidden");
-  updateLeaderboardLegend();
-  setActiveView(activeView);
 }
 
 function startRealtimeListeners() {
@@ -854,18 +788,18 @@ function startRealtimeListeners() {
     return;
   }
   listenersStarted = true;
-  hasReceivedLeaderboardSnapshot = false;
-  hasReceivedProblemSummary = false;
-  rebuildStaticProblems();
-  appStatus.textContent = "Loading group tracker summary...";
+  hasReceivedProblemsSnapshot = false;
+  appStatus.textContent = "Loading problems from Firebase...";
   renderGrid();
-  renderLeaderboard();
 
-  unSubProblemSummary = onSnapshot(
-    doc(db, "publicStats", "problemSummary"),
+  unSubProblems = onSnapshot(
+    collection(db, "problems"),
     (snapshot) => {
-      hasReceivedProblemSummary = true;
-      applyProblemSummary(snapshot.exists() ? snapshot.data() : null);
+      hasReceivedProblemsSnapshot = true;
+      allProblems = new Map();
+      snapshot.forEach((item) => {
+        allProblems.set(Number(item.id), item.data());
+      });
       appStatus.textContent = "";
       renderGrid();
       refreshPanelMeta();
@@ -912,38 +846,12 @@ function startRealtimeListeners() {
     );
   }
 
-  if (activeView === "leaderboard") {
-    startLeaderboardListener();
-  }
-}
-
-function startLeaderboardListener() {
-  if (!listenersStarted || unSubLeaderboardUsers) {
-    return;
-  }
-
-  // Read one aggregate per user instead of every solve event.
-  hasReceivedLeaderboardSnapshot = false;
-  leaderboardUsers = [];
-  unSubLeaderboardUsers = onSnapshot(
-    collection(db, "leaderboardUsers"),
-    (snapshot) => {
-      hasReceivedLeaderboardSnapshot = true;
-      leaderboardUsers = [];
-      snapshot.forEach((item) => {
-        leaderboardUsers.push({ id: item.id, data: item.data() });
-      });
-      renderLeaderboard();
-    },
-    handleError
-  );
-  renderLeaderboard();
 }
 
 function stopRealtimeListeners() {
-  if (unSubProblemSummary) {
-    unSubProblemSummary();
-    unSubProblemSummary = null;
+  if (unSubProblems) {
+    unSubProblems();
+    unSubProblems = null;
   }
   if (unSubMySolveEventsByNameKey) {
     unSubMySolveEventsByNameKey();
@@ -953,22 +861,15 @@ function stopRealtimeListeners() {
     unSubMySolveEventsByName();
     unSubMySolveEventsByName = null;
   }
-  if (unSubLeaderboardUsers) {
-    unSubLeaderboardUsers();
-    unSubLeaderboardUsers = null;
-  }
   solvedByCurrentUser = new Set();
   solvedByCurrentUserByNameKey = new Set();
   solvedByCurrentUserByName = new Set();
-  leaderboardUsers = [];
-  hasReceivedLeaderboardSnapshot = false;
-  hasReceivedProblemSummary = false;
+  hasReceivedProblemsSnapshot = false;
   listenersStarted = false;
-  renderLeaderboard();
 }
 
 function renderGrid() {
-  if (!hasLoadedStaticProblems) {
+  if (!hasReceivedProblemsSnapshot) {
     const counts = {
       all: 0,
       "my-solves": 0,
@@ -979,7 +880,7 @@ function renderGrid() {
     };
     updateFilterButtonCounts(counts);
     updateBranchOptionLabels(0, new Map());
-    problemGrid.innerHTML = '<p class="status">Loading problem data...</p>';
+    problemGrid.innerHTML = '<p class="status">Loading problems from Firebase...</p>';
     return;
   }
 
@@ -1294,234 +1195,6 @@ function closePanel() {
   problemPanel.classList.add("hidden");
 }
 
-function setActiveView(view) {
-  const nextView = view === "leaderboard" ? "leaderboard" : "tracker";
-  activeView = nextView;
-
-  if (nextView === "leaderboard") {
-    closePanel();
-    startLeaderboardListener();
-    renderLeaderboard();
-  }
-
-  trackerView.classList.toggle("hidden", nextView !== "tracker");
-  leaderboardView.classList.toggle("hidden", nextView !== "leaderboard");
-  trackerViewBtn.classList.toggle("active", nextView === "tracker");
-  leaderboardBtn.classList.toggle("active", nextView === "leaderboard");
-
-  trackerViewBtn.setAttribute("aria-pressed", String(nextView === "tracker"));
-  leaderboardBtn.setAttribute("aria-pressed", String(nextView === "leaderboard"));
-}
-
-function onLeaderboardSortClick(event) {
-  const target = event.target;
-  if (!(target instanceof HTMLButtonElement)) {
-    return;
-  }
-  const nextSort = target.dataset.leaderboardSort;
-  if (nextSort !== "solutions" && nextSort !== "score") {
-    return;
-  }
-  leaderboardSort = nextSort;
-  updateLeaderboardSortButtons();
-  renderLeaderboard();
-}
-
-function renderLeaderboard() {
-  if (!leaderboardGrid || !leaderboardEmpty) {
-    return;
-  }
-
-  updateLeaderboardLegend();
-  updateLeaderboardSortButtons();
-
-  if (!listenersStarted) {
-    leaderboardGrid.innerHTML = '<p class="status">Loading leaderboard...</p>';
-    leaderboardEmpty.classList.add("hidden");
-    return;
-  }
-
-  if (!unSubLeaderboardUsers && !hasReceivedLeaderboardSnapshot) {
-    leaderboardGrid.innerHTML = '<p class="status">Open the leaderboard tab to load rankings.</p>';
-    leaderboardEmpty.classList.add("hidden");
-    return;
-  }
-
-  if (!hasReceivedLeaderboardSnapshot) {
-    leaderboardGrid.innerHTML = '<p class="status">Loading leaderboard...</p>';
-    leaderboardEmpty.classList.add("hidden");
-    return;
-  }
-
-  const rows = buildLeaderboardRows();
-  if (!rows.length) {
-    leaderboardGrid.innerHTML = "";
-    leaderboardEmpty.classList.remove("hidden");
-    return;
-  }
-
-  leaderboardEmpty.classList.add("hidden");
-  leaderboardGrid.innerHTML = rows.map(leaderboardTileTemplate).join("");
-}
-
-function updateLeaderboardSortButtons() {
-  if (!leaderboardSortBar) {
-    return;
-  }
-  leaderboardSortBar.querySelectorAll(".filter-btn").forEach((btn) => {
-    if (btn instanceof HTMLButtonElement) {
-      btn.classList.toggle("active", btn.dataset.leaderboardSort === leaderboardSort);
-    }
-  });
-}
-
-function updateLeaderboardLegend() {
-  if (!leaderboardCurrentUserLabel) {
-    return;
-  }
-  leaderboardCurrentUserLabel.textContent = currentDisplayName
-    ? currentDisplayName
-    : "You";
-}
-
-function buildLeaderboardRows() {
-  const currentKeys = getCurrentLeaderboardKeys();
-
-  const aggregates = leaderboardUsers
-    .map((entry) => {
-      const data = entry.data || {};
-      const userKey = getLeaderboardUserKey(data, entry.id);
-      const solvedCount = toNonNegativeInteger(data.solvedCount);
-      const score = toNonNegativeNumber(data.score);
-      if (!userKey || solvedCount <= 0) {
-        return null;
-      }
-
-      return {
-        userKey,
-        isCurrentUser: currentKeys.has(userKey),
-        solvedCount,
-        score,
-      };
-    })
-    .filter(Boolean);
-
-  const sortedOtherKeys = aggregates
-    .filter((entry) => !entry.isCurrentUser)
-    .map((entry) => entry.userKey)
-    .sort((a, b) => a.localeCompare(b));
-  const aliasesByKey = new Map();
-  sortedOtherKeys.forEach((userKey, index) => {
-    aliasesByKey.set(userKey, `User ${index + 1}`);
-  });
-
-  const rows = aggregates.map((entry) => ({
-    label: entry.isCurrentUser ? "You" : aliasesByKey.get(entry.userKey),
-    isCurrentUser: entry.isCurrentUser,
-    solvedCount: entry.solvedCount,
-    score: entry.score,
-  }));
-
-  rows.sort(compareLeaderboardRows);
-  return rows.map((row, index) => ({ ...row, rank: index + 1 }));
-}
-
-function toNonNegativeInteger(value) {
-  const parsed = Number(value);
-  return Number.isInteger(parsed) && parsed > 0 ? parsed : 0;
-}
-
-function toNonNegativeNumber(value) {
-  const parsed = Number(value);
-  return Number.isFinite(parsed) && parsed > 0 ? parsed : 0;
-}
-
-function getProblemLeaderboardScore(number) {
-  const difficulty = levelsByProblem.has(number) ? levelsByProblem.get(number) : null;
-  return typeof difficulty === "number" && Number.isFinite(difficulty)
-    ? Math.max(0, difficulty)
-    : 0;
-}
-
-function getCurrentLeaderboardKeys() {
-  const keys = new Set();
-  const nameKey = normalizeDisplayName(currentDisplayName);
-  if (nameKey) {
-    keys.add(`name:${nameKey}`);
-  }
-  if (currentUid) {
-    keys.add(`uid:${currentUid}`);
-  }
-  return keys;
-}
-
-function getLeaderboardUserKey(data, fallbackId) {
-  const nameKey = normalizeDisplayName(data.solverNameKey);
-  if (nameKey) {
-    return `name:${nameKey}`;
-  }
-
-  const displayNameKey = normalizeDisplayName(data.solverName);
-  if (displayNameKey) {
-    return `name:${displayNameKey}`;
-  }
-
-  const uid = typeof data.solverUid === "string" ? data.solverUid.trim() : "";
-  if (uid) {
-    return `uid:${uid}`;
-  }
-
-  if (typeof fallbackId === "string" && fallbackId.includes("__")) {
-    const [rawNameKey] = fallbackId.split("__");
-    let decodedNameKey = rawNameKey;
-    try {
-      decodedNameKey = decodeURIComponent(rawNameKey);
-    } catch (_error) {
-      decodedNameKey = rawNameKey;
-    }
-    const fallbackNameKey = normalizeDisplayName(decodedNameKey);
-    if (fallbackNameKey) {
-      return `name:${fallbackNameKey}`;
-    }
-  }
-
-  const fallbackNameKey = normalizeDisplayName(fallbackId);
-  if (fallbackNameKey) {
-    return `name:${fallbackNameKey}`;
-  }
-
-  return "";
-}
-
-function compareLeaderboardRows(a, b) {
-  if (leaderboardSort === "score") {
-    return (
-      b.score - a.score
-      || b.solvedCount - a.solvedCount
-      || a.label.localeCompare(b.label, undefined, { numeric: true })
-    );
-  }
-
-  return (
-    b.solvedCount - a.solvedCount
-    || b.score - a.score
-    || a.label.localeCompare(b.label, undefined, { numeric: true })
-  );
-}
-
-function leaderboardTileTemplate(row) {
-  const solvedLabel = row.solvedCount === 1 ? "1 solved" : `${row.solvedCount} solved`;
-  const tileClass = row.isCurrentUser ? "s-solved" : "s-unsolved";
-  return `
-    <article class="tile leaderboard-tile ${tileClass}" aria-label="Rank ${row.rank}, ${escapeHtml(row.label)}, ${solvedLabel}, ${row.score} score">
-      <span class="tile-number">#${row.rank}</span>
-      <span class="tile-meta leaderboard-alias">${escapeHtml(row.label)}</span>
-      <span class="tile-meta">${row.score.toLocaleString("en-US")} score</span>
-      <span class="tile-meta">${escapeHtml(solvedLabel)}</span>
-    </article>
-  `;
-}
-
 async function onPanelSave() {
   if (!isAdminUser()) {
     showOperationError("Only admin can change status label.");
@@ -1543,9 +1216,8 @@ async function onPanelSave() {
   showOperationLoading(`Updating label for #${number}...`);
   try {
     await updateDoc(doc(db, "problems", String(number)), { statusLabel, difficulty: deleteField() });
-    updateProblemStatusLocally(number, statusLabel);
     showOperationSuccess(`Status updated for #${number}.`);
-    appStatus.textContent = "Status saved. The group summary will refresh shortly.";
+    appStatus.textContent = `Status updated for #${number}.`;
   } catch (_error) {
     try {
       await setDoc(
@@ -1556,24 +1228,15 @@ async function onPanelSave() {
         },
         { merge: true }
       );
-      updateProblemStatusLocally(number, statusLabel);
       showOperationSuccess(`Status saved for #${number}.`);
-      appStatus.textContent = "Status saved. The group summary will refresh shortly.";
+      appStatus.textContent = `Status created for #${number}.`;
     } catch (error) {
       showOperationError(`Status update failed for #${number}.`);
-      appStatus.textContent = `Status update failed: ${formatErrorMessage(error)}`;
+      appStatus.textContent = `Status update failed: ${error.message}`;
     }
   } finally {
     setPanelBusy(false);
   }
-}
-
-function updateProblemStatusLocally(number, statusLabel) {
-  statusByProblem.set(number, statusLabel);
-  const current = allProblems.get(number) || DEFAULT_PROBLEM;
-  allProblems.set(number, { ...current, statusLabel });
-  renderGrid();
-  refreshPanelMeta();
 }
 
 async function onPanelSolve() {
@@ -1602,20 +1265,33 @@ async function onPanelSolve() {
     }
     const eventId = buildSolveEventId(number, solverNameKey);
     const eventRef = doc(db, "solveEvents", eventId);
-    const scoreValue = getProblemLeaderboardScore(number);
 
     await runTransaction(db, async (tx) => {
+      const problemRef = doc(db, "problems", String(number));
       const existingSolveRef = await tx.get(eventRef);
       if (existingSolveRef.exists()) {
         throw new Error("You already marked this problem solved.");
       }
+      const snap = await tx.get(problemRef);
+      const current = snap.exists() ? snap.data() : DEFAULT_PROBLEM;
+      const nextCount = Number(current.solvedCount || 0) + 1;
+
+      tx.set(
+        problemRef,
+        {
+          solvedCount: nextCount,
+          statusLabel: "solved",
+          lastSolvedAt: serverTimestamp(),
+          difficulty: deleteField(),
+        },
+        { merge: true }
+      );
       tx.set(eventRef, {
         problemNumber: number,
         solvedAt: serverTimestamp(),
         solverUid: currentUid,
         solverName: currentDisplayName,
         solverNameKey,
-        scoreValue,
       });
     });
 
@@ -1627,7 +1303,7 @@ async function onPanelSolve() {
     appStatus.textContent = `Problem #${number} marked solved.`;
   } catch (error) {
     showOperationError(`Solve failed for #${number}.`);
-    appStatus.textContent = `Solve failed: ${formatErrorMessage(error)}`;
+    appStatus.textContent = `Solve failed: ${error.message}`;
   } finally {
     setPanelBusy(false);
   }
@@ -1643,17 +1319,54 @@ async function onPanelDeleteSolve() {
   showOperationLoading(`Deleting one solve for #${number}...`);
   try {
     const currentNameKey = normalizeDisplayName(currentDisplayName);
-    const ownDocs = await getOwnSolveDocs(number, currentNameKey);
+    const ownEventsByNameKeyQuery = query(
+      collection(db, "solveEvents"),
+      where("solverNameKey", "==", currentNameKey)
+    );
+    const ownEventsByNameQuery = query(
+      collection(db, "solveEvents"),
+      where("solverName", "==", currentDisplayName)
+    );
+
+    const ownByNameKeySnapshot = await getDocs(ownEventsByNameKeyQuery);
+    const ownByNameSnapshot = await getDocs(ownEventsByNameQuery);
+    const ownDocsById = new Map();
+    ownByNameKeySnapshot.docs.forEach((item) => {
+      ownDocsById.set(item.id, item);
+    });
+    ownByNameSnapshot.docs.forEach((item) => {
+      ownDocsById.set(item.id, item);
+    });
+
+    const ownDocs = [...ownDocsById.values()]
+      .filter((item) => Number(item.data().problemNumber) === number)
+      .sort((a, b) => {
+        const aTs = toMillis(a.data().solvedAt);
+        const bTs = toMillis(b.data().solvedAt);
+        return bTs - aTs;
+      });
 
     if (!ownDocs.length) {
-      showOperationError("You have no solve to remove for this problem.");
-      appStatus.textContent = `No personal solve found for #${number}.`;
+      const allEventsQuery = query(
+        collection(db, "solveEvents"),
+        where("problemNumber", "==", number)
+      );
+      const allEventsSnapshot = await getDocs(allEventsQuery);
+      const hasLegacyEvents = allEventsSnapshot.docs.some(
+        (item) => typeof item.data().solverUid !== "string" || !item.data().solverUid
+      );
+
+      if (hasLegacyEvents) {
+        showOperationError("This problem only has legacy solves without owner info.");
+        appStatus.textContent = `Legacy solves on #${number} cannot be deleted per-user.`;
+      } else {
+        showOperationError("You have no solve to remove for this problem.");
+        appStatus.textContent = `No personal solve found for #${number}.`;
+      }
       return;
     }
 
-    const deletingSolveDoc = ownDocs[0];
-
-    await deleteDoc(deletingSolveDoc.ref);
+    await deleteDoc(ownDocs[0].ref);
 
     if (ownDocs.length === 1) {
       unmarkProblemSolvedByCurrentUser(number);
@@ -1661,11 +1374,54 @@ async function onPanelDeleteSolve() {
       renderGrid();
     }
 
+    const allEventsQuery = query(
+      collection(db, "solveEvents"),
+      where("problemNumber", "==", number)
+    );
+    const allEventsSnapshot = await getDocs(allEventsQuery);
+    const allDocs = [...allEventsSnapshot.docs].sort((a, b) => {
+      const aTs = toMillis(a.data().solvedAt);
+      const bTs = toMillis(b.data().solvedAt);
+      return bTs - aTs;
+    });
+    const latestSolvedAt = allDocs.length > 0 ? allDocs[0].data().solvedAt : null;
+
+    await runTransaction(db, async (tx) => {
+      const ref = doc(db, "problems", String(number));
+      const snap = await tx.get(ref);
+      const current = snap.exists() ? snap.data() : DEFAULT_PROBLEM;
+      const currentCount = Number(current.solvedCount || 0);
+      const nextCount = Math.max(0, currentCount - 1);
+      const currentStatus = normalizeStatus(current.statusLabel);
+
+      let nextStatus = currentStatus;
+      if (nextCount === 0 && currentStatus === "solved") {
+        nextStatus = "unsolved";
+      }
+      if (
+        nextCount > 0
+        && currentStatus === "unsolved"
+      ) {
+        nextStatus = "solved";
+      }
+
+      tx.set(
+        ref,
+        {
+          solvedCount: nextCount,
+          statusLabel: nextStatus,
+          lastSolvedAt: nextCount === 0 ? null : (latestSolvedAt || null),
+          difficulty: deleteField(),
+        },
+        { merge: true }
+      );
+    });
+
     showOperationSuccess(`Removed one solve from #${number}.`);
     appStatus.textContent = `Removed one solve from #${number}.`;
   } catch (error) {
     showOperationError(`Delete solve failed for #${number}.`);
-    appStatus.textContent = `Delete solve failed: ${formatErrorMessage(error)}`;
+    appStatus.textContent = `Delete solve failed: ${error.message}`;
   } finally {
     setPanelBusy(false);
   }
@@ -1683,6 +1439,43 @@ function toMillis(value) {
   return Number.isFinite(ms) ? ms : 0;
 }
 
+async function seedProblems() {
+  try {
+    appStatus.textContent = "Checking existing problems...";
+    const snapshot = await getDocs(collection(db, "problems"));
+    const existing = new Set(snapshot.docs.map((d) => Number(d.id)));
+
+    let created = 0;
+    let batch = writeBatch(db);
+    let opCount = 0;
+
+    for (let number = 1; number <= maxProblemNumber; number += 1) {
+      if (existing.has(number)) {
+        continue;
+      }
+
+      const ref = doc(db, "problems", String(number));
+      batch.set(ref, { ...DEFAULT_PROBLEM });
+      created += 1;
+      opCount += 1;
+
+      if (opCount === 450) {
+        await batch.commit();
+        batch = writeBatch(db);
+        opCount = 0;
+      }
+    }
+
+    if (opCount > 0) {
+      await batch.commit();
+    }
+
+    appStatus.textContent = `Seed complete. Created ${created} missing problems.`;
+  } catch (error) {
+    appStatus.textContent = `Seed failed: ${error.message}`;
+  }
+}
+
 async function onLogout() {
   try {
     localStorage.setItem(explicitLogoutKey, "1");
@@ -1692,12 +1485,9 @@ async function onLogout() {
     currentDisplayName = "";
     stopRealtimeListeners();
     closePanel();
-    activeView = "tracker";
-    setActiveView(activeView);
     opFeedback.classList.add("hidden");
     mainApp.classList.add("hidden");
     loginCard.classList.remove("hidden");
-    viewSwitch.classList.add("hidden");
     logoutBtn.classList.add("hidden");
     displayNameInput.value = "";
     pinInput.value = "";
@@ -1838,43 +1628,6 @@ function buildSolveEventId(problemNumber, solverNameKey) {
   return `${encodeURIComponent(solverNameKey)}__${problemNumber}`;
 }
 
-async function getOwnSolveDocs(number, currentNameKey) {
-  if (currentNameKey) {
-    const exactRef = doc(db, "solveEvents", buildSolveEventId(number, currentNameKey));
-    const exactSnap = await getDoc(exactRef);
-    if (exactSnap.exists() && Number(exactSnap.data().problemNumber) === number) {
-      return [exactSnap];
-    }
-  }
-
-  const ownEventsByNameKeyQuery = query(
-    collection(db, "solveEvents"),
-    where("solverNameKey", "==", currentNameKey)
-  );
-  const ownEventsByNameQuery = query(
-    collection(db, "solveEvents"),
-    where("solverName", "==", currentDisplayName)
-  );
-
-  const ownByNameKeySnapshot = await getDocs(ownEventsByNameKeyQuery);
-  const ownByNameSnapshot = await getDocs(ownEventsByNameQuery);
-  const ownDocsById = new Map();
-  ownByNameKeySnapshot.docs.forEach((item) => {
-    ownDocsById.set(item.id, item);
-  });
-  ownByNameSnapshot.docs.forEach((item) => {
-    ownDocsById.set(item.id, item);
-  });
-
-  return [...ownDocsById.values()]
-    .filter((item) => Number(item.data().problemNumber) === number)
-    .sort((a, b) => {
-      const aTs = toMillis(a.data().solvedAt);
-      const bTs = toMillis(b.data().solvedAt);
-      return bTs - aTs;
-    });
-}
-
 function canDeleteOwnSolveForActiveProblem() {
   return Boolean(
     currentUid &&
@@ -1955,28 +1708,7 @@ function showOperationError(message) {
 }
 
 function handleError(error) {
-  appStatus.textContent = `Realtime error: ${formatErrorMessage(error)}`;
-}
-
-function formatErrorMessage(error) {
-  const message = typeof error?.message === "string" && error.message.trim()
-    ? error.message.trim()
-    : "Unknown error.";
-  const code = typeof error?.code === "string" ? error.code : "";
-
-  if (
-    code === "resource-exhausted"
-    || code.includes("quota-exceeded")
-    || code.includes("quota_exceeded")
-  ) {
-    return "Firebase quota is exhausted for this project. Try again after the quota resets or raise the Firebase quota.";
-  }
-
-  if (/quota exceeded/i.test(message)) {
-    return "Quota exceeded. If clearing site data does not help, the Firebase project quota is exhausted.";
-  }
-
-  return message;
+  appStatus.textContent = `Realtime error: ${error.message}`;
 }
 
 async function claimDisplayName(displayName, normalizedDisplayName, pin) {
@@ -1989,7 +1721,6 @@ async function claimDisplayName(displayName, normalizedDisplayName, pin) {
     const nameRef = doc(db, "displayNames", normalizedDisplayName);
     const nameSnap = await tx.get(nameRef);
     const existingCreatedAt = nameSnap.exists() ? nameSnap.data().createdAt : null;
-    let shouldWriteProfile = true;
 
     if (nameSnap.exists()) {
       const ownerUid = nameSnap.data().ownerUid;
@@ -2016,16 +1747,6 @@ async function claimDisplayName(displayName, normalizedDisplayName, pin) {
       if (ownerUid !== currentUid && !pinMatches) {
         throw new Error("Display name is already in use or PIN is incorrect.");
       }
-
-      const hasSaltedPinHash = /^[0-9a-f]{64}$/i.test(storedPinHash)
-        && /^[0-9a-f]{32}$/i.test(storedPinSalt);
-      shouldWriteProfile = ownerUid !== currentUid
-        || !hasSaltedPinHash
-        || !storedDisplayName;
-    }
-
-    if (!shouldWriteProfile) {
-      return;
     }
 
     tx.set(
