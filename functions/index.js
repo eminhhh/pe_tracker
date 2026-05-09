@@ -10,13 +10,14 @@ admin.initializeApp();
 const db = admin.firestore();
 const LEVELS_URL = "https://eminhhh.github.io/pe_tracker/data/levels.json";
 const BATCH_LIMIT = 450;
+const FUNCTION_REGION = "europe-west1";
 const PROBLEM_SUMMARY_REF = db.collection("publicStats").doc("problemSummary");
 
 exports.updateLeaderboardUsers = onSchedule(
   {
     schedule: "17 * * * *",
     timeZone: "Etc/UTC",
-    region: "us-central1",
+    region: FUNCTION_REGION,
     timeoutSeconds: 180,
     memory: "256MiB",
     maxInstances: 1,
@@ -40,7 +41,7 @@ exports.updateLeaderboardUsers = onSchedule(
 exports.syncProblemSummaryOnSolveWrite = onDocumentWritten(
   {
     document: "solveEvents/{eventId}",
-    region: "us-central1",
+    region: FUNCTION_REGION,
     timeoutSeconds: 60,
     memory: "256MiB",
     maxInstances: 10,
@@ -64,7 +65,7 @@ exports.syncProblemSummaryOnSolveWrite = onDocumentWritten(
 exports.syncProblemSummaryOnProblemWrite = onDocumentWritten(
   {
     document: "problems/{problemId}",
-    region: "us-central1",
+    region: FUNCTION_REGION,
     timeoutSeconds: 60,
     memory: "256MiB",
     maxInstances: 10,
