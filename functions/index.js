@@ -4,6 +4,7 @@ const { logger } = require("firebase-functions");
 const { onDocumentWritten } = require("firebase-functions/v2/firestore");
 const { onSchedule } = require("firebase-functions/v2/scheduler");
 const admin = require("firebase-admin");
+const { FieldValue } = require("firebase-admin/firestore");
 
 admin.initializeApp();
 
@@ -188,7 +189,7 @@ async function rebuildProblemSummary() {
 
   await PROBLEM_SUMMARY_REF.set({
     problems,
-    updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+    updatedAt: FieldValue.serverTimestamp(),
   });
 
   return { problemCount: Object.keys(problems).length };
@@ -223,7 +224,7 @@ async function rebuildProblemSummaryEntry(problemNumber) {
         lastSolvedAt,
         metadata
       ),
-      updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+      updatedAt: FieldValue.serverTimestamp(),
     },
     { merge: true }
   );
@@ -271,7 +272,7 @@ async function writeLeaderboardUsers(aggregates, existingDocs) {
   let pending = 0;
   let writes = 0;
   let deletes = 0;
-  const now = admin.firestore.FieldValue.serverTimestamp();
+  const now = FieldValue.serverTimestamp();
 
   for (const [solverNameKey, aggregate] of [...aggregates.entries()].sort()) {
     const ref = db.collection("leaderboardUsers").doc(solverNameKey);
