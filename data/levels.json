@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "last_updated_utc": "2026-05-09 02:45",
-    "generated_at_utc": "2026-05-09 01:45",
+    "last_updated_utc": "2026-05-09 08:02",
+    "generated_at_utc": "2026-05-09 07:02",
     "source": "https://projecteuler.net/progress",
     "max_problem_number": 995
   },
@@ -207,7 +207,7 @@
   },
   "41": {
     "difficulty": 1,
-    "solved_by": 75773,
+    "solved_by": 75774,
     "title": "Pandigital Prime"
   },
   "42": {
@@ -232,7 +232,7 @@
   },
   "46": {
     "difficulty": 1,
-    "solved_by": 68820,
+    "solved_by": 68821,
     "title": "Goldbach's Other Conjecture"
   },
   "47": {
@@ -287,7 +287,7 @@
   },
   "57": {
     "difficulty": 2,
-    "solved_by": 46760,
+    "solved_by": 46761,
     "title": "Square Root Convergents"
   },
   "58": {
@@ -307,7 +307,7 @@
   },
   "61": {
     "difficulty": 3,
-    "solved_by": 29228,
+    "solved_by": 29229,
     "title": "Cyclical Figurate Numbers"
   },
   "62": {
@@ -332,7 +332,7 @@
   },
   "66": {
     "difficulty": 11,
-    "solved_by": 22715,
+    "solved_by": 22716,
     "title": "Diophantine Equation"
   },
   "67": {
@@ -357,7 +357,7 @@
   },
   "71": {
     "difficulty": 2,
-    "solved_by": 33024,
+    "solved_by": 33025,
     "title": "Ordered Fractions"
   },
   "72": {
@@ -382,12 +382,12 @@
   },
   "76": {
     "difficulty": 2,
-    "solved_by": 32212,
+    "solved_by": 32213,
     "title": "Counting Summations"
   },
   "77": {
     "difficulty": 4,
-    "solved_by": 22121,
+    "solved_by": 22122,
     "title": "Prime Summations"
   },
   "78": {
@@ -442,12 +442,12 @@
   },
   "88": {
     "difficulty": 10,
-    "solved_by": 12034,
+    "solved_by": 12035,
     "title": "Product-sum Numbers"
   },
   "89": {
     "difficulty": 3,
-    "solved_by": 23775,
+    "solved_by": 23776,
     "title": "Roman Numerals"
   },
   "90": {
@@ -527,12 +527,12 @@
   },
   "105": {
     "difficulty": 13,
-    "solved_by": 9429,
+    "solved_by": 9430,
     "title": "Special Subset Sums: Testing"
   },
   "106": {
     "difficulty": 14,
-    "solved_by": 7548,
+    "solved_by": 7549,
     "title": "Special Subset Sums: Meta-testing"
   },
   "107": {
@@ -637,22 +637,22 @@
   },
   "127": {
     "difficulty": 14,
-    "solved_by": 7312,
+    "solved_by": 7314,
     "title": "abc-hits"
   },
   "128": {
     "difficulty": 17,
-    "solved_by": 5859,
+    "solved_by": 5860,
     "title": "Hexagonal Tile Differences"
   },
   "129": {
     "difficulty": 15,
-    "solved_by": 7305,
+    "solved_by": 7306,
     "title": "Repunit Divisibility"
   },
   "130": {
     "difficulty": 14,
-    "solved_by": 6842,
+    "solved_by": 6843,
     "title": "Composites with Prime Repunit Property"
   },
   "131": {
@@ -667,17 +667,17 @@
   },
   "133": {
     "difficulty": 15,
-    "solved_by": 6449,
+    "solved_by": 6450,
     "title": "Repunit Nonfactors"
   },
   "134": {
     "difficulty": 11,
-    "solved_by": 8145,
+    "solved_by": 8146,
     "title": "Prime Pair Connection"
   },
   "135": {
     "difficulty": 14,
-    "solved_by": 7451,
+    "solved_by": 7452,
     "title": "Same Differences"
   },
   "136": {
@@ -732,7 +732,7 @@
   },
   "146": {
     "difficulty": 16,
-    "solved_by": 5969,
+    "solved_by": 5970,
     "title": "Investigating a Prime Pattern"
   },
   "147": {
@@ -782,7 +782,7 @@
   },
   "156": {
     "difficulty": 29,
-    "solved_by": 2917,
+    "solved_by": 2918,
     "title": "Counting Digits"
   },
   "157": {
@@ -847,7 +847,7 @@
   },
   "169": {
     "difficulty": 16,
-    "solved_by": 5911,
+    "solved_by": 5912,
     "title": "Sums of Powers of Two"
   },
   "170": {
@@ -912,12 +912,12 @@
   },
   "182": {
     "difficulty": 23,
-    "solved_by": 3065,
+    "solved_by": 3066,
     "title": "RSA Encryption"
   },
   "183": {
     "difficulty": 15,
-    "solved_by": 5315,
+    "solved_by": 5316,
     "title": "Maximum Product of Parts"
   },
   "184": {
@@ -1027,12 +1027,12 @@
   },
   "205": {
     "difficulty": 3,
-    "solved_by": 16511,
+    "solved_by": 16513,
     "title": "Dice Game"
   },
   "206": {
     "difficulty": 2,
-    "solved_by": 26742,
+    "solved_by": 26743,
     "title": "Concealed Square"
   },
   "207": {
@@ -1792,7 +1792,7 @@
   },
   "358": {
     "difficulty": 12,
-    "solved_by": 1866,
+    "solved_by": 1867,
     "title": "Cyclic Numbers"
   },
   "359": {
@@ -1817,7 +1817,7 @@
   },
   "363": {
     "difficulty": 12,
-    "solved_by": 1315,
+    "solved_by": 1316,
     "title": "B\u00e9zier Curves"
   },
   "364": {
@@ -3082,7 +3082,7 @@
   },
   "616": {
     "difficulty": 19,
-    "solved_by": 552,
+    "solved_by": 553,
     "title": "Creative Numbers"
   },
   "617": {
@@ -3097,7 +3097,7 @@
   },
   "619": {
     "difficulty": 20,
-    "solved_by": 491,
+    "solved_by": 492,
     "title": "Square Subsets"
   },
   "620": {
@@ -3857,7 +3857,7 @@
   },
   "771": {
     "difficulty": 34,
-    "solved_by": 150,
+    "solved_by": 151,
     "title": "Pseudo Geometric Sequences"
   },
   "772": {
@@ -4362,7 +4362,7 @@
   },
   "872": {
     "difficulty": 3,
-    "solved_by": 1322,
+    "solved_by": 1323,
     "title": "Recursive Tree"
   },
   "873": {
@@ -4552,7 +4552,7 @@
   },
   "910": {
     "difficulty": 39,
-    "solved_by": 106,
+    "solved_by": 107,
     "title": "L-expressions II"
   },
   "911": {
@@ -4807,7 +4807,7 @@
   },
   "961": {
     "difficulty": 3,
-    "solved_by": 836,
+    "solved_by": 837,
     "title": "Removing Digits"
   },
   "962": {
@@ -4857,7 +4857,7 @@
   },
   "971": {
     "difficulty": 16,
-    "solved_by": 189,
+    "solved_by": 190,
     "title": "Modular Polynomial Composition"
   },
   "972": {
@@ -4932,37 +4932,37 @@
   },
   "986": {
     "difficulty": null,
-    "solved_by": 104,
+    "solved_by": 105,
     "title": "Another Infinite Game"
   },
   "987": {
     "difficulty": null,
-    "solved_by": 142,
+    "solved_by": 143,
     "title": "Straight Eight"
   },
   "988": {
     "difficulty": null,
-    "solved_by": 157,
+    "solved_by": 158,
     "title": "Non-attacking Frogs"
   },
   "989": {
     "difficulty": null,
-    "solved_by": 89,
+    "solved_by": 90,
     "title": "Fibonacci Sum"
   },
   "990": {
     "difficulty": null,
-    "solved_by": 119,
+    "solved_by": 120,
     "title": "Addition Equations"
   },
   "991": {
     "difficulty": null,
-    "solved_by": 303,
+    "solved_by": 304,
     "title": "Fruit Salad"
   },
   "992": {
     "difficulty": null,
-    "solved_by": 149,
+    "solved_by": 150,
     "title": "Another Frog Jumping"
   },
   "993": {
@@ -4977,7 +4977,7 @@
   },
   "995": {
     "difficulty": null,
-    "solved_by": 76,
+    "solved_by": 77,
     "title": "A Particular Pair of Polynomials"
   }
 }
