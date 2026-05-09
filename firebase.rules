@@ -14,6 +14,10 @@ service cloud.firestore {
       ];
     }
 
+    function validNonNegativeNumber(v) {
+      return (v is int || v is float) && v >= 0;
+    }
+
     function validProblemDoc() {
       return request.resource.data.keys().hasOnly([
           'statusLabel', 'solvedCount', 'lastSolvedAt', 'difficulty'
@@ -29,6 +33,19 @@ service cloud.firestore {
           request.resource.data.lastSolvedAt == null
           || request.resource.data.lastSolvedAt is timestamp
         );
+    }
+
+    function validLeaderboardUserDoc(nameKey) {
+      return request.resource.data.keys().hasOnly([
+          'ownerUid', 'solverNameKey', 'solvedCount', 'score', 'updatedAt', 'createdAt'
+        ])
+        && request.resource.data.ownerUid == request.auth.uid
+        && request.resource.data.solverNameKey == nameKey
+        && request.resource.data.solvedCount is int
+        && request.resource.data.solvedCount >= 0
+        && validNonNegativeNumber(request.resource.data.score)
+        && request.resource.data.updatedAt is timestamp
+        && request.resource.data.createdAt is timestamp;
     }
 
     function ownsDisplayName(nameKey) {
@@ -73,10 +90,18 @@ service cloud.firestore {
       allow delete: if false;
     }
 
+    match /leaderboardUsers/{nameKey} {
+      allow read: if true;
+      allow create, update: if isSignedIn()
+        && ownsDisplayName(nameKey)
+        && validLeaderboardUserDoc(nameKey);
+      allow delete: if false;
+    }
+
     match /solveEvents/{eventId} {
       allow read: if true;
       allow create: if isSignedIn()
-        && request.resource.data.keys().hasOnly(['problemNumber', 'solvedAt', 'solverUid', 'solverName', 'solverNameKey'])
+        && request.resource.data.keys().hasOnly(['problemNumber', 'solvedAt', 'solverUid', 'solverName', 'solverNameKey', 'scoreValue'])
         && request.resource.data.problemNumber is int
         && request.resource.data.problemNumber >= 1
         && request.resource.data.solvedAt is timestamp
@@ -87,6 +112,10 @@ service cloud.firestore {
         && (
           !('solverName' in request.resource.data)
           || request.resource.data.solverName is string
+        )
+        && (
+          !('scoreValue' in request.resource.data)
+          || validNonNegativeNumber(request.resource.data.scoreValue)
         );
       allow update: if false;
       allow delete: if isSignedIn() && (

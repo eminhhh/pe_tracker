@@ -12,6 +12,7 @@ Simple shared tracker for Project Euler problems.
 - Filter by level range (`Min level`/`Max level`) and math branch (`All branches` or a specific branch)
 - Track `status`, `solvedCount`, and `lastSolvedAt`
 - Allow removing only your own solve logs
+- Read leaderboard rankings from per-user aggregate docs instead of every solve log
 - Read branch categories from `data/question_categories.jsonl` when available
 - Search by question number or text using `data/question_search_index.json`
 
@@ -38,6 +39,7 @@ UI note:
 ## Security notes (client-only auth)
 
 - `displayNames` allows document reads (`get`) but blocks collection listing (`list`) to reduce hash scraping risk.
+- `leaderboardUsers` stores aggregate `solvedCount` and `score` per display name so leaderboard reads scale with user count, not solve count.
 - Legacy users with unsalted `pinHash` are migrated to salted `pinHash` + `pinSalt` on next successful login.
 - This is still a client-only 4-digit PIN model; for stronger protection use backend-verified auth.
 
