@@ -70,7 +70,7 @@ service cloud.firestore {
     match /problems/{problemId} {
       allow read: if true;
       allow create, update: if isSignedIn() && validProblemDoc();
-      allow delete: if false;
+      allow delete: if isSignedIn();
     }
 
     match /solveEvents/{eventId} {

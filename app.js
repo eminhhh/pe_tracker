@@ -1405,16 +1405,20 @@ async function onPanelDeleteSolve() {
         nextStatus = "solved";
       }
 
-      tx.set(
-        ref,
-        {
-          solvedCount: nextCount,
-          statusLabel: nextStatus,
-          lastSolvedAt: nextCount === 0 ? null : (latestSolvedAt || null),
-          difficulty: deleteField(),
-        },
-        { merge: true }
-      );
+      if (nextCount === 0 && nextStatus === "unsolved" && snap.exists()) {
+        tx.delete(ref);
+      } else {
+        tx.set(
+          ref,
+          {
+            solvedCount: nextCount,
+            statusLabel: nextStatus,
+            lastSolvedAt: nextCount === 0 ? null : (latestSolvedAt || null),
+            difficulty: deleteField(),
+          },
+          { merge: true }
+        );
+      }
     });
 
     showOperationSuccess(`Removed one solve from #${number}.`);
