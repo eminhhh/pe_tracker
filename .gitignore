@@ -2,3 +2,9 @@ data/pe_data.html
 .env/*
 !.env/projecteuler.env.example
 !.env/projecteuler_server.env.example
+
+node_modules/
+.venv/
+__pycache__/
+firebase-debug.log
+firebase-debug.*.log

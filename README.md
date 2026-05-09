@@ -12,7 +12,8 @@ Simple shared tracker for Project Euler problems.
 - Filter by level range (`Min level`/`Max level`) and math branch (`All branches` or a specific branch)
 - Track `status`, `solvedCount`, and `lastSolvedAt`
 - Allow removing only your own solve logs
-- Read leaderboard rankings from per-user aggregate docs instead of every solve log
+- Read the group board from one realtime `publicStats/problemSummary` aggregate doc instead of all problem docs
+- Read leaderboard rankings from hourly server-updated per-user aggregate docs instead of every solve log
 - Read branch categories from `data/question_categories.jsonl` when available
 - Search by question number or text using `data/question_search_index.json`
 
@@ -39,7 +40,9 @@ UI note:
 ## Security notes (client-only auth)
 
 - `displayNames` allows document reads (`get`) but blocks collection listing (`list`) to reduce hash scraping risk.
+- `publicStats/problemSummary` stores group solved counts/statuses so the board reads one shared doc instead of every `problems` doc.
 - `leaderboardUsers` stores aggregate `solvedCount` and `score` per display name so leaderboard reads scale with user count, not solve count.
+- Browser clients cannot write `publicStats` or `leaderboardUsers`; Cloud Functions maintain them with the Firebase Admin SDK.
 - Legacy users with unsalted `pinHash` are migrated to salted `pinHash` + `pinSalt` on next successful login.
 - This is still a client-only 4-digit PIN model; for stronger protection use backend-verified auth.
 
@@ -64,6 +67,20 @@ Before using it, add repository secret:
 - `PE_PJ_COOKIE` -> value of your `__Host-PHPSESSID` cookie.
 
 At runtime, GitHub Actions writes this to `.env/projecteuler_server.env` and uses it for the refresh scripts.
+
+## Firestore aggregate functions
+
+Cloud Functions keep Firestore reads low:
+
+- `syncProblemSummaryOnSolveWrite` updates `publicStats/problemSummary` shortly after a solve is created or deleted.
+- `syncProblemSummaryOnProblemWrite` refreshes one summary entry when admin problem metadata changes.
+- `updateLeaderboardUsers` runs hourly and rebuilds `leaderboardUsers` from `solveEvents`; it also reconciles `publicStats/problemSummary`.
+
+Deploy after enabling Blaze and Cloud Scheduler:
+
+`firebase deploy --only firestore:rules,functions:updateLeaderboardUsers,functions:syncProblemSummaryOnSolveWrite,functions:syncProblemSummaryOnProblemWrite --project petracker-a65e6`
+
+After first deploy, run the scheduled function once from the Firebase/Google Cloud console or wait for the next hourly run so `publicStats/problemSummary` is created from existing data.
 
 ## Categorization prompt
 

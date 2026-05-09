@@ -10,6 +10,7 @@ import {
 import {
   collection,
   deleteField,
+  deleteDoc,
   doc,
   getDoc,
   getDocs,
@@ -21,7 +22,6 @@ import {
   setDoc,
   updateDoc,
   where,
-  writeBatch,
 } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -114,6 +114,7 @@ let currentUid = null;
 let currentDisplayName = "";
 let allProblems = new Map();
 let levelsByProblem = new Map();
+let statusByProblem = new Map();
 let titlesByProblem = new Map();
 let solvedByPeByProblem = new Map();
 let questionSearchByProblem = new Map();
@@ -123,24 +124,23 @@ let topicTagsByProblem = new Map();
 let currentFilter = "all";
 let activeProblemNumber = null;
 let listenersStarted = false;
-let unSubProblems = null;
+let unSubProblemSummary = null;
 let unSubMySolveEventsByNameKey = null;
-let unSubMySolveEventsByName = null;
 let unSubLeaderboardUsers = null;
 let opProgressTimer = null;
 let opHideTimer = null;
 let maxProblemNumber = DEFAULT_MAX_PROBLEM_NUMBER;
 let solvedByCurrentUser = new Set();
 let solvedByCurrentUserByNameKey = new Set();
-let solvedByCurrentUserByName = new Set();
 let leaderboardUsers = [];
 let leaderboardSort = "score";
 let activeView = "tracker";
 let autoResumeAttempted = false;
 let searchInputDebounceTimer = null;
 let loginInProgress = false;
-let hasReceivedProblemsSnapshot = false;
 let hasReceivedLeaderboardSnapshot = false;
+let hasLoadedStaticProblems = false;
+let hasReceivedProblemSummary = false;
 let hasInitializedLevelRange = false;
 
 boot();
@@ -303,13 +303,57 @@ async function loadLevelsData() {
     levelsByProblem = levelMap;
     titlesByProblem = titleMap;
     solvedByPeByProblem = solvedByMap;
+    rebuildStaticProblems();
     populateLevelFilterOptions(getAvailableLevels(levelsByProblem));
     renderGrid();
     renderLeaderboard();
     refreshPanelMeta();
   } catch (_error) {
     // Keep default level fallback when file is unavailable.
+    rebuildStaticProblems();
   }
+}
+
+function rebuildStaticProblems() {
+  const nextProblems = new Map();
+  for (let number = 1; number <= maxProblemNumber; number += 1) {
+    nextProblems.set(number, {
+      ...DEFAULT_PROBLEM,
+      statusLabel: statusByProblem.get(number) || defaultStatusForProblem(number),
+    });
+  }
+  allProblems = nextProblems;
+  hasLoadedStaticProblems = true;
+}
+
+function applyProblemSummary(summary) {
+  rebuildStaticProblems();
+  if (!summary || typeof summary !== "object") {
+    return;
+  }
+
+  const problems = summary.problems && typeof summary.problems === "object"
+    ? summary.problems
+    : {};
+  Object.entries(problems).forEach(([key, value]) => {
+    const number = Number(key);
+    if (!Number.isInteger(number) || number < 1 || !value || typeof value !== "object") {
+      return;
+    }
+
+    const existing = allProblems.get(number) || {
+      ...DEFAULT_PROBLEM,
+      statusLabel: defaultStatusForProblem(number),
+    };
+    const solvedCount = toNonNegativeInteger(value.solvedCount);
+    const statusLabel = normalizeStatus(value.statusLabel || existing.statusLabel);
+    allProblems.set(number, {
+      ...existing,
+      solvedCount,
+      statusLabel,
+      lastSolvedAt: value.lastSolvedAt || null,
+    });
+  });
 }
 
 async function loadQuestionSearchIndex() {
@@ -808,20 +852,18 @@ function startRealtimeListeners() {
     return;
   }
   listenersStarted = true;
-  hasReceivedProblemsSnapshot = false;
   hasReceivedLeaderboardSnapshot = false;
-  appStatus.textContent = "Loading problems from Firebase...";
+  hasReceivedProblemSummary = false;
+  rebuildStaticProblems();
+  appStatus.textContent = "Loading group tracker summary...";
   renderGrid();
   renderLeaderboard();
 
-  unSubProblems = onSnapshot(
-    collection(db, "problems"),
+  unSubProblemSummary = onSnapshot(
+    doc(db, "publicStats", "problemSummary"),
     (snapshot) => {
-      hasReceivedProblemsSnapshot = true;
-      allProblems = new Map();
-      snapshot.forEach((item) => {
-        allProblems.set(Number(item.id), item.data());
-      });
+      hasReceivedProblemSummary = true;
+      applyProblemSummary(snapshot.exists() ? snapshot.data() : null);
       appStatus.textContent = "";
       renderGrid();
       refreshPanelMeta();
@@ -842,25 +884,6 @@ function startRealtimeListeners() {
           }
         });
         solvedByCurrentUserByNameKey = solved;
-        rebuildSolvedByCurrentUser();
-        renderGrid();
-      },
-      handleError
-    );
-  }
-
-  if (currentDisplayName) {
-    unSubMySolveEventsByName = onSnapshot(
-      query(collection(db, "solveEvents"), where("solverName", "==", currentDisplayName)),
-      (snapshot) => {
-        const solved = new Set();
-        snapshot.forEach((item) => {
-          const number = Number(item.data().problemNumber);
-          if (Number.isInteger(number) && number > 0) {
-            solved.add(number);
-          }
-        });
-        solvedByCurrentUserByName = solved;
         rebuildSolvedByCurrentUser();
         renderGrid();
       },
@@ -897,17 +920,13 @@ function startLeaderboardListener() {
 }
 
 function stopRealtimeListeners() {
-  if (unSubProblems) {
-    unSubProblems();
-    unSubProblems = null;
+  if (unSubProblemSummary) {
+    unSubProblemSummary();
+    unSubProblemSummary = null;
   }
   if (unSubMySolveEventsByNameKey) {
     unSubMySolveEventsByNameKey();
     unSubMySolveEventsByNameKey = null;
-  }
-  if (unSubMySolveEventsByName) {
-    unSubMySolveEventsByName();
-    unSubMySolveEventsByName = null;
   }
   if (unSubLeaderboardUsers) {
     unSubLeaderboardUsers();
@@ -915,16 +934,15 @@ function stopRealtimeListeners() {
   }
   solvedByCurrentUser = new Set();
   solvedByCurrentUserByNameKey = new Set();
-  solvedByCurrentUserByName = new Set();
   leaderboardUsers = [];
-  hasReceivedProblemsSnapshot = false;
   hasReceivedLeaderboardSnapshot = false;
+  hasReceivedProblemSummary = false;
   listenersStarted = false;
   renderLeaderboard();
 }
 
 function renderGrid() {
-  if (!hasReceivedProblemsSnapshot) {
+  if (!hasLoadedStaticProblems) {
     const counts = {
       all: 0,
       "my-solves": 0,
@@ -935,7 +953,7 @@ function renderGrid() {
     };
     updateFilterButtonCounts(counts);
     updateBranchOptionLabels(0, new Map());
-    problemGrid.innerHTML = '<p class="status">Loading problems from Firebase...</p>';
+    problemGrid.innerHTML = '<p class="status">Loading problem data...</p>';
     return;
   }
 
@@ -1399,43 +1417,6 @@ function getProblemLeaderboardScore(number) {
     : 0;
 }
 
-function getSolveEventLeaderboardScore(solveDoc, number) {
-  const data = solveDoc.data();
-  if (Object.prototype.hasOwnProperty.call(data, "scoreValue")) {
-    return Math.max(toNonNegativeNumber(data.scoreValue), getProblemLeaderboardScore(number));
-  }
-  return getProblemLeaderboardScore(number);
-}
-
-function setLeaderboardUserStats(
-  tx,
-  leaderboardRef,
-  leaderboardSnap,
-  solverNameKey,
-  solvedCountDelta,
-  scoreDelta
-) {
-  const current = leaderboardSnap.exists() ? leaderboardSnap.data() : {};
-  const nextSolvedCount = Math.max(0, toNonNegativeInteger(current.solvedCount) + solvedCountDelta);
-  const nextScore = nextSolvedCount === 0
-    ? 0
-    : Math.max(0, toNonNegativeNumber(current.score) + scoreDelta);
-  const existingCreatedAt = leaderboardSnap.exists() ? current.createdAt : null;
-
-  tx.set(
-    leaderboardRef,
-    {
-      ownerUid: currentUid,
-      solverNameKey,
-      solvedCount: nextSolvedCount,
-      score: nextScore,
-      updatedAt: serverTimestamp(),
-      createdAt: existingCreatedAt || serverTimestamp(),
-    },
-    { merge: true }
-  );
-}
-
 function getCurrentLeaderboardKeys() {
   const keys = new Set();
   const nameKey = normalizeDisplayName(currentDisplayName);
@@ -1536,8 +1517,9 @@ async function onPanelSave() {
   showOperationLoading(`Updating label for #${number}...`);
   try {
     await updateDoc(doc(db, "problems", String(number)), { statusLabel, difficulty: deleteField() });
+    updateProblemStatusLocally(number, statusLabel);
     showOperationSuccess(`Status updated for #${number}.`);
-    appStatus.textContent = `Status updated for #${number}.`;
+    appStatus.textContent = "Status saved. The group summary will refresh shortly.";
   } catch (_error) {
     try {
       await setDoc(
@@ -1548,8 +1530,9 @@ async function onPanelSave() {
         },
         { merge: true }
       );
+      updateProblemStatusLocally(number, statusLabel);
       showOperationSuccess(`Status saved for #${number}.`);
-      appStatus.textContent = `Status created for #${number}.`;
+      appStatus.textContent = "Status saved. The group summary will refresh shortly.";
     } catch (error) {
       showOperationError(`Status update failed for #${number}.`);
       appStatus.textContent = `Status update failed: ${formatErrorMessage(error)}`;
@@ -1557,6 +1540,14 @@ async function onPanelSave() {
   } finally {
     setPanelBusy(false);
   }
+}
+
+function updateProblemStatusLocally(number, statusLabel) {
+  statusByProblem.set(number, statusLabel);
+  const current = allProblems.get(number) || DEFAULT_PROBLEM;
+  allProblems.set(number, { ...current, statusLabel });
+  renderGrid();
+  refreshPanelMeta();
 }
 
 async function onPanelSolve() {
@@ -1585,30 +1576,13 @@ async function onPanelSolve() {
     }
     const eventId = buildSolveEventId(number, solverNameKey);
     const eventRef = doc(db, "solveEvents", eventId);
-    const leaderboardRef = doc(db, "leaderboardUsers", solverNameKey);
     const scoreValue = getProblemLeaderboardScore(number);
 
     await runTransaction(db, async (tx) => {
-      const problemRef = doc(db, "problems", String(number));
       const existingSolveRef = await tx.get(eventRef);
       if (existingSolveRef.exists()) {
         throw new Error("You already marked this problem solved.");
       }
-      const snap = await tx.get(problemRef);
-      const leaderboardSnap = await tx.get(leaderboardRef);
-      const current = snap.exists() ? snap.data() : DEFAULT_PROBLEM;
-      const nextCount = Number(current.solvedCount || 0) + 1;
-
-      tx.set(
-        problemRef,
-        {
-          solvedCount: nextCount,
-          statusLabel: "solved",
-          lastSolvedAt: serverTimestamp(),
-          difficulty: deleteField(),
-        },
-        { merge: true }
-      );
       tx.set(eventRef, {
         problemNumber: number,
         solvedAt: serverTimestamp(),
@@ -1617,7 +1591,6 @@ async function onPanelSolve() {
         solverNameKey,
         scoreValue,
       });
-      setLeaderboardUserStats(tx, leaderboardRef, leaderboardSnap, solverNameKey, 1, scoreValue);
     });
 
     markProblemSolvedByCurrentUser(number);
@@ -1647,83 +1620,14 @@ async function onPanelDeleteSolve() {
     const ownDocs = await getOwnSolveDocs(number, currentNameKey);
 
     if (!ownDocs.length) {
-      const allEventsQuery = query(
-        collection(db, "solveEvents"),
-        where("problemNumber", "==", number)
-      );
-      const allEventsSnapshot = await getDocs(allEventsQuery);
-      const hasLegacyEvents = allEventsSnapshot.docs.some(
-        (item) => typeof item.data().solverUid !== "string" || !item.data().solverUid
-      );
-
-      if (hasLegacyEvents) {
-        showOperationError("This problem only has legacy solves without owner info.");
-        appStatus.textContent = `Legacy solves on #${number} cannot be deleted per-user.`;
-      } else {
-        showOperationError("You have no solve to remove for this problem.");
-        appStatus.textContent = `No personal solve found for #${number}.`;
-      }
+      showOperationError("You have no solve to remove for this problem.");
+      appStatus.textContent = `No personal solve found for #${number}.`;
       return;
     }
 
     const deletingSolveDoc = ownDocs[0];
-    const deletingSolveScore = getSolveEventLeaderboardScore(deletingSolveDoc, number);
 
-    const allEventsQuery = query(
-      collection(db, "solveEvents"),
-      where("problemNumber", "==", number)
-    );
-    const allEventsSnapshot = await getDocs(allEventsQuery);
-    const allDocs = [...allEventsSnapshot.docs]
-      .filter((item) => item.id !== deletingSolveDoc.id)
-      .sort((a, b) => {
-        const aTs = toMillis(a.data().solvedAt);
-        const bTs = toMillis(b.data().solvedAt);
-        return bTs - aTs;
-      });
-    const latestSolvedAt = allDocs.length > 0 ? allDocs[0].data().solvedAt : null;
-
-    await runTransaction(db, async (tx) => {
-      const ref = doc(db, "problems", String(number));
-      const snap = await tx.get(ref);
-      const leaderboardRef = doc(db, "leaderboardUsers", currentNameKey);
-      const leaderboardSnap = await tx.get(leaderboardRef);
-      const current = snap.exists() ? snap.data() : DEFAULT_PROBLEM;
-      const currentCount = Number(current.solvedCount || 0);
-      const nextCount = Math.max(0, currentCount - 1);
-      const currentStatus = normalizeStatus(current.statusLabel);
-
-      let nextStatus = currentStatus;
-      if (nextCount === 0 && currentStatus === "solved") {
-        nextStatus = "unsolved";
-      }
-      if (
-        nextCount > 0
-        && currentStatus === "unsolved"
-      ) {
-        nextStatus = "solved";
-      }
-
-      tx.set(
-        ref,
-        {
-          solvedCount: nextCount,
-          statusLabel: nextStatus,
-          lastSolvedAt: nextCount === 0 ? null : (latestSolvedAt || null),
-          difficulty: deleteField(),
-        },
-        { merge: true }
-      );
-      tx.delete(deletingSolveDoc.ref);
-      setLeaderboardUserStats(
-        tx,
-        leaderboardRef,
-        leaderboardSnap,
-        currentNameKey,
-        -1,
-        -deletingSolveScore
-      );
-    });
+    await deleteDoc(deletingSolveDoc.ref);
 
     if (ownDocs.length === 1) {
       unmarkProblemSolvedByCurrentUser(number);
@@ -1751,43 +1655,6 @@ function toMillis(value) {
   const date = value.toDate ? value.toDate() : new Date(value);
   const ms = date.getTime();
   return Number.isFinite(ms) ? ms : 0;
-}
-
-async function seedProblems() {
-  try {
-    appStatus.textContent = "Checking existing problems...";
-    const snapshot = await getDocs(collection(db, "problems"));
-    const existing = new Set(snapshot.docs.map((d) => Number(d.id)));
-
-    let created = 0;
-    let batch = writeBatch(db);
-    let opCount = 0;
-
-    for (let number = 1; number <= maxProblemNumber; number += 1) {
-      if (existing.has(number)) {
-        continue;
-      }
-
-      const ref = doc(db, "problems", String(number));
-      batch.set(ref, { ...DEFAULT_PROBLEM });
-      created += 1;
-      opCount += 1;
-
-      if (opCount === 450) {
-        await batch.commit();
-        batch = writeBatch(db);
-        opCount = 0;
-      }
-    }
-
-    if (opCount > 0) {
-      await batch.commit();
-    }
-
-    appStatus.textContent = `Seed complete. Created ${created} missing problems.`;
-  } catch (error) {
-    appStatus.textContent = `Seed failed: ${error.message}`;
-  }
 }
 
 async function onLogout() {
@@ -1995,9 +1862,6 @@ function rebuildSolvedByCurrentUser() {
   solvedByCurrentUserByNameKey.forEach((number) => {
     merged.add(number);
   });
-  solvedByCurrentUserByName.forEach((number) => {
-    merged.add(number);
-  });
   solvedByCurrentUser = merged;
 }
 
@@ -2009,9 +1873,6 @@ function markProblemSolvedByCurrentUser(number) {
   if (nameKey) {
     solvedByCurrentUserByNameKey.add(number);
   }
-  if (currentDisplayName) {
-    solvedByCurrentUserByName.add(number);
-  }
   rebuildSolvedByCurrentUser();
 }
 
@@ -2020,7 +1881,6 @@ function unmarkProblemSolvedByCurrentUser(number) {
     return;
   }
   solvedByCurrentUserByNameKey.delete(number);
-  solvedByCurrentUserByName.delete(number);
   rebuildSolvedByCurrentUser();
 }
 

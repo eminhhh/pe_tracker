@@ -35,19 +35,6 @@ service cloud.firestore {
         );
     }
 
-    function validLeaderboardUserDoc(nameKey) {
-      return request.resource.data.keys().hasOnly([
-          'ownerUid', 'solverNameKey', 'solvedCount', 'score', 'updatedAt', 'createdAt'
-        ])
-        && request.resource.data.ownerUid == request.auth.uid
-        && request.resource.data.solverNameKey == nameKey
-        && request.resource.data.solvedCount is int
-        && request.resource.data.solvedCount >= 0
-        && validNonNegativeNumber(request.resource.data.score)
-        && request.resource.data.updatedAt is timestamp
-        && request.resource.data.createdAt is timestamp;
-    }
-
     function ownsDisplayName(nameKey) {
       return nameKey is string
         && exists(/databases/$(database)/documents/displayNames/$(nameKey))
@@ -92,10 +79,12 @@ service cloud.firestore {
 
     match /leaderboardUsers/{nameKey} {
       allow read: if true;
-      allow create, update: if isSignedIn()
-        && ownsDisplayName(nameKey)
-        && validLeaderboardUserDoc(nameKey);
-      allow delete: if false;
+      allow create, update, delete: if false;
+    }
+
+    match /publicStats/{statsId} {
+      allow read: if true;
+      allow create, update, delete: if false;
     }
 
     match /solveEvents/{eventId} {
