@@ -14,8 +14,9 @@ import {
   doc,
   getDoc,
   getDocs,
-  getFirestore,
+  initializeFirestore,
   onSnapshot,
+  persistentLocalCache,
   query,
   runTransaction,
   serverTimestamp,
@@ -56,7 +57,7 @@ const PIN_HASH_ITERATIONS = 120000;
 const PIN_SALT_BYTES = 16;
 
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+const db = initializeFirestore(app, { localCache: persistentLocalCache({}) });
 const auth = getAuth(app);
 
 const loginCard = document.getElementById("loginCard");
