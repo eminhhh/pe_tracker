@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "generated_at_utc": "2026-05-10 01:46",
-    "questions_count": 995,
+    "generated_at_utc": "2026-05-11 01:53",
+    "questions_count": 996,
     "source_questions_dir": "data/questions",
     "source_categories": "data/question_categories.jsonl"
   },
@@ -2989,5 +2989,8 @@
   },
   "995": {
     "search_text": "a particular pair of polynomials problem 995 a particular pair of polynomials source https projecteuler net minimal 995 for each prime p and each positive integer n define two polynomials begin align f p x sum i 0 p 1 x i g n x 1 sum d mid n x d end align let s p be the smallest positive integer s such that f p x divides g s x for example s 2 1 as f 2 x g 1 x also s 5 8 because f 5 x cdot x 4 x 3 1 g 8 x define t m to be the product of s p over all primes p lt m you are given that t 20 1348422598656 and t 100 approx 1 37451 text e 123 find t 20 000 giving your answer in scientific notation rounded to five significant digits after the decimal point use a lowercase e to separate the mantissa and the exponent"
+  },
+  "996": {
+    "search_text": "overtakes problem 996 overtakes source https projecteuler net minimal 996 there are n tennis players on a leader board from rank 1 highest to rank n lowest every day a match is held between a pair of players with adjacent ranks when the higher rank player wins nothing happens otherwise their ranks are exchanged and we call that match an overtake by the winning player after k days the players find that all of them are back to their initial ranks they then count the number of overtakes by each player here is an example with 3 players named a b c from highest to lowest initial rank matchwinnerloserrank 1 2 3 after matchovertake counts a b c 1 c b a c b 0 0 1 2 c b a c b 0 0 1 3 c a c a b 0 0 2 4 a b c a b 0 0 2 5 a c a c b 1 0 2 6 b c a b c 1 1 2 the matches marked with are overtakes after 6 days all players are back to initial ranks with overtake counts 1 1 2 let f n k be the number of possible n tuples of overtake counts after k days assuming that all players are back to initial ranks you are given f 3 4 8 and f 12 34 2457178250 find f 123 4567891 bmod 1234567891"
   }
 }
