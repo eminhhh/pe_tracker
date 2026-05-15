@@ -88,6 +88,8 @@ const metaTags = document.getElementById("metaTags");
 const metaSolvedBy = document.getElementById("metaSolvedBy");
 const metaSolvedCount = document.getElementById("metaSolvedCount");
 const metaLastSolved = document.getElementById("metaLastSolved");
+const metaMySolve = document.getElementById("metaMySolve");
+const metaMySolveRow = document.getElementById("metaMySolveRow");
 const statusEditor = document.getElementById("statusEditor");
 const panelStatusSelect = document.getElementById("panelStatusSelect");
 const panelSaveBtn = document.getElementById("panelSaveBtn");
@@ -125,6 +127,9 @@ let maxProblemNumber = DEFAULT_MAX_PROBLEM_NUMBER;
 let solvedByCurrentUser = new Set();
 let solvedByCurrentUserByNameKey = new Set();
 let solvedByCurrentUserByName = new Set();
+let mySolveTimestampsByNameKey = new Map();
+let mySolveTimestampsByName = new Map();
+let mySolveTimestamps = new Map();
 let autoResumeAttempted = false;
 let searchInputDebounceTimer = null;
 let loginInProgress = false;
@@ -814,15 +819,22 @@ function startRealtimeListeners() {
       query(collection(db, "solveEvents"), where("solverNameKey", "==", currentNameKey)),
       (snapshot) => {
         const solved = new Set();
+        const timestamps = new Map();
         snapshot.forEach((item) => {
-          const number = Number(item.data().problemNumber);
+          const d = item.data();
+          const number = Number(d.problemNumber);
           if (Number.isInteger(number) && number > 0) {
             solved.add(number);
+            if (d.solvedAt) {
+              timestamps.set(number, d.solvedAt);
+            }
           }
         });
         solvedByCurrentUserByNameKey = solved;
+        mySolveTimestampsByNameKey = timestamps;
         rebuildSolvedByCurrentUser();
         renderGrid();
+        refreshPanelMeta();
       },
       handleError
     );
@@ -833,15 +845,22 @@ function startRealtimeListeners() {
       query(collection(db, "solveEvents"), where("solverName", "==", currentDisplayName)),
       (snapshot) => {
         const solved = new Set();
+        const timestamps = new Map();
         snapshot.forEach((item) => {
-          const number = Number(item.data().problemNumber);
+          const d = item.data();
+          const number = Number(d.problemNumber);
           if (Number.isInteger(number) && number > 0) {
             solved.add(number);
+            if (d.solvedAt) {
+              timestamps.set(number, d.solvedAt);
+            }
           }
         });
         solvedByCurrentUserByName = solved;
+        mySolveTimestampsByName = timestamps;
         rebuildSolvedByCurrentUser();
         renderGrid();
+        refreshPanelMeta();
       },
       handleError
     );
@@ -865,6 +884,9 @@ function stopRealtimeListeners() {
   solvedByCurrentUser = new Set();
   solvedByCurrentUserByNameKey = new Set();
   solvedByCurrentUserByName = new Set();
+  mySolveTimestampsByNameKey = new Map();
+  mySolveTimestampsByName = new Map();
+  mySolveTimestamps = new Map();
   hasReceivedProblemsSnapshot = false;
   listenersStarted = false;
 }
@@ -1150,6 +1172,18 @@ function renderPanelMeta(number, data) {
   }
   metaSolvedCount.textContent = String(Number(data.solvedCount || 0));
   metaLastSolved.textContent = formatTimestamp(data.lastSolvedAt);
+
+  const mySolveTs = mySolveTimestamps.get(number) || null;
+  if (mySolveTs && solvedByCurrentUser.has(number)) {
+    metaMySolve.textContent = formatTimestamp(mySolveTs);
+    metaMySolveRow.style.display = "";
+  } else if (solvedByCurrentUser.has(number)) {
+    metaMySolve.textContent = "Yes";
+    metaMySolveRow.style.display = "";
+  } else {
+    metaMySolve.textContent = "-";
+    metaMySolveRow.style.display = "none";
+  }
 }
 
 function formatTagLabel(tag) {
@@ -1643,13 +1677,27 @@ function canDeleteOwnSolveForActiveProblem() {
 
 function rebuildSolvedByCurrentUser() {
   const merged = new Set();
+  const mergedTs = new Map();
   solvedByCurrentUserByNameKey.forEach((number) => {
     merged.add(number);
   });
   solvedByCurrentUserByName.forEach((number) => {
     merged.add(number);
   });
+  mySolveTimestampsByNameKey.forEach((ts, number) => {
+    const existing = mergedTs.get(number);
+    if (!existing || toMillis(ts) > toMillis(existing)) {
+      mergedTs.set(number, ts);
+    }
+  });
+  mySolveTimestampsByName.forEach((ts, number) => {
+    const existing = mergedTs.get(number);
+    if (!existing || toMillis(ts) > toMillis(existing)) {
+      mergedTs.set(number, ts);
+    }
+  });
   solvedByCurrentUser = merged;
+  mySolveTimestamps = mergedTs;
 }
 
 function markProblemSolvedByCurrentUser(number) {
