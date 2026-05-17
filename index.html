@@ -27,6 +27,7 @@
       <button id="themeToggleBtn" type="button" class="ghost theme-toggle">Dark mode</button>
       <button id="logoutBtn" type="button" class="secondary hidden">Log out</button>
       <h1>Project Euler Tracker</h1>
+      <p id="welcomeMsg" class="welcome-msg hidden"></p>
     </header>
 
     <section class="card login-card" id="loginCard">
@@ -79,6 +80,13 @@
             <button class="filter-btn" data-filter="unsolved" type="button">Unsolved</button>
             <button class="filter-btn" data-filter="assignment" type="button">Assignment</button>
             <button class="filter-btn" data-filter="solved in lecture" type="button">Class</button>
+          </div>
+
+          <div id="sortBar" class="sort-bar">
+            <span class="sort-bar-label">Sort:</span>
+            <button class="sort-btn active" data-sort="number" type="button">Number <span class="sort-arrow">▲</span></button>
+            <button class="sort-btn" data-sort="difficulty" type="button">Difficulty <span class="sort-arrow">↕</span></button>
+            <button class="sort-btn" data-sort="total-solves" type="button">Solve (in PE) <span class="sort-arrow">↕</span></button>
           </div>
         </div>
       </section>
@@ -162,6 +170,10 @@
 
       <p class="status" id="appStatus"></p>
     </main>
+
+    <footer class="app-footer hidden" id="appFooter">
+      <p id="dataUpdatedAt"></p>
+    </footer>
   </div>
 
   <script type="module" src="app.js?v=__ASSET_VERSION__"></script>

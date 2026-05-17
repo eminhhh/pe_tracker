@@ -60,6 +60,17 @@ body::before {
   gap: 0;
 }
 
+.app-footer {
+  text-align: center;
+  padding: 0.8rem 1rem 0.4rem;
+}
+
+.app-footer p {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
 .top {
   position: relative;
   text-align: center;
@@ -103,6 +114,12 @@ body::before {
 .top p {
   margin: 0.4rem 0 0;
   color: var(--muted);
+}
+
+.welcome-msg {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--muted-strong);
 }
 
 .card {
@@ -301,6 +318,54 @@ button.danger {
   background: #f4c489;
   color: #4a2d0f;
   border-color: #d9913b;
+}
+
+.sort-bar {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+}
+
+.sort-bar-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin-right: 0.15rem;
+}
+
+.sort-btn {
+  background: #fff;
+  color: var(--muted-strong);
+  border: 1px solid var(--line);
+  padding: 0.34rem 0.65rem;
+  border-radius: 9px;
+  font-size: 0.88rem;
+  min-height: 36px;
+}
+
+.sort-btn.active {
+  background: #c5e4d7;
+  color: #174d33;
+  border-color: #3ea87a;
+}
+
+.sort-arrow {
+  display: inline-block;
+  font-size: 0.72rem;
+  margin-left: 0.15rem;
+  min-width: 0.8em;
+  vertical-align: middle;
+  position: relative;
+  top: -0.08em;
+  opacity: 0.4;
+  transition: opacity 0.15s ease;
+}
+
+.sort-btn.active .sort-arrow {
+  opacity: 0.85;
 }
 
 .controls-inline {
@@ -609,6 +674,7 @@ thead th {
 :root.theme-ready select,
 :root.theme-ready button,
 :root.theme-ready .filter-btn,
+:root.theme-ready .sort-btn,
 :root.theme-ready .op-feedback,
 :root.theme-ready .panel-backdrop {
   transition: background-color 0.24s ease, border-color 0.24s ease, color 0.24s ease, box-shadow 0.24s ease;
@@ -628,6 +694,7 @@ thead th {
   :root.theme-ready select,
   :root.theme-ready button,
   :root.theme-ready .filter-btn,
+  :root.theme-ready .sort-btn,
   :root.theme-ready .op-feedback,
   :root.theme-ready .panel-backdrop,
   :root.theme-ready .tile,
@@ -652,6 +719,22 @@ thead th {
   background: #d7a06a;
   border-color: #b67d43;
   color: #2f1c0b;
+}
+
+:root[data-theme="dark"] .sort-btn {
+  background: #202f40;
+  color: var(--muted-strong);
+  border-color: var(--line);
+}
+
+:root[data-theme="dark"] .sort-btn.active {
+  background: #2a5e48;
+  border-color: #4bb88a;
+  color: #d0f0e0;
+}
+
+:root[data-theme="dark"] .sort-bar-label {
+  color: var(--muted);
 }
 
 :root[data-theme="dark"] button.secondary,
@@ -834,6 +917,22 @@ select:focus-visible,
     min-height: 42px;
   }
 
+  .sort-bar {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+
+  .sort-bar-label {
+    display: none;
+  }
+
+  .sort-btn {
+    width: 100%;
+    min-height: 38px;
+  }
+
   .problem-panel {
     width: calc(100vw - 16px);
     max-height: calc(100vh - 16px);
@@ -857,6 +956,13 @@ select:focus-visible,
     width: 100%;
     padding: 0;
     margin-top: 0.1rem;
+  }
+
+  .top .welcome-msg {
+    order: 3;
+    width: 100%;
+    text-align: center;
+    margin-top: 0;
   }
 
   .top #logoutBtn {

@@ -74,8 +74,10 @@ const minLevelSelect = document.getElementById("minLevelSelect");
 const maxLevelSelect = document.getElementById("maxLevelSelect");
 const branchSelect = document.getElementById("branchSelect");
 const filterBar = document.getElementById("filterBar");
+const sortBar = document.getElementById("sortBar");
 const problemGrid = document.getElementById("problemGrid");
 const logoutBtn = document.getElementById("logoutBtn");
+const welcomeMsg = document.getElementById("welcomeMsg");
 
 const panelBackdrop = document.getElementById("panelBackdrop");
 const problemPanel = document.getElementById("problemPanel");
@@ -99,6 +101,8 @@ const panelCloseBtn = document.getElementById("panelCloseBtn");
 const opFeedback = document.getElementById("opFeedback");
 const opMessage = document.getElementById("opMessage");
 const opProgressBar = document.getElementById("opProgressBar");
+const dataUpdatedAt = document.getElementById("dataUpdatedAt");
+const appFooter = document.getElementById("appFooter");
 
 const rememberedDisplayNameKey = "pe_tracker_display_name";
 const explicitLogoutKey = "pe_tracker_explicit_logout";
@@ -116,6 +120,8 @@ let branchesByProblem = new Map();
 let confidenceByProblem = new Map();
 let topicTagsByProblem = new Map();
 let currentFilter = "all";
+let currentSort = "number";
+let currentSortDirection = "asc";
 let activeProblemNumber = null;
 let listenersStarted = false;
 let unSubProblems = null;
@@ -178,6 +184,7 @@ function boot() {
   populateLevelFilterOptions(buildInclusiveRange(DEFAULT_MIN_LEVEL, DEFAULT_MAX_LEVEL));
   populateBranchFilterOptions([]);
   filterBar.addEventListener("click", onFilterClick);
+  sortBar.addEventListener("click", onSortClick);
   problemGrid.addEventListener("click", onGridClick);
   panelSaveBtn.addEventListener("click", onPanelSave);
   panelSolveBtn.addEventListener("click", onPanelSolve);
@@ -293,6 +300,12 @@ async function loadLevelsData() {
     levelsByProblem = levelMap;
     titlesByProblem = titleMap;
     solvedByPeByProblem = solvedByMap;
+
+    const lastUpdated = typeof meta?.last_updated_utc === "string" ? meta.last_updated_utc.trim() : "";
+    if (lastUpdated && dataUpdatedAt) {
+      dataUpdatedAt.textContent = `Problem data sourced from Project Euler \u00b7 Last synced ${lastUpdated} UTC`;
+    }
+
     populateLevelFilterOptions(getAvailableLevels(levelsByProblem));
     renderGrid();
     refreshPanelMeta();
@@ -787,6 +800,9 @@ function showMainApp() {
   loginCard.classList.add("hidden");
   mainApp.classList.remove("hidden");
   logoutBtn.classList.remove("hidden");
+  welcomeMsg.textContent = `Signed in as ${currentDisplayName}`;
+  welcomeMsg.classList.remove("hidden");
+  appFooter.classList.remove("hidden");
 }
 
 function startRealtimeListeners() {
@@ -913,7 +929,7 @@ function renderGrid() {
   const selectedBranch = branchSelect.value;
   const selectedSpecificBranch = selectedBranch && selectedBranch !== "all";
   const [minLevel, maxLevel] = normalizeLevelRange(selectedMinLevel, selectedMaxLevel);
-  const tiles = [];
+  const filteredItems = [];
   let allBranchesCount = 0;
   const branchCounts = new Map();
   const counts = {
@@ -965,8 +981,36 @@ function renderGrid() {
     if (currentFilter !== "all" && currentFilter !== "my-solves" && status !== currentFilter) {
       continue;
     }
-    tiles.push(tileTemplate(number, data, selectedBranch));
+    filteredItems.push({ number, data });
   }
+
+  const sortDir = currentSortDirection === "desc" ? -1 : 1;
+
+  if (currentSort === "number") {
+    filteredItems.sort((a, b) => sortDir * (a.number - b.number));
+  } else if (currentSort === "difficulty") {
+    filteredItems.sort((a, b) => {
+      const da = levelsByProblem.has(a.number) ? levelsByProblem.get(a.number) : null;
+      const db = levelsByProblem.has(b.number) ? levelsByProblem.get(b.number) : null;
+      if (da === null && db === null) return a.number - b.number;
+      if (da === null) return 1;
+      if (db === null) return -1;
+      if (da !== db) return sortDir * (da - db);
+      return a.number - b.number;
+    });
+  } else if (currentSort === "total-solves") {
+    filteredItems.sort((a, b) => {
+      const sa = solvedByPeByProblem.has(a.number) ? solvedByPeByProblem.get(a.number) : null;
+      const sb = solvedByPeByProblem.has(b.number) ? solvedByPeByProblem.get(b.number) : null;
+      if (sa === null && sb === null) return a.number - b.number;
+      if (sa === null) return 1;
+      if (sb === null) return -1;
+      if (sa !== sb) return sortDir * (sa - sb);
+      return a.number - b.number;
+    });
+  }
+
+  const tiles = filteredItems.map((item) => tileTemplate(item.number, item.data, selectedBranch));
 
   updateFilterButtonCounts(counts);
   updateBranchOptionLabels(allBranchesCount, branchCounts);
@@ -1090,6 +1134,38 @@ function onFilterClick(event) {
   filterBar.querySelectorAll(".filter-btn").forEach((btn) => {
     if (btn instanceof HTMLButtonElement) {
       btn.classList.toggle("active", btn.dataset.filter === nextFilter);
+    }
+  });
+
+  renderGrid();
+}
+
+function onSortClick(event) {
+  const target = event.target.closest(".sort-btn");
+  if (!(target instanceof HTMLButtonElement)) {
+    return;
+  }
+  const nextSort = target.dataset.sort;
+  if (!nextSort) {
+    return;
+  }
+
+  if (currentSort === nextSort) {
+    currentSortDirection = currentSortDirection === "asc" ? "desc" : "asc";
+  } else {
+    currentSort = nextSort;
+    currentSortDirection = "asc";
+  }
+
+  const arrowChar = currentSortDirection === "asc" ? "▲" : "▼";
+  sortBar.querySelectorAll(".sort-btn").forEach((btn) => {
+    if (btn instanceof HTMLButtonElement) {
+      const isActive = btn.dataset.sort === currentSort;
+      btn.classList.toggle("active", isActive);
+      const arrow = btn.querySelector(".sort-arrow");
+      if (arrow) {
+        arrow.textContent = isActive ? arrowChar : "↕";
+      }
     }
   });
 
@@ -1528,6 +1604,8 @@ async function onLogout() {
     mainApp.classList.add("hidden");
     loginCard.classList.remove("hidden");
     logoutBtn.classList.add("hidden");
+    welcomeMsg.classList.add("hidden");
+    appFooter.classList.add("hidden");
     displayNameInput.value = "";
     pinInput.value = "";
     loginStatus.textContent = "Signed out.";
