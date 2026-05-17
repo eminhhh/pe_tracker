@@ -139,6 +139,67 @@ body::before {
   border-radius: 14px;
 }
 
+.login-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 0.85rem 0 0.6rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.login-divider::before,
+.login-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+.guest-login-btn {
+  width: 100%;
+  min-height: 46px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  background: var(--surface-1);
+  border: 1.5px dashed var(--line);
+  color: var(--muted-strong);
+  cursor: pointer;
+  transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease, transform 0.12s ease;
+}
+
+.guest-login-btn:hover {
+  background: var(--surface-2);
+  border-color: var(--muted);
+  color: var(--ink);
+  transform: translateY(-1px);
+}
+
+.guest-hint {
+  text-align: center;
+  margin: 0.45rem 0 0;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.guest-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.18rem 0.55rem;
+  border-radius: 6px;
+  background: var(--status-assignment-bg);
+  border: 1px solid var(--status-assignment-border);
+  color: var(--status-assignment-text);
+  vertical-align: middle;
+  margin-left: 0.4rem;
+}
+
 h2,
 h3 {
   margin: 0 0 0.7rem;
@@ -304,6 +365,8 @@ button.danger {
   display: flex;
   gap: 0.45rem;
   flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
 }
 
 .filter-btn {

@@ -66,6 +66,7 @@ const loginStatus = document.getElementById("loginStatus");
 const displayNameInput = document.getElementById("displayName");
 const pinInput = document.getElementById("pin");
 const themeToggleBtn = document.getElementById("themeToggleBtn");
+const guestLoginBtn = document.getElementById("guestLoginBtn");
 
 const mainApp = document.getElementById("mainApp");
 const appStatus = document.getElementById("appStatus");
@@ -139,6 +140,7 @@ let mySolveTimestamps = new Map();
 let autoResumeAttempted = false;
 let searchInputDebounceTimer = null;
 let loginInProgress = false;
+let isGuestMode = false;
 let hasReceivedProblemsSnapshot = false;
 let hasInitializedLevelRange = false;
 
@@ -172,6 +174,7 @@ function boot() {
   loginForm.addEventListener("submit", onLoginSubmit);
   displayNameInput.addEventListener("input", onDisplayNameInputChange);
   themeToggleBtn.addEventListener("click", onThemeToggle);
+  guestLoginBtn.addEventListener("click", enterGuestMode);
   restoreThemePreference();
   requestAnimationFrame(() => {
     document.documentElement.classList.add("theme-ready");
@@ -796,13 +799,40 @@ async function tryAutoResumeLogin() {
   }
 }
 
+function enterGuestMode() {
+  isGuestMode = true;
+  currentDisplayName = "";
+  showMainApp();
+  startRealtimeListeners();
+  loginStatus.textContent = "";
+}
+
 function showMainApp() {
   loginCard.classList.add("hidden");
   mainApp.classList.remove("hidden");
   logoutBtn.classList.remove("hidden");
-  welcomeMsg.textContent = `Signed in as ${currentDisplayName}`;
-  welcomeMsg.classList.remove("hidden");
   appFooter.classList.remove("hidden");
+
+  if (isGuestMode) {
+    logoutBtn.textContent = "Exit Guest";
+    welcomeMsg.innerHTML = 'Read only — <a href="#" id="guestLoginLink" style="color:inherit;text-decoration:underline">Log in</a> to track your solves';
+    const guestLoginLink = document.getElementById("guestLoginLink");
+    if (guestLoginLink) {
+      guestLoginLink.addEventListener("click", (e) => { e.preventDefault(); onLogout(); });
+    }
+    const mySolvesBtn = filterBar.querySelector('[data-filter="my-solves"]');
+    if (mySolvesBtn) {
+      mySolvesBtn.classList.add("hidden");
+    }
+  } else {
+    logoutBtn.textContent = "Log out";
+    welcomeMsg.textContent = `Signed in as ${currentDisplayName}`;
+    const mySolvesBtn = filterBar.querySelector('[data-filter="my-solves"]');
+    if (mySolvesBtn) {
+      mySolvesBtn.classList.remove("hidden");
+    }
+  }
+  welcomeMsg.classList.remove("hidden");
 }
 
 function startRealtimeListeners() {
@@ -829,57 +859,59 @@ function startRealtimeListeners() {
     handleError
   );
 
-  const currentNameKey = normalizeDisplayName(currentDisplayName);
-  if (currentNameKey) {
-    unSubMySolveEventsByNameKey = onSnapshot(
-      query(collection(db, "solveEvents"), where("solverNameKey", "==", currentNameKey)),
-      (snapshot) => {
-        const solved = new Set();
-        const timestamps = new Map();
-        snapshot.forEach((item) => {
-          const d = item.data();
-          const number = Number(d.problemNumber);
-          if (Number.isInteger(number) && number > 0) {
-            solved.add(number);
-            if (d.solvedAt) {
-              timestamps.set(number, d.solvedAt);
+  if (!isGuestMode) {
+    const currentNameKey = normalizeDisplayName(currentDisplayName);
+    if (currentNameKey) {
+      unSubMySolveEventsByNameKey = onSnapshot(
+        query(collection(db, "solveEvents"), where("solverNameKey", "==", currentNameKey)),
+        (snapshot) => {
+          const solved = new Set();
+          const timestamps = new Map();
+          snapshot.forEach((item) => {
+            const d = item.data();
+            const number = Number(d.problemNumber);
+            if (Number.isInteger(number) && number > 0) {
+              solved.add(number);
+              if (d.solvedAt) {
+                timestamps.set(number, d.solvedAt);
+              }
             }
-          }
-        });
-        solvedByCurrentUserByNameKey = solved;
-        mySolveTimestampsByNameKey = timestamps;
-        rebuildSolvedByCurrentUser();
-        renderGrid();
-        refreshPanelMeta();
-      },
-      handleError
-    );
-  }
+          });
+          solvedByCurrentUserByNameKey = solved;
+          mySolveTimestampsByNameKey = timestamps;
+          rebuildSolvedByCurrentUser();
+          renderGrid();
+          refreshPanelMeta();
+        },
+        handleError
+      );
+    }
 
-  if (currentDisplayName) {
-    unSubMySolveEventsByName = onSnapshot(
-      query(collection(db, "solveEvents"), where("solverName", "==", currentDisplayName)),
-      (snapshot) => {
-        const solved = new Set();
-        const timestamps = new Map();
-        snapshot.forEach((item) => {
-          const d = item.data();
-          const number = Number(d.problemNumber);
-          if (Number.isInteger(number) && number > 0) {
-            solved.add(number);
-            if (d.solvedAt) {
-              timestamps.set(number, d.solvedAt);
+    if (currentDisplayName) {
+      unSubMySolveEventsByName = onSnapshot(
+        query(collection(db, "solveEvents"), where("solverName", "==", currentDisplayName)),
+        (snapshot) => {
+          const solved = new Set();
+          const timestamps = new Map();
+          snapshot.forEach((item) => {
+            const d = item.data();
+            const number = Number(d.problemNumber);
+            if (Number.isInteger(number) && number > 0) {
+              solved.add(number);
+              if (d.solvedAt) {
+                timestamps.set(number, d.solvedAt);
+              }
             }
-          }
-        });
-        solvedByCurrentUserByName = solved;
-        mySolveTimestampsByName = timestamps;
-        rebuildSolvedByCurrentUser();
-        renderGrid();
-        refreshPanelMeta();
-      },
-      handleError
-    );
+          });
+          solvedByCurrentUserByName = solved;
+          mySolveTimestampsByName = timestamps;
+          rebuildSolvedByCurrentUser();
+          renderGrid();
+          refreshPanelMeta();
+        },
+        handleError
+      );
+    }
   }
 
 }
@@ -1592,11 +1624,15 @@ async function seedProblems() {
 }
 
 async function onLogout() {
+  const wasGuest = isGuestMode;
   try {
-    localStorage.setItem(explicitLogoutKey, "1");
-    localStorage.removeItem(rememberedDisplayNameKey);
-    await signOut(auth);
-    currentUid = null;
+    isGuestMode = false;
+    if (!wasGuest) {
+      localStorage.setItem(explicitLogoutKey, "1");
+      localStorage.removeItem(rememberedDisplayNameKey);
+      await signOut(auth);
+    }
+    currentUid = wasGuest ? currentUid : null;
     currentDisplayName = "";
     stopRealtimeListeners();
     closePanel();
@@ -1604,12 +1640,28 @@ async function onLogout() {
     mainApp.classList.add("hidden");
     loginCard.classList.remove("hidden");
     logoutBtn.classList.add("hidden");
+    logoutBtn.textContent = "Log out";
     welcomeMsg.classList.add("hidden");
     appFooter.classList.add("hidden");
-    displayNameInput.value = "";
-    pinInput.value = "";
-    loginStatus.textContent = "Signed out.";
+    if (!wasGuest) {
+      displayNameInput.value = "";
+      pinInput.value = "";
+    }
+    loginStatus.textContent = wasGuest ? "" : "Signed out.";
     appStatus.textContent = "";
+
+    const mySolvesBtn = filterBar.querySelector('[data-filter="my-solves"]');
+    if (mySolvesBtn) {
+      mySolvesBtn.classList.remove("hidden");
+    }
+    if (currentFilter === "my-solves") {
+      currentFilter = "all";
+      filterBar.querySelectorAll(".filter-btn").forEach((btn) => {
+        if (btn instanceof HTMLButtonElement) {
+          btn.classList.toggle("active", btn.dataset.filter === "all");
+        }
+      });
+    }
   } catch (error) {
     appStatus.textContent = `Sign out failed: ${error.message}`;
   }
@@ -1720,6 +1772,16 @@ function setPanelBusy(busy) {
 }
 
 function applyPanelPermissions() {
+  if (isGuestMode) {
+    statusEditor.classList.add("hidden");
+    panelSaveBtn.classList.add("hidden");
+    panelSolveBtn.classList.add("hidden");
+    panelDeleteBtn.classList.add("hidden");
+    panelSaveBtn.disabled = true;
+    panelSolveBtn.disabled = true;
+    panelDeleteBtn.disabled = true;
+    return;
+  }
   const admin = isAdminUser();
   const canMarkSolve = canMarkSolveForActiveProblem();
   const canDeleteSolve = canDeleteOwnSolveForActiveProblem();
@@ -1733,6 +1795,9 @@ function applyPanelPermissions() {
 }
 
 function canMarkSolveForActiveProblem() {
+  if (isGuestMode) {
+    return false;
+  }
   if (!activeProblemNumber) {
     return false;
   }
@@ -1746,6 +1811,9 @@ function buildSolveEventId(problemNumber, solverNameKey) {
 }
 
 function canDeleteOwnSolveForActiveProblem() {
+  if (isGuestMode) {
+    return false;
+  }
   return Boolean(
     currentUid &&
     activeProblemNumber &&
