@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "generated_at_utc": "2026-05-17 01:52",
-    "questions_count": 996,
+    "generated_at_utc": "2026-05-18 02:01",
+    "questions_count": 997,
     "source_questions_dir": "data/questions",
     "source_categories": "data/question_categories.jsonl"
   },
@@ -2992,5 +2992,8 @@
   },
   "996": {
     "search_text": "overtakes problem 996 overtakes source https projecteuler net minimal 996 there are n tennis players on a leader board from rank 1 highest to rank n lowest every day a match is held between a pair of players with adjacent ranks when the higher rank player wins nothing happens otherwise their ranks are exchanged and we call that match an overtake by the winning player after k days the players find that all of them are back to their initial ranks they then count the number of overtakes by each player here is an example with 3 players named a b c from highest to lowest initial rank matchwinnerloserrank 1 2 3 after matchovertake counts a b c 1 c b a c b 0 0 1 2 c b a c b 0 0 1 3 c a c a b 0 0 2 4 a b c a b 0 0 2 5 a c a c b 1 0 2 6 b c a b c 1 1 2 the matches marked with are overtakes after 6 days all players are back to initial ranks with overtake counts 1 1 2 let f n k be the number of possible n tuples of overtake counts after k days assuming that all players are back to initial ranks you are given f 3 4 8 and f 12 34 2457178250 find f 123 4567891 bmod 1234567891"
+  },
+  "997": {
+    "search_text": "dice box problem 997 dice box source https projecteuler net minimal 997 there are xyz dice arranged in an x times y times z box such that touching faces have the same value all dice are indistinguishable up to rotations let f x y z be the number of possible arrangements you are given f 1 1 1 24 and f 2 3 4 18432 find f 9 10 11"
   }
 }
