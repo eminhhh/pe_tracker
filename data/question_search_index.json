@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "generated_at_utc": "2026-05-23 01:52",
-    "questions_count": 997,
+    "generated_at_utc": "2026-05-24 01:58",
+    "questions_count": 998,
     "source_questions_dir": "data/questions",
     "source_categories": "data/question_categories.jsonl"
   },
@@ -2995,5 +2995,8 @@
   },
   "997": {
     "search_text": "dice box problem 997 dice box source https projecteuler net minimal 997 there are xyz dice arranged in an x times y times z box such that touching faces have the same value all dice are indistinguishable up to rotations let f x y z be the number of possible arrangements you are given f 1 1 1 24 and f 2 3 4 18432 find f 9 10 11"
+  },
+  "998": {
+    "search_text": "squaring the triangle problem 998 squaring the triangle source https projecteuler net minimal 998 the minimum bounding square of a triangle is the smallest square that can be drawn which fully covers the triangle two examples are illustrated above the 3 4 5 triangle has a minimum bounding square with side length approx 3 88057 which is not an integer the 10 13 13 triangle has a minimum bounding square with side length 12 which is an integer define t n to be the sum of the perimeters of all non congruent integer sided triangles whose minimum bounding square has integer side length not exceeding n you are given t 40 346 t 400 76402 and t 2000 3237036 find t 10 6"
   }
 }
