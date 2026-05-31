@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "generated_at_utc": "2026-05-30 01:53",
-    "questions_count": 998,
+    "generated_at_utc": "2026-05-31 02:06",
+    "questions_count": 999,
     "source_questions_dir": "data/questions",
     "source_categories": "data/question_categories.jsonl"
   },
@@ -2998,5 +2998,8 @@
   },
   "998": {
     "search_text": "squaring the triangle problem 998 squaring the triangle source https projecteuler net minimal 998 the minimum bounding square of a triangle is the smallest square that can be drawn which fully covers the triangle two examples are illustrated above the 3 4 5 triangle has a minimum bounding square with side length approx 3 88057 which is not an integer the 10 13 13 triangle has a minimum bounding square with side length 12 which is an integer define t n to be the sum of the perimeters of all non congruent integer sided triangles whose minimum bounding square has integer side length not exceeding n you are given t 40 346 t 400 76402 and t 2000 3237036 find t 10 6"
+  },
+  "999": {
+    "search_text": "alternating recurrence problem 999 alternating recurrence source https projecteuler net minimal 999 there is a unique sequence of integers a n such that a 1 a 2 a 3 1 a 4 2 a n 2 a n 2 a n 2 u cdot a n 1 a n 1 where u 1 if n is even and u 2 if n is odd for example a 13 23321 and a 1003 equiv 231906014 pmod 1234567891 for n 10 18 3 find a n bmod 1234567891"
   }
 }
