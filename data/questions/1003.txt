@@ -1,0 +1,11 @@
+Problem 1003: Lonely Singles
+Source: https://projecteuler.net/minimal=1003
+
+Given a positive integer $n$, consider the following process:
+- Place $n$ stones at position $0$ on the real line, and initialize $i = 0$.
+- If there are $m$ stones at position $i$, move $\lfloor \frac{m}{2} \rfloor$ stones from position $i$ to position $i+1$, and move another $\lfloor \frac{m}{2} \rfloor$ stones from position $i$ to $i+3$.
+- Increment $i \colon= i+1$ and return to Step 2.
+For some values of $n$ this process terminates; for others it continues indefinitely. In either case, there is a finite set of singleton stones that are left behind at each position $i$ where $m$ was odd. A singleton is lonely if it is at least distance $3$ from any other singleton. We call a positive integer $n$ sad if all singletons left behind are lonely.
+The first sad integer is $1$, trivially. The second is $68$, which leaves behind singletons at positions $2, 5, 8, 13$. The third is $90$, which leaves behind only two singletons at positions $1$ and $13$.
+Define $S(k)$ to be the sum of all sad integers $n$ which leave behind singletons only at positions $0 \le i < k$. For example $S(14) = 159$ and $S(30) = 33438$.
+Find $S(80)$.

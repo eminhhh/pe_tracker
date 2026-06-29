@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "generated_at_utc": "2026-06-17 02:31",
-    "questions_count": 1002,
+    "generated_at_utc": "2026-06-29 10:09",
+    "questions_count": 1004,
     "source_questions_dir": "data/questions",
     "source_categories": "data/question_categories.jsonl"
   },
@@ -3010,5 +3010,11 @@
   },
   "1002": {
     "search_text": "connections ii problem 1002 connections ii source https projecteuler net minimal 1002 given an array of 2n elements where every value has exactly two occurrences we say that it is bipartite connectable if we can write the array on paper in a row and connect each pair of values either above or below without intersections for example the array 0 1 2 1 0 2 is bipartite connectable note that each connection must be strictly above or strictly below the array attached is an array given as a comma separated list the array has 160 000 elements consisting of n 80 000 values each one having two occurences the given array is bipartite connectable what is the maximal number of above connections that can be made while bipartite connecting this array"
+  },
+  "1003": {
+    "search_text": "lonely singles problem 1003 lonely singles source https projecteuler net minimal 1003 given a positive integer n consider the following process place n stones at position 0 on the real line and initialize i 0 if there are m stones at position i move lfloor frac m 2 rfloor stones from position i to position i 1 and move another lfloor frac m 2 rfloor stones from position i to i 3 increment i colon i 1 and return to step 2 for some values of n this process terminates for others it continues indefinitely in either case there is a finite set of singleton stones that are left behind at each position i where m was odd a singleton is lonely if it is at least distance 3 from any other singleton we call a positive integer n sad if all singletons left behind are lonely the first sad integer is 1 trivially the second is 68 which leaves behind singletons at positions 2 5 8 13 the third is 90 which leaves behind only two singletons at positions 1 and 13 define s k to be the sum of all sad integers n which leave behind singletons only at positions 0 le i k for example s 14 159 and s 30 33438 find s 80"
+  },
+  "1004": {
+    "search_text": "balanced integer problem 1004 balanced integer source https projecteuler net minimal 1004 a positive integer is called balanced if the size of its longest strictly decreasing subsequence in its decimal expression is the same as the size of its longest non strictly increasing subsequence for example the number 77429 is balanced because both its longest strictly decreasing subsequence 742 and its longest non strictly increasing subsequence 779 have length 3 there are 2274 balanced integers below 10 4 find the total number of balanced integers give your answer modulo 10 9 7"
   }
 }
