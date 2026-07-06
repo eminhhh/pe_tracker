@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "generated_at_utc": "2026-07-05 01:48",
-    "questions_count": 1004,
+    "generated_at_utc": "2026-07-06 01:55",
+    "questions_count": 1005,
     "source_questions_dir": "data/questions",
     "source_categories": "data/question_categories.jsonl"
   },
@@ -3016,5 +3016,8 @@
   },
   "1004": {
     "search_text": "balanced integer problem 1004 balanced integer source https projecteuler net minimal 1004 a positive integer is called balanced if the size of its longest strictly decreasing subsequence in its decimal expression is the same as the size of its longest non strictly increasing subsequence for example the number 77429 is balanced because both its longest strictly decreasing subsequence 742 and its longest non strictly increasing subsequence 779 have length 3 there are 2274 balanced integers below 10 4 find the total number of balanced integers give your answer modulo 10 9 7"
+  },
+  "1005": {
+    "search_text": "median prime list problem 1005 median prime list source https projecteuler net minimal 1005 there are four lists of increasing primes that sum to 20 2 5 13 2 7 11 3 17 7 13 the median prime list is defined to be the median of these lists when they are written in lexicographic order as shown in the example above if there are an even number of lists then disregard the last one and find the median of the rest therefore the median prime list of 20 is 2 7 11 find the median prime list of 2026 give the last nine digits of the product of the primes"
   }
 }
