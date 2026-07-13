@@ -1,0 +1,12 @@
+Problem 1007: Alternating Difference
+Source: https://projecteuler.net/minimal=1007
+
+The Fibonacci sequence is defined by $F_0 = 0, F_1 = 1$ and $F_k = F_{k - 1} + F_{k - 2}$ for $k \geq 2$.
+Write down the numbers $F_0, F_1, \dots, F_n$ in a row and separate them with $n$ minus signs $-$.
+We want to add $n$ pairs of parentheses $()$ to form a valid expression such that each pair of parentheses contains exactly one minus sign, not counting those contained in its subparentheses.
+For example, when $n = 3$, we can form five different expressions in this way:
+$$\begin{alignat}{8} (((&F_0 &{}-{}& &&F_1) &{}-{}& &&F_2) &{}-{}& &&F_3) &&= -4\\ ((&F_0 &{}-{}& &(&F_1 &{}-{}& &&F_2)) &{}-{}& &&F_3) &&= -2\\ ((&F_0 &{}-{}& &&F_1) &{}-{}& (&&F_2 &{}-{}& &&F_3)) &&= 0\\ (&F_0 &{}-{}& &((&F_1 &{}-{}& &&F_2) &{}-{}& &&F_3)) &&= 2\\ (&F_0 &{}-{}& &(&F_1 &{}-{}& (&&F_2 &{}-{}& &&F_3))) &&= -2 \end{alignat}$$
+The sum of the values of these expressions is equal to $-6$.
+Let $A(n)$ be the sum of the values of all different expressions that can be obtained in this way.
+Thus $A(3) = -6$. Moreover, $A(10) = -177666$ and $A(100) \equiv 71792794 \bmod (10^9 + 9)$.
+Find $A(10^7) \bmod (10^9 + 9)$.

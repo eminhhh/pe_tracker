@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "generated_at_utc": "2026-07-12 01:23",
-    "questions_count": 1005,
+    "generated_at_utc": "2026-07-13 01:25",
+    "questions_count": 1007,
     "source_questions_dir": "data/questions",
     "source_categories": "data/question_categories.jsonl"
   },
@@ -3019,5 +3019,11 @@
   },
   "1005": {
     "search_text": "median prime list problem 1005 median prime list source https projecteuler net minimal 1005 there are four lists of increasing primes that sum to 20 2 5 13 2 7 11 3 17 7 13 the median prime list is defined to be the median of these lists when they are written in lexicographic order as shown in the example above if there are an even number of lists then disregard the last one and find the median of the rest therefore the median prime list of 20 is 2 7 11 find the median prime list of 2026 give the last nine digits of the product of the primes"
+  },
+  "1006": {
+    "search_text": "fibonacci subwords problem 1006 fibonacci subwords source https projecteuler net minimal 1006 starting with two strings s 0 0 and s 1 01 we define s n as the concatenation s n 1 s n 2 for n ge 2 for example s 2 010 s 3 01001 and s 4 01001010 a string is called a fibonacci subword if it is a substringcontiguous subsequence of some s n interestingly for each positive integer k there are only k 1 different fibonacci subwords of length k we interpret them as decimal numbers ignoring leading zeros and let psi k be the sum of their squares for example the four different fibonacci subwords of length 3 are 001 010 100 101 therefore psi 3 1 2 10 2 100 2 101 2 20302 you are also given psi 10 equiv 10699667 pmod 101001001 find psi 10 18 bmod 101001001"
+  },
+  "1007": {
+    "search_text": "alternating difference problem 1007 alternating difference source https projecteuler net minimal 1007 the fibonacci sequence is defined by f 0 0 f 1 1 and f k f k 1 f k 2 for k geq 2 write down the numbers f 0 f 1 dots f n in a row and separate them with n minus signs we want to add n pairs of parentheses to form a valid expression such that each pair of parentheses contains exactly one minus sign not counting those contained in its subparentheses for example when n 3 we can form five different expressions in this way begin alignat 8 f 0 f 1 f 2 f 3 4 f 0 f 1 f 2 f 3 2 f 0 f 1 f 2 f 3 0 f 0 f 1 f 2 f 3 2 f 0 f 1 f 2 f 3 2 end alignat the sum of the values of these expressions is equal to 6 let a n be the sum of the values of all different expressions that can be obtained in this way thus a 3 6 moreover a 10 177666 and a 100 equiv 71792794 bmod 10 9 9 find a 10 7 bmod 10 9 9"
   }
 }
