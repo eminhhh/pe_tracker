@@ -1,113 +1,113 @@
 {
   "_meta": {
     "last_updated_utc": null,
-    "generated_at_utc": "2026-08-18 00:30",
+    "generated_at_utc": "2026-08-19 00:30",
     "source": "https://projecteuler.net/progress",
     "max_problem_number": 1007
   },
   "1": {
     "difficulty": 0,
-    "solved_by": 861505,
+    "solved_by": 861389,
     "title": "Multiples of 3 or 5"
   },
   "2": {
     "difficulty": 0,
-    "solved_by": 688498,
+    "solved_by": 688409,
     "title": "Even Fibonacci Numbers"
   },
   "3": {
     "difficulty": 0,
-    "solved_by": 518061,
+    "solved_by": 518004,
     "title": "Largest Prime Factor"
   },
   "4": {
     "difficulty": 0,
-    "solved_by": 457730,
+    "solved_by": 457676,
     "title": "Largest Palindrome Product"
   },
   "5": {
     "difficulty": 0,
-    "solved_by": 444138,
+    "solved_by": 444086,
     "title": "Smallest Multiple"
   },
   "6": {
     "difficulty": 0,
-    "solved_by": 449067,
+    "solved_by": 449020,
     "title": "Sum Square Difference"
   },
   "7": {
     "difficulty": 0,
-    "solved_by": 391248,
+    "solved_by": 391216,
     "title": "10 001st Prime"
   },
   "8": {
     "difficulty": 1,
-    "solved_by": 332676,
+    "solved_by": 332656,
     "title": "Largest Product in a Series"
   },
   "9": {
     "difficulty": 0,
-    "solved_by": 338435,
+    "solved_by": 338409,
     "title": "Special Pythagorean Triplet"
   },
   "10": {
     "difficulty": 0,
-    "solved_by": 317582,
+    "solved_by": 317561,
     "title": "Summation of Primes"
   },
   "11": {
     "difficulty": 1,
-    "solved_by": 237505,
+    "solved_by": 237494,
     "title": "Largest Product in a Grid"
   },
   "12": {
     "difficulty": 1,
-    "solved_by": 233772,
+    "solved_by": 233764,
     "title": "Highly Divisible Triangular Number"
   },
   "13": {
     "difficulty": 1,
-    "solved_by": 234465,
+    "solved_by": 234469,
     "title": "Large Sum"
   },
   "14": {
     "difficulty": 1,
-    "solved_by": 238868,
+    "solved_by": 238867,
     "title": "Longest Collatz Sequence"
   },
   "15": {
     "difficulty": 2,
-    "solved_by": 202464,
+    "solved_by": 202474,
     "title": "Lattice Paths"
   },
   "16": {
     "difficulty": 0,
-    "solved_by": 237037,
+    "solved_by": 237041,
     "title": "Power Digit Sum"
   },
   "17": {
     "difficulty": 2,
-    "solved_by": 169707,
+    "solved_by": 169711,
     "title": "Number Letter Counts"
   },
   "18": {
     "difficulty": 2,
-    "solved_by": 163948,
+    "solved_by": 163953,
     "title": "Maximum Path Sum I"
   },
   "19": {
     "difficulty": 2,
-    "solved_by": 153783,
+    "solved_by": 153784,
     "title": "Counting Sundays"
   },
   "20": {
     "difficulty": 0,
-    "solved_by": 206995,
+    "solved_by": 207000,
     "title": "Factorial Digit Sum"
   },
   "21": {
     "difficulty": 1,
-    "solved_by": 169062,
+    "solved_by": 169072,
     "title": "Amicable Numbers"
   },
   "22": {
@@ -116,278 +116,278 @@
     "title": "Names Scores"
   },
   "23": {
-    "difficulty": 2,
-    "solved_by": 128247,
+    "difficulty": 3,
+    "solved_by": 128261,
     "title": "Non-Abundant Sums"
   },
   "24": {
     "difficulty": 2,
-    "solved_by": 137463,
+    "solved_by": 137470,
     "title": "Lexicographic Permutations"
   },
   "25": {
     "difficulty": 1,
-    "solved_by": 175355,
+    "solved_by": 175362,
     "title": "$1000$-digit Fibonacci Number"
   },
   "26": {
     "difficulty": 3,
-    "solved_by": 104424,
+    "solved_by": 104429,
     "title": "Reciprocal Cycles"
   },
   "27": {
     "difficulty": 1,
-    "solved_by": 107935,
+    "solved_by": 107944,
     "title": "Quadratic Primes"
   },
   "28": {
     "difficulty": 0,
-    "solved_by": 126651,
+    "solved_by": 126660,
     "title": "Number Spiral Diagonals"
   },
   "29": {
     "difficulty": 1,
-    "solved_by": 127687,
+    "solved_by": 127690,
     "title": "Distinct Powers"
   },
   "30": {
     "difficulty": 0,
-    "solved_by": 132420,
+    "solved_by": 132426,
     "title": "Digit Fifth Powers"
   },
   "31": {
     "difficulty": 2,
-    "solved_by": 104275,
+    "solved_by": 104274,
     "title": "Coin Sums"
   },
   "32": {
     "difficulty": 1,
-    "solved_by": 88826,
+    "solved_by": 88829,
     "title": "Pandigital Products"
   },
   "33": {
     "difficulty": 0,
-    "solved_by": 88629,
+    "solved_by": 88637,
     "title": "Digit Cancelling Fractions"
   },
   "34": {
     "difficulty": 0,
-    "solved_by": 114765,
+    "solved_by": 114773,
     "title": "Digit Factorials"
   },
   "35": {
     "difficulty": 1,
-    "solved_by": 102870,
+    "solved_by": 102874,
     "title": "Circular Primes"
   },
   "36": {
     "difficulty": 0,
-    "solved_by": 107334,
+    "solved_by": 107347,
     "title": "Double-base Palindromes"
   },
   "37": {
     "difficulty": 0,
-    "solved_by": 90796,
+    "solved_by": 90805,
     "title": "Truncatable Primes"
   },
   "38": {
     "difficulty": 1,
-    "solved_by": 78023,
+    "solved_by": 78030,
     "title": "Pandigital Multiples"
   },
   "39": {
     "difficulty": 0,
-    "solved_by": 89724,
+    "solved_by": 89734,
     "title": "Integer Right Triangles"
   },
   "40": {
     "difficulty": 1,
-    "solved_by": 96824,
+    "solved_by": 96834,
     "title": "Champernowne's Constant"
   },
   "41": {
     "difficulty": 1,
-    "solved_by": 84171,
+    "solved_by": 84177,
     "title": "Pandigital Prime"
   },
   "42": {
     "difficulty": 0,
-    "solved_by": 89704,
+    "solved_by": 89713,
     "title": "Coded Triangle Numbers"
   },
   "43": {
     "difficulty": 0,
-    "solved_by": 74133,
+    "solved_by": 74145,
     "title": "Sub-string Divisibility"
   },
   "44": {
     "difficulty": 2,
-    "solved_by": 72720,
+    "solved_by": 72728,
     "title": "Pentagon Numbers"
   },
   "45": {
     "difficulty": 0,
-    "solved_by": 86145,
+    "solved_by": 86158,
     "title": "Triangular, Pentagonal, and Hexagonal"
   },
   "46": {
     "difficulty": 1,
-    "solved_by": 76264,
+    "solved_by": 76274,
     "title": "Goldbach's Other Conjecture"
   },
   "47": {
     "difficulty": 1,
-    "solved_by": 71752,
+    "solved_by": 71759,
     "title": "Distinct Primes Factors"
   },
   "48": {
     "difficulty": 0,
-    "solved_by": 122956,
+    "solved_by": 122965,
     "title": "Self Powers"
   },
   "49": {
     "difficulty": 1,
-    "solved_by": 71361,
+    "solved_by": 71367,
     "title": "Prime Permutations"
   },
   "50": {
     "difficulty": 3,
-    "solved_by": 76455,
+    "solved_by": 76458,
     "title": "Consecutive Prime Sum"
   },
   "51": {
     "difficulty": 2,
-    "solved_by": 43817,
+    "solved_by": 43821,
     "title": "Prime Digit Replacements"
   },
   "52": {
     "difficulty": 0,
-    "solved_by": 78683,
+    "solved_by": 78687,
     "title": "Permuted Multiples"
   },
   "53": {
     "difficulty": 0,
-    "solved_by": 71287,
+    "solved_by": 71289,
     "title": "Combinatoric Selections"
   },
   "54": {
     "difficulty": 3,
-    "solved_by": 44603,
+    "solved_by": 44602,
     "title": "Poker Hands"
   },
   "55": {
     "difficulty": 1,
-    "solved_by": 65260,
+    "solved_by": 65265,
     "title": "Lychrel Numbers"
   },
   "56": {
     "difficulty": 1,
-    "solved_by": 70506,
+    "solved_by": 70514,
     "title": "Powerful Digit Sum"
   },
   "57": {
     "difficulty": 1,
-    "solved_by": 51615,
+    "solved_by": 51617,
     "title": "Square Root Convergents"
   },
   "58": {
     "difficulty": 2,
-    "solved_by": 49592,
+    "solved_by": 49598,
     "title": "Spiral Primes"
   },
   "59": {
     "difficulty": 1,
-    "solved_by": 49414,
+    "solved_by": 49417,
     "title": "XOR Decryption"
   },
   "60": {
     "difficulty": 3,
-    "solved_by": 34671,
+    "solved_by": 34673,
     "title": "Prime Pair Sets"
   },
   "61": {
     "difficulty": 2,
-    "solved_by": 32300,
+    "solved_by": 32304,
     "title": "Cyclical Figurate Numbers"
   },
   "62": {
     "difficulty": 2,
-    "solved_by": 39840,
+    "solved_by": 39842,
     "title": "Cubic Permutations"
   },
   "63": {
     "difficulty": 1,
-    "solved_by": 52607,
+    "solved_by": 52609,
     "title": "Powerful Digit Counts"
   },
   "64": {
     "difficulty": 2,
-    "solved_by": 28005,
+    "solved_by": 28007,
     "title": "Odd Period Square Roots"
   },
   "65": {
     "difficulty": 2,
-    "solved_by": 37003,
+    "solved_by": 37005,
     "title": "Convergents of $e$"
   },
   "66": {
     "difficulty": 9,
-    "solved_by": 25208,
+    "solved_by": 25210,
     "title": "Diophantine Equation"
   },
   "67": {
     "difficulty": 4,
-    "solved_by": 106737,
+    "solved_by": 106739,
     "title": "Maximum Path Sum II"
   },
   "68": {
     "difficulty": 3,
-    "solved_by": 26096,
+    "solved_by": 26098,
     "title": "Magic 5-gon Ring"
   },
   "69": {
     "difficulty": 2,
-    "solved_by": 43510,
+    "solved_by": 43514,
     "title": "Totient Maximum"
   },
   "70": {
     "difficulty": 3,
-    "solved_by": 28176,
+    "solved_by": 28179,
     "title": "Totient Permutation"
   },
   "71": {
     "difficulty": 2,
-    "solved_by": 36173,
+    "solved_by": 36174,
     "title": "Ordered Fractions"
   },
   "72": {
     "difficulty": 3,
-    "solved_by": 28137,
+    "solved_by": 28141,
     "title": "Counting Fractions"
   },
   "73": {
-    "difficulty": 3,
-    "solved_by": 30992,
+    "difficulty": 2,
+    "solved_by": 30995,
     "title": "Counting Fractions in a Range"
   },
   "74": {
     "difficulty": 1,
-    "solved_by": 33292,
+    "solved_by": 33294,
     "title": "Digit Factorial Chains"
   },
   "75": {
     "difficulty": 3,
-    "solved_by": 23001,
+    "solved_by": 23003,
     "title": "Singular Integer Right Triangles"
   },
   "76": {
     "difficulty": 3,
-    "solved_by": 35043,
+    "solved_by": 35045,
     "title": "Counting Summations"
   },
   "77": {
     "difficulty": 3,
-    "solved_by": 24423,
+    "solved_by": 24426,
     "title": "Prime Summations"
   },
   "78": {
@@ -397,147 +397,147 @@
   },
   "79": {
     "difficulty": 2,
-    "solved_by": 46345,
+    "solved_by": 46346,
     "title": "Passcode Derivation"
   },
   "80": {
     "difficulty": 3,
-    "solved_by": 24841,
+    "solved_by": 24843,
     "title": "Square Root Digital Expansion"
   },
   "81": {
     "difficulty": 2,
-    "solved_by": 41290,
+    "solved_by": 41294,
     "title": "Path Sum: Two Ways"
   },
   "82": {
     "difficulty": 3,
-    "solved_by": 26043,
+    "solved_by": 26045,
     "title": "Path Sum: Three Ways"
   },
   "83": {
     "difficulty": 3,
-    "solved_by": 22724,
+    "solved_by": 22726,
     "title": "Path Sum: Four Ways"
   },
   "84": {
     "difficulty": 4,
-    "solved_by": 16193,
+    "solved_by": 16195,
     "title": "Monopoly Odds"
   },
   "85": {
     "difficulty": 2,
-    "solved_by": 30414,
+    "solved_by": 30415,
     "title": "Counting Rectangles"
   },
   "86": {
     "difficulty": 4,
-    "solved_by": 16326,
+    "solved_by": 16327,
     "title": "Cuboid Route"
   },
   "87": {
     "difficulty": 2,
-    "solved_by": 26044,
+    "solved_by": 26048,
     "title": "Prime Power Triples"
   },
   "88": {
     "difficulty": 4,
-    "solved_by": 13409,
+    "solved_by": 13411,
     "title": "Product-sum Numbers"
   },
   "89": {
     "difficulty": 3,
-    "solved_by": 25598,
+    "solved_by": 25601,
     "title": "Roman Numerals"
   },
   "90": {
     "difficulty": 5,
-    "solved_by": 14710,
+    "solved_by": 14712,
     "title": "Cube Digit Pairs"
   },
   "91": {
     "difficulty": 4,
-    "solved_by": 19634,
+    "solved_by": 19638,
     "title": "Right Triangles with Integer Coordinates"
   },
   "92": {
     "difficulty": 1,
-    "solved_by": 49383,
+    "solved_by": 49389,
     "title": "Square Digit Chains"
   },
   "93": {
     "difficulty": 5,
-    "solved_by": 15262,
+    "solved_by": 15268,
     "title": "Arithmetic Expressions"
   },
   "94": {
     "difficulty": 9,
-    "solved_by": 16213,
+    "solved_by": 16214,
     "title": "Almost Equilateral Triangles"
   },
   "95": {
     "difficulty": 2,
-    "solved_by": 18460,
+    "solved_by": 18461,
     "title": "Amicable Chains"
   },
   "96": {
     "difficulty": 3,
-    "solved_by": 21142,
+    "solved_by": 21144,
     "title": "Su Doku"
   },
   "97": {
     "difficulty": 1,
-    "solved_by": 50080,
+    "solved_by": 50082,
     "title": "Large Non-Mersenne Prime"
   },
   "98": {
     "difficulty": 5,
-    "solved_by": 14691,
+    "solved_by": 14692,
     "title": "Anagramic Squares"
   },
   "99": {
     "difficulty": 2,
-    "solved_by": 37252,
+    "solved_by": 37253,
     "title": "Largest Exponential"
   },
   "100": {
     "difficulty": 5,
-    "solved_by": 20889,
+    "solved_by": 20892,
     "title": "Arranged Probability"
   },
   "101": {
     "difficulty": 4,
-    "solved_by": 15069,
+    "solved_by": 15070,
     "title": "Optimum Polynomial"
   },
   "102": {
     "difficulty": 3,
-    "solved_by": 26705,
+    "solved_by": 26706,
     "title": "Triangle Containment"
   },
   "103": {
     "difficulty": 5,
-    "solved_by": 10530,
+    "solved_by": 10533,
     "title": "Special Subset Sums: Optimum"
   },
   "104": {
     "difficulty": 2,
-    "solved_by": 19890,
+    "solved_by": 19894,
     "title": "Pandigital Fibonacci Ends"
   },
   "105": {
     "difficulty": 7,
-    "solved_by": 10433,
+    "solved_by": 10434,
     "title": "Special Subset Sums: Testing"
   },
   "106": {
     "difficulty": 8,
-    "solved_by": 8410,
+    "solved_by": 8411,
     "title": "Special Subset Sums: Meta-testing"
   },
   "107": {
     "difficulty": 4,
-    "solved_by": 13546,
+    "solved_by": 13549,
     "title": "Minimal Network"
   },
   "108": {
@@ -547,37 +547,37 @@
   },
   "109": {
     "difficulty": 5,
-    "solved_by": 10456,
+    "solved_by": 10457,
     "title": "Darts"
   },
   "110": {
     "difficulty": 6,
-    "solved_by": 10421,
+    "solved_by": 10424,
     "title": "Diophantine Reciprocals II"
   },
   "111": {
     "difficulty": 8,
-    "solved_by": 9410,
+    "solved_by": 9412,
     "title": "Primes with Runs"
   },
   "112": {
     "difficulty": 2,
-    "solved_by": 29922,
+    "solved_by": 29923,
     "title": "Bouncy Numbers"
   },
   "113": {
     "difficulty": 4,
-    "solved_by": 13670,
+    "solved_by": 13671,
     "title": "Non-bouncy Numbers"
   },
   "114": {
     "difficulty": 4,
-    "solved_by": 13612,
+    "solved_by": 13613,
     "title": "Counting Block Combinations I"
   },
   "115": {
     "difficulty": 4,
-    "solved_by": 12466,
+    "solved_by": 12469,
     "title": "Counting Block Combinations II"
   },
   "116": {
@@ -587,7 +587,7 @@
   },
   "117": {
     "difficulty": 4,
-    "solved_by": 13952,
+    "solved_by": 13953,
     "title": "Red, Green, and Blue Tiles"
   },
   "118": {
@@ -602,37 +602,37 @@
   },
   "120": {
     "difficulty": 3,
-    "solved_by": 16916,
+    "solved_by": 16919,
     "title": "Square Remainders"
   },
   "121": {
     "difficulty": 4,
-    "solved_by": 12120,
+    "solved_by": 12124,
     "title": "Disc Game Prize Fund"
   },
   "122": {
     "difficulty": 12,
-    "solved_by": 9879,
+    "solved_by": 9880,
     "title": "Efficient Exponentiation"
   },
   "123": {
     "difficulty": 4,
-    "solved_by": 14149,
+    "solved_by": 14151,
     "title": "Prime Square Remainders"
   },
   "124": {
     "difficulty": 3,
-    "solved_by": 16645,
+    "solved_by": 16648,
     "title": "Ordered Radicals"
   },
   "125": {
     "difficulty": 3,
-    "solved_by": 16587,
+    "solved_by": 16590,
     "title": "Palindromic Sums"
   },
   "126": {
     "difficulty": 10,
-    "solved_by": 6250,
+    "solved_by": 6252,
     "title": "Cuboid Layers"
   },
   "127": {
@@ -641,13 +641,13 @@
     "title": "abc-hits"
   },
   "128": {
-    "difficulty": 8,
+    "difficulty": 9,
     "solved_by": 6523,
     "title": "Hexagonal Tile Differences"
   },
   "129": {
     "difficulty": 10,
-    "solved_by": 8050,
+    "solved_by": 8051,
     "title": "Repunit Divisibility"
   },
   "130": {
@@ -657,17 +657,17 @@
   },
   "131": {
     "difficulty": 5,
-    "solved_by": 9347,
+    "solved_by": 9349,
     "title": "Prime Cube Partnership"
   },
   "132": {
     "difficulty": 5,
-    "solved_by": 8107,
+    "solved_by": 8108,
     "title": "Large Repunit Factors"
   },
   "133": {
     "difficulty": 9,
-    "solved_by": 7164,
+    "solved_by": 7166,
     "title": "Repunit Nonfactors"
   },
   "134": {
@@ -677,17 +677,17 @@
   },
   "135": {
     "difficulty": 9,
-    "solved_by": 8221,
+    "solved_by": 8223,
     "title": "Same Differences"
   },
   "136": {
     "difficulty": 9,
-    "solved_by": 7331,
+    "solved_by": 7333,
     "title": "Singleton Difference"
   },
   "137": {
     "difficulty": 12,
-    "solved_by": 7297,
+    "solved_by": 7298,
     "title": "Fibonacci Golden Nuggets"
   },
   "138": {
@@ -697,7 +697,7 @@
   },
   "139": {
     "difficulty": 9,
-    "solved_by": 7296,
+    "solved_by": 7297,
     "title": "Pythagorean Tiles"
   },
   "140": {
@@ -712,7 +712,7 @@
   },
   "142": {
     "difficulty": 11,
-    "solved_by": 7353,
+    "solved_by": 7355,
     "title": "Perfect Square Collection"
   },
   "143": {
@@ -721,48 +721,48 @@
     "title": "Torricelli Triangles"
   },
   "144": {
-    "difficulty": 10,
-    "solved_by": 7941,
+    "difficulty": 9,
+    "solved_by": 7943,
     "title": "Laser Beam Reflections"
   },
   "145": {
     "difficulty": 3,
-    "solved_by": 19972,
+    "solved_by": 19977,
     "title": "Reversible Numbers"
   },
   "146": {
     "difficulty": 11,
-    "solved_by": 6649,
+    "solved_by": 6651,
     "title": "Investigating a Prime Pattern"
   },
   "147": {
     "difficulty": 16,
-    "solved_by": 4065,
+    "solved_by": 4067,
     "title": "Rectangles in Cross-hatched Grids"
   },
   "148": {
     "difficulty": 9,
-    "solved_by": 6538,
+    "solved_by": 6539,
     "title": "Exploring Pascal's Triangle"
   },
   "149": {
     "difficulty": 11,
-    "solved_by": 6182,
+    "solved_by": 6183,
     "title": "Maximum-sum Subsequence"
   },
   "150": {
     "difficulty": 10,
-    "solved_by": 5118,
+    "solved_by": 5120,
     "title": "Sub-triangle Sums"
   },
   "151": {
     "difficulty": 17,
-    "solved_by": 7057,
+    "solved_by": 7059,
     "title": "A Preference for A5"
   },
   "152": {
-    "difficulty": 22,
-    "solved_by": 3663,
+    "difficulty": 21,
+    "solved_by": 3664,
     "title": "Sums of Square Reciprocals"
   },
   "153": {
@@ -796,13 +796,13 @@
     "title": "Lexicographical Neighbours"
   },
   "159": {
-    "difficulty": 15,
-    "solved_by": 4327,
+    "difficulty": 14,
+    "solved_by": 4328,
     "title": "Digital Root Sums of Factorisations"
   },
   "160": {
     "difficulty": 17,
-    "solved_by": 4623,
+    "solved_by": 4624,
     "title": "Factorial Trailing Digits"
   },
   "161": {
@@ -812,7 +812,7 @@
   },
   "162": {
     "difficulty": 12,
-    "solved_by": 6652,
+    "solved_by": 6653,
     "title": "Hexadecimal Numbers"
   },
   "163": {
@@ -822,32 +822,32 @@
   },
   "164": {
     "difficulty": 5,
-    "solved_by": 7310,
+    "solved_by": 7311,
     "title": "Three Consecutive Digital Sum Limit"
   },
   "165": {
     "difficulty": 22,
-    "solved_by": 3511,
+    "solved_by": 3512,
     "title": "Intersections"
   },
   "166": {
     "difficulty": 14,
-    "solved_by": 5291,
+    "solved_by": 5292,
     "title": "Criss Cross"
   },
   "167": {
     "difficulty": 23,
-    "solved_by": 2400,
+    "solved_by": 2401,
     "title": "Investigating Ulam Sequences"
   },
   "168": {
     "difficulty": 23,
-    "solved_by": 3520,
+    "solved_by": 3521,
     "title": "Number Rotations"
   },
   "169": {
     "difficulty": 11,
-    "solved_by": 6504,
+    "solved_by": 6506,
     "title": "Sums of Powers of Two"
   },
   "170": {
@@ -867,7 +867,7 @@
   },
   "173": {
     "difficulty": 4,
-    "solved_by": 11088,
+    "solved_by": 11090,
     "title": "Hollow Square Laminae I"
   },
   "174": {
@@ -882,7 +882,7 @@
   },
   "176": {
     "difficulty": 16,
-    "solved_by": 2603,
+    "solved_by": 2604,
     "title": "Common Cathetus Right-angled Triangles"
   },
   "177": {
@@ -892,7 +892,7 @@
   },
   "178": {
     "difficulty": 12,
-    "solved_by": 4423,
+    "solved_by": 4424,
     "title": "Step Numbers"
   },
   "179": {
@@ -912,12 +912,12 @@
   },
   "182": {
     "difficulty": 15,
-    "solved_by": 3506,
+    "solved_by": 3508,
     "title": "RSA Encryption"
   },
   "183": {
     "difficulty": 8,
-    "solved_by": 5852,
+    "solved_by": 5853,
     "title": "Maximum Product of Parts"
   },
   "184": {
@@ -932,27 +932,27 @@
   },
   "186": {
     "difficulty": 8,
-    "solved_by": 3792,
+    "solved_by": 3794,
     "title": "Connectedness of a Network"
   },
   "187": {
     "difficulty": 3,
-    "solved_by": 13390,
+    "solved_by": 13392,
     "title": "Semiprimes"
   },
   "188": {
     "difficulty": 5,
-    "solved_by": 7873,
+    "solved_by": 7874,
     "title": "Hyperexponentiation"
   },
   "189": {
     "difficulty": 17,
-    "solved_by": 2811,
+    "solved_by": 2812,
     "title": "Tri-colouring a Triangular Grid"
   },
   "190": {
     "difficulty": 8,
-    "solved_by": 5269,
+    "solved_by": 5270,
     "title": "Maximising a Weighted Product"
   },
   "191": {
@@ -962,7 +962,7 @@
   },
   "192": {
     "difficulty": 28,
-    "solved_by": 2324,
+    "solved_by": 2325,
     "title": "Best Approximations"
   },
   "193": {
@@ -977,11 +977,11 @@
   },
   "195": {
     "difficulty": 16,
-    "solved_by": 2058,
+    "solved_by": 2059,
     "title": "$60$-degree Triangle Inscribed Circles"
   },
   "196": {
-    "difficulty": 12,
+    "difficulty": 11,
     "solved_by": 3436,
     "title": "Prime Triplets"
   },
@@ -997,7 +997,7 @@
   },
   "199": {
     "difficulty": 15,
-    "solved_by": 2649,
+    "solved_by": 2650,
     "title": "Iterative Circle Packing"
   },
   "200": {
@@ -1017,27 +1017,27 @@
   },
   "203": {
     "difficulty": 4,
-    "solved_by": 10905,
+    "solved_by": 10907,
     "title": "Squarefree Binomial Coefficients"
   },
   "204": {
     "difficulty": 4,
-    "solved_by": 8849,
+    "solved_by": 8851,
     "title": "Generalised Hamming Numbers"
   },
   "205": {
     "difficulty": 3,
-    "solved_by": 17591,
+    "solved_by": 17593,
     "title": "Dice Game"
   },
   "206": {
     "difficulty": 2,
-    "solved_by": 28487,
+    "solved_by": 28491,
     "title": "Concealed Square"
   },
   "207": {
     "difficulty": 10,
-    "solved_by": 5763,
+    "solved_by": 5764,
     "title": "Integer Partition Equations"
   },
   "208": {
@@ -1046,28 +1046,28 @@
     "title": "Robot Walks"
   },
   "209": {
-    "difficulty": 14,
+    "difficulty": 15,
     "solved_by": 3261,
     "title": "Circular Logic"
   },
   "210": {
     "difficulty": 29,
-    "solved_by": 2293,
+    "solved_by": 2294,
     "title": "Obtuse Angled Triangles"
   },
   "211": {
     "difficulty": 11,
-    "solved_by": 5317,
+    "solved_by": 5320,
     "title": "Divisor Square Sum"
   },
   "212": {
     "difficulty": 19,
-    "solved_by": 1909,
+    "solved_by": 1910,
     "title": "Combined Volume of Cuboids"
   },
   "213": {
     "difficulty": 13,
-    "solved_by": 3060,
+    "solved_by": 3062,
     "title": "Flea Circus"
   },
   "214": {
@@ -1077,17 +1077,17 @@
   },
   "215": {
     "difficulty": 8,
-    "solved_by": 4539,
+    "solved_by": 4540,
     "title": "Crack-free Walls"
   },
   "216": {
     "difficulty": 10,
-    "solved_by": 5246,
+    "solved_by": 5248,
     "title": "The Primality of $2n^2 - 1$"
   },
   "217": {
     "difficulty": 17,
-    "solved_by": 2094,
+    "solved_by": 2096,
     "title": "Balanced Numbers"
   },
   "218": {
@@ -1097,51 +1097,51 @@
   },
   "219": {
     "difficulty": 19,
-    "solved_by": 2000,
+    "solved_by": 2002,
     "title": "Skew-cost Coding"
   },
   "220": {
     "difficulty": 16,
-    "solved_by": 2726,
+    "solved_by": 2727,
     "title": "Heighway Dragon"
   },
   "221": {
     "difficulty": 18,
-    "solved_by": 2792,
+    "solved_by": 2793,
     "title": "Alexandrian Integers"
   },
   "222": {
     "difficulty": 19,
-    "solved_by": 2695,
+    "solved_by": 2696,
     "title": "Sphere Packing"
   },
   "223": {
-    "difficulty": 30,
-    "solved_by": 2114,
+    "difficulty": 29,
+    "solved_by": 2117,
     "title": "Almost Right-angled Triangles I"
   },
   "224": {
     "difficulty": 19,
-    "solved_by": 1755,
+    "solved_by": 1757,
     "title": "Almost Right-angled Triangles II"
   },
   "225": {
     "difficulty": 9,
-    "solved_by": 5485,
+    "solved_by": 5487,
     "title": "Tribonacci Non-divisors"
   },
   "226": {
     "difficulty": 18,
-    "solved_by": 2311,
+    "solved_by": 2314,
     "title": "A Scoop of Blancmange"
   },
   "227": {
     "difficulty": 17,
-    "solved_by": 2786,
+    "solved_by": 2788,
     "title": "The Chase"
   },
   "228": {
-    "difficulty": 20,
+    "difficulty": 19,
     "solved_by": 1844,
     "title": "Minkowski Sums"
   },
@@ -1162,7 +1162,7 @@
   },
   "232": {
     "difficulty": 24,
-    "solved_by": 2372,
+    "solved_by": 2373,
     "title": "The Race"
   },
   "233": {
@@ -1172,12 +1172,12 @@
   },
   "234": {
     "difficulty": 10,
-    "solved_by": 3990,
+    "solved_by": 3991,
     "title": "Semidivisible Numbers"
   },
   "235": {
     "difficulty": 10,
-    "solved_by": 5949,
+    "solved_by": 5951,
     "title": "An Arithmetic Geometric Sequence"
   },
   "236": {
@@ -1202,7 +1202,7 @@
   },
   "240": {
     "difficulty": 17,
-    "solved_by": 2802,
+    "solved_by": 2804,
     "title": "Top Dice"
   },
   "241": {
@@ -1212,27 +1212,27 @@
   },
   "242": {
     "difficulty": 23,
-    "solved_by": 1499,
+    "solved_by": 1501,
     "title": "Odd Triplets"
   },
   "243": {
     "difficulty": 11,
-    "solved_by": 11181,
+    "solved_by": 11183,
     "title": "Resilience"
   },
   "244": {
     "difficulty": 19,
-    "solved_by": 1792,
+    "solved_by": 1793,
     "title": "Sliders"
   },
   "245": {
-    "difficulty": 36,
+    "difficulty": 37,
     "solved_by": 1260,
     "title": "Coresilience"
   },
   "246": {
     "difficulty": 30,
-    "solved_by": 1248,
+    "solved_by": 1250,
     "title": "Tangents to an Ellipse"
   },
   "247": {
@@ -1266,13 +1266,13 @@
     "title": "Convex Holes"
   },
   "253": {
-    "difficulty": 25,
+    "difficulty": 24,
     "solved_by": 1473,
     "title": "Tidying Up A"
   },
   "254": {
     "difficulty": 31,
-    "solved_by": 1378,
+    "solved_by": 1380,
     "title": "Sums of Digit Factorials"
   },
   "255": {
@@ -1297,7 +1297,7 @@
   },
   "259": {
     "difficulty": 12,
-    "solved_by": 2017,
+    "solved_by": 2019,
     "title": "Reachable Numbers"
   },
   "260": {
@@ -1327,7 +1327,7 @@
   },
   "265": {
     "difficulty": 5,
-    "solved_by": 5128,
+    "solved_by": 5132,
     "title": "Binary Circles"
   },
   "266": {
@@ -1352,7 +1352,7 @@
   },
   "270": {
     "difficulty": 30,
-    "solved_by": 968,
+    "solved_by": 969,
     "title": "Cutting Squares"
   },
   "271": {
@@ -1372,7 +1372,7 @@
   },
   "274": {
     "difficulty": 6,
-    "solved_by": 1999,
+    "solved_by": 2000,
     "title": "Divisibility Multipliers"
   },
   "275": {
@@ -1382,17 +1382,17 @@
   },
   "276": {
     "difficulty": 33,
-    "solved_by": 1506,
+    "solved_by": 1507,
     "title": "Primitive Triangles"
   },
   "277": {
     "difficulty": 12,
-    "solved_by": 4064,
+    "solved_by": 4065,
     "title": "A Modified Collatz Sequence"
   },
   "278": {
     "difficulty": 10,
-    "solved_by": 1465,
+    "solved_by": 1466,
     "title": "Linear Combinations of Semiprimes"
   },
   "279": {
@@ -1401,8 +1401,8 @@
     "title": "Triangles with Integral Sides and an Integral Angle"
   },
   "280": {
-    "difficulty": 13,
-    "solved_by": 1475,
+    "difficulty": 15,
+    "solved_by": 1476,
     "title": "Ant and Seeds"
   },
   "281": {
@@ -1427,11 +1427,11 @@
   },
   "285": {
     "difficulty": 18,
-    "solved_by": 1675,
+    "solved_by": 1676,
     "title": "Pythagorean Odds"
   },
   "286": {
-    "difficulty": 12,
+    "difficulty": 13,
     "solved_by": 2802,
     "title": "Scoring Probabilities"
   },
@@ -1442,7 +1442,7 @@
   },
   "288": {
     "difficulty": 11,
-    "solved_by": 2278,
+    "solved_by": 2280,
     "title": "An Enormous Factorial"
   },
   "289": {
@@ -1452,7 +1452,7 @@
   },
   "290": {
     "difficulty": 18,
-    "solved_by": 1412,
+    "solved_by": 1413,
     "title": "Digital Signature"
   },
   "291": {
@@ -1462,12 +1462,12 @@
   },
   "292": {
     "difficulty": 20,
-    "solved_by": 885,
+    "solved_by": 886,
     "title": "Pythagorean Polygons"
   },
   "293": {
     "difficulty": 6,
-    "solved_by": 3810,
+    "solved_by": 3811,
     "title": "Pseudo-Fortunate Numbers"
   },
   "294": {
@@ -1487,7 +1487,7 @@
   },
   "297": {
     "difficulty": 5,
-    "solved_by": 3571,
+    "solved_by": 3573,
     "title": "Zeckendorf Representation"
   },
   "298": {
@@ -1501,8 +1501,8 @@
     "title": "Three Similar Triangles"
   },
   "300": {
-    "difficulty": 24,
-    "solved_by": 1512,
+    "difficulty": 23,
+    "solved_by": 1513,
     "title": "Protein Folding"
   },
   "301": {
@@ -1517,7 +1517,7 @@
   },
   "303": {
     "difficulty": 6,
-    "solved_by": 4541,
+    "solved_by": 4542,
     "title": "Multiples with Small Digits"
   },
   "304": {
@@ -1546,7 +1546,7 @@
     "title": "An Amazing Prime-generating Automaton"
   },
   "309": {
-    "difficulty": 11,
+    "difficulty": 12,
     "solved_by": 1208,
     "title": "Integer Ladders"
   },
@@ -1557,17 +1557,17 @@
   },
   "311": {
     "difficulty": 31,
-    "solved_by": 696,
+    "solved_by": 697,
     "title": "Biclinic Integral Quadrilaterals"
   },
   "312": {
-    "difficulty": 19,
-    "solved_by": 1224,
+    "difficulty": 20,
+    "solved_by": 1225,
     "title": "Cyclic Paths on Sierpi\u0144ski Graphs"
   },
   "313": {
     "difficulty": 6,
-    "solved_by": 2198,
+    "solved_by": 2201,
     "title": "Sliding Game"
   },
   "314": {
@@ -1577,7 +1577,7 @@
   },
   "315": {
     "difficulty": 6,
-    "solved_by": 4223,
+    "solved_by": 4224,
     "title": "Digital Root Clocks"
   },
   "316": {
@@ -1617,7 +1617,7 @@
   },
   "323": {
     "difficulty": 6,
-    "solved_by": 4851,
+    "solved_by": 4853,
     "title": "Bitwise-OR Operations on Random Integers"
   },
   "324": {
@@ -1627,7 +1627,7 @@
   },
   "325": {
     "difficulty": 32,
-    "solved_by": 940,
+    "solved_by": 941,
     "title": "Stone Game II"
   },
   "326": {
@@ -1651,7 +1651,7 @@
     "title": "Prime Frog"
   },
   "330": {
-    "difficulty": 26,
+    "difficulty": 27,
     "solved_by": 808,
     "title": "Euler's Number"
   },
@@ -1672,7 +1672,7 @@
   },
   "334": {
     "difficulty": 22,
-    "solved_by": 742,
+    "solved_by": 743,
     "title": "Spilling the Beans"
   },
   "335": {
@@ -1682,7 +1682,7 @@
   },
   "336": {
     "difficulty": 5,
-    "solved_by": 2680,
+    "solved_by": 2682,
     "title": "Maximix Arrangements"
   },
   "337": {
@@ -1702,7 +1702,7 @@
   },
   "340": {
     "difficulty": 8,
-    "solved_by": 1571,
+    "solved_by": 1572,
     "title": "Crazy Function"
   },
   "341": {
@@ -1747,7 +1747,7 @@
   },
   "349": {
     "difficulty": 7,
-    "solved_by": 2496,
+    "solved_by": 2498,
     "title": "Langton's Ant"
   },
   "350": {
@@ -1777,12 +1777,12 @@
   },
   "355": {
     "difficulty": 37,
-    "solved_by": 828,
+    "solved_by": 829,
     "title": "Maximal Coprime Subset"
   },
   "356": {
     "difficulty": 27,
-    "solved_by": 905,
+    "solved_by": 906,
     "title": "Largest Roots of Cubic Polynomials"
   },
   "357": {
@@ -1792,7 +1792,7 @@
   },
   "358": {
     "difficulty": 19,
-    "solved_by": 2091,
+    "solved_by": 2092,
     "title": "Cyclic Numbers"
   },
   "359": {
@@ -1807,7 +1807,7 @@
   },
   "361": {
     "difficulty": 37,
-    "solved_by": 571,
+    "solved_by": 572,
     "title": "Subsequence of Thue-Morse Sequence"
   },
   "362": {
@@ -1837,7 +1837,7 @@
   },
   "367": {
     "difficulty": 34,
-    "solved_by": 780,
+    "solved_by": 781,
     "title": "Bozo Sort"
   },
   "368": {
@@ -1862,7 +1862,7 @@
   },
   "372": {
     "difficulty": 31,
-    "solved_by": 619,
+    "solved_by": 620,
     "title": "Pencils of Rays"
   },
   "373": {
@@ -1871,7 +1871,7 @@
     "title": "Circumscribed Circles"
   },
   "374": {
-    "difficulty": 19,
+    "difficulty": 18,
     "solved_by": 979,
     "title": "Maximum Integer Partition Product"
   },
@@ -1922,11 +1922,11 @@
   },
   "384": {
     "difficulty": 27,
-    "solved_by": 519,
+    "solved_by": 520,
     "title": "Rudin-Shapiro Sequence"
   },
   "385": {
-    "difficulty": 33,
+    "difficulty": 32,
     "solved_by": 498,
     "title": "Ellipses Inside Triangles"
   },
@@ -1937,7 +1937,7 @@
   },
   "387": {
     "difficulty": 5,
-    "solved_by": 5793,
+    "solved_by": 5794,
     "title": "Harshad Numbers"
   },
   "388": {
@@ -1982,7 +1982,7 @@
   },
   "396": {
     "difficulty": 21,
-    "solved_by": 920,
+    "solved_by": 921,
     "title": "Weak Goodstein Sequence"
   },
   "397": {
@@ -1992,7 +1992,7 @@
   },
   "398": {
     "difficulty": 26,
-    "solved_by": 613,
+    "solved_by": 614,
     "title": "Cutting Rope"
   },
   "399": {
@@ -2022,7 +2022,7 @@
   },
   "404": {
     "difficulty": 30,
-    "solved_by": 528,
+    "solved_by": 530,
     "title": "Crisscross Ellipses"
   },
   "405": {
@@ -2032,12 +2032,12 @@
   },
   "406": {
     "difficulty": 26,
-    "solved_by": 616,
+    "solved_by": 617,
     "title": "Guessing Game"
   },
   "407": {
     "difficulty": 7,
-    "solved_by": 3199,
+    "solved_by": 3200,
     "title": "Idempotents"
   },
   "408": {
@@ -2076,8 +2076,8 @@
     "title": "Kaprekar Constant"
   },
   "415": {
-    "difficulty": 37,
-    "solved_by": 624,
+    "difficulty": 38,
+    "solved_by": 625,
     "title": "Titanic Sets"
   },
   "416": {
@@ -2087,12 +2087,12 @@
   },
   "417": {
     "difficulty": 7,
-    "solved_by": 1315,
+    "solved_by": 1318,
     "title": "Reciprocal Cycles II"
   },
   "418": {
     "difficulty": 30,
-    "solved_by": 964,
+    "solved_by": 966,
     "title": "Factorisation Triples"
   },
   "419": {
@@ -2126,7 +2126,7 @@
     "title": "Kakuro"
   },
   "425": {
-    "difficulty": 9,
+    "difficulty": 8,
     "solved_by": 1979,
     "title": "Prime Connection"
   },
@@ -2157,7 +2157,7 @@
   },
   "431": {
     "difficulty": 10,
-    "solved_by": 918,
+    "solved_by": 919,
     "title": "Square Space Silo"
   },
   "432": {
@@ -2201,7 +2201,7 @@
     "title": "Sum of Sum of Divisors"
   },
   "440": {
-    "difficulty": 24,
+    "difficulty": 25,
     "solved_by": 601,
     "title": "GCD and Tiling"
   },
@@ -2212,12 +2212,12 @@
   },
   "442": {
     "difficulty": 26,
-    "solved_by": 623,
+    "solved_by": 624,
     "title": "Eleven-free Integers"
   },
   "443": {
     "difficulty": 7,
-    "solved_by": 1613,
+    "solved_by": 1614,
     "title": "GCD Sequence"
   },
   "444": {
@@ -2266,7 +2266,7 @@
     "title": "Long Products"
   },
   "453": {
-    "difficulty": 37,
+    "difficulty": 38,
     "solved_by": 434,
     "title": "Lattice Quadrilaterals"
   },
@@ -2281,13 +2281,13 @@
     "title": "Powers with Trailing Digits"
   },
   "456": {
-    "difficulty": 27,
+    "difficulty": 28,
     "solved_by": 613,
     "title": "Triangles Containing the Origin II"
   },
   "457": {
     "difficulty": 14,
-    "solved_by": 1148,
+    "solved_by": 1149,
     "title": "A Polynomial Modulo the Square of a Prime"
   },
   "458": {
@@ -2297,42 +2297,42 @@
   },
   "459": {
     "difficulty": 38,
-    "solved_by": 447,
+    "solved_by": 448,
     "title": "Flipping Game"
   },
   "460": {
     "difficulty": 30,
-    "solved_by": 505,
+    "solved_by": 506,
     "title": "An Ant on the Move"
   },
   "461": {
     "difficulty": 12,
-    "solved_by": 1634,
+    "solved_by": 1636,
     "title": "Almost Pi"
   },
   "462": {
     "difficulty": 23,
-    "solved_by": 524,
+    "solved_by": 525,
     "title": "Permutation of 3-smooth Numbers"
   },
   "463": {
     "difficulty": 10,
-    "solved_by": 1509,
+    "solved_by": 1510,
     "title": "A Weird Recurrence Relation"
   },
   "464": {
     "difficulty": 23,
-    "solved_by": 505,
+    "solved_by": 506,
     "title": "M\u00f6bius Function and Intervals"
   },
   "465": {
     "difficulty": 38,
-    "solved_by": 409,
+    "solved_by": 410,
     "title": "Polar Polygons"
   },
   "466": {
-    "difficulty": 27,
-    "solved_by": 515,
+    "difficulty": 26,
+    "solved_by": 516,
     "title": "Distinct Terms in a Multiplication Table"
   },
   "467": {
@@ -2352,7 +2352,7 @@
   },
   "470": {
     "difficulty": 29,
-    "solved_by": 393,
+    "solved_by": 394,
     "title": "Super Ramvok"
   },
   "471": {
@@ -2372,7 +2372,7 @@
   },
   "474": {
     "difficulty": 23,
-    "solved_by": 624,
+    "solved_by": 625,
     "title": "Last Digits of Divisors"
   },
   "475": {
@@ -2396,8 +2396,8 @@
     "title": "Mixtures"
   },
   "479": {
-    "difficulty": 7,
-    "solved_by": 1730,
+    "difficulty": 6,
+    "solved_by": 1731,
     "title": "Roots on the Rise"
   },
   "480": {
@@ -2416,18 +2416,18 @@
     "title": "The Incenter of a Triangle"
   },
   "483": {
-    "difficulty": 38,
-    "solved_by": 484,
+    "difficulty": 37,
+    "solved_by": 485,
     "title": "Repeated Permutation"
   },
   "484": {
-    "difficulty": 29,
+    "difficulty": 30,
     "solved_by": 667,
     "title": "Arithmetic Derivative"
   },
   "485": {
     "difficulty": 7,
-    "solved_by": 1568,
+    "solved_by": 1569,
     "title": "Maximum Number of Divisors"
   },
   "486": {
@@ -2467,7 +2467,7 @@
   },
   "493": {
     "difficulty": 7,
-    "solved_by": 6678,
+    "solved_by": 6679,
     "title": "Under the Rainbow"
   },
   "494": {
@@ -2502,7 +2502,7 @@
   },
   "500": {
     "difficulty": 15,
-    "solved_by": 5161,
+    "solved_by": 5163,
     "title": "Problem 500!!!"
   },
   "501": {
@@ -2512,7 +2512,7 @@
   },
   "502": {
     "difficulty": 36,
-    "solved_by": 510,
+    "solved_by": 512,
     "title": "Counting Castles"
   },
   "503": {
@@ -2532,7 +2532,7 @@
   },
   "506": {
     "difficulty": 8,
-    "solved_by": 1235,
+    "solved_by": 1237,
     "title": "Clock Sequence"
   },
   "507": {
@@ -2562,7 +2562,7 @@
   },
   "512": {
     "difficulty": 7,
-    "solved_by": 1980,
+    "solved_by": 1982,
     "title": "Sums of Totients of Powers"
   },
   "513": {
@@ -2601,8 +2601,8 @@
     "title": "Tricoloured Coin Fountains"
   },
   "520": {
-    "difficulty": 16,
-    "solved_by": 640,
+    "difficulty": 15,
+    "solved_by": 642,
     "title": "Simbers"
   },
   "521": {
@@ -2617,7 +2617,7 @@
   },
   "523": {
     "difficulty": 7,
-    "solved_by": 1379,
+    "solved_by": 1382,
     "title": "First Sort I"
   },
   "524": {
@@ -2627,7 +2627,7 @@
   },
   "525": {
     "difficulty": 15,
-    "solved_by": 717,
+    "solved_by": 718,
     "title": "Rolling Ellipse"
   },
   "526": {
@@ -2637,7 +2637,7 @@
   },
   "527": {
     "difficulty": 9,
-    "solved_by": 1030,
+    "solved_by": 1031,
     "title": "Randomized Binary Search"
   },
   "528": {
@@ -2657,11 +2657,11 @@
   },
   "531": {
     "difficulty": 7,
-    "solved_by": 1590,
+    "solved_by": 1591,
     "title": "Chinese Leftovers"
   },
   "532": {
-    "difficulty": 32,
+    "difficulty": 33,
     "solved_by": 447,
     "title": "Nanobots on Geodesics"
   },
@@ -2677,7 +2677,7 @@
   },
   "535": {
     "difficulty": 36,
-    "solved_by": 417,
+    "solved_by": 418,
     "title": "Fractal Sequence"
   },
   "536": {
@@ -2747,12 +2747,12 @@
   },
   "549": {
     "difficulty": 7,
-    "solved_by": 3626,
+    "solved_by": 3627,
     "title": "Divisibility of Factorials"
   },
   "550": {
     "difficulty": 23,
-    "solved_by": 510,
+    "solved_by": 511,
     "title": "Divisor Game"
   },
   "551": {
@@ -2797,7 +2797,7 @@
   },
   "559": {
     "difficulty": 37,
-    "solved_by": 360,
+    "solved_by": 359,
     "title": "Permuted Matrices"
   },
   "560": {
@@ -2887,7 +2887,7 @@
   },
   "577": {
     "difficulty": 6,
-    "solved_by": 2038,
+    "solved_by": 2039,
     "title": "Counting Hexagons"
   },
   "578": {
@@ -2917,7 +2917,7 @@
   },
   "583": {
     "difficulty": 14,
-    "solved_by": 521,
+    "solved_by": 522,
     "title": "Heron Envelopes"
   },
   "584": {
@@ -2937,7 +2937,7 @@
   },
   "587": {
     "difficulty": 6,
-    "solved_by": 4187,
+    "solved_by": 4188,
     "title": "Concave Triangle"
   },
   "588": {
@@ -3007,7 +3007,7 @@
   },
   "601": {
     "difficulty": 7,
-    "solved_by": 2724,
+    "solved_by": 2726,
     "title": "Divisibility Streaks"
   },
   "602": {
@@ -3041,13 +3041,13 @@
     "title": "Marsh Crossing"
   },
   "608": {
-    "difficulty": 38,
-    "solved_by": 468,
+    "difficulty": 37,
+    "solved_by": 469,
     "title": "Divisor Sums"
   },
   "609": {
     "difficulty": 16,
-    "solved_by": 1221,
+    "solved_by": 1222,
     "title": "$\\pi$ Sequences"
   },
   "610": {
@@ -3062,12 +3062,12 @@
   },
   "612": {
     "difficulty": 14,
-    "solved_by": 964,
+    "solved_by": 965,
     "title": "Friend Numbers"
   },
   "613": {
-    "difficulty": 28,
-    "solved_by": 2314,
+    "difficulty": 27,
+    "solved_by": 2315,
     "title": "Pythagorean Ant"
   },
   "614": {
@@ -3081,7 +3081,7 @@
     "title": "The Millionth Number with at Least One Million Prime Factors"
   },
   "616": {
-    "difficulty": 23,
+    "difficulty": 24,
     "solved_by": 648,
     "title": "Creative Numbers"
   },
@@ -3092,7 +3092,7 @@
   },
   "618": {
     "difficulty": 13,
-    "solved_by": 1388,
+    "solved_by": 1390,
     "title": "Numbers with a Given Prime Factor Sum"
   },
   "619": {
@@ -3107,12 +3107,12 @@
   },
   "621": {
     "difficulty": 19,
-    "solved_by": 769,
+    "solved_by": 770,
     "title": "Expressing an Integer as the Sum of Triangular Numbers"
   },
   "622": {
     "difficulty": 14,
-    "solved_by": 2194,
+    "solved_by": 2195,
     "title": "Riffle Shuffles"
   },
   "623": {
@@ -3162,7 +3162,7 @@
   },
   "632": {
     "difficulty": 18,
-    "solved_by": 699,
+    "solved_by": 700,
     "title": "Square Prime Factors"
   },
   "633": {
@@ -3192,7 +3192,7 @@
   },
   "638": {
     "difficulty": 20,
-    "solved_by": 534,
+    "solved_by": 535,
     "title": "Weighted Lattice Paths"
   },
   "639": {
@@ -3206,7 +3206,7 @@
     "title": "Shut the Box"
   },
   "641": {
-    "difficulty": 18,
+    "difficulty": 19,
     "solved_by": 688,
     "title": "A Long Row of Dice"
   },
@@ -3292,7 +3292,7 @@
   },
   "658": {
     "difficulty": 37,
-    "solved_by": 347,
+    "solved_by": 348,
     "title": "Incomplete Words II"
   },
   "659": {
@@ -3311,8 +3311,8 @@
     "title": "A Long Chess Match"
   },
   "662": {
-    "difficulty": 11,
-    "solved_by": 1123,
+    "difficulty": 10,
+    "solved_by": 1124,
     "title": "Fibonacci Paths"
   },
   "663": {
@@ -3352,7 +3352,7 @@
   },
   "670": {
     "difficulty": 14,
-    "solved_by": 509,
+    "solved_by": 510,
     "title": "Colouring a Strip"
   },
   "671": {
@@ -3381,7 +3381,7 @@
     "title": "$2^{\\omega(n)}$"
   },
   "676": {
-    "difficulty": 26,
+    "difficulty": 27,
     "solved_by": 334,
     "title": "Matching Digit Sums"
   },
@@ -3397,7 +3397,7 @@
   },
   "679": {
     "difficulty": 6,
-    "solved_by": 1304,
+    "solved_by": 1306,
     "title": "Freefarea"
   },
   "680": {
@@ -3416,7 +3416,7 @@
     "title": "$5$-Smooth Pairs"
   },
   "683": {
-    "difficulty": 29,
+    "difficulty": 28,
     "solved_by": 450,
     "title": "The Chase II"
   },
@@ -3432,7 +3432,7 @@
   },
   "686": {
     "difficulty": 5,
-    "solved_by": 4842,
+    "solved_by": 4843,
     "title": "Powers of Two"
   },
   "687": {
@@ -3507,12 +3507,12 @@
   },
   "701": {
     "difficulty": 19,
-    "solved_by": 537,
+    "solved_by": 538,
     "title": "Random Connected Area"
   },
   "702": {
     "difficulty": 37,
-    "solved_by": 289,
+    "solved_by": 290,
     "title": "Jumping Flea"
   },
   "703": {
@@ -3532,7 +3532,7 @@
   },
   "706": {
     "difficulty": 8,
-    "solved_by": 841,
+    "solved_by": 843,
     "title": "$3$-Like Numbers"
   },
   "707": {
@@ -3542,27 +3542,27 @@
   },
   "708": {
     "difficulty": 33,
-    "solved_by": 500,
+    "solved_by": 502,
     "title": "Twos Are All You Need"
   },
   "709": {
     "difficulty": 18,
-    "solved_by": 1241,
+    "solved_by": 1242,
     "title": "Even Stevens"
   },
   "710": {
     "difficulty": 7,
-    "solved_by": 1803,
+    "solved_by": 1804,
     "title": "One Million Members"
   },
   "711": {
     "difficulty": 13,
-    "solved_by": 497,
+    "solved_by": 498,
     "title": "Binary Blackboard"
   },
   "712": {
     "difficulty": 25,
-    "solved_by": 701,
+    "solved_by": 702,
     "title": "Exponent Difference"
   },
   "713": {
@@ -3597,7 +3597,7 @@
   },
   "719": {
     "difficulty": 5,
-    "solved_by": 5692,
+    "solved_by": 5693,
     "title": "Number Splitting"
   },
   "720": {
@@ -3626,8 +3626,8 @@
     "title": "Drone Delivery"
   },
   "725": {
-    "difficulty": 10,
-    "solved_by": 1575,
+    "difficulty": 9,
+    "solved_by": 1578,
     "title": "Digit Sum Numbers"
   },
   "726": {
@@ -3661,8 +3661,8 @@
     "title": "A Stoneham Number"
   },
   "732": {
-    "difficulty": 27,
-    "solved_by": 330,
+    "difficulty": 25,
+    "solved_by": 331,
     "title": "Standing on the Shoulders of Trolls"
   },
   "733": {
@@ -3696,8 +3696,8 @@
     "title": "Counting Ordered Factorisations"
   },
   "739": {
-    "difficulty": 9,
-    "solved_by": 761,
+    "difficulty": 11,
+    "solved_by": 762,
     "title": "Summation of Summations"
   },
   "740": {
@@ -3757,7 +3757,7 @@
   },
   "751": {
     "difficulty": 5,
-    "solved_by": 3253,
+    "solved_by": 3254,
     "title": "Concatenation Coincidence"
   },
   "752": {
@@ -3766,7 +3766,7 @@
     "title": "Powers of $1+\\sqrt 7$"
   },
   "753": {
-    "difficulty": 25,
+    "difficulty": 26,
     "solved_by": 589,
     "title": "Fermat Equation"
   },
@@ -3787,7 +3787,7 @@
   },
   "757": {
     "difficulty": 6,
-    "solved_by": 1827,
+    "solved_by": 1828,
     "title": "Stealthy Numbers"
   },
   "758": {
@@ -3807,7 +3807,7 @@
   },
   "761": {
     "difficulty": 39,
-    "solved_by": 307,
+    "solved_by": 308,
     "title": "Runner and Swimmer"
   },
   "762": {
@@ -3882,17 +3882,17 @@
   },
   "776": {
     "difficulty": 13,
-    "solved_by": 777,
+    "solved_by": 778,
     "title": "Digit Sum Division"
   },
   "777": {
     "difficulty": 31,
-    "solved_by": 222,
+    "solved_by": 223,
     "title": "Lissajous Curves"
   },
   "778": {
     "difficulty": 10,
-    "solved_by": 610,
+    "solved_by": 611,
     "title": "Freshman's Product"
   },
   "779": {
@@ -3921,7 +3921,7 @@
     "title": "Urns"
   },
   "784": {
-    "difficulty": 15,
+    "difficulty": 14,
     "solved_by": 593,
     "title": "Reciprocal Pairs"
   },
@@ -3972,7 +3972,7 @@
   },
   "794": {
     "difficulty": 20,
-    "solved_by": 469,
+    "solved_by": 471,
     "title": "Seventeen Points"
   },
   "795": {
@@ -3982,7 +3982,7 @@
   },
   "796": {
     "difficulty": 26,
-    "solved_by": 313,
+    "solved_by": 314,
     "title": "A Grand Shuffle"
   },
   "797": {
@@ -4002,7 +4002,7 @@
   },
   "800": {
     "difficulty": 6,
-    "solved_by": 2860,
+    "solved_by": 2861,
     "title": "Hybrid Integers"
   },
   "801": {
@@ -4042,7 +4042,7 @@
   },
   "808": {
     "difficulty": 4,
-    "solved_by": 4285,
+    "solved_by": 4287,
     "title": "Reversible Prime Squares"
   },
   "809": {
@@ -4082,7 +4082,7 @@
   },
   "816": {
     "difficulty": 6,
-    "solved_by": 3174,
+    "solved_by": 3175,
     "title": "Shortest Distance Among Points"
   },
   "817": {
@@ -4102,7 +4102,7 @@
   },
   "820": {
     "difficulty": 5,
-    "solved_by": 1617,
+    "solved_by": 1621,
     "title": "$N$<sup>th</sup> Digit of Reciprocals"
   },
   "821": {
@@ -4141,8 +4141,8 @@
     "title": "Pythagorean Triple Occurrence"
   },
   "828": {
-    "difficulty": 13,
-    "solved_by": 926,
+    "difficulty": 12,
+    "solved_by": 927,
     "title": "Numbers Challenge"
   },
   "829": {
@@ -4182,7 +4182,7 @@
   },
   "836": {
     "difficulty": 4,
-    "solved_by": 7267,
+    "solved_by": 7271,
     "title": "A Bold Proposition"
   },
   "837": {
@@ -4196,13 +4196,13 @@
     "title": "Not Coprime"
   },
   "839": {
-    "difficulty": 14,
+    "difficulty": 13,
     "solved_by": 514,
     "title": "Beans in Bowls"
   },
   "840": {
     "difficulty": 19,
-    "solved_by": 553,
+    "solved_by": 554,
     "title": "Sum of Products"
   },
   "841": {
@@ -4226,7 +4226,7 @@
     "title": "$k$-Markov Numbers"
   },
   "845": {
-    "difficulty": 6,
+    "difficulty": 7,
     "solved_by": 1257,
     "title": "Prime Digit Sum"
   },
@@ -4236,7 +4236,7 @@
     "title": "Magic Bracelets"
   },
   "847": {
-    "difficulty": 37,
+    "difficulty": 36,
     "solved_by": 189,
     "title": "Jack's Bean"
   },
@@ -4257,7 +4257,7 @@
   },
   "851": {
     "difficulty": 39,
-    "solved_by": 255,
+    "solved_by": 256,
     "title": "SOP and POS"
   },
   "852": {
@@ -4267,7 +4267,7 @@
   },
   "853": {
     "difficulty": 11,
-    "solved_by": 1966,
+    "solved_by": 1968,
     "title": "Pisano Periods 1"
   },
   "854": {
@@ -4301,7 +4301,7 @@
     "title": "Cookie Game"
   },
   "860": {
-    "difficulty": 9,
+    "difficulty": 10,
     "solved_by": 692,
     "title": "Gold and Silver Coin Game"
   },
@@ -4312,7 +4312,7 @@
   },
   "862": {
     "difficulty": 7,
-    "solved_by": 1145,
+    "solved_by": 1146,
     "title": "Larger Digit Permutation"
   },
   "863": {
@@ -4362,7 +4362,7 @@
   },
   "872": {
     "difficulty": 6,
-    "solved_by": 1558,
+    "solved_by": 1559,
     "title": "Recursive Tree"
   },
   "873": {
@@ -4387,12 +4387,12 @@
   },
   "877": {
     "difficulty": 15,
-    "solved_by": 627,
+    "solved_by": 628,
     "title": "XOR-Equation A"
   },
   "878": {
     "difficulty": 25,
-    "solved_by": 370,
+    "solved_by": 371,
     "title": "XOR-Equation B"
   },
   "879": {
@@ -4406,7 +4406,7 @@
     "title": "Nested Radicals"
   },
   "881": {
-    "difficulty": 15,
+    "difficulty": 16,
     "solved_by": 690,
     "title": "Divisor Graph Width"
   },
@@ -4436,12 +4436,12 @@
     "title": "Coprime Permutations"
   },
   "887": {
-    "difficulty": 12,
+    "difficulty": 13,
     "solved_by": 381,
     "title": "Bounded Binary Search"
   },
   "888": {
-    "difficulty": 28,
+    "difficulty": 29,
     "solved_by": 274,
     "title": "1249 Nim"
   },
@@ -4592,7 +4592,7 @@
   },
   "918": {
     "difficulty": 6,
-    "solved_by": 1704,
+    "solved_by": 1705,
     "title": "Recursive Sequence Summation"
   },
   "919": {
@@ -4662,7 +4662,7 @@
   },
   "932": {
     "difficulty": 6,
-    "solved_by": 2359,
+    "solved_by": 2361,
     "title": "$2025$"
   },
   "933": {
@@ -4692,7 +4692,7 @@
   },
   "938": {
     "difficulty": 6,
-    "solved_by": 1475,
+    "solved_by": 1478,
     "title": "Exhausting a Colour"
   },
   "939": {
@@ -4722,7 +4722,7 @@
   },
   "944": {
     "difficulty": 9,
-    "solved_by": 1011,
+    "solved_by": 1014,
     "title": "Sum of Elevisors"
   },
   "945": {
@@ -4747,7 +4747,7 @@
   },
   "949": {
     "difficulty": 39,
-    "solved_by": 225,
+    "solved_by": 226,
     "title": "Left vs Right II"
   },
   "950": {
@@ -4757,7 +4757,7 @@
   },
   "951": {
     "difficulty": 11,
-    "solved_by": 531,
+    "solved_by": 532,
     "title": "A Game of Chance"
   },
   "952": {
@@ -4776,13 +4776,13 @@
     "title": "Heptaphobia"
   },
   "955": {
-    "difficulty": 13,
-    "solved_by": 797,
+    "difficulty": 12,
+    "solved_by": 798,
     "title": "Finding Triangles"
   },
   "956": {
     "difficulty": 16,
-    "solved_by": 612,
+    "solved_by": 613,
     "title": "Super Duper Sum"
   },
   "957": {
@@ -4801,7 +4801,7 @@
     "title": "Asymmetric Random Walk"
   },
   "960": {
-    "difficulty": 21,
+    "difficulty": 22,
     "solved_by": 252,
     "title": "Stone Game Solitaire"
   },
@@ -4817,7 +4817,7 @@
   },
   "963": {
     "difficulty": 39,
-    "solved_by": 181,
+    "solved_by": 182,
     "title": "Removing Trits"
   },
   "964": {
@@ -4827,7 +4827,7 @@
   },
   "965": {
     "difficulty": 11,
-    "solved_by": 694,
+    "solved_by": 695,
     "title": "Expected Minimal Fractional Value"
   },
   "966": {
@@ -4852,7 +4852,7 @@
   },
   "970": {
     "difficulty": 38,
-    "solved_by": 233,
+    "solved_by": 234,
     "title": "Kangaroo Hopping over Sixes"
   },
   "971": {
@@ -4862,7 +4862,7 @@
   },
   "972": {
     "difficulty": 19,
-    "solved_by": 286,
+    "solved_by": 287,
     "title": "Hyperbolic Plane"
   },
   "973": {
@@ -4892,7 +4892,7 @@
   },
   "978": {
     "difficulty": 9,
-    "solved_by": 516,
+    "solved_by": 517,
     "title": "Random Walk Skewness"
   },
   "979": {
@@ -4907,7 +4907,7 @@
   },
   "981": {
     "difficulty": 27,
-    "solved_by": 308,
+    "solved_by": 309,
     "title": "The Quaternion Group II"
   },
   "982": {
@@ -4952,12 +4952,12 @@
   },
   "990": {
     "difficulty": 28,
-    "solved_by": 186,
+    "solved_by": 187,
     "title": "Addition Equations"
   },
   "991": {
     "difficulty": 28,
-    "solved_by": 490,
+    "solved_by": 491,
     "title": "Fruit Salad"
   },
   "992": {
@@ -4987,57 +4987,57 @@
   },
   "997": {
     "difficulty": 22,
-    "solved_by": 336,
+    "solved_by": 337,
     "title": "Dice Box"
   },
   "998": {
     "difficulty": null,
-    "solved_by": 139,
+    "solved_by": 137,
     "title": "Squaring the Triangle"
   },
   "999": {
     "difficulty": null,
-    "solved_by": 164,
+    "solved_by": 162,
     "title": "Alternating Recurrence"
   },
   "1000": {
     "difficulty": null,
-    "solved_by": 426,
+    "solved_by": 424,
     "title": "Problem $1000$"
   },
   "1001": {
     "difficulty": null,
-    "solved_by": 184,
+    "solved_by": 183,
     "title": "Connections I"
   },
   "1002": {
     "difficulty": null,
-    "solved_by": 166,
+    "solved_by": 167,
     "title": "Connections II"
   },
   "1003": {
     "difficulty": null,
-    "solved_by": 160,
+    "solved_by": 158,
     "title": "Lonely Singles"
   },
   "1004": {
     "difficulty": null,
-    "solved_by": 145,
+    "solved_by": 144,
     "title": "Balanced Integer"
   },
   "1005": {
     "difficulty": null,
-    "solved_by": 458,
+    "solved_by": 462,
     "title": "Median Prime List"
   },
   "1006": {
     "difficulty": null,
-    "solved_by": 65,
+    "solved_by": 64,
     "title": "Fibonacci Subwords"
   },
   "1007": {
     "difficulty": null,
-    "solved_by": 122,
+    "solved_by": 120,
     "title": "Alternating Difference"
   }
 }
