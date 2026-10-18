@@ -5,7 +5,8 @@ Usage:
   python3 tools/build_levels_json.py
   python3 tools/build_levels_json.py --output data/levels.json
 
-Cookie is loaded from .env/projecteuler.env (fallback: .env/projecteuler_server.env).
+PJ_COOKIE is read from the environment, falling back to .env/projecteuler.env
+and .env/projecteuler_server.env. Accepts a session value or a Cookie header.
 """
 
 from __future__ import annotations
@@ -13,7 +14,9 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import json
+import os
 import re
+from http.cookies import CookieError, SimpleCookie
 from html import unescape
 from pathlib import Path
 
@@ -43,6 +46,10 @@ ENV_FILE_PATHS = [
     Path(".env/projecteuler_server.env"),
     Path(".env/projecteuler.env"),
 ]
+AUTH_HELP = (
+    "PE_PJ_COOKIE in GitHub Actions (PJ_COOKIE locally) accepts the session cookie "
+    "value or the full Cookie request header from a signed-in /progress request."
+)
 
 
 def load_env_file(path: Path) -> dict[str, str]:
@@ -66,13 +73,32 @@ def build_cookies() -> dict[str, str]:
     env: dict[str, str] = {}
     for env_path in ENV_FILE_PATHS:
         env.update(load_env_file(env_path))
-
-    cookies: dict[str, str] = {}
+    # CI credentials must take precedence over any local dotenv files.
+    if "PJ_COOKIE" in os.environ:
+        env["PJ_COOKIE"] = os.environ["PJ_COOKIE"]
 
     pj_cookie = env.get("PJ_COOKIE", "").strip()
-    if pj_cookie:
-        cookies["__Host-PHPSESSID"] = pj_cookie
+    if not pj_cookie:
+        raise SystemExit("PJ_COOKIE is missing or empty. " + AUTH_HELP)
 
+    # Preserve the original setup where PJ_COOKIE contains only a PHP session ID.
+    if re.fullmatch(r"[A-Za-z0-9,-]+", pj_cookie):
+        return {"__Host-PHPSESSID": pj_cookie}
+
+    # Also accept name=value pairs copied from the browser's Cookie request header.
+    cookie_header = re.sub(r"^Cookie:\s*", "", pj_cookie, flags=re.IGNORECASE)
+    parsed: SimpleCookie = SimpleCookie()
+    try:
+        if "\r" in cookie_header or "\n" in cookie_header:
+            raise CookieError("Multiline cookie header")
+        parsed.load(cookie_header)
+    except CookieError:
+        raise SystemExit("PJ_COOKIE is not a valid single-line Cookie header. " + AUTH_HELP) from None
+    cookies = {name: morsel.value for name, morsel in parsed.items()}
+    if not cookies:
+        raise SystemExit("PJ_COOKIE is not a session value or Cookie header. " + AUTH_HELP)
+    # Browser filter preferences could otherwise produce an incomplete metadata file.
+    cookies.pop("filter_type", None)
     return cookies
 
 
@@ -100,7 +126,40 @@ def fetch_progress_html() -> str:
         headers=headers,
         timeout=30,
     )
+    if response.status_code in (401, 403):
+        # A public-page rejection is evidence of a broader access problem, rather
+        # than a reason to keep replacing a known-good login cookie. Use a fresh
+        # request so no credentials or response cookies are sent with this probe.
+        try:
+            public_response = requests.get(
+                "https://projecteuler.net/about", headers=headers, timeout=15
+            )
+        except requests.RequestException:
+            public_status = "The public-page access check could not connect. "
+        else:
+            public_status = (
+                f"The public /about page returned HTTP {public_response.status_code} "
+                "without cookies. "
+            )
+            if public_response.status_code in (401, 403):
+                raise SystemExit(
+                    f"Project Euler rejected /progress (HTTP {response.status_code}). "
+                    + public_status
+                    + "This also affects a page that does not require PE_PJ_COOKIE. "
+                    "Check runner network/hosting-provider filtering. Run the refresh "
+                    "on a trusted self-hosted runner on a working network by setting "
+                    "the PE_REFRESH_RUNNER repository variable to its unique label."
+                )
+        raise SystemExit(
+            f"Project Euler rejected /progress (HTTP {response.status_code}). "
+            + public_status
+            + "The cause could be login-specific rejection or request filtering; "
+            "this does not establish that the cookie is invalid. "
+            + AUTH_HELP
+        )
     response.raise_for_status()
+    if response.url.split("?", 1)[0].rstrip("/") != PROGRESS_URL:
+        raise SystemExit("Project Euler redirected away from /progress. " + AUTH_HELP)
     return response.text
 
 
@@ -184,8 +243,7 @@ def main() -> None:
     if max_problem_id == 0:
         raise SystemExit(
             "No Project Euler problems found in fetched HTML. "
-            "Add PJ_COOKIE to .env/projecteuler.env "
-            "(or .env/projecteuler_server.env) if authentication is required."
+            + AUTH_HELP
         )
 
     output_payload: dict[str, object] = {
