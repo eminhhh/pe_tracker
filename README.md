@@ -68,13 +68,7 @@ Before using it, add repository secret:
 
 GitHub Actions passes this secret directly as the `PJ_COOKIE` environment variable. It takes precedence over local dotenv files.
 
-If the refresh works locally but Actions returns HTTP 401/403:
-
-The script uses Requests' default headers. Do not add browser impersonation headers: testing on both GitHub's Ubuntu and macOS runners showed that the old Firefox-style headers triggered an HTTP 401 **Security Verification** page, while ordinary Requests calls reached the public page with HTTP 200. This failure did not require changing the cookie or using a self-hosted runner.
-
-After a 401/403, the script checks the public `/about` page without cookies. A rejection there indicates a broader request-access problem, but does not by itself prove that the runner's IP is blocked. If the public page succeeds, the failure is specific to `/progress` or its request; it still does not prove that a cookie known to work locally is invalid. For sessions that require additional cookies, `PE_PJ_COOKIE` can contain the full single-line **Cookie request header** from a signed-in `/progress` request (not the response `Set-Cookie` header). Cookie values are credentials; keep them in secrets and out of logs or commits.
-
-The refresh runs on `ubuntu-latest` by default. The optional repository variable `PE_REFRESH_RUNNER` can select another GitHub-hosted runner label or a trusted self-hosted runner's unique label. Pages deployment stays on a GitHub-hosted Ubuntu runner.
+The refresh uses `ubuntu-latest` by default. Optionally set repository variable `PE_REFRESH_RUNNER` to another runner label.
 
 ## Firestore aggregate functions
 
