@@ -14,7 +14,7 @@ concurrency:
 
 jobs:
   refresh:
-    # Set this variable to a trusted runner's unique label if hosted IPs are rejected.
+    # Optional override: a GitHub-hosted runner label or a trusted custom label.
     runs-on: ${{ vars.PE_REFRESH_RUNNER || 'ubuntu-latest' }}
     outputs:
       changed: ${{ steps.commit_push.outputs.changed }}

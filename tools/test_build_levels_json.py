@@ -74,10 +74,12 @@ class FetchTests(unittest.TestCase):
         progress = Mock(status_code=401)
         public = Mock(status_code=403)
         with patch.object(builder.requests, "get", side_effect=[progress, public]) as get:
-            with self.assertRaisesRegex(SystemExit, "without cookies.*PE_REFRESH_RUNNER"):
+            with self.assertRaisesRegex(SystemExit, "without cookies.*request filtering"):
                 builder.fetch_progress_html()
             self.assertEqual(get.call_args_list[1].args, ("https://projecteuler.net/about",))
             self.assertNotIn("cookies", get.call_args_list[1].kwargs)
+            self.assertNotIn("headers", get.call_args_list[0].kwargs)
+            self.assertNotIn("headers", get.call_args_list[1].kwargs)
 
     def test_public_page_success_does_not_claim_a_network_block(self):
         with patch.object(builder.requests, "get", side_effect=[
@@ -132,6 +134,7 @@ class FetchTests(unittest.TestCase):
             self.assertEqual(payload["1"], {"difficulty": 5, "solved_by": 1234, "title": "Test problem"})
             self.assertEqual(payload["_meta"]["max_problem_number"], 1)
             self.assertEqual(get.call_args.kwargs["cookies"], {"__Host-PHPSESSID": "test"})
+            self.assertNotIn("headers", get.call_args.kwargs)
 
 
 if __name__ == "__main__":

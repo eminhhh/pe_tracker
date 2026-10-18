@@ -70,15 +70,11 @@ GitHub Actions passes this secret directly as the `PJ_COOKIE` environment variab
 
 If the refresh works locally but Actions returns HTTP 401/403:
 
-The script checks the public `/about` page without cookies after a 401/403. If that is also rejected, the problem extends beyond the authenticated progress page. A valid cookie can still fail from a restricted network. A [Project Euler administrator discussed hosting-provider filtering in an earlier report of this exact pattern](https://projecteuler.chat/viewtopic.php?t=7487); that incident was reported resolved in 2023, so it is supporting context rather than proof of a current block.
+The script uses Requests' default headers. Do not add browser impersonation headers: testing on both GitHub's Ubuntu and macOS runners showed that the old Firefox-style headers triggered an HTTP 401 **Security Verification** page, while ordinary Requests calls reached the public page with HTTP 200. This failure did not require changing the cookie or using a self-hosted runner.
 
-To use a working network for the refresh job:
+After a 401/403, the script checks the public `/about` page without cookies. A rejection there indicates a broader request-access problem, but does not by itself prove that the runner's IP is blocked. If the public page succeeds, the failure is specific to `/progress` or its request; it still does not prove that a cookie known to work locally is invalid. For sessions that require additional cookies, `PE_PJ_COOKIE` can contain the full single-line **Cookie request header** from a signed-in `/progress` request (not the response `Set-Cookie` header). Cookie values are credentials; keep them in secrets and out of logs or commits.
 
-1. On a trusted Linux machine where the script works, [register a self-hosted GitHub Actions runner](https://docs.github.com/en/actions/how-tos/manage-runners/self-hosted-runners/add-runners) and give it a unique label such as `pe-refresh`. Keep the runner online for scheduled jobs.
-2. Under **Settings → Secrets and variables → Actions → Variables**, add repository variable `PE_REFRESH_RUNNER` with value `pe-refresh` (or your chosen label).
-3. Keep the existing `PE_PJ_COOKIE` secret and run **Refresh Project Euler Data** manually again. Only the refresh job uses the selected runner; Pages deployment stays on a GitHub-hosted runner. Removing the variable restores `ubuntu-latest`.
-
-If the public page succeeds, the failure is specific to `/progress` or its request; it still does not prove that a cookie known to work locally is invalid. For sessions that require additional cookies, `PE_PJ_COOKIE` can contain the full single-line **Cookie request header** from a signed-in `/progress` request (not the response `Set-Cookie` header). Cookie values are credentials; keep them in secrets and out of logs or commits.
+The refresh runs on `ubuntu-latest` by default. The optional repository variable `PE_REFRESH_RUNNER` can select another GitHub-hosted runner label or a trusted self-hosted runner's unique label. Pages deployment stays on a GitHub-hosted Ubuntu runner.
 
 ## Firestore aggregate functions
 

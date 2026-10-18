@@ -103,27 +103,11 @@ def build_cookies() -> dict[str, str]:
 
 
 def fetch_progress_html() -> str:
-    headers = {
-        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:150.0) Gecko/20100101 Firefox/150.0",
-        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-        "Accept-Language": "en",
-        "DNT": "1",
-        "Sec-GPC": "1",
-        "Connection": "keep-alive",
-        "Upgrade-Insecure-Requests": "1",
-        "Sec-Fetch-Dest": "document",
-        "Sec-Fetch-Mode": "navigate",
-        "Sec-Fetch-Site": "none",
-        "Sec-Fetch-User": "?1",
-        "Priority": "u=0, i",
-        "Pragma": "no-cache",
-        "Cache-Control": "no-cache",
-    }
-
+    # Keep Requests' own headers. Browser impersonation headers trigger the
+    # hosting provider's Security Verification page on GitHub-hosted runners.
     response = requests.get(
         PROGRESS_URL,
         cookies=build_cookies(),
-        headers=headers,
         timeout=30,
     )
     if response.status_code in (401, 403):
@@ -132,7 +116,7 @@ def fetch_progress_html() -> str:
         # request so no credentials or response cookies are sent with this probe.
         try:
             public_response = requests.get(
-                "https://projecteuler.net/about", headers=headers, timeout=15
+                "https://projecteuler.net/about", timeout=15
             )
         except requests.RequestException:
             public_status = "The public-page access check could not connect. "
@@ -146,9 +130,9 @@ def fetch_progress_html() -> str:
                     f"Project Euler rejected /progress (HTTP {response.status_code}). "
                     + public_status
                     + "This also affects a page that does not require PE_PJ_COOKIE. "
-                    "Check runner network/hosting-provider filtering. Run the refresh "
-                    "on a trusted self-hosted runner on a working network by setting "
-                    "the PE_REFRESH_RUNNER repository variable to its unique label."
+                    "Check security verification/request filtering before changing "
+                    "credentials or runners; a public-page rejection alone does not "
+                    "establish that the runner's IP is blocked."
                 )
         raise SystemExit(
             f"Project Euler rejected /progress (HTTP {response.status_code}). "
