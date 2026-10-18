@@ -1,0 +1,9 @@
+Problem 1015: Partisan Kayles
+Source: https://projecteuler.net/minimal=1015
+
+Two players, Blue and Red, play a game as follows.
+Initially, some blue and red bowling pins are lined up in a row. On each player's turn, they may knock over any single pin of their colour, or two adjacent pins provided that at least one of the pins is of their colour. Knocking over pins leaves a gap, so that the pins on either side of a knocked-over pin do not count as adjacent.
+Play alternates between the players, and the first player who cannot make a move loses. Call an initial arrangement of pins fair if, whenever both players play with perfect strategy, whoever plays second will win.
+For instance, the arrangement BRRB is fair, but BRBR, BBRR, and BRBB are not.
+Let $f(n)$ be the number of fair initial arrangements of exactly $n$ pins in a row. You are given that $f(6) = 8$ and $f(20) = 49844$.
+Find $f(1000)$ and give the last 9 digits as your answer.

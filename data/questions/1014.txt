@@ -1,0 +1,19 @@
+Problem 1014: Steiner Club
+Source: https://projecteuler.net/minimal=1014
+
+A club has $7$ members, named $\mathtt A$ to $\mathtt G$. Every night, $3$ of the $7$ members come to the club. After several nights, they find that for every combination of $2$ members, there is exactly one night when they both come.
+If the members who come on the first $2$ nights are $\mathtt{ABC}$ and $\mathtt{BDF}$ respectively, then on the night that $\mathtt E$ and $\mathtt G$ both come, the members who come must be $\mathtt{BEG}$.
+A larger club has $24$ members, named $\mathtt A$ to $\mathtt X$. Every night, $8$ of the $24$ members come to the club. After several nights, they find that for every combination of $5$ members, there is exactly one night when they all come.
+Here are the members who come on the first $11$ nights:
+ABCDKMPR
+ABJKLMNW
+ACIOQTUW
+ADFMPQTU
+AEFNPTVX
+AEFQRSTW
+AEGIMQSU
+BDEKORUX
+BEFGHIKU
+DEFHKOSW
+FHIJKRST
+Find the members who come on the night that $\mathtt{CGJLV}$ all come. Enter your answer by concatenating the names in alphabetic order.
